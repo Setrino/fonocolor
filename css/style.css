@@ -2,6 +2,165 @@ title{
 	color: #123456;
 }
 
-body{
-	color: #123456;
+#wrapper{
+    width: 950px;
+    margin: 0 auto;
+}
+
+body {
+    margin:0px;
+    padding:0px;
+    text-align:center;
+    font: 13px Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    list-style-image: none;
+}
+
+nav ul li{
+    margin-top: 2px;
+    display: inline-block;
+    padding-left: 60px;
+    padding-right: 60px;
+    height: 3em;
+    width: 4.5em;
+    padding-top: 7em;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header{
+    padding-top: 2em;
+    height: 53px;
+    //background: transparent url(../images/logo.png) no-repeat center;
+}
+
+footer{
+    height: 42px;
+    //background: transparent url(../images/bottom.png) no-repeat center;
+}
+
+footer span{
+    position: relative;
+    bottom: -13px;
+}
+
+a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:hover{
+    color: #30539E;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    list-style-image: none;
+}
+
+ul#header_links li{
+    margin-top: 2px;
+    display: inline-block;
+}
+
+ul#header_links li a{
+    height: 2em;
+    width: 2em;
+}
+
+ul#useful_links_top{
+    position: relative;
+    margin-top: 1.9em;
+}
+
+ul#useful_links_top li{
+    display: inline-block;
+}
+
+.clean{
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    float: right;
+}
+
+ul#useful_links_bot{
+    position: relative;
+    margin-top: -1.9em;
+}
+
+ul#useful_links_bot li{
+    margin-top: 2px;
+    display: inline-block;
+}
+
+.register{
+    float: left;
+    margin-left: 0.5em;
+}
+
+#color_in{
+    float: right;
+    margin-right: 0.5em;
+}
+
+#answer{
+    position: absolute;
+}
+
+#phonetic{
+    width: 600px;
+    padding-top: 4em;
+    margin: 0 auto;
+}
+
+#enter{
+    background-color: #BFBFBF;
+    border: 1px solid #FFFFFF;
+    border-bottom: none;
+}
+
+#result{
+    border: 1px solid #FFFFFF;
+}
+
+.entry_blocks{
+    height: 200px;
+}
+
+.copyright{
+    float: left;
+}
+
+.email{
+    float: right;
+}
+
+.logo{
+    padding-top: 2em;
+}
+
+.comment{
+    background-image: url(../images/comment.png);
+}
+
+.colorier{
+    background-image: url(../images/colorier.png);
+}
+
+.pourquoi{
+    background-image: url(../images/pourquoi.png);
+}
+
+.all_black{
+    background-color: #696969;
 }
