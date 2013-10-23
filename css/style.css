@@ -1,3 +1,9 @@
+@font-face{
+
+    font-family: 'Fundamental_Brigade', sans-serif;
+    src: url('fonts/Fundamental_Brigade.ttf') format('truetype');
+}
+
 title{
 	color: #123456;
 }
@@ -8,6 +14,7 @@ title{
 }
 
 body {
+    font-family: 'Fundamental_Brigade', sans-serif;
     margin:0px;
     padding:0px;
     text-align:center;
@@ -99,18 +106,19 @@ ul#useful_links_bot{
 }
 
 ul#useful_links_bot li{
-    margin-top: 2px;
     display: inline-block;
+    margin-top: -0.2em;
 }
 
 .register{
     float: left;
     margin-left: 0.5em;
+    padding-top: 0.2em;
 }
 
-#color_in{
+#full_screen{
     float: right;
-    margin-right: 0.5em;
+    margin-right: 0.3em;
 }
 
 #answer{
@@ -118,7 +126,7 @@ ul#useful_links_bot li{
 }
 
 #phonetic{
-    width: 600px;
+    width: 800px;
     padding-top: 4em;
     margin: 0 auto;
 }
@@ -164,3 +172,41 @@ ul#useful_links_bot li{
 .all_black{
     background-color: #696969;
 }
+
+/* Overlay copyright box */
+
+.bgCover{
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.overlayBox{
+    background: #C0C0C0;
+    color: #000;
+    font-family: 'Fundamental_Brigade', sans-serif;
+    font-size: 15px;
+    border: 2px solid #000;
+    position: absolute;
+    display: none;
+    width: 500px;
+    height: 300px;
+    z-index: 101;
+    line-height:120%;
+
+}
+
+.closeOverlay{
+    position: relative;
+    width: 16px;
+    height: 16px;
+    left: 47%;
+    top: 5px;
+
+}
+
+/* END Overlay copyright box */

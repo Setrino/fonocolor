@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $("#color_in").click(function(){
+    $("#full_screen").click(function(){
 
         if ($('body').css("background-color") == "rgb(0, 0, 0)"){
             $('body').css("background-color", "#696969");
@@ -26,4 +26,15 @@ $(document).ready(function(){
             $(this).html("<img src=\"images/result.png\"/>");
         }
     });
+
+    // Toggle overlayBox
+    $(".copyright").bind(
+
+        "click", doOverlayOpen
+    )
+
+    $(".closeOverlay").bind(
+
+        "click", doOverlayClose
+    )
 });
