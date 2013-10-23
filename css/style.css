@@ -223,3 +223,16 @@ ul#useful_links_bot li{
 }
 
 /* END Canvas */
+
+.why_body{
+
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 5em;
+    color: #000000;
+    font-family: 'Fundamental_Brigade', sans-serif;
+    font-size: 15px;
+    background-color: #BFBFBF;
+    border: 1px solid #FFFFFF;
+    line-height: 150%;
+}

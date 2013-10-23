@@ -1,0 +1,113 @@
+<html>
+<head>
+    <title>Fonocolor</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/copyright.js"></script>
+    <script src="js/functions.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <div id="header_wrapper">
+            <ul id="header_links">
+                <li class="copyright"><a href="#"><img src="images/copyright.png"/></a></li>
+                <li class="email"><a href="mailto:adriano.florez@gmail.com?Subject=Help%20me" target="_top">
+                    <img src="images/email.png"/></a></li>
+            </ul>
+            <a href="index.html"><img class="logo" src="images/logo.png"/></a>
+        </div>
+    </header>
+    <div class="why_body">
+        <article class="why">
+            <h1>Pourquoi</h1>
+            <p><br>
+                Phonocolor permet de voir les sons des mots du français en utilisant une palette de couleurs.<br>
+                Pour chaque son, il y a une couleur et vice versa.<br>
+                Phonocolor permet de mettre en couleurs tous les mots du français (voir aussi la <a href="#faq_hyper">FAQ</a>).<br>
+                En tant qu'outil d'accompagnement à l'apprentissage de la lecture, Phonocolor s'adresse avant tout<br>
+                aux enfants qui apprennent à lire,<br>
+                aux personnes dyslexiques,<br>
+                aux personnes apprenant le français comme langue étrangère,<br>
+                mais rien n'empêche des lecteurs expérimentés de s'amuser à mettre en couleurs des mots ou<br>
+                des phrases à choix.<br>
+                <br>
+                A l'origine, Adriano Florez, linguiste et Stefan Seewer, informaticien, se sont associés pour créer<br>
+                une application, qui permette de mettre en couleurs des mots selon leur prononciation. Cette idée<br>
+                s'est concrétisée en premier par un programme utilisé et financé par le Cours de vacances (CVAC)<br>
+                de l'Université de Lausanne (UNIL) pour créer du matériel, puis par le site actuel mis à disposition de tous.<br><br>
+            </p>
+        </article>
+        <article class="faq">
+            <h1><a name="faq_hyper"></a>FAQ</h1>
+            <p><br>
+                <em>- Pourquoi certains mots ne sont pas mis en couleurs (ils apparaissent en blanc) ?</em><br><br>
+                Soit il s'agit de mots, qui ne font pas encore partie de la base de données, soit ils ont été mal orthographiés.<br>
+                Dans ce cas, veillez à vérifier l'orthographe.<br>
+                Attention également aux mots qui contiennent des ligatures (par exemple : œ) ou des majuscules non accentuées<br>
+                (p. ex : Ça noté Ca) en début de phrase.<br><br>
+
+                    <em>- Pourquoi les couleurs dans certains mots n'apparaissent pas au bon endroit ?</em><br><br>
+                Bien qu'un effort particulier ait été fourni pour faire en sorte que la segmentation du mot mis en couleurs<br>
+                corresponde à l'intuition des locuteurs du français, l'application en fournit parfois une version erronée.<br>
+                Des règles ont été implémentées (ou sont en cours de d'implémentation) pour régler ce problème.<br><br>
+
+                        <em>- Pourquoi les mêmes couleurs apparaissent pour est de il est et à l'est ?</em><br><br>
+                Il y a environ 200 mots courants en français, qui s'écrivent de la même manière, mais se prononcent<br>
+                différemment. On parle dans ce cas d'homographes hétérophones. Phonocolor n'est pas (encore) capable<br>
+                d'analyser les mots selon leur catégorie syntaxique. Pour ces paires de mots, la prononciation la plus<br>
+                courante a été choisie.
+            </p>
+        </article>
+    </div>
+    <!--<div id="phonetic">
+        <ul id="useful_links_top">
+            <li class="clean"><a href="#"><img src="images/clean.png"/></a></li>
+        </ul>
+        <div id="enter" class="entry_blocks">
+
+        </div>
+        <div id="answer"><a class="color_text" href="#"><img src="images/result.png"/></a></div>
+        <div id="result" class="entry_blocks">
+
+        </div>
+        <ul id="useful_links_bot">
+            <li class="register"><a href="#"><img src="images/register.png"/></a></li>
+            <li id="full_screen"><a href="#"><img src="images/full_screen.png"/></a></li>
+        </ul>
+    </div>-->
+    <nav id="menu">
+        <ul>
+            <li class="comment"><a href="comment.html">Comment</a></li>
+            <li class="colorier"><a href="index.html">Accueil</a></li>
+            <li class="pourquoi"><a href="pourquoi.html" class="active">Pourquoi</a></li>
+        </ul>
+    </nav>
+    <!-- The dark background -->
+    <div class="bgCover">&nbsp;</div>
+    <!-- overlay box -->
+    <div class="overlayBox">
+        <div class="overlayContent">
+            <!--the close button-->
+            <a href="#" class="closeOverlay"><img src="images/close.png"></a>
+            <!--normal content-->
+            <p class="info">
+            <h1>Phonocolor.ch</h1><br>
+            Conception: Adriano Florez et Stefan Seewer<br>
+            Tableaux des couleurs: Yves Erard<br>
+            Vidéo: Raffaele Elia, Giraf productions <a href="www.giraf.ch">www.giraf.ch</a><br>
+            Interface, Conception graphique: Lorenz Nussbaumer<br>
+            Informatique: Sergei Kostevitch<br>
+            Base de données : Morphalou 2.0 -ATILF/ CNRS – Université de Lorraine<br>
+            <a href="www.cnrtl.fr/lexiques/morphalou">www.cnrtl.fr/lexiques/morphalou</a>
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div id="footer_wrapper">
+            <span>CVAC&copy; 2013</span>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

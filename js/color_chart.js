@@ -138,7 +138,7 @@ function collides(rects, x, y) {
     for (var i = 0, len = rects.length; i < len; i++) {
         var left = rects[i][0] * dim, right = rects[i][0] * dim + dim;
         var top = rects[i][1] * dim, bottom = rects[i][1] * dim + dim;
-        
+
         if (right >= x
             && left <= x
             && bottom >= y
