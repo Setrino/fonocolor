@@ -178,6 +178,20 @@ ul#useful_links_bot li{
     background-color: #696969;
 }
 
+/* Search */
+
+.search_form{
+
+    margin: 0 auto;
+    width: 700px;
+    height: 150px;
+    resize: none;
+    font-family: 'Fundamental_Brigade', sans-serif;
+    font-size: 15px;
+}
+
+/* END Search */
+
 /* Overlay copyright box */
 
 .bgCover{
