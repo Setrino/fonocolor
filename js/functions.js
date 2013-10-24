@@ -18,6 +18,8 @@ $(document).ready(function(){
     $(".search_output").css("left", ( $("#result").width() - $(".search_output").width() ) / 2 );
     $(".search_output").css("margin-top", ( $("#result").height() - $(".search_output").height() ) / 2 - 5 );
 
+    $("#canvas").css("margin-top", -$(".search_output").height() - 5);
+
     $('.clean').click(function(){
 
         previousValue = '';
@@ -76,7 +78,9 @@ var checkLoop = function(){
 
             //Enter the AJAX check here
 
-            searchText(previousValue);
+            placeInArray($(".search_form").val());
+
+            //searchText(previousValue);
         }
     }
 

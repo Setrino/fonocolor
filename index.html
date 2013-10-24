@@ -3,8 +3,6 @@
         <title>Fonocolor</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="js/jquery-1.10.2.min.js"></script>
-        <script src="js/copyright.js"></script>
-        <script src="js/functions.js"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -29,7 +27,9 @@
                 </div>
                 <div id="answer"><a class="color_text" href="#"><img src="images/result.png"/></a></div>
                 <div id="result" class="entry_blocks">
-                        <textarea rows="4" cols="50" name="text_output" class="search_output"></textarea>
+                    <textarea rows="4" cols="50" name="text_output" class="search_output"></textarea>
+                    <canvas id="canvas"></canvas>
+                    <script src="js/search.js"></script>
                 </div>
                 <ul id="useful_links_bot">
                     <li class="register"><a href="#"><img src="images/register.png"/></a></li>
@@ -63,6 +63,8 @@
                      </p>
                 </div>
             </div>
+            <script src="js/copyright.js"></script>
+            <script src="js/functions.js"></script>
             <footer>
                 <div id="footer_wrapper">
                     <span>CVAC&copy; 2013</span>
