@@ -180,14 +180,14 @@ ul#useful_links_bot li{
 
 /* Search */
 
-.search_form{
+.search_form, .search_output{
 
     margin: 0 auto;
     width: 700px;
     height: 150px;
     resize: none;
     font-family: 'Fundamental_Brigade', sans-serif;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 /* END Search */
