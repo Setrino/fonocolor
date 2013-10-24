@@ -45,6 +45,7 @@ $(document).ready(function(){
         click: function(){
 
             searchText(previousValue);
+            placeInArray($(".search_form").val());
         }
     });
 

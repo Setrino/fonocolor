@@ -19,7 +19,8 @@ var pixel_size = 20,
     lastY = 0,
     translated = 0,
     rowLength = 85,
-    textArray = new Array();
+    textArray = new Array(),
+    previousLength = 0;
 
 function drawRectangle(){
 
@@ -33,10 +34,17 @@ function placeInArray(text){
 
     var textLength = text.length;
 
+    if(previousLength < textLength){
+
+        textArray = [];
+    }
+
     for(var i = 0; i < Math.ceil(textLength / rowLength); i++){
 
         textArray[i] = text.substring(rowLength * i, rowLength * i + rowLength);
     }
+
+    previousLength = textLength;
 
     draw();
 }
@@ -83,9 +91,9 @@ window.onmousemove = function(e){
 
 function draw(delta){
 
-    if( ( -translated ) >= ( pixel_size * 24 - c.height )){
+    if( ( -translated ) >= ( c.height - pixel_size * textArray.length )){
 
-        translated = - ( pixel_size * 24 - c.height );
+        translated = - ( c.height - pixel_size * textArray.length );
 
     } else if( -translated < 0 ){
 
