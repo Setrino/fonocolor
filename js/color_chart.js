@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
-    drawConsonants();
-    drawVowels();
-    drawGrid();
+    //drawConsonants();
+    //drawVowels();
+    //drawGrid();
+    draw();
 })
 
 var width = 650,
@@ -132,6 +133,83 @@ function drawCircle(x, y, color, sound){
 
     ctx.closePath();
 }
+
+/* ----------- TEXT ----------- */
+
+var height = 20,
+    dragging = false,
+    lastY = 0,
+    translated = 0,
+    previousY = 0;
+
+function drawText(x, y, colorTop, colorBottom, i){
+
+    var lingrad = ctx.createLinearGradient(0, y * (i - 1), 0, y * i);
+    lingrad.addColorStop(0, colorTop);
+    lingrad.addColorStop(0.6, colorTop);
+    lingrad.addColorStop(0.6, colorBottom);
+    lingrad.addColorStop(1, colorBottom);
+
+    ctx.fillStyle = lingrad;
+    ctx.font= y + "px Arial";
+    var text = "Bla Bla kashdkasdnkak ihasidhasiudhuias hioahdiashiuhd sadaasdsdasa";
+    ctx.fillText(ctx.measureText(text).width, x, y * i);
+}
+
+c.onmousedown = function(e){
+
+    var evt = e || event;
+    dragging = true;
+    lastY = evt.offsetY;
+}
+
+c.onmouseout = function(){
+
+    dragging = false;
+}
+
+window.onmouseup = function(){
+
+    dragging = false;
+}
+
+window.onmousemove = function(e){
+    var evt = e || event;
+    if (dragging){
+        var delta = evt.offsetY - lastY;
+        translated += delta;
+        lastY = evt.offsetY;
+        draw(delta);
+    }
+}
+
+function draw(delta){
+
+    if( ( -translated ) >= ( height * 24 - 450 )){
+
+        translated = - ( height * 24 - 450 );
+
+    } else if( -translated < 0 ){
+
+        translated = 0;
+
+
+    }else{
+
+        ctx.translate(0, delta);
+        ctx.clearRect(0, 0, c.width, c.height + (-translated));
+
+        for(var i = 1; i < 24; i++){
+            ctx.beginPath();
+            drawText(10, height, '#00ABEB', '#66CC00', i);
+            ctx.closePath();
+        }
+    }
+
+    console.log(lastY);
+}
+
+/* ----------- END TEXT ----------- */
 
 function collides(rects, x, y) {
     var isCollision = false;

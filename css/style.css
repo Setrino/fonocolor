@@ -187,7 +187,11 @@ ul#useful_links_bot li{
     height: 150px;
     resize: none;
     font-family: 'Fundamental_Brigade', sans-serif;
-    font-size: 17px;
+    font-size: 2em;
+}
+
+.search_output{
+
 }
 
 /* END Search */

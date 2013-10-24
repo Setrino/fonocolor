@@ -38,6 +38,11 @@ $(document).ready(function(){
 
         mouseleave: function(){
             $(this).html("<img src=\"images/result.png\"/>");
+        },
+
+        click: function(){
+
+            searchText(previousValue);
         }
     });
 
@@ -54,6 +59,11 @@ $(document).ready(function(){
 
 });
 
+function searchText(text){
+
+    $(".search_output").val(text);
+}
+
 var previousValue = '';
 
 var checkLoop = function(){
@@ -65,6 +75,8 @@ var checkLoop = function(){
             previousValue = $(".search_form").val();
 
             //Enter the AJAX check here
+
+            searchText(previousValue);
         }
     }
 
