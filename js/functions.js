@@ -83,6 +83,13 @@ var checkLoop = function(){
 
             //searchText(previousValue);
         }
+    }else{
+
+        if(previousValue != ''){
+
+            placeInArray('');
+            previousValue = '';
+        }
     }
 
     gLoop = setTimeout(checkLoop, 2000);

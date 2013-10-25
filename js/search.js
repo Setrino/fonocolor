@@ -34,7 +34,7 @@ function placeInArray(text){
 
     var textLength = text.length;
 
-    if(previousLength < textLength){
+    if(previousLength < textLength || textLength == 0){
 
         textArray = [];
     }
