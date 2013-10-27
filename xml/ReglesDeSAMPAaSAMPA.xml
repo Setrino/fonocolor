@@ -11,9 +11,9 @@
 			<YaTilDansLaPhonetiqueLePhoneme>N</YaTilDansLaPhonetiqueLePhoneme>
 			<!-- condition 2 -->
 			<YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
-				<ConditionGrapheme>\bleggins\b</ConditionGrapheme>
-				<ConditionGrapheme>\bjunker\b</ConditionGrapheme>
-				<ConditionGrapheme>\blinks\b</ConditionGrapheme>
+				<ConditionGrapheme>leggins</ConditionGrapheme>
+				<ConditionGrapheme>junker</ConditionGrapheme>
+				<ConditionGrapheme>links</ConditionGrapheme>
 			</YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
 			<!-- si les conditions 1 et 2 sont vrai phoneme 1 remplacé par phoneme 2 -->
 			<SiOui>
@@ -41,12 +41,12 @@
 		<!-- description de la règle: si est @ finale et n'est pas pour les mots je, ne, me, te alors on en tient pas compte.  -->
 			<YaTilDansLaPhonetiqueLePhoneme>@$</YaTilDansLaPhonetiqueLePhoneme>
 			<YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
-				<ConditionGrapheme>\bje\b</ConditionGrapheme>
-				<ConditionGrapheme>\bne\b</ConditionGrapheme>
-				<ConditionGrapheme>\bme\b</ConditionGrapheme>
-				<ConditionGrapheme>\bte\b</ConditionGrapheme>
-				<ConditionGrapheme>\ble\b</ConditionGrapheme>
-				<ConditionGrapheme>\bde\b</ConditionGrapheme>
+				<ConditionGrapheme>je</ConditionGrapheme>
+				<ConditionGrapheme>ne</ConditionGrapheme>
+				<ConditionGrapheme>me</ConditionGrapheme>
+				<ConditionGrapheme>te</ConditionGrapheme>
+				<ConditionGrapheme>le</ConditionGrapheme>
+				<ConditionGrapheme>de</ConditionGrapheme>
 			</YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
 			<SiOui>
 				<LePhoneme>@</LePhoneme>

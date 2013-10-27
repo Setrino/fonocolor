@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ListePhonemesSAMPAGraphemes>
+	<Date_du_fichier>7/12/2012</Date_du_fichier> <!--pour que les deux fichiers ListePhonemesSAMPAGraphemes aient les mêmes mises à jour -->
+				<Graphemes><grapheme>e</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ea</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ee</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ees</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>eo</grapheme> <!-- people: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>hi</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hî</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hie</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hies</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>his</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hit</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hît</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hy</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>i</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>î</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ï</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ict</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>icts</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>id</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ids</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ie</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ïe</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ient</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ies</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ïes</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ih</grapheme><phoneme>i</phoneme></Graphemes> <!-- mihrab: une seule occurence?!? -->
+				<Graphemes><grapheme>il</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ils</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>is</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ïs</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>it</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ît</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ït</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>its</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ix</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>iz</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ui</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>y</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ye</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>yes</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>yg</grapheme><phoneme>i</phoneme></Graphemes> <!-- amygdale: trans<phoneme>i</phoneme></Graphemes>crit [amigdal] dans Morphalou 2.0 -->
+				<Graphemes><grapheme>ys</grapheme><phoneme>i</phoneme></Graphemes>
+			
+				<Graphemes><grapheme>a</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ae</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>æ</grapheme><phoneme>e</phoneme></Graphemes> <!-- ajout 6 juin 2012 de a dans e au cas où présent dans Morphalou ex: cæcum, 7 déc 2012 -->
+				<Graphemes><grapheme>ai</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>aî</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>aie</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>aies</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>e</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>é</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>è</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ê</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ë</grapheme><phoneme>e</phoneme></Graphemes> <!-- canoë [E] erreur dans Morphalou!!! 2.0 -->
+				<Graphemes><grapheme>ea</grapheme><phoneme>e</phoneme></Graphemes> <!-- ready(-made): pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>ed</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>eds</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ee</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ée</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>éent</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ees</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ées</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ef</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>efs</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>eh</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>èh</grapheme><phoneme>e</phoneme></Graphemes> <!-- sakièh: pas présent dans Morphalou 2.0, cf. sakieh -->
+				<Graphemes><grapheme>ehe</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ehes</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ehs</grapheme><phoneme>e</phoneme></Graphemes> <!-- keffiehs: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>èhs</grapheme><phoneme>e</phoneme></Graphemes> <!-- sakièhs: pas présent dans Morphalou 2.0, cf. sakiehs -->
+				<Graphemes><grapheme>ei</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ept</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>er</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ers</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>es</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>és</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ès</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ës</grapheme><phoneme>e</phoneme></Graphemes> <!-- canoës [E] erreur dans Morphalou!!! 2.0 -->
+				<Graphemes><grapheme>et</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ey</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ez</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ha</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>hai</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>he</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>hé</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ier</grapheme><phoneme>e</phoneme></Graphemes> <!-- peignier pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>iers</grapheme><phoneme>e</phoneme></Graphemes> <!-- peignier pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>oe</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>y</grapheme><phoneme>e</phoneme></Graphemes> <!-- buggy: transcrit [bygi] dans Morphalou 2.0 -->
+				<Graphemes><grapheme>ys</grapheme><phoneme>e</phoneme></Graphemes> <!-- buggys: transcrit [bygi] dans Morphalou 2.0 -->
+			
+				<Graphemes><grapheme>a</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ä</grapheme><phoneme>E</phoneme></Graphemes> <!-- länder pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>ai</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aî</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aid</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aids</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aie</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aient</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aies</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ais</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ait</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aît</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aits</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aix</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ay</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>aye</grapheme><phoneme>E</phoneme></Graphemes> <!-- laye, maye: transcrits [Ej] dans Morphalou 2.0 -->
+				<Graphemes><grapheme>ayes</grapheme><phoneme>E</phoneme></Graphemes><!-- layes, mayes: transcrits [Ej] dans Morphalou 2.0 -->
+				<Graphemes><grapheme>ays</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>e</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>é</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>è</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ê</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ë</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ea</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ect</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ects</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ef</grapheme><phoneme>E</phoneme></Graphemes> <!-- chef-d'oeuvre: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>efs</grapheme><phoneme>E</phoneme></Graphemes> <!-- chefs-d'oeuvre: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>egs</grapheme><phoneme>E</phoneme></Graphemes> <!-- legs, prelegs: transcrits [Eg] dans Morphalou 2.0 -->
+				<Graphemes><grapheme>eh</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>èh</grapheme><phoneme>E</phoneme></Graphemes> <!-- sakièh: pas présent dans Morphalou 2.0, cf. sakieh -->
+				<Graphemes><grapheme>ei</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>eî</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>es</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ès</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>est</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>et</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>êt</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ets</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>êts</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ey</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>eys</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>ez</grapheme><phoneme>E</phoneme></Graphemes> <!-- recez: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>hai</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>haie</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>haies</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>hais</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>hait</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>haits</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>he</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>hé</grapheme><phoneme>E</phoneme></Graphemes> <!-- AJOUT: à partir de la liste du Fidel -->
+				<Graphemes><grapheme>hè</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>hê</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>hea</grapheme><phoneme>E</phoneme></Graphemes> <!-- boghead pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>hee</grapheme><phoneme>E</phoneme></Graphemes> <!-- jonkheer pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>hei</grapheme><phoneme>E</phoneme></Graphemes>
+				<Graphemes><grapheme>oe</grapheme><phoneme>E</phoneme></Graphemes>
+				<!-- Du coup, 5 graphies ont été rajoutées à la liste des graphies de /a/: aa, ars, hâ, az, âts -->
+				<Graphemes><grapheme>a</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>à</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>â</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>aa</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ac</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ach</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>achs</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>acs</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>act</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>acts</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ae</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>æ</grapheme><phoneme>a</phoneme></Graphemes> <!-- AJOUT 6 juin 2012 pour traiter des a dans e, même si transcription improbable, ex: mælström, 7 déc 2012 -->
+				<Graphemes><grapheme>ah</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ahs</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ao</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ap</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>aps</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ars</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>as</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>at</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ât</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ats</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>âts</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>az</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>e</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>ê</grapheme><phoneme>a</phoneme></Graphemes> <!-- ce graphème, comme toute la suite des "i" ci-dessous, sert à transcrire les "oi"  -->
+				<Graphemes><grapheme>ha</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>hâ</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>has</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>he</grapheme><phoneme>a</phoneme></Graphemes><!-- heimatlos, alzheimer: pas présents dans Morphalou 2.0 -->
+			<!--	enlevé pour yves le 18 avril 2011 pour [w a] bicolore
+				<Graphemes><grapheme>i</grapheme>  AJOUT du Fidel, peut servir pour transcrire "oi", p. ex. "voix", idem pour les suivants 
+				<Graphemes><grapheme>î</grapheme> 
+				<Graphemes><grapheme>id</grapheme>
+				<Graphemes><grapheme>ids</grapheme>
+				<Graphemes><grapheme>ie</grapheme>
+				<Graphemes><grapheme>ient</grapheme>
+				<Graphemes><grapheme>ies</grapheme>
+				<Graphemes><grapheme>ig</grapheme>
+				<Graphemes><grapheme>igt</grapheme>
+				<Graphemes><grapheme>igts</grapheme>
+				<Graphemes><grapheme>is</grapheme>
+				<Graphemes><grapheme>îs</grapheme>  
+				<Graphemes><grapheme>it</grapheme>
+				<Graphemes><grapheme>ît</grapheme>
+				<Graphemes><grapheme>its</grapheme>
+				<Graphemes><grapheme>îts</grapheme>
+				<Graphemes><grapheme>ix</grapheme>
+				<Graphemes><grapheme>y</grapheme> 
+				<Graphemes><grapheme>ye</grapheme>
+				<Graphemes><grapheme>yes</grapheme>
+				<Graphemes><grapheme>ys</grapheme>
+				enlever pour yves le 18 avril 2011 -->
+				<Graphemes><grapheme>o</grapheme><phoneme>a</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>a</phoneme></Graphemes> <!-- (gin-)rummy: pas présent dans Morphalou 2.0 -->
+			
+				<Graphemes><grapheme>a</grapheme><phoneme>O</phoneme></Graphemes> <!-- (negro-)spiritual: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>ach</grapheme><phoneme>O</phoneme></Graphemes> <!-- yacht: transcrit [o] dans Morphalou 2.0 -->
+				<Graphemes><grapheme>al</grapheme><phoneme>O</phoneme></Graphemes> <!-- (cake-)walk, walkman, talk: pas présents dans Morphalou 2.0 -->
+				<Graphemes><grapheme>au</grapheme><phoneme>O</phoneme></Graphemes>
+				<Graphemes><grapheme>aw</grapheme><phoneme>O</phoneme></Graphemes> <!-- lawrencium: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>eo</grapheme><phoneme>O</phoneme></Graphemes>
+				<Graphemes><grapheme>hau</grapheme><phoneme>O</phoneme></Graphemes>
+				<Graphemes><grapheme>ho</grapheme><phoneme>O</phoneme></Graphemes>
+				<Graphemes><grapheme>hô</grapheme><phoneme>O</phoneme></Graphemes> <!-- hôpital: transcrits [o] dans Morphalou 2.0 ERREUR? -->
+				<Graphemes><grapheme>o</grapheme>
+				<Graphemes><grapheme>oa</grapheme><phoneme>O</phoneme></Graphemes> <!-- (fun)board: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>oe</grapheme><phoneme>O</phoneme></Graphemes> <!-- groenendael: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>œ</grapheme><phoneme>O</phoneme></Graphemes> <!-- ajout NON DATé 7 déc 2012-->
+				<Graphemes><grapheme>oen</grapheme><phoneme>O</phoneme></Graphemes> <!-- groenendael: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>oi</grapheme><phoneme>O</phoneme></Graphemes>
+				<Graphemes><grapheme>oo</grapheme><phoneme>O</phoneme></Graphemes>
+				<Graphemes><grapheme>ow</grapheme> <phoneme>O</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>O</phoneme></Graphemes>
+				<Graphemes><grapheme>ü</grapheme>		<phoneme>O</phoneme></Graphemes>
+			
+				<Graphemes><grapheme>a</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ao</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>aos</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>au</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>aud</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>auds</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>aul</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ault</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>aults</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>aulx</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>aus</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>aut</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>auts</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>aux</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>aw</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>eau</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>eaud</grapheme><phoneme>o</phoneme></Graphemes>  <!-- ajout le 25 juillet 2012 -->
+				<Graphemes><grapheme>eauds</grapheme><phoneme>o</phoneme></Graphemes> <!-- ajout le 25 juillet 2012 -->
+				<Graphemes><grapheme>eaus</grapheme><phoneme>o</phoneme></Graphemes>  <!-- ajout le 16 08 2012 -->
+				<Graphemes><grapheme>eaux</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ha</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>hau</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>haut</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>hauts</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>haw</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>heau</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ho</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>hô</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>hot</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>hots</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>o</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ô</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>oa</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>oc</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ocs</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ods</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>oh</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>op</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ops</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>os</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ot</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ôt</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>oth</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>oths</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ots</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ôts</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ow</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>ows</grapheme><phoneme>o</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>o</phoneme></Graphemes>
+			
+				<Graphemes><grapheme>aou</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>aoul</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>aouls</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>aoû</grapheme><phoneme>u</phoneme></Graphemes> <!-- see rajouter pour que août (transcrit par morphalou [ut]) puisse être transcrit en couleur-->
+				<Graphemes><grapheme>août</grapheme><phoneme>u</phoneme></Graphemes> <!-- août: transcrit [ut] dans Morphalou 2.0 mais pas [u] -->
+				<Graphemes><grapheme>aoûts</grapheme><phoneme>u</phoneme></Graphemes> <!-- aoûts: transcrit [ut] dans Morphalou 2.0 mais pas [u] -->
+				<Graphemes><grapheme>ew</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>ews</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>hoo</grapheme><phoneme>u</phoneme></Graphemes> <!-- hooligan: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>hou</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>houe</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>houes</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>hout</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>houts</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>houx</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>hu</grapheme><phoneme>u</phoneme></Graphemes> <!-- hurrah: ajouté 7 dec 2012, cf. REGLES.odt -->
+				<Graphemes><grapheme>o</grapheme><phoneme>u</phoneme></Graphemes> <!-- loser: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>oo</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>ou</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>où</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oû</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oub</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oubs</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>ouc</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oucs</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oud</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>ouds</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oue</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>ouent</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oues</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oug</grapheme><phoneme>u</phoneme></Graphemes> <!-- joug [Zug] erreur dans Morphalou!!! 2.0 -->
+				<Graphemes><grapheme>ougs</grapheme><phoneme>u</phoneme></Graphemes> <!-- jougs [Zug] erreur dans Morphalou!!! 2.0 -->
+				<Graphemes><grapheme>oûl</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oûls</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>ouls</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oult</grapheme><phoneme>u</phoneme></Graphemes> <!-- poult(-de-soie): pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>oup</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oups</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>ous</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>out</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oût</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>outs</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oûts</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>oux</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>ow</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>û</grapheme><phoneme>u</phoneme></Graphemes> <!-- stûpa: Morphalou [stypa], sûtra pas présent dans Morphalou -->
+				<Graphemes><grapheme>ue</grapheme><phoneme>u</phoneme></Graphemes>
+				<Graphemes><grapheme>ui</grapheme><phoneme>u</phoneme></Graphemes> <!-- grapefruit: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>us</grapheme><phoneme>u</phoneme></Graphemes> <!-- haïkus: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>uu</grapheme><phoneme>u</phoneme></Graphemes> <!-- weltanschauung: Morphalou [v E l t a n S a w u N]-->
+			
+				<Graphemes><grapheme>eu</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>eû</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>eue</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>eues</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>eus</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>eut</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>eût</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>hu</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>hue</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>huent</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>hues</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>hus</grapheme><phoneme>y</phoneme></Graphemes> <!-- dahus: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>hut</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>huts</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>û</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ü</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ud</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>uds</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ue</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>uë</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>uent</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ues</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>uës</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>uh</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>üh</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ul</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>uls</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>us</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ûs</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ut</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ût</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>uth</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>uths</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>uts</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ûts</grapheme><phoneme>y</phoneme></Graphemes>
+				<Graphemes><grapheme>ux</grapheme><phoneme>y</phoneme></Graphemes>
+			
+				<Graphemes><grapheme>ai</grapheme><phoneme>2</phoneme></Graphemes> <!-- AJOUT 12 juin 2012 parce que Morphalou traite erronément le -ai- de faire dans faisons et du radical fais- à l'imparfait, -ai- deviendra 9 dans une nouvelle transcription (modifier Morphalou si possible ou quand possible) -->
+				<Graphemes><grapheme>eu</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>eû</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>eue</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>eues</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>euf</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>euh</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>euhs</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>eur</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>eurs</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>eus</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>eut</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>eux</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>heu</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>ö</grapheme><phoneme>2</phoneme></Graphemes> <!-- Morphalou : [malstrOm], rösti est absent de Morphalou et tous les autres apparaissent sans transcription -->
+				<Graphemes><grapheme>oe</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>œ</grapheme><phoneme>2</phoneme></Graphemes> <!-- AJOUT 6 juin 2012 pour traiter les o dans e si présents dans Morphalou, ex: vœu -->  
+									   <!--cf. document intitulé cabinet des curiosités ae et oe 6 juin 2012 -->
+				<Graphemes><grapheme>oeh</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>œh</grapheme><phoneme>2</phoneme></Graphemes> <!-- AJOUT 6 juin 2012 pour traiter les o dans e si présents dans Morphalou, ex: vœu -->
+				<Graphemes><grapheme>oeu</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>œu</grapheme><phoneme>2</phoneme></Graphemes> <!-- AJOUT 6 juin 2012 pour traiter les o dans e si présents dans Morphalou, ex: vœu -->
+				<Graphemes><grapheme>oeud</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>œud</grapheme><phoneme>2</phoneme></Graphemes> <!-- AJOUT 6 juin 2012 pour traiter les o dans e si présents dans Morphalou, ex: nœud -->
+				<Graphemes><grapheme>oeuds</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>œuds</grapheme><phoneme>2</phoneme></Graphemes> <!-- AJOUT 6 juin 2012 pour traiter les o dans e si présents dans Morphalou, ex: nœuds -->
+				<Graphemes><grapheme>oeufs</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>œufs</grapheme><phoneme>2</phoneme></Graphemes> <!-- AJOUT 6 juin 2012 pour traiter les o dans e si présents dans Morphalou, ex: œufs -->
+				<Graphemes><grapheme>oeux</grapheme><phoneme>2</phoneme></Graphemes>
+				<Graphemes><grapheme>œux</grapheme><phoneme>2</phoneme></Graphemes> <!-- AJOUT 6 juin 2012 pour traiter les o dans e si présents dans Morphalou, ex: vœux -->
+			
+				<Graphemes><grapheme>a</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>e</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>eu</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>he</grapheme><phoneme>9</phoneme></Graphemes> <!-- herd(-book): pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>heu</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>hu</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>i</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>o</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>ö</grapheme><phoneme>9</phoneme></Graphemes> <!-- röntgen: apparaît sans transcription dans Morphalou 2.0, Morphalou : [malstrOm], rösti est absent de Morphalou et tous les autres apparaissent sans transcription -->
+				<Graphemes><grapheme>oe</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>œ</grapheme><phoneme>9</phoneme></Graphemes> <!-- 18.2 see rajouter pour prendre en compte les cœur œil sœur  sœurs --> 
+				<Graphemes><grapheme>œu</grapheme><phoneme>9</phoneme></Graphemes> <!-- 18.2 see rajouter pour prendre en compte les cœur œil sœur  sœurs --> 
+				<Graphemes><grapheme>oeu</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>ou</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>9</phoneme></Graphemes>
+				<Graphemes><grapheme>un</grapheme><phoneme>9</phoneme></Graphemes>
+			
+				<Graphemes><grapheme>ai</grapheme><phoneme>@</phoneme></Graphemes> <!-- faisan, faisable: Morphalou [f2za~,f2zabl@] ERREUR! -->
+				<Graphemes><grapheme>e</grapheme><phoneme>@</phoneme></Graphemes>
+				<Graphemes><grapheme>es</grapheme><phoneme>@</phoneme></Graphemes>
+				<Graphemes><grapheme>ent</grapheme><phoneme>@</phoneme></Graphemes> <!-- ent (en phrase): phénomènes suprasegmentaux pas traités -->
+				<Graphemes><grapheme>on</grapheme><phoneme>@</phoneme></Graphemes>
+			
+				<Graphemes><grapheme>aim</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>aims</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ain</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ainc</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>aincs</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>aing</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>aings</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ains</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>aint</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>aints</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ein</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>eing</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>eings</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>eins</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>eint</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>eints</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>em</grapheme><phoneme>e~</phoneme></Graphemes> <!-- sempiternel, Morphalou : [sa~pitERnEl] -->
+				<Graphemes><grapheme>en</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ens</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ent</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>hein</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>hen</grapheme><phoneme>e~</phoneme></Graphemes> <!-- hendécagone: Morphalou [a~dekagOn@] -->
+				<Graphemes><grapheme>hin</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>im</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>in</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>în</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ïn</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>inc</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>inct</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>incts</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ing</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ings</grapheme><phoneme>e~</phoneme></Graphemes> <!-- AJOUT: à partir de la liste du Fidel, plus exactement dérivé de la liste [w-e~] oo-ings (ex: shampooings) -->
+				<Graphemes><grapheme>ingt</grapheme><phoneme>e~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ingts</grapheme><phoneme>e~</phoneme></Graphemes> <!-- vingts: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>inq</grapheme><phoneme>e~</phoneme></Graphemes> <!-- AJOUT: à partir de la liste du Fidel -->
+				<Graphemes><grapheme>ins</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>int</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>înt</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>ints</grapheme><phoneme>e~</phoneme></Graphemes> <!-- AJOUT: à partir de la liste du Fidel, plus exactement dérivé de la liste [w-e~] o-ints (ex: joints) -->
+				<Graphemes><grapheme>ym</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>yms</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>yn</grapheme><phoneme>e~</phoneme></Graphemes>
+				<Graphemes><grapheme>aan</grapheme><phoneme>a~</phoneme></Graphemes>  <!-- afrikaans: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>am</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>amp</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>amps</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ams</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>an</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>anc</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ancs</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>and</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ands</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ang</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>angs</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ans</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ant</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ants</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ão</grapheme><phoneme>a~</phoneme></Graphemes>  <!-- sertão Morphalou : [sERtao] -->
+				<Graphemes><grapheme>aon</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>aons</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ãos</grapheme><phoneme>a~</phoneme></Graphemes>  <!-- sertão Morphalou : [sERtao] -->
+				<Graphemes><grapheme>e</grapheme><phoneme>a~</phoneme></Graphemes>  <!-- 1. peut servir pour transcrire p.ex. "enivrer", 2.AJOUT: à partir de la liste du Fidel -->
+				<Graphemes><grapheme>em</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>emp</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>emps</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>empt</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>empts</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>en</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>end</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ends</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>eng</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>engs</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ens</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ent</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ents</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>ham</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>han</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>hans</grapheme><phoneme>a~</phoneme></Graphemes> 
+				<Graphemes><grapheme>hen</grapheme><phoneme>a~</phoneme></Graphemes> 
+			  <!-- Il s'agit de la nasale SAMPA simplifié [õ] -->
+				<Graphemes><grapheme>hon</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>om</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>omb</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ombs</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>omp</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>omps</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ompt</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ompts</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>oms</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>on</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>onc</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>oncs</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ond</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>onds</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ong</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ongs</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ons</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ont</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>onts</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>um</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>un</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ung</grapheme><phoneme>o~</phoneme></Graphemes>
+				<Graphemes><grapheme>ungs</grapheme><phoneme>o~</phoneme></Graphemes>
+			<!-- Il s'agit de la nasale SAMPA simplifié [1] -->
+				<Graphemes><grapheme>eun</grapheme><phoneme>9~</phoneme></Graphemes> <!-- (à) jeun: présent dans Morphalou mais sans informations -->
+				<Graphemes><grapheme>hum</grapheme><phoneme>9~</phoneme></Graphemes>
+				<Graphemes><grapheme>hun</grapheme><phoneme>9~</phoneme></Graphemes> <!-- AJOUT: à partir de la liste du Fidel -->
+				<Graphemes><grapheme>huns</grapheme><phoneme>9~</phoneme></Graphemes> <!-- AJOUT: à partir de la liste du Fidel -->
+				<Graphemes><grapheme>um</grapheme><phoneme>9~</phoneme></Graphemes>
+				<Graphemes><grapheme>ums</grapheme><phoneme>9~</phoneme></Graphemes>
+				<Graphemes><grapheme>un</grapheme><phoneme>9~</phoneme></Graphemes>
+				<Graphemes><grapheme>uns</grapheme><phoneme>9~</phoneme></Graphemes>
+				<Graphemes><grapheme>unt</grapheme><phoneme>9~</phoneme></Graphemes>
+				<Graphemes><grapheme>unts</grapheme><phoneme>9~</phoneme></Graphemes>
+			 <!-- Il s'agit de la semi-consonne [j], archiphonème [I] -->
+				<Graphemes><grapheme>g</grapheme><phoneme>j</phoneme></Graphemes> <!-- design: pas présent dans Morphalou -->
+				<Graphemes><grapheme>gh</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>gui</grapheme><phoneme>j</phoneme></Graphemes> <!-- laguiole: pas présent dans Morphalou -->
+				<Graphemes><grapheme>hi</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>hy</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>i</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>ï</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>ïe</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>ïes</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>ïs</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>il</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>ill</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>ille</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>illent</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>illes</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>illi</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>ils</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>j</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>l</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>ll</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>lle</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>llent</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>lles</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>lli</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>n</grapheme><phoneme>j</phoneme></Graphemes> <!-- SPECIAL: la nasale palatale transcrite[J] dans Morphalou devient [n] pour "g" et [j] pour "n"-->			
+				<Graphemes><grapheme>ne</grapheme><phoneme>j</phoneme></Graphemes> <!-- SPECIAL: la nasale palatale transcrite[J] dans Morphalou devient [n] pour "g" et [j] pour "n"-->			
+				<Graphemes><grapheme>nent</grapheme><phoneme>j</phoneme></Graphemes> <!-- SPECIAL: la nasale palatale transcrite[J] dans Morphalou devient [n] pour "g" et [j] pour "n"-->			
+				<Graphemes><grapheme>nes</grapheme><phoneme>j</phoneme></Graphemes> <!-- SPECIAL: la nasale palatale transcrite[J] dans Morphalou devient [n] pour "g" et [j] pour "n"-->			
+				<Graphemes><grapheme>ni</grapheme><phoneme>j</phoneme></Graphemes> <!-- SPECIAL: la nasale palatale transcrite[J] dans Morphalou devient [n] pour "g" et [j] pour "n"-->			
+				<Graphemes><grapheme>y</grapheme><phoneme>j</phoneme></Graphemes>
+				<Graphemes><grapheme>ye</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>yent</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>yes</grapheme><phoneme>j</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [j@]  -->
+				<Graphemes><grapheme>yi</grapheme><phoneme>j</phoneme></Graphemes> <!-- AJOUT: à partir de la liste du Fidel -->
+				<Graphemes><grapheme>ys</grapheme><phoneme>j</phoneme></Graphemes>
+			 <!-- Il s'agit de la semi-consonne [w], archiphonème [U] -->
+				<Graphemes><grapheme>h</grapheme><phoneme>w</phoneme></Graphemes>
+				<Graphemes><grapheme>ho</grapheme><phoneme>w</phoneme></Graphemes> 
+				<Graphemes><grapheme>hou</grapheme><phoneme>w</phoneme></Graphemes>
+				<Graphemes><grapheme>hu</grapheme><phoneme>w</phoneme></Graphemes>
+				<Graphemes><grapheme>o</grapheme><phoneme>w</phoneme></Graphemes> <!-- déjà présent, ex: oie, AJOUT: à partir de la liste du Fidel,  pour transcrire "oi", p. ex. "voix", ou "oin" p. ex. "loin" -->
+				<Graphemes><grapheme>oo</grapheme><phoneme>w</phoneme></Graphemes> <!-- déjà présent, ex: shampooiner, AJOUT: à partir de la liste du Fidel, pour transcrire [w] dans "shampooing" p. ex. -->
+				<Graphemes><grapheme>ou</grapheme><phoneme>w</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>w</phoneme></Graphemes>
+				<Graphemes><grapheme>w</grapheme><phoneme>w</phoneme></Graphemes>
+				<Graphemes><grapheme>wh</grapheme><phoneme>w</phoneme></Graphemes>
+			 <!-- Il s'agit de la semi-consonne, archiphonème [Y] -->
+				<Graphemes><grapheme>hu</grapheme><phoneme>H</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>H</phoneme></Graphemes>
+				<Graphemes><grapheme>yu</grapheme><phoneme>H</phoneme></Graphemes> <!-- yuan: présent dans Morphalou mais sans informations -->
+				<Graphemes><grapheme>b</grapheme><phoneme>p</phoneme></Graphemes> 
+				<Graphemes><grapheme>p</grapheme><phoneme>p</phoneme></Graphemes> 
+				<Graphemes><grapheme>pe</grapheme><phoneme>p</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [p@]  -->
+				<Graphemes><grapheme>pent</grapheme><phoneme>p</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [p@]  -->
+				<Graphemes><grapheme>pes</grapheme><phoneme>p</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [p@]  -->
+				<Graphemes><grapheme>pp</grapheme><phoneme>p</phoneme></Graphemes> 
+				<Graphemes><grapheme>ppe</grapheme><phoneme>p</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [p@]  -->
+				<Graphemes><grapheme>ppent</grapheme><phoneme>p</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [p@]  -->
+				<Graphemes><grapheme>ppes</grapheme><phoneme>p</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [p@]  -->
+				<Graphemes><grapheme>pps</grapheme><phoneme>p</phoneme></Graphemes>  <!-- ajouté le 16 aout 2012 -->
+				<Graphemes><grapheme>ps</grapheme><phoneme>p</phoneme></Graphemes> 
+				<Graphemes><grapheme>c</grapheme><phoneme>t</phoneme></Graphemes>  <!-- cappucino: pas présent dans Morphalou, czardas transcrit [gzaRda] dans Morphalou -->
+				<Graphemes><grapheme>cht</grapheme><phoneme>t</phoneme></Graphemes>  <!-- AJOUT: à partir de la liste du Fidel -->
+				<Graphemes><grapheme>chts</grapheme><phoneme>t</phoneme></Graphemes>  <!-- AJOUT: à partir de la liste du Fidel -->
+				<Graphemes><grapheme>d</grapheme><phoneme>t</phoneme></Graphemes> 
+				<Graphemes><grapheme>dt</grapheme><phoneme>t</phoneme></Graphemes> 
+				<Graphemes><grapheme>pt</grapheme><phoneme>t</phoneme></Graphemes> 
+				<Graphemes><grapheme>pte</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>ptent</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>ptes</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>t</grapheme><phoneme>t</phoneme></Graphemes> 
+				<Graphemes><grapheme>t'</grapheme><phoneme>t</phoneme></Graphemes>  <!-- rajouter par see pour intégrer ' -->
+				<Graphemes><grapheme>te</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>tent</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>tes</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>th</grapheme><phoneme>t</phoneme></Graphemes> 
+				<Graphemes><grapheme>the</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>thent</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ils délabyrinthent: pas présent dans Morphalou -->
+				<Graphemes><grapheme>thes</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>ths</grapheme><phoneme>t</phoneme></Graphemes> 
+				<Graphemes><grapheme>tre</grapheme><phoneme>t</phoneme></Graphemes>  <!-- quatre-temps: pas présent dans Morphalou -->
+				<Graphemes><grapheme>ts</grapheme><phoneme>t</phoneme></Graphemes> 
+				<Graphemes><grapheme>tt</grapheme><phoneme>t</phoneme></Graphemes> 
+				<Graphemes><grapheme>tte</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>ttent</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>ttes</grapheme><phoneme>t</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [t@]  -->
+				<Graphemes><grapheme>tts</grapheme><phoneme>t</phoneme></Graphemes> 
+				<Graphemes><grapheme>c'</grapheme><phoneme>k</phoneme></Graphemes>  <!-- rajouté par stef pour intégrer ' -->
+				<Graphemes><grapheme>c</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>cc</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>cch</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>ccu</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>ch</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>chs</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>ck</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>cke</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>ckent</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>ckes</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>cks</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>cqu</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>cque</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>cques</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>cs</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>ct</grapheme><phoneme>k</phoneme></Graphemes>  <!-- verdict: Morphalou [vERdikt] -->
+				<Graphemes><grapheme>cts</grapheme><phoneme>k</phoneme></Graphemes>  <!-- verdicts: Morphalou [vERdikt] -->
+				<Graphemes><grapheme>cu</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>g</grapheme><phoneme>k</phoneme></Graphemes>  <!-- kabig: pas présent dans Morphalou, tungstène: Morphalou [t9~gstEn@] -->
+				<Graphemes><grapheme>gs</grapheme><phoneme>k</phoneme></Graphemes>  <!-- kabigs: pas présent dans Morphalou -->
+				<Graphemes><grapheme>k</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>ke</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>kes</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>kg</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>kh</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>khe</grapheme><phoneme>k</phoneme></Graphemes>  <!-- sikhe: pas présent dans Morphalou -->
+				<Graphemes><grapheme>khes</grapheme><phoneme>k</phoneme></Graphemes>  <!-- sikhes: pas présent dans Morphalou -->
+				<Graphemes><grapheme>khs</grapheme><phoneme>k</phoneme></Graphemes>  <!-- sikhe: pas présent dans Morphalou -->
+				<Graphemes><grapheme>kk</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>ks</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>q</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>qs</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>qu</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>qu'</grapheme><phoneme>k</phoneme></Graphemes>  <!-- rajouté par stef pour intégrer ' -->			
+				<Graphemes><grapheme>que</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>quent</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>ques</grapheme><phoneme>k</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [k@]  -->
+				<Graphemes><grapheme>x</grapheme><phoneme>k</phoneme></Graphemes> 
+				<Graphemes><grapheme>b</grapheme><phoneme>b</phoneme></Graphemes> 
+				<Graphemes><grapheme>bb</grapheme><phoneme>b</phoneme></Graphemes> 
+				<Graphemes><grapheme>bbe</grapheme><phoneme>b</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [b@]  -->
+				<Graphemes><grapheme>bbes</grapheme><phoneme>b</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [b@]  -->
+				<Graphemes><grapheme>be</grapheme><phoneme>b</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [b@]  -->
+				<Graphemes><grapheme>bent</grapheme> <phoneme>b</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [b@]  -->
+				<Graphemes><grapheme>bes</grapheme> <phoneme>b</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [b@]  -->
+				<Graphemes><grapheme>bs</grapheme><phoneme>b</phoneme></Graphemes> 
+				<Graphemes><grapheme>d</grapheme><phoneme>d</phoneme></Graphemes> 
+				<Graphemes><grapheme>d'</grapheme> <phoneme>d</phoneme></Graphemes>  <!-- ajout d apostrophe 4 juin 2012  -->
+				<Graphemes><grapheme>dd</grapheme><phoneme>d</phoneme></Graphemes> 
+				<Graphemes><grapheme>de</grapheme> <phoneme>d</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [d@]  -->
+				<Graphemes><grapheme>dent</grapheme><phoneme>d</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [d@]  -->
+				<Graphemes><grapheme>des</grapheme><phoneme>d</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [d@]  -->
+				<Graphemes><grapheme>dh</grapheme><phoneme>d</phoneme></Graphemes> 
+				<Graphemes><grapheme>ds</grapheme><phoneme>d</phoneme></Graphemes> 
+				<Graphemes><grapheme>g</grapheme><phoneme>d</phoneme></Graphemes> 
+				<Graphemes><grapheme>t</grapheme> <phoneme>d</phoneme></Graphemes> <!-- tsar Morphalou [tsaR], tsigane: présent mais pas d'infos, cf. "tzigane" -->
+				<Graphemes><grapheme>z</grapheme><phoneme>d</phoneme></Graphemes> 
+				<Graphemes><grapheme>c</grapheme><phoneme>g</phoneme></Graphemes> 
+				<Graphemes><grapheme>g</grapheme><phoneme>g</phoneme></Graphemes> 
+				<Graphemes><grapheme>gg</grapheme><phoneme>g</phoneme></Graphemes> 
+				<Graphemes><grapheme>gh</grapheme><phoneme>g</phoneme></Graphemes> 
+				<Graphemes><grapheme>ghs</grapheme><phoneme>g</phoneme></Graphemes> 
+				<Graphemes><grapheme>gs</grapheme><phoneme>g</phoneme></Graphemes> 
+				<Graphemes><grapheme>gu</grapheme><phoneme>g</phoneme></Graphemes> 
+				<Graphemes><grapheme>gue</grapheme><phoneme>g</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [g@]  -->
+				<Graphemes><grapheme>guent</grapheme><phoneme>g</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [g@]  -->
+				<Graphemes><grapheme>gues</grapheme><phoneme>g</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [g@] -->
+				<Graphemes><grapheme>f</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>fe</grapheme><phoneme>f</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [f@] -->
+				<Graphemes><grapheme>fent</grapheme><phoneme>f</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [f@] -->
+				<Graphemes><grapheme>fes</grapheme><phoneme>f</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [f@] -->
+				<Graphemes><grapheme>ff</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>ffe</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>ffent</grapheme><phoneme>f</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [f@] -->
+				<Graphemes><grapheme>ffes</grapheme><phoneme>f</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [f@] -->
+				<Graphemes><grapheme>ffs</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>fs</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>gh</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>ghs</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>ph</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>phe</grapheme><phoneme>f</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [f@] -->
+				<Graphemes><grapheme>phent</grapheme><phoneme>f</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [f@] -->
+				<Graphemes><grapheme>phes</grapheme><phoneme>f</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [f@] -->
+				<Graphemes><grapheme>phs</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>v</grapheme><phoneme>f</phoneme></Graphemes> 
+				<Graphemes><grapheme>vs</grapheme><phoneme>f</phoneme></Graphemes>  <!-- kalachnikovs: pas présent dans Morphalou -->
+				<Graphemes><grapheme>c</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>c'</grapheme><phoneme>s</phoneme></Graphemes>  <!-- rajouté par stef pour intégrer ' -->
+				<Graphemes><grapheme>ç</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>ç'</grapheme><phoneme>s</phoneme></Graphemes>  <!-- AJOUT tardif par AF pour intégrer ' -->
+				<Graphemes><grapheme>cc</grapheme><phoneme>s</phoneme></Graphemes>  <!-- succion Morphalou : [syksjo~], capriccio Morphalou : [kapRitSjo] -->
+				<Graphemes><grapheme>ce</grapheme><phoneme>s</phoneme></Graphemes>  
+				<Graphemes><grapheme>cent</grapheme><phoneme>s</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [s@] -->
+				<Graphemes><grapheme>ces</grapheme><phoneme>s</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [s@] -->
+				<Graphemes><grapheme>i</grapheme><phoneme>s</phoneme></Graphemes>  <!-- AJOUT 20AUG 2012 cela peut paraître absurde, mais ciao transcrit [tSaw] implique que le c transcrit le [t] et le i le [S]  -->
+				<Graphemes><grapheme>ls</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>s</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>s'</grapheme><phoneme>s</phoneme></Graphemes>  <!-- rajouté par stef pour intégrer ' -->
+				<Graphemes><grapheme>sc</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>sç</grapheme> <phoneme>s</phoneme></Graphemes> <!-- AJOUT: à partir de la liste du Fidel -->
+				<Graphemes><grapheme>sce</grapheme><phoneme>s</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [s@] -->
+				<Graphemes><grapheme>scent</grapheme><phoneme>s</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [s@] -->
+				<Graphemes><grapheme>sces</grapheme><phoneme>s</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [s@] -->
+				<Graphemes><grapheme>se</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>sent</grapheme><phoneme>s</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [s@] -->
+				<Graphemes><grapheme>ses</grapheme><phoneme>s</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [s@] -->
+				<Graphemes><grapheme>ss</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>sse</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>ssent</grapheme><phoneme>s</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [s@] -->
+				<Graphemes><grapheme>sses</grapheme><phoneme>s</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [s@] -->
+				<Graphemes><grapheme>sth</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>t</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>th</grapheme><phoneme>s</phoneme></Graphemes>  <!-- forsythia Morphalou : [fORsitja], granny smith: pas présent dans Morphalou -->
+				<Graphemes><grapheme>ts</grapheme><phoneme>s</phoneme></Graphemes>  <!-- intelligentsia Morphalou : [e~teliZEntsja] -->
+				<Graphemes><grapheme>x</grapheme><phoneme>s</phoneme></Graphemes> 
+				<Graphemes><grapheme>z</grapheme><phoneme>s</phoneme></Graphemes> 
+				<!-- <Graphemes><grapheme>c</grapheme> concetti Morphalou : [ko~sEti], cappucino: pas présent dans Morphalou CORRECTION 20AUG2012: seulement dans bruccio(s) et capriccio(s) présents dans Morphalou  ENTREE SUPPRIMEE le 21NOV2012 pour éviter de devoir rédiger une règle-doublon pour CH -->
+				<Graphemes><grapheme>ch</grapheme><phoneme>S</phoneme></Graphemes> 
+				<Graphemes><grapheme>ch'</grapheme><phoneme>S</phoneme></Graphemes>   <!-- ajout ch apostrophe 11 juin 2012  -->
+				<Graphemes><grapheme>che</grapheme><phoneme>S</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [S@] -->
+				<Graphemes><grapheme>chent</grapheme><phoneme>S</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [S@] -->
+				<Graphemes><grapheme>chep</grapheme><phoneme>S</phoneme></Graphemes>  <!-- cheptel Morphalou: [SEptEl] -->
+				<Graphemes><grapheme>ches</grapheme><phoneme>S</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [S@] -->
+				<Graphemes><grapheme>chs</grapheme><phoneme>S</phoneme></Graphemes> 
+				<Graphemes><grapheme>ci</grapheme><phoneme>S</phoneme></Graphemes>  <!-- carpaccio: pas présent dans Morphalou -->
+				<Graphemes><grapheme>j</grapheme><phoneme>S</phoneme></Graphemes> 
+				<Graphemes><grapheme>je</grapheme><phoneme>S</phoneme></Graphemes>  <!-- bintje: pas présent dans Morphalou -->
+				<Graphemes><grapheme>jes</grapheme><phoneme>S</phoneme></Graphemes>  <!-- bintjes: pas présent dans Morphalou -->
+				<!-- <Graphemes><grapheme>s</grapheme>  seulement dans glockenspiel(s), kriegspiel(s), landsturm(s),  présents dans Morphalou  ENTREE SUPPRIMEE le 22NOV2012 pour éviter de devoir rédiger une règle-doublon pour SH et autres S- -->
+				<Graphemes><grapheme>sc</grapheme><phoneme>S</phoneme></Graphemes> 
+				<Graphemes><grapheme>sch</grapheme><phoneme>S</phoneme></Graphemes> 
+				<Graphemes><grapheme>sche</grapheme><phoneme>S</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [S@] -->
+				<Graphemes><grapheme>schent</grapheme><phoneme>S</phoneme></Graphemes>  <!-- ils eschent: pas présent dans Morphalou -->
+				<Graphemes><grapheme>sches</grapheme><phoneme>S</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [S@] -->
+				<Graphemes><grapheme>schs</grapheme><phoneme>S</phoneme></Graphemes> 
+				<Graphemes><grapheme>sh</grapheme><phoneme>S</phoneme></Graphemes> 
+				<Graphemes><grapheme>she</grapheme><phoneme>S</phoneme></Graphemes>  <!-- il se crashe: pas présent dans Morphalou, il smashe: Morphalou: [S@] -->
+				<Graphemes><grapheme>shent</grapheme><phoneme>S</phoneme></Graphemes>  <!-- ils se crashent: pas présent dans Morphalou, ils smashent: Morphalou: [S@] -->
+				<Graphemes><grapheme>shes</grapheme><phoneme>S</phoneme></Graphemes>  <!-- tu te crashes: pas présent dans Morphalou, tu smashes: Morphalou: [S@] -->
+				<Graphemes><grapheme>shs</grapheme><phoneme>S</phoneme></Graphemes>   <!-- crashs: pas présent dans Morphalou -->
+				<Graphemes><grapheme>zsch</grapheme><phoneme>S</phoneme></Graphemes> 
+				<Graphemes><grapheme>f</grapheme><phoneme>v</phoneme></Graphemes>  <!-- AJOUT: à partir de la liste du Fidel -->	
+				<Graphemes><grapheme>v</grapheme> <phoneme>v</phoneme></Graphemes> 
+				<Graphemes><grapheme>ve</grapheme><phoneme>v</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [v@] -->
+				<Graphemes><grapheme>vent</grapheme><phoneme>v</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [v@] -->
+				<Graphemes><grapheme>ves</grapheme><phoneme>v</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [v@] -->
+				<Graphemes><grapheme>vs</grapheme><phoneme>v</phoneme></Graphemes>  <!-- leitmotivs Morphalou : [lajtmOtif]-->
+				<Graphemes><grapheme>w</grapheme><phoneme>v</phoneme></Graphemes> 
+				<Graphemes><grapheme>s</grapheme><phoneme>z</phoneme></Graphemes> 
+				<Graphemes><grapheme>se</grapheme><phoneme>z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [z@] -->
+				<Graphemes><grapheme>sent</grapheme><phoneme>z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [z@] -->
+				<Graphemes><grapheme>ses</grapheme><phoneme>z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [z@] -->
+				<Graphemes><grapheme>si</grapheme><phoneme>z</phoneme></Graphemes> 
+				<Graphemes><grapheme>x</grapheme><phoneme>z</phoneme></Graphemes> 
+				<Graphemes><grapheme>z</grapheme><phoneme>z</phoneme></Graphemes> 
+				<Graphemes><grapheme>ze</grapheme><phoneme>z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [z@] -->
+				<Graphemes><grapheme>zent</grapheme><phoneme>z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [z@] -->
+				<Graphemes><grapheme>zes</grapheme><phoneme>z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [z@] -->
+				<Graphemes><grapheme>zz</grapheme><phoneme>z</phoneme></Graphemes> 
+				<Graphemes><grapheme>g</grapheme><phoneme>Z</phoneme></Graphemes> 
+				<Graphemes><grapheme>ge</grapheme><phoneme>Z</phoneme></Graphemes> 
+				<Graphemes><grapheme>gent</grapheme><phoneme>Z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [Z@] -->
+				<Graphemes><grapheme>ges</grapheme><phoneme>Z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [Z@] -->
+				<Graphemes><grapheme>gg</grapheme> <phoneme>Z</phoneme></Graphemes> <!-- aggiornamento: pas présent dans Morphalou -->
+				<Graphemes><grapheme>j</grapheme><phoneme>Z</phoneme></Graphemes> 
+				<Graphemes><grapheme>j'</grapheme><phoneme>Z</phoneme></Graphemes>  <!-- rajouté par stef  pour intégrer ' -->
+				<Graphemes><grapheme>je</grapheme><phoneme>Z</phoneme></Graphemes> 
+				<Graphemes><grapheme>jent</grapheme><phoneme>Z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [Z@] -->
+				<Graphemes><grapheme>jes</grapheme><phoneme>Z</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [Z@] -->
+				<Graphemes><grapheme>gl</grapheme><phoneme>l</phoneme></Graphemes>  <!-- imbroglio: pas présent dans Morphalou -->
+				<Graphemes><grapheme>l</grapheme><phoneme>l</phoneme></Graphemes> 
+				<Graphemes><grapheme>ld</grapheme><phoneme>l</phoneme></Graphemes> 
+				<Graphemes><grapheme>le</grapheme><phoneme>l</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [l@] -->
+				<Graphemes><grapheme>lent</grapheme><phoneme>l</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [l@] -->
+				<Graphemes><grapheme>les</grapheme><phoneme>l</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [l@] -->
+				<Graphemes><grapheme>ll</grapheme><phoneme>l</phoneme></Graphemes> 
+				<Graphemes><grapheme>lle</grapheme> <phoneme>l</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [l@] -->
+				<Graphemes><grapheme>llent</grapheme> <phoneme>l</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [l@] -->
+				<Graphemes><grapheme>lles</grapheme><phoneme>l</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [l@] -->
+				<Graphemes><grapheme>lls</grapheme><phoneme>l</phoneme></Graphemes> 
+				<Graphemes><grapheme>lp</grapheme><phoneme>l</phoneme></Graphemes> 
+				<Graphemes><grapheme>ls</grapheme><phoneme>l</phoneme></Graphemes> 
+				<Graphemes><grapheme>l'</grapheme><phoneme>l</phoneme></Graphemes>  <!-- rajouté par stef 18.2 -->
+				<Graphemes><grapheme>j</grapheme><phoneme>R</phoneme></Graphemes>  <!-- marijuana: Morphalou [maRiwana] -->
+				<Graphemes><grapheme>r</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rc</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rcs</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rd</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rds</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>re</grapheme><phoneme>R</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [R@] -->
+				<Graphemes><grapheme>rent</grapheme> <phoneme>R</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [R@] -->
+				<Graphemes><grapheme>res</grapheme><phoneme>R</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [R@] -->
+				<Graphemes><grapheme>rf</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rfs</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rg</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rgs</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rh</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rp</grapheme> <phoneme>R</phoneme></Graphemes> <!-- corpsard: pas présent dans Morphalou -->
+				<Graphemes><grapheme>rps</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rr</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rre</grapheme> <phoneme>R</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [R@] -->
+				<Graphemes><grapheme>rrent</grapheme><phoneme>R</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [R@] -->
+				<Graphemes><grapheme>rres</grapheme><phoneme>R</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [R@] -->
+				<Graphemes><grapheme>rrh</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rrhe</grapheme><phoneme>R</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [R@] -->
+				<Graphemes><grapheme>rrhes</grapheme><phoneme>R</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [R@] -->
+				<Graphemes><grapheme>rrs</grapheme><phoneme>R</phoneme></Graphemes>  <!-- torrs: pas présent dans Morphalou -->
+				<Graphemes><grapheme>rs</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rt</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>rts</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>wr</grapheme><phoneme>R</phoneme></Graphemes> 
+				<Graphemes><grapheme>hmm</grapheme><phoneme>m</phoneme></Graphemes>  <!-- megohmmètre: ajouté 7 dec 2012, cf. REGLES.odt -->
+				<Graphemes><grapheme>m</grapheme><phoneme>m</phoneme></Graphemes> 
+				<Graphemes><grapheme>m'</grapheme><phoneme>m</phoneme></Graphemes>  <!-- rajouté par stef pour intégrer ' -->
+				<Graphemes><grapheme>me</grapheme> <phoneme>m</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [m@] -->
+				<Graphemes><grapheme>ment</grapheme><phoneme>m</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [m@] -->
+				<Graphemes><grapheme>mes</grapheme><phoneme>m</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [m@] -->
+				<Graphemes><grapheme>mm</grapheme><phoneme>m</phoneme></Graphemes> 
+				<Graphemes><grapheme>mme</grapheme> <phoneme>m</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [m@] -->
+				<Graphemes><grapheme>mment</grapheme><phoneme>m</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [m@] -->
+				<Graphemes><grapheme>mmes</grapheme><phoneme>m</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [m@] -->
+				<Graphemes><grapheme>mms</grapheme><phoneme>m</phoneme></Graphemes> 
+				<Graphemes><grapheme>ms</grapheme><phoneme>m</phoneme></Graphemes> 
+				<Graphemes><grapheme>g</grapheme><phoneme>n</phoneme></Graphemes>  <!-- SPECIAL: la nasale palatale transcrite[J] dans Morphalou devient [n] pour "g" et [j] pour "n"-->			
+				<Graphemes><grapheme>kn</grapheme><phoneme>n</phoneme></Graphemes>  <!-- knicker, know-how: pas présents dans Morphalou, knock-out: sans transcription -->
+				<Graphemes><grapheme>mn</grapheme><phoneme>n</phoneme></Graphemes> 
+				<Graphemes><grapheme>mne</grapheme><phoneme>n</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [n@] -->
+				<Graphemes><grapheme>mnent</grapheme><phoneme>n</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [n@] -->
+				<Graphemes><grapheme>mnes</grapheme><phoneme>n</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [n@] -->
+				<Graphemes><grapheme>n</grapheme><phoneme>n</phoneme></Graphemes> 
+				<Graphemes><grapheme>ne</grapheme><phoneme>n</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [n@] -->
+				<Graphemes><grapheme>ned</grapheme><phoneme>n</phoneme></Graphemes>  <!-- corned-beef: sans transcription dans Morphalou -->
+				<Graphemes><grapheme>nent</grapheme><phoneme>n</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [n@] -->
+				<Graphemes><grapheme>nes</grapheme><phoneme>n</phoneme></Graphemes> 
+				<Graphemes><grapheme>nn</grapheme><phoneme>n</phoneme></Graphemes> 
+				<Graphemes><grapheme>nne</grapheme> <phoneme>n</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [n@] -->
+				<Graphemes><grapheme>nnent</grapheme><phoneme>n</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [n@] -->
+				<Graphemes><grapheme>nnes</grapheme><phoneme>n</phoneme></Graphemes>  <!-- ATTENTION: Morphalou: [n@] -->
+				<Graphemes><grapheme>nns</grapheme><phoneme>n</phoneme></Graphemes> 
+				<Graphemes><grapheme>ns</grapheme><phoneme>n</phoneme></Graphemes> 
+				<Graphemes><grapheme>n'</grapheme> <phoneme>n</phoneme></Graphemes> <!-- rajouté par Stef 18.2 -->
+			 <!-- Il s'agit de la nasale palatale [J], que l'on va transcrire [nj] ou [ni] en SAMPAsimplifié -->
+				<Graphemes><grapheme>gn</grapheme><phoneme>J</phoneme></Graphemes>
+				<Graphemes><grapheme>gne</grapheme><phoneme>J</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [J@] -->
+				<Graphemes><grapheme>gnent</grapheme><phoneme>J</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [J@] -->
+				<Graphemes><grapheme>gnes</grapheme><phoneme>J</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [J@] -->
+				<Graphemes><grapheme>gni</grapheme><phoneme>J</phoneme></Graphemes>
+				<Graphemes><grapheme>ñ</grapheme><phoneme>J</phoneme></Graphemes> <!-- cañon: sans transcription dans Morphalou -->
+			 <!-- Il s'agit de la nasale vélaire [N], que l'on va retranscrire [ng]-->
+				<Graphemes><grapheme>ng</grapheme><phoneme>N</phoneme></Graphemes>
+				<Graphemes><grapheme>ngs</grapheme><phoneme>N</phoneme></Graphemes> <!-- AJOUT: à partir de la liste du Fidel -->	
+				<Graphemes><grapheme>n</grapheme><phoneme>N</phoneme></Graphemes>
+				 <!-- diphones récemment intégrés, plus la jota ESP, mentionnée dans Morphalou, même si elle n'apparaît nulle part!!! -->
+			 <!-- NB: autre graphèmes possibles: cc, chs, cs, ct, gs, kes, ks (mais pas bicolores, donc pas de souci), ajout commentaire 7 déc 2012 -->
+				<Graphemes><grapheme>x</grapheme><phoneme>k s</phoneme></Graphemes>
+				<Graphemes><grapheme>xe</grapheme><phoneme>k s</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [ks@] -->
+				<Graphemes><grapheme>xes</grapheme><phoneme>k s</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [ks@] -->
+				<Graphemes><grapheme>xent</grapheme><phoneme>k s</phoneme></Graphemes> <!-- ATTENTION: Morphalou: [ks@] -->
+			<!-- NB: autre graphèmes possibles: cs, cz (mais pas bicolores, donc pas de souci), ajout commentaire 7 déc 2012 -->
+				<Graphemes><grapheme>x</grapheme>	<phoneme>g z</phoneme></Graphemes>  	 		
+				<Graphemes><grapheme>c</grapheme><phoneme>t S</phoneme></Graphemes> 
+				<Graphemes><grapheme>cc</grapheme><phoneme>t S</phoneme></Graphemes>  <!-- bruccio: ajouté 7 dec 2012, cf. REGLES.odt -->
+				<Graphemes><grapheme>ch</grapheme><phoneme>t S</phoneme></Graphemes>  <!-- churrigueresque: ajouté 7 dec 2012, cf. REGLES.odt -->
+				<Graphemes><grapheme>g</grapheme><phoneme>d Z</phoneme></Graphemes> 
+				<Graphemes><grapheme>j</grapheme><phoneme>d Z</phoneme></Graphemes>  <!-- jazz: ajouté 7 dec 2012, cf. REGLES.odt -->
+				<Graphemes><grapheme>gg</grapheme><phoneme>d Z</phoneme></Graphemes>  <!-- appoggiature: ajouté 7 dec 2012, cf. REGLES.odt -->
+				<Graphemes><grapheme>n</grapheme><phoneme>a~ n</phoneme></Graphemes>
+			
+				<Graphemes><grapheme>n</grapheme><phoneme>9~ n</phoneme></Graphemes> 
+				<Graphemes><grapheme>oi</grapheme>  <phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oî</grapheme> <phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oid</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oids</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oie</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oient</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oies</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oig</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oigt</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oigts</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>ois</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oîs</grapheme> <phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oit</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oît</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oits</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oîts</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oix</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>ooi</grapheme> <phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oy</grapheme><phoneme>w a</phoneme></Graphemes> <!-- permalloy: pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>oye</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oyes</grapheme><phoneme>w a</phoneme></Graphemes>
+				<Graphemes><grapheme>oys</grapheme><phoneme>w a</phoneme></Graphemes><!-- permalloys: pas présent dans Morphalou 2.0 -->		
+
+</ListePhonemesSAMPAGraphemes>

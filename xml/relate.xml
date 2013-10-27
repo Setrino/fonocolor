@@ -10,7 +10,8 @@
 		
 		<relation>	
 			
-			<phoneme>e</phoneme><color>#FF5800</color> <!-- ancien: #FA7100 -->
+			<phoneme>e</phoneme>
+			<color>#FF5800</color> <!-- ancien: #FA7100 -->
 		</relation>
 		
 		<relation>	
@@ -91,10 +92,8 @@
 			<color>#1f5630</color> <!-- avant 22 dec: #2F3614 -->
 		</relation>
 		
-		<relation>	
-			
-				<phoneme>t</phoneme>				
-				
+		<relation>
+			<phoneme>t</phoneme>
 			<color>#007363</color> <!-- ancien: #024731 -->
 		</relation>
 		
@@ -105,39 +104,27 @@
 			<color>#380096</color>  <!-- avant 22 dec: #394a58 --><!-- ancien: #003f72 -->
 		</relation>
 		
-		<relation>	
-			
-				<phoneme>b</phoneme>				
-				
-			<color>#84003C</color>
+		<relation>
+			<phoneme>b</phoneme><color>#84003C</color>
 		</relation>
 		
-		<relation>	
-			
-				<phoneme>d</phoneme>				
-				
-			<color>#B06F00</color>
+		<relation>
+			<phoneme>d</phoneme><color>#B06F00</color>
 		</relation>
 		
-		<relation>	
-			
-				<phoneme>g</phoneme>				
-				
-			<color>#602144</color> <!-- ancien: #7D250E -->
+		<relation>
+			<phoneme>g</phoneme><color>#602144</color> <!-- ancien: #7D250E -->
 		</relation>
 		
-		<relation>	
-			
-				<phoneme>f</phoneme>				
-				
-			<color>#787A7B</color>
+		<relation>
+			<phoneme>f</phoneme><color>#787A7B</color>
 		</relation>
 		
 		<relation>	
 			
 				<phoneme>s</phoneme>				
 				
-			<color>#af8970 </color> <!-- avant 22 dec: #546856 --><!-- ancien: #007363 -->
+			<color>#af8970</color> <!-- avant 22 dec: #546856 --><!-- ancien: #007363 -->
 		</relation>
 		
 		<relation>	
@@ -168,18 +155,12 @@
 			<color>#8A44C6</color>P
 		</relation>
 		
-		<relation>	
-			
-				<phoneme>l</phoneme>				
-				
-			<color>#91BAA3</color> <!-- ancien: #9ADCC6 --> 
+		<relation>
+			<phoneme>l</phoneme><color>#91BAA3</color> <!-- ancien: #9ADCC6 --> 
 		</relation>
 		
-		<relation>	
-			
-				<phoneme>R</phoneme>				
-				
-			<color>#ADA188</color>
+		<relation>
+			<phoneme>R</phoneme><color>#ADA188</color>
 		</relation>
 		
 		<relation>	

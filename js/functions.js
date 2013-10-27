@@ -80,6 +80,7 @@ var checkLoop = function(){
             //Enter the AJAX check here
 
             placeInArray($(".search_form").val());
+            searchRequest("text");
 
             //searchText(previousValue);
         }
