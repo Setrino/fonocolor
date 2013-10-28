@@ -19,7 +19,7 @@ if(isset($_POST['text'])){
 
     if($request){
 
-        echo $request;
+        echo json_encode($request);
 
     }else{
         echo 'ERROR';
@@ -43,6 +43,8 @@ function checkWord($array, $c, $ph, $gr, $colorArray){
         $phoneme = $phonemes[0];
 
         addArrayColor(checkColor($phoneme), $c, sizeof($gr), $colorArray);
+
+        echo $colorArray;
 
     }else{
 
