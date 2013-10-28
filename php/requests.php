@@ -6,32 +6,87 @@ require_once "login.php";
 // Checks the request
 if(isset($_POST['text'])){
 
-    $sql_check = mysql_query("SELECT phoneme FROM graphemes WHERE grapheme='t'") or die(mysql_error());
-    $temp = '';
-    $phoneme = '';
+    $word = $_POST['text'];
+    $letterArray = explode("",$word);
+    $colorArray = [];
 
-    if($sql_check){
+    for($i = 0; $i < sizeof($letterArray); $i++){
 
-        $rows = mysql_num_rows($sql_check);
-        $u_rows = mysql_fetch_array($sql_check, MYSQL_ASSOC);
-        $phonemes = $u_rows['phoneme'];
-        $phoneme = $phonemes[0];
+        $colorArray[i][0] = $letterArray[i];
+    }
 
-        if($rows > 1){
+    $request = checkWord($letterArray, 0, "", "", $colorArray);
 
-            //TO DO A WHILE LOOP OF EXTENDING THE PHRASE
+    if($request){
 
-            $temp = checkColor($phoneme);
-
-        }else{
-
-            $temp = checkColor($phoneme);
-        }
-
-        echo $temp;
+        echo $request;
 
     }else{
         echo 'ERROR';
+    }
+}
+
+//$array of one word,
+//$ph - phoneme,
+//$gr - grapheme
+//$c - current character (combine $c + $gr)
+function checkWord($array, $c, $ph, $gr, $colorArray){
+
+    $temp = $gr + $array[0];
+    $arrayTail = [];
+
+    if(sizeof($array) == 1){
+
+        $sql_check = mysql_query("SELECT phoneme FROM graphemes WHERE grapheme='".$temp."'") or die(mysql_error());
+        $rows = mysql_fetch_array($sql_check, MYSQL_ASSOC);
+        $phonemes = $rows['phoneme'];
+        $phoneme = $phonemes[0];
+
+        addArrayColor(checkColor($phoneme), $c, sizeof($gr), $colorArray);
+
+    }else{
+
+        for($i = 1; $i < sizeof($array); $i++){
+
+            $arrayTail[$i] = $array[$i];
+        }
+
+        $sql_check = mysql_query("SELECT phoneme FROM graphemes WHERE grapheme='".$temp."'") or die(mysql_error());
+        $rows = mysql_fetch_array($sql_check, MYSQL_ASSOC);
+        $noOfRows = sizeof($rows);
+        $phonemes = $rows['phoneme'];
+        $phoneme = $phonemes[0];
+
+        if($noOfRows > 1){
+
+            checkWord($arrayTail, $c, $phoneme, $temp, $colorArray);
+
+        }elseif($noOfRows == 1){
+
+            addArrayColor(checkColor($phoneme), $c, sizeof($gr), $colorArray);
+            checkWord($arrayTail, $c + sizeof($gr), "", "", $colorArray);
+
+        }elseif($noOfRows == 0){
+
+            addArrayColor(checkColor($ph), $c, sizeof($gr), $colorArray);
+            checkWord($arrayTail, $c + sizeof($gr), "", "", $colorArray);
+        }
+    }
+}
+
+//$c - starting character
+//$length - length of colors to fill in
+
+function addArrayColor($color, $c, $length, $colorArray){
+
+    for($i = $c; $i < $c + $length; $i++){
+
+        if(is_array($color)){
+            $colorArray[i][1] = $color[0];
+            $colorArray[i][2] = $color[1];
+        }else{
+            $colorArray[i][1] = $color;
+        }
     }
 }
 
@@ -48,7 +103,7 @@ function checkColor($letter){
         echo $color;
     }else{
 
-        echo json_encode(array($rows['colorTop'], $rows['colorBottom']));
+        echo array($rows['colorTop'], $rows['colorBottom']);
     }
 }
 
