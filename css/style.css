@@ -194,6 +194,11 @@ ul#useful_links_bot li{
 
 }
 
+.reply{
+    position: relative;
+    top: -0.5em;
+}
+
 /* END Search */
 
 /* Overlay copyright box */
