@@ -1,7 +1,7 @@
 // AJAX call to retrieve the sentence in color
-function searchRequest(text){
+function searchRequest(text, i){
 
-    $('.info').html('<img src="images/preloader.gif" align="absmiddle">&nbsp;Fonocolorizing...');
+    $('.reply').html('<img src="images/preloader.gif" align="absmiddle">&nbsp;Fonocolorizing...');
 
     $.ajax({
         type: "POST",
@@ -15,18 +15,8 @@ function searchRequest(text){
             }
             else
             {
-
-                var array = [];
-
-                try
-                {
-                    array = jQuery.parseJSON(msg);
-                    $('.reply').html(array[0] + " " + array[1]);
-                }
-                catch(e)
-                {
-                    $('.reply').html(msg);
-                }
+                $('.reply').html(msg);
+                catchColor(msg, i);
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

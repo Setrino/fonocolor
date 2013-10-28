@@ -49,6 +49,43 @@ function placeInArray(text){
     draw();
 }
 
+function catchColor(color, i){
+
+    try{
+        var colors = jQuery.parseJSON(color);
+        textArray[i][1] = colors[0];
+        textArray[i][2] = colors[1];
+
+    }catch(e){
+
+        textArray[i][1] = color;
+    }
+
+    console.log(textArray[i][0] + " " + textArray[i][1]);
+}
+
+function colorArray(text){
+
+    var textLength = text.length;
+
+    if(previousLength < textLength || textLength == 0){
+
+        textArray = [];
+    }
+
+    var splitArray = text.split(" ");
+
+    for(var i = 0; i < splitArray.length; i ++){
+
+        var temp = splitArray[i];
+
+        textArray[i] = new Array();
+        textArray[i][0] = temp;
+
+        searchRequest(temp, i);
+    }
+}
+
 function drawText(x, y, text, colorTop, colorBottom, i){
 
     var lingrad = ctx.createLinearGradient(0, y * (i - 1), 0, y * i);

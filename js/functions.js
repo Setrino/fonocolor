@@ -81,6 +81,7 @@ var checkLoop = function(){
 
             placeInArray($(".search_form").val());
             searchRequest("text");
+            colorArray($(".search_form").val());
 
             //searchText(previousValue);
         }
