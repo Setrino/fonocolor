@@ -7,12 +7,12 @@ require_once "login.php";
 if(isset($_POST['text'])){
 
     $word = $_POST['text'];
-    $letterArray = explode("",$word);
+    $letterArray = str_split($word);
     $colorArray = [];
 
     for($i = 0; $i < sizeof($letterArray); $i++){
 
-        $colorArray[i][0] = $letterArray[i];
+        $colorArray[$i][0] = $letterArray[$i];
     }
 
     $request = checkWord($letterArray, 0, "", "", $colorArray);
@@ -26,25 +26,25 @@ if(isset($_POST['text'])){
     }
 }
 
-//$array of one word,
-//$ph - phoneme,
-//$gr - grapheme
-//$c - current character (combine $c + $gr)
-function checkWord($array, $c, $ph, $gr, $colorArray){
+//$array [] - word,
+//$ph - String phoneme,
+//$gr - String grapheme
+//$c - number, current character (combine $c + $gr)
+function checkWord($array, $c, $ph, $gr, &$colorArray){
 
-    $temp = $gr + $array[0];
+    $temp = $gr . $array[0];
     $arrayTail = [];
 
     if(sizeof($array) == 1){
 
-        $sql_check = mysql_query("SELECT phoneme FROM graphemes WHERE grapheme='".$temp."'") or die(mysql_error());
-        $rows = mysql_fetch_array($sql_check, MYSQL_ASSOC);
+        $sql_check = phonemeRequest($temp);
+        $rows = mysql_fetch_assoc($sql_check);
         $phonemes = $rows['phoneme'];
         $phoneme = $phonemes[0];
 
         addArrayColor(checkColor($phoneme), $c, sizeof($gr), $colorArray);
 
-        echo $colorArray;
+        return $colorArray;
 
     }else{
 
@@ -53,9 +53,9 @@ function checkWord($array, $c, $ph, $gr, $colorArray){
             $arrayTail[$i] = $array[$i];
         }
 
-        $sql_check = mysql_query("SELECT phoneme FROM graphemes WHERE grapheme='".$temp."'") or die(mysql_error());
-        $rows = mysql_fetch_array($sql_check, MYSQL_ASSOC);
-        $noOfRows = sizeof($rows);
+        $sql_check = phonemeRequest($temp);
+        $noOfRows = mysql_num_rows($sql_check);
+        $rows = mysql_fetch_assoc($sql_check);
         $phonemes = $rows['phoneme'];
         $phoneme = $phonemes[0];
 
@@ -76,18 +76,25 @@ function checkWord($array, $c, $ph, $gr, $colorArray){
     }
 }
 
+function phonemeRequest($temp){
+
+    $sql_check = mysql_query("SELECT phoneme FROM graphemes WHERE grapheme='".$temp."'") or die(mysql_error());
+
+    return $sql_check;
+}
+
 //$c - starting character
 //$length - length of colors to fill in
 
-function addArrayColor($color, $c, $length, $colorArray){
+function addArrayColor($color, $c, $length, &$colorArray){
 
     for($i = $c; $i < $c + $length; $i++){
 
         if(is_array($color)){
-            $colorArray[i][1] = $color[0];
-            $colorArray[i][2] = $color[1];
+            $colorArray[$i][1] = $color[0];
+            $colorArray[$i][2] = $color[1];
         }else{
-            $colorArray[i][1] = $color;
+            $colorArray[$i][1] = $color;
         }
     }
 }
@@ -102,10 +109,10 @@ function checkColor($letter){
 
     if($color != ''){
 
-        echo $color;
+        return $color;
     }else{
 
-        echo array($rows['colorTop'], $rows['colorBottom']);
+        return array($rows['colorTop'], $rows['colorBottom']);
     }
 }
 

@@ -64,6 +64,8 @@ function catchColor(color, i){
     console.log(textArray[i][0] + " " + textArray[i][1]);
 }
 
+
+// i - currently select word
 function colorArray(text){
 
     var textLength = text.length;

@@ -15,8 +15,17 @@ function searchRequest(text, i){
             }
             else
             {
-                $('.reply').html(msg);
-                catchColor(msg, i);
+
+                //catchColor(msg, i);
+
+                try{
+
+                    $('.reply').html(msg);
+
+                }catch(e){
+
+                    $('.reply').html('fail');
+                }
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
