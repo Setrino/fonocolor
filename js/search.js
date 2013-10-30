@@ -53,7 +53,7 @@ function placeInArray(text){
 //Receives array of [[letter, color]]
 //i - current word in the textArray
 //offsetX - offset along the x axis from previous word
-function catchColor(array, i, offsetX){
+function catchColor(array, i, offsetX, yMultiplier){
 
     var xDistance = 0;
 
@@ -62,7 +62,8 @@ function catchColor(array, i, offsetX){
     for(var j = 0; j < array.length; j++){
 
         ctx.beginPath();
-        drawText(3 + offsetX, pixel_size, (textArray[i][1])[j][0], (textArray[i][1])[j][1], (textArray[i][1])[j][2], xDistance);
+        drawText(3 + offsetX, pixel_size, (textArray[i][1])[j][0], (textArray[i][1])[j][1], (textArray[i][1])[j][2],
+            xDistance, yMultiplier);
         ctx.closePath();
         xDistance += ctx.measureText((textArray[i][1])[j][0]).width;
     }
@@ -88,6 +89,10 @@ function colorArray(text){
 
     var textLength = text.length;
     var offsetX = 0;
+    var yMultiplier = 1;
+    var textareaWidth = $(".search_output").width();
+
+    ctx.clearRect(0, 0, c.width, c.height);
 
     if(previousLength < textLength || textLength == 0){
 
@@ -104,12 +109,23 @@ function colorArray(text){
         textArray[i] = new Array();
         textArray[i][0] = temp;
 
-        searchRequest(temp, i, offsetX);
+        if(temp == 'top'){
+            alert(offsetX);
+        }
+
+        if((offsetX + ctx.measureText(temp + " ").width / yMultiplier) > textareaWidth){
+            ++yMultiplier;
+            offsetX = 0;
+        }
+
+        searchRequest(temp, i, offsetX, yMultiplier);
+
         offsetX += ctx.measureText(temp + " ").width;
+
     }
 }
 
-function drawText(x, y, text, colorTop, colorBottom, i){
+function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier){
 
     var lingrad = '';
 
@@ -127,7 +143,7 @@ function drawText(x, y, text, colorTop, colorBottom, i){
     }
 
     ctx.font= y + "px Arial";
-    ctx.fillText(text, x + i, y);
+    ctx.fillText(text, x + xDistance, y * yMultiplier);
 }
 
 c.onmousedown = function(e){

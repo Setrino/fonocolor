@@ -43,9 +43,8 @@ $(document).ready(function(){
         },
 
         click: function(){
-
-            searchText(previousValue);
-            placeInArray($(".search_form").val());
+            colorArray($(".search_form").val());
+            $(this).html("<img src=\"images/result.png\"/>");
         }
     });
 
@@ -82,6 +81,7 @@ var checkLoop = function(){
             //------ Remove placeInArray -------//
             //placeInArray($(".search_form").val());
             colorArray($(".search_form").val());
+            $(".color_text").html("<img src=\"images/result.png\"/>");
 
             //searchText(previousValue);
         }
@@ -89,7 +89,7 @@ var checkLoop = function(){
 
         if(previousValue != ''){
 
-            placeInArray('');
+            //placeInArray('');
             previousValue = '';
         }
     }
