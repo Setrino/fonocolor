@@ -54,7 +54,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
         for($i = 1; $i < $arrayLength; $i++){
 
-            $arrayTail[$i] = $array[$i];
+            $arrayTail[$i - 1] = $array[$i];
         }
 
         $sql_check = phonemeRequest($temp);
@@ -77,14 +77,18 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
         }elseif($noOfRows == 1){
 
             addArrayColor(checkColor($phoneme), $c, sizeof($temp), $colorArray);
+
             if(sizeof($array) == 0){
+
                 return $colorArray;
             }else{
+
                 return checkWord($arrayTail, $c + sizeof($temp), null, null, $colorArray);
             }
         }elseif($noOfRows == 0){
 
             addArrayColor(checkColor($ph), $c, sizeof($gr), $colorArray);
+
             return checkWord($array, $c + sizeof($temp), null, null, $colorArray);
         }
     }
