@@ -34,7 +34,11 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
     $arrayTail = [];
 
-   if(sizeof($array) == 1 && $gr == null){
+   if(sizeof($array) == 0 && $gr == null){
+
+       return $colorArray;
+   }
+   elseif(sizeof($array) == 1 && $gr == null){
 
         $temp = $gr . $array[0];
 
@@ -43,7 +47,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
         $phonemes = $rows['phoneme'];
         $phoneme = $phonemes[0];
 
-        addArrayColor(checkColor($phoneme), $c, sizeof($temp), $colorArray);
+        addArrayColor(checkColor($phoneme), $c, strlen($temp), $colorArray);
 
         return $colorArray;
 
@@ -67,7 +71,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
             if(sizeof($array) == 0){
 
-                addArrayColor(checkColor($phoneme), $c, sizeof($temp), $colorArray);
+                addArrayColor(checkColor($phoneme), $c, strlen($temp), $colorArray);
                 return $colorArray;
             }
             else{
@@ -76,20 +80,20 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
         }elseif($noOfRows == 1){
 
-            addArrayColor(checkColor($phoneme), $c, sizeof($temp), $colorArray);
+            addArrayColor(checkColor($phoneme), $c, strlen($temp), $colorArray);
 
             if(sizeof($array) == 0){
 
                 return $colorArray;
             }else{
 
-                return checkWord($arrayTail, $c + sizeof($temp), null, null, $colorArray);
+                return checkWord($arrayTail, $c + strlen($temp), null, null, $colorArray);
             }
         }elseif($noOfRows == 0){
 
-            addArrayColor(checkColor($ph), $c, sizeof($gr), $colorArray);
+            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
 
-            return checkWord($array, $c + sizeof($temp), null, null, $colorArray);
+            return checkWord($array, $c + strlen($temp) - 1, null, null, $colorArray);
         }
     }
 }
