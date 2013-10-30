@@ -15,7 +15,7 @@ if(isset($_POST['text'])){
         $colorArray[$i][0] = $letterArray[$i];
     }
 
-    $request = checkWord($letterArray, 0, "", "", $colorArray);
+    $request = checkWord($letterArray, 0, null, null, $colorArray);
 
     if($request){
 
@@ -32,23 +32,27 @@ if(isset($_POST['text'])){
 //$c - number, current character (combine $c + $gr)
 function checkWord($array, $c, $ph, $gr, &$colorArray){
 
-    $temp = $gr . $array[0];
     $arrayTail = [];
 
-    if(sizeof($array) == 1){
+   if(sizeof($array) == 1 && $gr == null){
+
+        $temp = $gr . $array[0];
 
         $sql_check = phonemeRequest($temp);
         $rows = mysql_fetch_assoc($sql_check);
         $phonemes = $rows['phoneme'];
         $phoneme = $phonemes[0];
 
-        addArrayColor(checkColor($phoneme), $c, sizeof($gr), $colorArray);
+        addArrayColor(checkColor($phoneme), $c, sizeof($temp), $colorArray);
 
         return $colorArray;
 
     }else{
 
-        for($i = 1; $i < sizeof($array); $i++){
+        $temp = $gr . $array[0];
+        $arrayLength = sizeof($array);
+
+        for($i = 1; $i < $arrayLength; $i++){
 
             $arrayTail[$i] = $array[$i];
         }
@@ -61,17 +65,27 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
         if($noOfRows > 1){
 
-            checkWord($arrayTail, $c, $phoneme, $temp, $colorArray);
+            if(sizeof($array) == 0){
+
+                addArrayColor(checkColor($phoneme), $c, sizeof($temp), $colorArray);
+                return $colorArray;
+            }
+            else{
+                return checkWord($arrayTail, $c, $phoneme, $temp, $colorArray);
+            }
 
         }elseif($noOfRows == 1){
 
-            addArrayColor(checkColor($phoneme), $c, sizeof($gr), $colorArray);
-            checkWord($arrayTail, $c + sizeof($gr), "", "", $colorArray);
-
+            addArrayColor(checkColor($phoneme), $c, sizeof($temp), $colorArray);
+            if(sizeof($array) == 0){
+                return $colorArray;
+            }else{
+                return checkWord($arrayTail, $c + sizeof($temp), null, null, $colorArray);
+            }
         }elseif($noOfRows == 0){
 
             addArrayColor(checkColor($ph), $c, sizeof($gr), $colorArray);
-            checkWord($arrayTail, $c + sizeof($gr), "", "", $colorArray);
+            return checkWord($array, $c + sizeof($temp), null, null, $colorArray);
         }
     }
 }
