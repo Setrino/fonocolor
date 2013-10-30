@@ -33,6 +33,8 @@ if(isset($_POST['text'])){
 function checkWord($array, $c, $ph, $gr, &$colorArray){
 
     $arrayTail = [];
+    $noOfRows = 0;
+    $phoneme = '';
 
    if(sizeof($array) == 0 && $gr == null){
 
@@ -42,10 +44,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
         $temp = $gr . $array[0];
 
-        $sql_check = phonemeRequest($temp);
-        $rows = mysql_fetch_assoc($sql_check);
-        $phonemes = $rows['phoneme'];
-        $phoneme = $phonemes[0];
+        phonemeRequest($temp, $phoneme, $noOfRows);
 
         addArrayColor(checkColor($phoneme), $c, strlen($temp), $colorArray);
 
@@ -61,11 +60,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
             $arrayTail[$i - 1] = $array[$i];
         }
 
-        $sql_check = phonemeRequest($temp);
-        $noOfRows = mysql_num_rows($sql_check);
-        $rows = mysql_fetch_assoc($sql_check);
-        $phonemes = $rows['phoneme'];
-        $phoneme = $phonemes[0];
+       phonemeRequest($temp, $phoneme, $noOfRows);
 
         if($noOfRows > 1){
 
@@ -98,11 +93,14 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
     }
 }
 
-function phonemeRequest($temp){
+function phonemeRequest($temp, &$phoneme, &$noOfRows){
 
     $sql_check = mysql_query("SELECT phoneme FROM graphemes WHERE grapheme='".$temp."'") or die(mysql_error());
+    $rows = mysql_fetch_assoc($sql_check);
+    $noOfRows = mysql_num_rows($sql_check);
+    $phonemes = $rows['phoneme'];
+    $phoneme = $phonemes[0];
 
-    return $sql_check;
 }
 
 //$c - starting character
