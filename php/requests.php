@@ -41,6 +41,25 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
        return $colorArray;
    }
+   elseif(!ctype_alpha($array[0])){
+
+       $temp = $gr . $array[0];
+       $arrayLength = sizeof($array);
+
+       if($ph != null){
+
+           addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+       }
+
+       addArrayColor("#000000", $c + strlen($gr), strlen($temp),$colorArray);
+
+       for($i = 1; $i < $arrayLength; $i++){
+
+           $arrayTail[$i - 1] = $array[$i];
+       }
+
+       return checkWord($arrayTail, $c + strlen($temp), null, null, $colorArray);
+   }
    elseif(sizeof($array) == 1 && $gr == null){
 
         $temp = $gr . $array[0];

@@ -68,18 +68,6 @@ function catchColor(array, i, offsetX, yMultiplier){
         xDistance += ctx.measureText((textArray[i][1])[j][0]).width;
     }
 
-    drawText(3, pixel_size, " ", null, null, xDistance);
-
-    /*try{
-        var colors = jQuery.parseJSON(color);
-
-        textArray[i][2] = colors[1];
-
-    }catch(e){
-
-        textArray[i][1] = color;
-    }*/
-
     console.log(textArray[i][0] + " " + textArray[i][1]);
 }
 
@@ -87,41 +75,66 @@ function catchColor(array, i, offsetX, yMultiplier){
 // i - currently select word
 function colorArray(text){
 
-    var textLength = text.length;
+        var textLength = text.length;
+        var offsetX = 0;
+        var yMultiplier = 1;
+        var textareaWidth = $(".search_output").width();
+
+        ctx.clearRect(0, 0, c.width, c.height);
+
+        if(previousLength < textLength || textLength == 0){
+
+            textArray = [];
+        }
+
+        //Sentence
+        var splitArray = text.split(" ");
+
+        for(var i = 0; i < splitArray.length; i ++){
+
+            var temp = splitArray[i];
+
+            textArray[i] = new Array();
+            textArray[i][0] = temp;
+
+            if((offsetX + ctx.measureText(temp + " ").width / yMultiplier) > textareaWidth){
+                ++yMultiplier;
+                offsetX = 0;
+            }
+
+            searchRequest(temp, i, offsetX, yMultiplier);
+
+            offsetX += ctx.measureText(temp + " ").width;
+
+        }
+}
+
+
+//Redraw the entire array
+function drawArray(){
+
     var offsetX = 0;
     var yMultiplier = 1;
     var textareaWidth = $(".search_output").width();
 
-    ctx.clearRect(0, 0, c.width, c.height);
-
-    if(previousLength < textLength || textLength == 0){
-
-        textArray = [];
-    }
-
-    //Sentence
-    var splitArray = text.split(" ");
-
-    for(var i = 0; i < splitArray.length; i ++){
-
-        var temp = splitArray[i];
-
-        textArray[i] = new Array();
-        textArray[i][0] = temp;
-
-        if(temp == 'top'){
-            alert(offsetX);
-        }
+    for(var i = 0; i < textArray.length; i++){
 
         if((offsetX + ctx.measureText(temp + " ").width / yMultiplier) > textareaWidth){
             ++yMultiplier;
             offsetX = 0;
         }
 
-        searchRequest(temp, i, offsetX, yMultiplier);
+        var xDistance = 0;
 
+        for(var j = 0; j < (textArray[i][1]).length; j++){
+
+            ctx.beginPath();
+            drawText(3 + offsetX, pixel_size, (textArray[i][1])[j][0], (textArray[i][1])[j][1], (textArray[i][1])[j][2],
+                xDistance, yMultiplier);
+            ctx.closePath();
+            xDistance += ctx.measureText((textArray[i][1])[j][0]).width;
+        }
         offsetX += ctx.measureText(temp + " ").width;
-
     }
 }
 
@@ -188,11 +201,7 @@ function draw(delta){
         ctx.translate(0, delta);
         ctx.clearRect(0, 0, c.width, c.height + (-translated));
 
-        for(var i = 0; i < textArray.length; i++){
-            ctx.beginPath();
-            drawText(3, pixel_size, textArray[i], '#00ABEB', '#66CC00', i + 1);
-            ctx.closePath();
-        }
+        drawArray();
     }
 
     console.log(lastY);
