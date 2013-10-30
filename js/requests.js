@@ -1,5 +1,5 @@
 // AJAX call to retrieve the sentence in color
-function searchRequest(text, i){
+function searchRequest(text, i, offsetX){
 
     $('.reply').html('<img src="images/preloader.gif" align="absmiddle">&nbsp;Fonocolorizing...');
 
@@ -17,7 +17,7 @@ function searchRequest(text, i){
             {
                 try{
 
-                    catchColor(msg, i);
+                    catchColor(msg, i, offsetX);
                     $('.reply').html(msg);
 
                 }catch(e){

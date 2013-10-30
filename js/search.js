@@ -51,16 +51,23 @@ function placeInArray(text){
 
 
 //Receives array of [[letter, color]]
-function catchColor(array, i){
+//i - current word in the textArray
+//offsetX - offset along the x axis from previous word
+function catchColor(array, i, offsetX){
+
+    var xDistance = 0;
 
     textArray[i][1] = jQuery.parseJSON(array);
 
     for(var j = 0; j < array.length; j++){
 
         ctx.beginPath();
-        drawText(3, pixel_size, (textArray[i][1])[j][0], (textArray[i][1])[j][1], (textArray[i][1])[j][2], j + 1);
+        drawText(3 + offsetX, pixel_size, (textArray[i][1])[j][0], (textArray[i][1])[j][1], (textArray[i][1])[j][2], xDistance);
         ctx.closePath();
+        xDistance += ctx.measureText((textArray[i][1])[j][0]).width;
     }
+
+    drawText(3, pixel_size, " ", null, null, xDistance);
 
     /*try{
         var colors = jQuery.parseJSON(color);
@@ -80,6 +87,7 @@ function catchColor(array, i){
 function colorArray(text){
 
     var textLength = text.length;
+    var offsetX = 0;
 
     if(previousLength < textLength || textLength == 0){
 
@@ -96,7 +104,8 @@ function colorArray(text){
         textArray[i] = new Array();
         textArray[i][0] = temp;
 
-        searchRequest(temp, i);
+        searchRequest(temp, i, offsetX);
+        offsetX += ctx.measureText(temp + " ").width;
     }
 }
 
@@ -118,7 +127,7 @@ function drawText(x, y, text, colorTop, colorBottom, i){
     }
 
     ctx.font= y + "px Arial";
-    ctx.fillText(text, x, y * i);
+    ctx.fillText(text, x + i, y);
 }
 
 c.onmousedown = function(e){
