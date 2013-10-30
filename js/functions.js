@@ -80,7 +80,7 @@ var checkLoop = function(){
             //Enter the AJAX check here
 
             //------ Remove placeInArray -------//
-            placeInArray($(".search_form").val());
+            //placeInArray($(".search_form").val());
             colorArray($(".search_form").val());
 
             //searchText(previousValue);

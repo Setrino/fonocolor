@@ -15,11 +15,9 @@ function searchRequest(text, i){
             }
             else
             {
-
-                //catchColor(msg, i);
-
                 try{
 
+                    catchColor(msg, i);
                     $('.reply').html(msg);
 
                 }catch(e){

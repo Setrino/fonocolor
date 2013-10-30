@@ -30,6 +30,7 @@ if(isset($_POST['text'])){
 //$ph - String phoneme,
 //$gr - String grapheme
 //$c - number, current character (combine $c + $gr)
+//Recursive function used for finding the letters
 function checkWord($array, $c, $ph, $gr, &$colorArray){
 
     $arrayTail = [];

@@ -49,17 +49,28 @@ function placeInArray(text){
     draw();
 }
 
-function catchColor(color, i){
 
-    try{
+//Receives array of [[letter, color]]
+function catchColor(array, i){
+
+    textArray[i][1] = jQuery.parseJSON(array);
+
+    for(var j = 0; j < array.length; j++){
+
+        ctx.beginPath();
+        drawText(3, pixel_size, (textArray[i][1])[j][0], (textArray[i][1])[j][1], (textArray[i][1])[j][2], j + 1);
+        ctx.closePath();
+    }
+
+    /*try{
         var colors = jQuery.parseJSON(color);
-        textArray[i][1] = colors[0];
+
         textArray[i][2] = colors[1];
 
     }catch(e){
 
         textArray[i][1] = color;
-    }
+    }*/
 
     console.log(textArray[i][0] + " " + textArray[i][1]);
 }
@@ -75,6 +86,7 @@ function colorArray(text){
         textArray = [];
     }
 
+    //Sentence
     var splitArray = text.split(" ");
 
     for(var i = 0; i < splitArray.length; i ++){
@@ -90,13 +102,21 @@ function colorArray(text){
 
 function drawText(x, y, text, colorTop, colorBottom, i){
 
-    var lingrad = ctx.createLinearGradient(0, y * (i - 1), 0, y * i);
+    var lingrad = '';
+
+    if(colorBottom != undefined){
+
+    lingrad = ctx.createLinearGradient(0, y * (i - 1), 0, y * i);
     lingrad.addColorStop(0, colorTop);
     lingrad.addColorStop(0.6, colorTop);
     lingrad.addColorStop(0.6, colorBottom);
     lingrad.addColorStop(1, colorBottom);
-
     ctx.fillStyle = lingrad;
+    }else{
+
+    ctx.fillStyle = colorTop;
+    }
+
     ctx.font= y + "px Arial";
     ctx.fillText(text, x, y * i);
 }
