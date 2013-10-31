@@ -3,9 +3,6 @@
 define('INCLUDE_CHECK',true);
 require_once "login.php";
 
-ini_set('display_errors', '1');
-ini_set('error_reporting', E_ALL);
-
 // Checks the request
 if(isset($_POST['text'])){
 

@@ -60,7 +60,7 @@ function catchColor(array, i, offsetX, yMultiplier){
 
     textArray[i][1] = jQuery.parseJSON(array);
 
-    for(var j = 0; j < array.length; j++){
+    for(var j = 0; j < textArray[i][1].length; j++){
 
         var letter = (textArray[i][1])[j][0];
 

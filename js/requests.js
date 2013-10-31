@@ -22,7 +22,7 @@ function searchRequest(text, i, offsetX, yMultiplier){
 
                 }catch(e){
 
-                    $('.reply').html('fail');
+                    $('.reply').html(e);
                 }
             }
         },
