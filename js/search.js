@@ -62,11 +62,16 @@ function catchColor(array, i, offsetX, yMultiplier){
 
     for(var j = 0; j < array.length; j++){
 
-        ctx.beginPath();
-        drawText(3 + offsetX, pixel_size, (textArray[i][1])[j][0], (textArray[i][1])[j][1], (textArray[i][1])[j][2],
-            xDistance, yMultiplier);
-        ctx.closePath();
-        xDistance += ctx.measureText((textArray[i][1])[j][0]).width;
+        var letter = (textArray[i][1])[j][0];
+
+        if(letter != undefined){
+
+            ctx.beginPath();
+            drawText(3 + offsetX, pixel_size, letter, (textArray[i][1])[j][1], (textArray[i][1])[j][2],
+                xDistance, yMultiplier);
+            ctx.closePath();
+            xDistance += ctx.measureText(letter).width;
+        }
     }
 
     console.log(textArray[i][0] + " " + textArray[i][1]);
@@ -130,11 +135,16 @@ function drawArray(){
 
         for(var j = 0; j < (textArray[i][1]).length; j++){
 
-            ctx.beginPath();
-            drawText(3 + offsetX, pixel_size, (textArray[i][1])[j][0], (textArray[i][1])[j][1], (textArray[i][1])[j][2],
-                xDistance, yMultiplier);
-            ctx.closePath();
-            xDistance += ctx.measureText((textArray[i][1])[j][0]).width;
+            var letter = (textArray[i][1])[j][0];
+
+            if(letter != undefined){
+
+                ctx.beginPath();
+                drawText(3 + offsetX, pixel_size, letter, (textArray[i][1])[j][1], (textArray[i][1])[j][2],
+                    xDistance, yMultiplier);
+                ctx.closePath();
+                xDistance += ctx.measureText(letter).width;
+            }
         }
         offsetX += ctx.measureText(textArray[i][0] + " ").width;
     }
@@ -197,8 +207,6 @@ function draw(delta){
 
         translated = difference * 2 - 3;
 
-        console.log(difference * 2 - 3);
-        
     }else if( ( translated ) >= difference ){
 
         translated = difference;
@@ -215,7 +223,7 @@ function draw(delta){
         drawArray();
     }
 
-    console.log(lastY + " " + (translated - difference) + " t " + difference);
+    //console.log(lastY + " " + (translated - difference) + " t " + difference);
 }
 
 function setBlockHeight(height){
