@@ -5,8 +5,8 @@ if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file dire
 /* Database config */
 
 $db_host		= 'localhost';
-$db_user		= 'fonocolor';
-$db_pass		= 'fZ4hr5!oBx1';
+$db_user		= 'root';
+$db_pass		= '';
 $db_database	= 'fonocolor';
 
 /* End config */
