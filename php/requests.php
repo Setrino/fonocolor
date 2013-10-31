@@ -15,7 +15,7 @@ if(isset($_POST['text'])){
         $colorArray[$i][0] = $letterArray[$i];
     }
 
-    $request = checkWord($letterArray, 0, null, null, $colorArray);
+    $request = ''; //checkWord($letterArray, 0, null, null, $colorArray);
 
     if($request){
 

@@ -2,11 +2,11 @@ $(document).ready(function(){
 
     $("#full_screen").click(function(){
 
-        if ($('body').css("background-color") == "rgb(0, 0, 0)"){
+        /*if ($('body').css("background-color") == "rgb(0, 0, 0)"){
             $('body').css("background-color", "#696969");
         }else{
             $('body').css("background-color", "#000000");
-        }
+        }*/
 
         $("#canvas").requestFullScreen();
 
