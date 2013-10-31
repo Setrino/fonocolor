@@ -20,7 +20,8 @@ var pixel_size = 20,
     translated = 0,
     rowLength = 85,
     textArray = new Array(),
-    previousLength = 0;
+    previousLength = 0,
+    coloredBlockHeight = 0;
 
 function drawRectangle(){
 
@@ -100,6 +101,7 @@ function colorArray(text){
             if((offsetX + ctx.measureText(temp + " ").width / yMultiplier) > textareaWidth){
                 ++yMultiplier;
                 offsetX = 0;
+                setBlockHeight(yMultiplier);
             }
 
             searchRequest(temp, i, offsetX, yMultiplier);
@@ -119,7 +121,7 @@ function drawArray(){
 
     for(var i = 0; i < textArray.length; i++){
 
-        if((offsetX + ctx.measureText(temp + " ").width / yMultiplier) > textareaWidth){
+        if((offsetX + ctx.measureText(textArray[i][0] + " ").width / yMultiplier) > textareaWidth){
             ++yMultiplier;
             offsetX = 0;
         }
@@ -134,7 +136,7 @@ function drawArray(){
             ctx.closePath();
             xDistance += ctx.measureText((textArray[i][1])[j][0]).width;
         }
-        offsetX += ctx.measureText(temp + " ").width;
+        offsetX += ctx.measureText(textArray[i][0] + " ").width;
     }
 }
 
@@ -178,6 +180,7 @@ window.onmouseup = function(){
 
 window.onmousemove = function(e){
     var evt = e || event;
+    window.event.returnValue = false;
     if (dragging){
         var delta = evt.offsetY - lastY;
         translated += delta;
@@ -188,11 +191,19 @@ window.onmousemove = function(e){
 
 function draw(delta){
 
-    if( ( -translated ) >= ( c.height - pixel_size * textArray.length )){
+    var difference = c.height - pixel_size * coloredBlockHeight;
 
-        translated = - ( c.height - pixel_size * textArray.length );
+    if((translated) <= difference * 2 - 3){
 
-    } else if( -translated < 0 ){
+        translated = difference * 2 - 3;
+
+        console.log(difference * 2 - 3);
+        
+    }else if( ( translated ) >= difference ){
+
+        translated = difference;
+
+    }else if(difference >= 0){
 
         translated = 0;
 
@@ -204,5 +215,10 @@ function draw(delta){
         drawArray();
     }
 
-    console.log(lastY);
+    console.log(lastY + " " + (translated - difference) + " t " + difference);
+}
+
+function setBlockHeight(height){
+
+    coloredBlockHeight = height;
 }
