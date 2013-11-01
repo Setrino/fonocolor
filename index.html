@@ -3,6 +3,7 @@
         <title>Fonocolor</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/video.js"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -16,34 +17,36 @@
                     <a href="index.html"><img class="logo" src="images/logo.png"/></a>
                 </div>
             </header>
-            <div id="phonetic">
-                <ul id="useful_links_top">
-                    <li class="clean"><a href="#"><img src="images/clean.png"/></a></li>
-                </ul>
-                <div id="enter" class="entry_blocks">
-                    <form action="search.php">
-                        <textarea rows="4" cols="50" name="text_input" class="search_form" autofocus></textarea>
-                    </form>
+            <div class="body_wrapper">
+                <div id="phonetic">
+                    <ul id="useful_links_top">
+                        <li class="clean"><a href="#"><img src="images/clean.png"/></a></li>
+                    </ul>
+                    <div id="enter" class="entry_blocks">
+                        <form action="search.php">
+                            <textarea rows="4" cols="50" name="text_input" class="search_form" autofocus></textarea>
+                        </form>
+                    </div>
+                    <div id="answer"><a class="color_text" href="#"><img src="images/result.png"/></a></div>
+                    <div id="result" class="entry_blocks">
+                        <textarea rows="4" cols="50" name="text_output" class="search_output"></textarea>
+                        <canvas id="canvas"></canvas>
+                        <script src="js/search.js"></script>
+                        <p class="reply"></p>
+                    </div>
+                    <ul id="useful_links_bot">
+                        <li class="register"><a href="#"><img src="images/register.png"/></a></li>
+                        <li id="full_screen"><a href="#"><img src="images/full_screen.png"/></a></li>
+                    </ul>
                 </div>
-                <div id="answer"><a class="color_text" href="#"><img src="images/result.png"/></a></div>
-                <div id="result" class="entry_blocks">
-                    <textarea rows="4" cols="50" name="text_output" class="search_output"></textarea>
-                    <canvas id="canvas"></canvas>
-                    <script src="js/search.js"></script>
-                    <p class="reply"></p>
-                </div>
-                <ul id="useful_links_bot">
-                    <li class="register"><a href="#"><img src="images/register.png"/></a></li>
-                    <li id="full_screen"><a href="#"><img src="images/full_screen.png"/></a></li>
-                </ul>
+                <nav id="menu">
+                    <ul>
+                        <li class="comment"><a href="comment.html">Comment</a></li>
+                        <li class="colorier"><a href="#" class="active">Accueil</a></li>
+                        <li class="pourquoi"><a href="pourquoi.html">Pourquoi</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav id="menu">
-                <ul>
-                    <li class="comment"><a href="comment.html">Comment</a></li>
-                    <li class="colorier"><a href="#" class="active">Accueil</a></li>
-                    <li class="pourquoi"><a href="pourquoi.html">Pourquoi</a></li>
-                </ul>
-            </nav>
             <!-- The dark background -->
             <div class="bgCover">&nbsp;</div>
             <!-- overlay box -->
@@ -63,6 +66,12 @@
                          <a href="www.cnrtl.fr/lexiques/morphalou">www.cnrtl.fr/lexiques/morphalou</a>
                      </p>
                 </div>
+            </div>
+            <div class="video">
+                <a href="#" class="video_skip">Skip video</a>
+                <iframe class="video_frame" src="//player.vimeo.com/video/59646335" width="700" height="394" frameborder="0" webkitallowfullscreen
+                        mozallowfullscreen allowfullscreen>
+                </iframe>
             </div>
             <script src="js/copyright.js"></script>
             <script src="js/requests.js"></script>

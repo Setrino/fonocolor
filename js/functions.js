@@ -17,6 +17,7 @@ $(document).ready(function(){
         }
 
     });
+
     $("#answer").css("margin-left", $("#phonetic").width() / 2 - 97 / 2);
     $("#answer").css("margin-top", - 19 / 2);
 

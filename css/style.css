@@ -239,6 +239,20 @@ ul#useful_links_bot li{
 
 /* END Overlay copyright box */
 
+/* Video */
+
+.video{
+
+    margin-top: 6em;
+}
+
+.video_skip{
+
+    float: right;
+}
+
+/* END Video */
+
 /* Canvas */
 
 #c{
