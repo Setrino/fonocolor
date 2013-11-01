@@ -59,7 +59,7 @@ function checkCookie()
     else
     {
         $(".body_wrapper").css("display", "none");
-        $(".body_wrapper").css("display", "block");
+        $(".video").css("display", "block");
         $(".video_skip").css("margin-right", ($(".video").width() - $(".video_frame").width()) / 1.3);
     }
 }
