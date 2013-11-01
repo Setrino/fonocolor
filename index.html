@@ -5,7 +5,7 @@
         <script src="js/jquery-1.10.2.min.js"></script>
         <script src="js/video.js"></script>
     </head>
-    <body>
+    <body onload="checkCookie()">
         <div id="wrapper">
             <header>
                 <div id="header_wrapper">
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="video">
-                <a href="#" class="video_skip">Skip video</a>
+                <a href="#" class="video_skip">Skip video >></a>
                 <iframe class="video_frame" src="//player.vimeo.com/video/59646335" width="700" height="394" frameborder="0" webkitallowfullscreen
                         mozallowfullscreen allowfullscreen>
                 </iframe>
