@@ -1,14 +1,14 @@
 <?php
 
 define('INCLUDE_CHECK',true);
-require_once "login.php";
+require_once 'login.php';
 
 // Checks the request
 if(isset($_POST['text'])){
 
     $word = $_POST['text'];
     $letterArray = str_split($word);
-    $colorArray = [];
+    $colorArray = array();
 
     for($i = 0; $i < sizeof($letterArray); $i++){
 
@@ -33,7 +33,7 @@ if(isset($_POST['text'])){
 //Recursive function used for finding the letters
 function checkWord($array, $c, $ph, $gr, &$colorArray){
 
-    $arrayTail = [];
+    $arrayTail = array();
     $noOfRows = 0;
     $phoneme = '';
 

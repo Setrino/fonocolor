@@ -1,5 +1,3 @@
-// AJAX call to retrieve the sentence in color
-//checkOff function called
 function searchRequest(text, i, offsetX, yMultiplier){
 
     $('.reply').html('<img src="images/preloader.gif" align="absmiddle">&nbsp;Fonocolorizing...');
@@ -7,7 +5,7 @@ function searchRequest(text, i, offsetX, yMultiplier){
     $.ajax({
         type: "POST",
         url: "php/requests.php",
-        data: {"text": text},
+        data: {text: text},
         success: function(msg){
 
             if(msg == 'ERROR')
@@ -17,8 +15,9 @@ function searchRequest(text, i, offsetX, yMultiplier){
             else
             {
                 try{
-                    //catchColor(msg, i, offsetX, yMultiplier);
-                    $('.reply').html(msg);
+                    catchColor(msg, i, offsetX, yMultiplier);
+                    //$('.reply').html(msg);
+                    $('.reply').html('');
 
                 }catch(e){
 
