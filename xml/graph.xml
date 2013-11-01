@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<ListePhonemesSAMPAGraphemes>
+	<Date_du_fichier>7/12/2012</Date_du_fichier> <!--pour que les deux fichiers ListePhonemesSAMPAGraphemes aient les mêmes mises à jour -->
+				
+				<Graphemes><grapheme>hi</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hî</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hie</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hies</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>his</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hit</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hît</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>hy</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>i</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>î</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ï</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ict</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>icts</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>id</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ids</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ie</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ïe</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ient</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ies</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ïes</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ih</grapheme><phoneme>i</phoneme></Graphemes> <!-- mihrab: une seule occurence?!? -->
+				<Graphemes><grapheme>il</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ils</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>is</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ïs</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>it</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ît</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ït</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>its</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ix</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>iz</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>u</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ui</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>y</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>ye</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>yes</grapheme><phoneme>i</phoneme></Graphemes>
+				<Graphemes><grapheme>yg</grapheme><phoneme>i</phoneme></Graphemes> <!-- amygdale: trans<phoneme>i</phoneme></Graphemes>crit [amigdal] dans Morphalou 2.0 -->
+				<Graphemes><grapheme>ys</grapheme><phoneme>i</phoneme></Graphemes>
+			
+				<Graphemes><grapheme>a</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ae</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>æ</grapheme><phoneme>e</phoneme></Graphemes> <!-- ajout 6 juin 2012 de a dans e au cas où présent dans Morphalou ex: cæcum, 7 déc 2012 -->
+				<Graphemes><grapheme>ai</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>aî</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>aie</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>aies</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>e</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>é</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>è</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ê</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ë</grapheme><phoneme>e</phoneme></Graphemes> <!-- canoë [E] erreur dans Morphalou!!! 2.0 -->
+				<Graphemes><grapheme>ea</grapheme><phoneme>e</phoneme></Graphemes> <!-- ready(-made): pas présent dans Morphalou 2.0 -->
+				<Graphemes><grapheme>ed</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>eds</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ee</grapheme><phoneme>e</phoneme></Graphemes>
+				<Graphemes><grapheme>ée</grapheme><phoneme>e</phoneme></Graphemes>
+						
+
+</ListePhonemesSAMPAGraphemes>

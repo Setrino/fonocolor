@@ -14,6 +14,6 @@ $db_database	= 'fonocolor';
 $link = mysql_connect($db_host,$db_user,$db_pass) or die('Unable to establish a DB connection');
 
 mysql_select_db($db_database,$link);
-mysql_query("SET names 'ISO-8859-1'");
+mysql_query("SET names 'LATIN1'");
 
 ?>

@@ -155,8 +155,7 @@ function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier){
     var lingrad = '';
 
     if(colorBottom != undefined){
-
-    lingrad = ctx.createLinearGradient(0, y * (i - 1), 0, y * i);
+    lingrad = ctx.createLinearGradient(0, y * (yMultiplier - 1), 0, y * yMultiplier);
     lingrad.addColorStop(0, colorTop);
     lingrad.addColorStop(0.6, colorTop);
     lingrad.addColorStop(0.6, colorBottom);
