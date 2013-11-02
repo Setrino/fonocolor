@@ -128,6 +128,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
         $rows = mysql_fetch_assoc($sql_check);
         $phonemes = $rows['phonetic1'];
         $phonemesArray = explode(" ", $phonemes);
+        $lastPhoneme = $phonemesArray[sizeof($phonemesArray) - 1];
 
 
         if($arrayLength != sizeof($phonemesArray)){
@@ -155,10 +156,12 @@ function retrieveWord($text, $letterArray, &$colorArray){
                 }
             }
 
-            if($phonemesArray[$arrayLength - 1] == '@' && $arrayLength > 2){
+            addArrayColor(checkColor($lastPhoneme), $arrayLength - 1, 1, $colorArray);
 
-                $phonemesArray[$arrayLength - 1] = $phonemesArray[$arrayLength - 2];
-                addArrayColor(checkColor($phonemesArray[$arrayLength - 1]), $arrayLength - 1, 1, $colorArray);
+            if($lastPhoneme == '@' && $arrayLength > 2){
+
+                $phonemesArray[sizeof($phonemesArray) - 1] = $phonemesArray[sizeof($phonemesArray) - 2];
+                addArrayColor(checkColor($lastPhoneme), $arrayLength - 1, 1, $colorArray);
             }
 
             return $colorArray;
