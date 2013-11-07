@@ -138,12 +138,12 @@ ul#useful_links_bot li{
 
 #enter{
     background-color: #BFBFBF;
-    border: 1px solid #FFFFFF;
+    //border: 1px solid #FFFFFF;
     border-bottom: none;
 }
 
 #result{
-    border: 1px solid #FFFFFF;
+    //border: 1px solid #FFFFFF;
 }
 
 .entry_blocks{
@@ -192,7 +192,7 @@ ul#useful_links_bot li{
 
 .search_output{
 
-    //background-color: #000000;
+    background-color: #000000;
 }
 
 .reply{

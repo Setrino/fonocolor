@@ -40,7 +40,7 @@ function getCookie(c_name)
 function setCookie(c_name,value,exdays)
 {
     var exdate=new Date();
-    exdate.setDate(exdate.getTime() + 60);
+    exdate.setDate(exdate.getDate() + 60);
     var c_value= encodeURI(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
     document.cookie=c_name + "=" + c_value;
 }

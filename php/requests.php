@@ -53,7 +53,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
        }
 
-       addArrayColor("#000000", $c + strlen($gr), strlen($temp), $colorArray);
+       addArrayColor("#FFFFFF", $c + strlen($gr), strlen($temp), $colorArray);
 
        for($i = 1; $i < $arrayLength; $i++){
 
@@ -173,7 +173,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
     }else{
 
-        addArrayColor("#000000", 0, $arrayLength, $colorArray);
+        addArrayColor("#FFFFFF", 0, $arrayLength, $colorArray);
         return $colorArray;
     }
 }
