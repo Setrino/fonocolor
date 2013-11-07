@@ -10,11 +10,12 @@ var width = 700,
     c = document.getElementById('canvas'),
 //canvas itself
     ctx = c.getContext('2d');
+    ctx.font = 'fundamental__brigade_schwerRg';
 
 c.width = width;
 c.height = height;
 
-var pixel_size = 20,
+var pixel_size = 30,
     dragging = false,
     lastY = 0,
     translated = 0,
@@ -74,7 +75,7 @@ function catchColor(array, i, offsetX, yMultiplier){
         }
     }
 
-    console.log(textArray[i][0] + " " + textArray[i][1]);
+    //console.log(textArray[i][0] + " " + textArray[i][1]);
 }
 
 
@@ -157,8 +158,8 @@ function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier){
     if(colorBottom != undefined){
     lingrad = ctx.createLinearGradient(0, y * (yMultiplier - 1), 0, y * yMultiplier);
     lingrad.addColorStop(0, colorTop);
-    lingrad.addColorStop(0.7, colorTop);
-    lingrad.addColorStop(0.7, colorBottom);
+    lingrad.addColorStop(0.75, colorTop);
+    lingrad.addColorStop(0.75, colorBottom);
     lingrad.addColorStop(1, colorBottom);
     ctx.fillStyle = lingrad;
     }else{
@@ -166,7 +167,7 @@ function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier){
     ctx.fillStyle = colorTop;
     }
 
-    ctx.font= y + "px Arial";
+    ctx.font= y + "px fundamental__brigade_schwerRg";
     ctx.fillText(text, x + xDistance, y * yMultiplier);
 }
 
