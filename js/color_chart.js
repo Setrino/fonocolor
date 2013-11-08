@@ -150,12 +150,16 @@ function collides(rects, x, y) {
 }
 
 c.addEventListener('click', function(e) {
-        var consonant = collides(consonants, e.offsetX, e.offsetY);
+
+    var x = e.pageX - c.offsetLeft;
+    var y = e.pageY - c.offsetTop;
+
+        var consonant = collides(consonants, x, y);
         if (consonant) {
             var snd = new Audio("sound/consonant/" + consonant[3] + ".mp3");
             snd.play();
         }
-        var vowel = collides(vowels, e.offsetX, e.offsetY);
+        var vowel = collides(vowels, x, y);
         if (vowel) {
             var snd = new Audio("sound/vowel/" + vowel[3] + ".mp3");
             snd.play();

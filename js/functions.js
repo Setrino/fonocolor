@@ -8,13 +8,15 @@ $(document).ready(function(){
             $('body').css("background-color", "#000000");
         }*/
 
-        $("#canvas").requestFullScreen();
-
         if(document.fullScreen){
 
-            $("#canvas").css("width", "100%");
+            //$("#canvas").css("background-color", "#000000");
 
         }
+
+        c = document.getElementById('canvas');
+
+        fullScreenApi.requestFullScreen(document.getElementById("canvas"));
 
     });
 

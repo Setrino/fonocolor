@@ -252,6 +252,11 @@ ul#useful_links_bot li{
     margin-top: 5em;
 }
 
+:-webkit-full-screen {
+
+    background-color: #000000;
+}
+
 /* END Canvas */
 
 .why_body{
