@@ -156,12 +156,12 @@ c.addEventListener('click', function(e) {
 
         var consonant = collides(consonants, x, y);
         if (consonant) {
-            var snd = new Audio("sound/consonant/" + consonant[3] + ".mp3");
+            var snd = new Audio("sound/consonant/" + consonant[3] + ".wav");
             snd.play();
         }
         var vowel = collides(vowels, x, y);
         if (vowel) {
-            var snd = new Audio("sound/vowel/" + vowel[3] + ".mp3");
+            var snd = new Audio("sound/vowel/" + vowel[3] + ".wav");
             snd.play();
         }
     }, false)

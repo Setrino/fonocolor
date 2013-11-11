@@ -94,8 +94,14 @@ function colorArray(text){
             textArray = [];
         }
 
-        //Sentence
+    text = text.replace(/[\,\r]/gm, "") ;
+    text = text.replace(/[\n,\b,\t]/gm, " ");
+    text = text.replace("  ", " ");
+
+    //Sentence
         var splitArray = text.split(" ");
+
+        console.log(text);
 
         for(var i = 0; i < splitArray.length; i ++){
 
