@@ -18,7 +18,7 @@ if(isset($_POST['text'])){
     //$request = checkWord($letterArray, 0, null, null, $colorArray);
     $request = retrieveWord($word, $letterArray, $colorArray);
 
-    if($request){
+    if(true){
 
         echo json_encode($request);
 
@@ -128,12 +128,11 @@ function retrieveWord($text, $letterArray, &$colorArray){
         $rows = mysql_fetch_assoc($sql_check);
         $phonemes = $rows['phonetic1'];
         $phonemesArray = explode(" ", $phonemes);
-        $lastPhoneme = $phonemesArray[sizeof($phonemesArray) - 1];
 
 
         if($arrayLength != sizeof($phonemesArray)){
 
-            $currentPos = 0;
+            /*$currentPos = 0;
 
             for($i = 0; $i < $arrayLength; $i++){
 
@@ -152,19 +151,13 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
                     addArrayColor(checkColor($phonemesArray[$i]), $i, 2, $colorArray);
 
-                    $currentPos += 1;
+                    $currentPos += 2;
                 }
             }
 
-            addArrayColor(checkColor($lastPhoneme), $arrayLength - 1, 1, $colorArray);
-
-            if($lastPhoneme == '@' && $arrayLength > 2){
-
-                $phonemesArray[sizeof($phonemesArray) - 1] = $phonemesArray[sizeof($phonemesArray) - 2];
-                addArrayColor(checkColor($lastPhoneme), $arrayLength - 1, 1, $colorArray);
-            }
-
-            return $colorArray;
+            //addArrayColor(checkColor($lastPhoneme), $arrayLength - 1, 1, $colorArray);*/
+            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, 0, null, null);
+            //return checkWord($letterArray, 0, null, null, $colorArray, $phonemesArray);
 
         }else{
 
@@ -175,6 +168,92 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
         addArrayColor("#FFFFFF", 0, $arrayLength, $colorArray);
         return $colorArray;
+    }
+}
+
+function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr, $ph){
+
+    $tempGr = null;
+    $tempPh = null;
+    $arrayTail = array();
+    $phArrayTail = array();
+    $arrayLength = sizeof($letterArray);
+    $phArrayLength = sizeof($phonemesArray);
+    $clArrayLength = sizeof($colorArray);
+
+    if($arrayLength == 0){
+
+        addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+        return $colorArray;
+    }
+    else{
+
+        //Check if the last phoneme is @, and if so, replace with the color of the previous value
+       if($arrayLength == 1 && $phonemesArray[0] == '@' && $clArrayLength > 2){
+
+            if($colorArray[$clArrayLength - 2][2]){
+
+                $colorArray[$clArrayLength - 1][1] = $colorArray[$clArrayLength - 2][1];
+                $colorArray[$clArrayLength - 1][2] = $colorArray[$clArrayLength - 2][2];
+            }else{
+
+                $colorArray[$clArrayLength - 1][1] = $colorArray[$clArrayLength - 2][1];
+            }
+       }else{
+
+           $tempGr = $gr . $letterArray[0];
+           $tempPh = ($ph == null) ? $phonemesArray[0] : $ph . " " . $phonemesArray[0];
+
+           for($i = 1; $i < $arrayLength; $i++){
+
+               $arrayTail[$i - 1] = $letterArray[$i];
+           }
+
+               if($ph != null && equalityRequest($tempGr, $ph)){
+
+                   return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph);
+               }else{
+
+                   if(equalityRequest($tempGr, $tempPh)){
+
+                       $phLength = (strlen($tempPh) > 1) ? 2 : 1;
+
+                       for($i = $phLength; $i < $phArrayLength; $i++){
+
+                           $phArrayTail[$i - $phLength] = $phonemesArray[$i];
+                       }
+
+                       $tempPh = $tempPh . " " . $phonemesArray[1];
+
+                           if($phonemesArray[1] != null && $ph == null && equalityRequest($tempGr, $tempPh)){
+
+                               $phLength = (strlen($tempPh) > 1) ? 2 : 1;
+
+                               $phArrayTail = array();
+
+                               for($i = $phLength; $i < $phArrayLength; $i++){
+
+                                   $phArrayTail[$i - $phLength] = $phonemesArray[$i];
+
+                               }
+
+                               return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPh);
+
+                               //If only one phoneme for the grapheme(s), then check for the next grapheme
+                           }else{
+
+                               return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $phonemesArray[0]);
+                           }
+                   }else{
+
+                       //If no new phoneme found, old phoneme is used
+                       addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+
+                       return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null);
+                   }
+               }
+       }
+
     }
 }
 
