@@ -217,7 +217,7 @@
 				<Graphemes><grapheme>hau</grapheme><phoneme>O</phoneme></Graphemes>
 				<Graphemes><grapheme>ho</grapheme><phoneme>O</phoneme></Graphemes>
 				<Graphemes><grapheme>hô</grapheme><phoneme>O</phoneme></Graphemes> <!-- hôpital: transcrits [o] dans Morphalou 2.0 ERREUR? -->
-				<Graphemes><grapheme>o</grapheme>
+				<Graphemes><grapheme>o</grapheme><phoneme>O</phoneme>
 				<Graphemes><grapheme>oa</grapheme><phoneme>O</phoneme></Graphemes> <!-- (fun)board: pas présent dans Morphalou 2.0 -->
 				<Graphemes><grapheme>oe</grapheme><phoneme>O</phoneme></Graphemes> <!-- groenendael: pas présent dans Morphalou 2.0 -->
 				<Graphemes><grapheme>œ</grapheme><phoneme>O</phoneme></Graphemes> <!-- ajout NON DATé 7 déc 2012-->

@@ -156,7 +156,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
             }
 
             //addArrayColor(checkColor($lastPhoneme), $arrayLength - 1, 1, $colorArray);*/
-            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, 0, null, null);
+            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, 0, null, null, false);
             //return checkWord($letterArray, 0, null, null, $colorArray, $phonemesArray);
 
         }else{
@@ -171,7 +171,17 @@ function retrieveWord($text, $letterArray, &$colorArray){
     }
 }
 
-function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr, $ph){
+/*
+ * $phonemesArray - Tail of phonemes received for the current word from the database
+ * $letteArray - Tail of letters for the current word being broken down
+ * $colorArray - Array of colors assigned per letter
+ * $c - pointer for the array
+ * $gr - no of letters currently selected for check
+ * $ph - head of the array, no of phonemes for a specific letter
+ * $found - a checker whether the $phoneme(s) is equivalent to $grapheme(s)
+ */
+
+function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr, $ph, $found){
 
     $tempGr = null;
     $tempPh = null;
@@ -203,25 +213,26 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
            $tempGr = $gr . $letterArray[0];
            $tempPh = ($ph == null) ? $phonemesArray[0] : $ph . " " . $phonemesArray[0];
+           $grLength = (strlen($tempGr) > 1) ? 2 : 1;
 
            for($i = 1; $i < $arrayLength; $i++){
 
                $arrayTail[$i - 1] = $letterArray[$i];
            }
 
+           $phLength = (strlen($tempPh) > 1) ? 2 : 1;
+
+           for($i = $phLength; $i < $phArrayLength; $i++){
+
+               $phArrayTail[$i - $phLength] = $phonemesArray[$i];
+           }
+
                if($ph != null && equalityRequest($tempGr, $ph)){
 
-                   return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph);
+                   return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
                }else{
 
                    if(equalityRequest($tempGr, $tempPh)){
-
-                       $phLength = (strlen($tempPh) > 1) ? 2 : 1;
-
-                       for($i = $phLength; $i < $phArrayLength; $i++){
-
-                           $phArrayTail[$i - $phLength] = $phonemesArray[$i];
-                       }
 
                        $tempPh = $tempPh . " " . $phonemesArray[1];
 
@@ -237,19 +248,24 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                                }
 
-                               return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPh);
+                               return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPh, true);
 
                                //If only one phoneme for the grapheme(s), then check for the next grapheme
                            }else{
 
-                               return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $phonemesArray[0]);
+                               return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $phonemesArray[0], true);
                            }
                    }else{
 
-                       //If no new phoneme found, old phoneme is used
-                       addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                       if($found){
+                           //If no new phoneme found, old phoneme is used
+                           addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
 
-                       return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null);
+                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
+                       }else{
+
+                           return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPh, false);
+                       }
                    }
                }
        }
