@@ -201,6 +201,11 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
         //Check if the last phoneme is @, and if so, replace with the color of the previous value
        if($arrayLength == 1 && $phonemesArray[0] == '@' && $clArrayLength > 2){
 
+           if($ph != null && $gr != null){
+
+               addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+           }
+
             if($colorArray[$clArrayLength - 2][2]){
 
                 $colorArray[$clArrayLength - 1][1] = $colorArray[$clArrayLength - 2][1];
@@ -209,11 +214,12 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                 $colorArray[$clArrayLength - 1][1] = $colorArray[$clArrayLength - 2][1];
             }
+
+           return $colorArray;
        }else{
 
            $tempGr = $gr . $letterArray[0];
            $tempPh = ($ph == null) ? $phonemesArray[0] : $ph . " " . $phonemesArray[0];
-           $grLength = (strlen($tempGr) > 1) ? 2 : 1;
 
            for($i = 1; $i < $arrayLength; $i++){
 
@@ -258,6 +264,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                    }else{
 
                        if($found){
+
                            //If no new phoneme found, old phoneme is used
                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
 
