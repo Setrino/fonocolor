@@ -242,7 +242,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
 
                        return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
-                   
+
                }else{
 
                    if(equalityRequest($tempGr, $tempPh)){
