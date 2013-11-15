@@ -16,8 +16,8 @@ function searchRequest(text, i, offsetX, yMultiplier){
             {
                 try{
                     catchColor(msg, i, offsetX, yMultiplier);
-                    //$('.reply').html(msg);
-                    $('.reply').html('');
+                    $('.reply').html(msg);
+                    //$('.reply').html('');
 
                 }catch(e){
 

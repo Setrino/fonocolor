@@ -19,7 +19,7 @@ if(isset($_POST['text'])){
     //$request = checkWord($letterArray, 0, null, null, $colorArray);
     $request = retrieveWord($word, $letterArray, $colorArray);
 
-    if($request){
+    if(true){
 
         echo json_encode($request, JSON_UNESCAPED_UNICODE);
 
@@ -236,7 +236,12 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                if($ph != null && equalityRequest($tempGr, $ph)){
 
+                   if(equalityRequest($letterArray[0], $phonemesArray[0])){
+                        
+                   }else{
+
                    return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
+                   }
                }else{
 
                    if(equalityRequest($tempGr, $tempPh)){
