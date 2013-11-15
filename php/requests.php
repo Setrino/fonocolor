@@ -8,7 +8,7 @@ require_once 'login.php';
 if(isset($_POST['text'])){
 
     $word = $_POST['text'];
-    $letterArray = str_split_utf8($word);
+    $letterArray = str_split($word);
     $colorArray = array();
 
     for($i = 0; $i < sizeof($letterArray); $i++){
@@ -237,7 +237,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                if($ph != null && equalityRequest($tempGr, $ph)){
 
                    if(equalityRequest($letterArray[0], $phonemesArray[0])){
-                        
+
                    }else{
 
                    return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
