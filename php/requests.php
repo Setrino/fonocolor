@@ -7,7 +7,7 @@ require_once 'login.php';
 // Checks the request
 if(isset($_POST['text'])){
 
-    $word = 'escargot';
+    $word = $_POST['text'];
     $letterArray = str_split_utf8($word);
     $colorArray = array();
 
@@ -184,10 +184,6 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
 function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr, $ph, $found){
 
-    if($c == 3){
-        return $colorArray;
-    }
-
     $tempGr = null;
     $tempPh = null;
     $arrayTail = array();
@@ -240,9 +236,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                if($ph != null && equalityRequest($tempGr, $ph)){
 
-
-                       return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
-
+                   return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
                }else{
 
                    if(equalityRequest($tempGr, $tempPh)){
