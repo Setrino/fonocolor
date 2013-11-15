@@ -1,13 +1,14 @@
 <?php
 
+header ('Content-type: text/html; charset=utf-8');
 define('INCLUDE_CHECK',true);
 require_once 'login.php';
 
 // Checks the request
 if(isset($_POST['text'])){
 
-    $word = $_POST['text'];
-    $letterArray = str_split($word);
+    $word = 'escargot';
+    $letterArray = str_split_utf8($word);
     $colorArray = array();
 
     for($i = 0; $i < sizeof($letterArray); $i++){
@@ -18,9 +19,9 @@ if(isset($_POST['text'])){
     //$request = checkWord($letterArray, 0, null, null, $colorArray);
     $request = retrieveWord($word, $letterArray, $colorArray);
 
-    if(true){
+    if($request){
 
-        echo json_encode($request);
+        echo json_encode($request, JSON_UNESCAPED_UNICODE);
 
     }else{
 
@@ -120,7 +121,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 function retrieveWord($text, $letterArray, &$colorArray){
 
     $arrayLength = sizeof($letterArray);
-
+    mysql_query("SET NAMES UTF8");
     $sql_check = mysql_query("SELECT phonetic1 FROM lex2_lemma WHERE content ='".$text."'") or die(mysql_error());
 
     if((mysql_num_rows($sql_check) != 0)){
@@ -183,6 +184,10 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
 function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr, $ph, $found){
 
+    if($c == 3){
+        return $colorArray;
+    }
+
     $tempGr = null;
     $tempPh = null;
     $arrayTail = array();
@@ -235,7 +240,9 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                if($ph != null && equalityRequest($tempGr, $ph)){
 
-                   return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
+
+                       return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
+                   
                }else{
 
                    if(equalityRequest($tempGr, $tempPh)){
@@ -353,4 +360,21 @@ function checkColor($letter){
     }
 }
 
+function str_split_utf8($jstring)
+{
+    if (mb_strlen ($jstring, 'UTF-8') == 0)
+        return array();
+
+    $ret  = array ();
+    $alen = strlen ($jstring);
+    $char = '';
+    for ($i = 0; $i < $alen; $i++) {
+        $char .= $jstring[$i];
+        if (mb_check_encoding ($char, 'UTF-8')) {
+            array_push ($ret, $char);
+            $char = '';
+        }
+    }
+    return $ret;
+}
 ?>
