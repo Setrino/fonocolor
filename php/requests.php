@@ -16,7 +16,7 @@ if(isset($_POST['text'])){
         $colorArray[$i][0] = $letterArray[$i];
     }
 
-   
+
 
     //$request = checkWord($letterArray, 0, null, null, $colorArray);
     $request = retrieveWord($word, $letterArray, $colorArray);
@@ -293,6 +293,8 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 //Copy exactly the array of colors to $colorArray
 function solidColor($phonemesArray, $arrayLength, &$colorArray){
 
+    $counter = 0;
+
     if($phonemesArray[$arrayLength - 1] == '@' && $arrayLength > 2){
 
         $phonemesArray[$arrayLength - 1] = $phonemesArray[$arrayLength - 2];
@@ -300,7 +302,20 @@ function solidColor($phonemesArray, $arrayLength, &$colorArray){
 
     for($i = 0; $i < $arrayLength; $i++){
 
-        addArrayColor(checkColor($phonemesArray[$i]), $i, 1, $colorArray);
+        if($counter != 0){
+            $counter = 0;
+            continue;
+        }
+
+        $tempPh = $phonemesArray[$i] . " " . $phonemesArray[$i + 1];
+
+        if($phonemesArray[$i + 1] != null && graphemeRequest($tempPh)){
+
+            addArrayColor(checkColor($tempPh), $i, 2, $colorArray);
+            $counter++;
+        }else{
+            addArrayColor(checkColor($phonemesArray[$i]), $i, 1, $colorArray);
+        }
     }
 
     return $colorArray;
@@ -313,6 +328,14 @@ function phonemeRequest($temp, &$phoneme, &$noOfRows){
     $noOfRows = mysql_num_rows($sql_check);
     $phonemes = $rows['phoneme'];
     $phoneme = $phonemes[0];
+}
+
+function graphemeRequest($phoneme){
+
+    $sql_check = mysql_query("SELECT grapheme FROM graphemes WHERE phoneme='".$phoneme."'") or die(mysql_error());
+    $noOfRows = mysql_num_rows($sql_check);
+
+    return $noOfRows != null;
 }
 
 function equalityRequest($grapheme, $phoneme){
