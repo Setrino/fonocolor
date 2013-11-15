@@ -8,7 +8,7 @@ require_once 'login.php';
 if(isset($_POST['text'])){
 
     $word = $_POST['text'];
-    $letterArray = str_split($word);
+    $letterArray = str_split_utf8($word);
     $colorArray = array();
 
     for($i = 0; $i < sizeof($letterArray); $i++){
@@ -16,10 +16,12 @@ if(isset($_POST['text'])){
         $colorArray[$i][0] = $letterArray[$i];
     }
 
+   
+
     //$request = checkWord($letterArray, 0, null, null, $colorArray);
     $request = retrieveWord($word, $letterArray, $colorArray);
 
-    if($request){
+    if(true){
 
         echo json_encode($request);
 
@@ -238,9 +240,11 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                    if(equalityRequest($letterArray[0], $phonemesArray[0])){
 
+                        addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                        return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
                    }else{
 
-                   return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
+                        return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
                    }
                }else{
 
@@ -376,4 +380,5 @@ function str_split_utf8($jstring)
     }
     return $ret;
 }
+
 ?>
