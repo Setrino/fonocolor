@@ -19,9 +19,9 @@ if(isset($_POST['text'])){
     //$request = checkWord($letterArray, 0, null, null, $colorArray);
     $request = retrieveWord($word, $letterArray, $colorArray);
 
-    if(true){
+    if($request){
 
-        echo json_encode($request, JSON_UNESCAPED_UNICODE);
+        echo json_encode($request);
 
     }else{
 
