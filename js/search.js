@@ -94,8 +94,8 @@ function colorArray(text){
             textArray = [];
         }
 
-    text = text.replace(/[\,\r]/gm, "") ;
-    text = text.replace(/[\n,\b,\t]/gm, " ");
+    text = text.replace(/[\,\r,>>,<<]/gm, "") ;
+    text = text.replace(/[\n,\b,\t,\']/gm, " ");
     text = text.replace("  ", " ");
 
     //Sentence
