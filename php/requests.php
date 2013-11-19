@@ -19,7 +19,7 @@ if(isset($_POST['text'])){
     //$request = checkWord($letterArray, 0, null, null, $colorArray);
     $request = retrieveWord($word, $letterArray, $colorArray);
 
-    if($request){
+    if(true){
 
         echo json_encode($request);
 
@@ -227,7 +227,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                $arrayTail[$i - 1] = $letterArray[$i];
            }
 
-           $phLength = (strlen($tempPh) > 1) ? 2 : 1;
+           $phLength = (strlen($tempPh) > 2) ? 2 : 1;
 
            for($i = $phLength; $i < $phArrayLength; $i++){
 
@@ -238,11 +238,24 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                    if(equalityRequest($letterArray[0], $phonemesArray[0])){
 
-                        addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
-                        return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
+                       if(!equalityRequest($letterArray[1], $phonemesArray[1]) && $arrayLength != 1){
+
+                           addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
+                           return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + strlen($tempGr), null, null, false);
+                       }else{
+                           addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
+                       }
                    }else{
 
+                       if(equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0])){
+
+                           addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
+                       }else{
+
                         return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
+                       }
                    }
                }else{
 
@@ -250,7 +263,8 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                        $tempPh = $tempPh . " " . $phonemesArray[1];
 
-                           if($phonemesArray[1] != null && $ph == null && equalityRequest($tempGr, $tempPh)){
+
+                           if(equalityRequest($tempGr, $tempPh)){
 
                                $phLength = (strlen($tempPh) > 1) ? 2 : 1;
 
@@ -269,6 +283,17 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                                return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $phonemesArray[0], true);
                            }
+                   }elseif($ph != null && equalityRequest($gr, $tempPh)){
+
+                       $phLength = 1;
+
+                       for($i = $phLength; $i < $phArrayLength; $i++){
+
+                           $phArrayTail[$i - $phLength] = $phonemesArray[$i];
+                       }
+
+                           return recursiveWordCheck($phArrayTail, $letterArray, $colorArray, $c, $gr, $tempPh, true);
+
                    }else{
 
                        if($found){
