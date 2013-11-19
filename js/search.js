@@ -98,10 +98,12 @@ function colorArray(text){
     text = text.replace(/[\n,\b,\t,\']/gm, " ");
     text = text.replace("  ", " ");
 
+    console.log(text);
+
     //Sentence
         var splitArray = text.split(" ");
 
-        console.log(text);
+        //console.log(text);
 
         for(var i = 0; i < splitArray.length; i ++){
 

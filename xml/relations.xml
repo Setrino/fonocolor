@@ -1,233 +1,187 @@
-<Liste_des_relations_entre_SAMPASimplifies_et_SAMPAs>  <!-- Yves -->
-	<Date_du_fichier>30/12/2012</Date_du_fichier> <!-- ajout de /tS/ et /dZ/-->
-			
-		<relation>	
-			
-				<phoneme>j</phoneme>	<color>#FA002E</color></relation>
-		<relation>	
-			<phoneme>i</phoneme>		<color>#FA002E</color>
-		</relation>
-		
-		<relation>	
-			
-			<phoneme>e</phoneme>
-			<color>#FF5800</color> <!-- ancien: #FA7100 -->
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>E</phoneme>			
-				
-			<color>#F7007E</color>
-		
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>a</phoneme><color>#B634BB</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>O</phoneme><color>#4171d7</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>o</phoneme><color>#002fb2</color>
-		</relation>
-		
-		<relation>	
-				<phoneme>u</phoneme><color>#4AD6CA</color>
-		</relation>
-		<relation>
-				<phoneme>w</phoneme><color>#4AD6CA</color>
-		</relation>
-		
-		<relation>	
-			
-			<phoneme>y</phoneme><color>#FDD50E</color>
-		</relation>
-		<relation>
-			<phoneme>H</phoneme><color>#FDD50E</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>2</phoneme><color>#61DE4D</color>
-		</relation>
-		
-		<relation>	
-			
-		<phoneme>9</phoneme><color>#BDEC65</color></relation>	
-		<relation>
-			<phoneme>@</phoneme><color>#BDEC65</color>
-		</relation>
-		
-		<relation>	
-			
-		<phoneme>e~</phoneme><color>#FFAD87</color></relation>		
-		<relation>
-			<phoneme>9~</phoneme><color>#FFAD87</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>a~</phoneme>				
-				
-			<color>#E7C1E3</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>o~</phoneme>				
-				
-			<color>#C2DEEA</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>p</phoneme>				
-				
-			<color>#1f5630</color> <!-- avant 22 dec: #2F3614 -->
-		</relation>
-		
-		<relation>
-			<phoneme>t</phoneme>
-			<color>#007363</color> <!-- ancien: #024731 -->
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>k</phoneme>				
-				
-			<color>#380096</color>  <!-- avant 22 dec: #394a58 --><!-- ancien: #003f72 -->
-		</relation>
-		
-		<relation>
-			<phoneme>b</phoneme><color>#84003C</color>
-		</relation>
-		
-		<relation>
-			<phoneme>d</phoneme><color>#B06F00</color>
-		</relation>
-		
-		<relation>
-			<phoneme>g</phoneme><color>#602144</color> <!-- ancien: #7D250E -->
-		</relation>
-		
-		<relation>
-			<phoneme>f</phoneme><color>#787A7B</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>s</phoneme>				
-				
-			<color>#af8970</color> <!-- avant 22 dec: #546856 --><!-- ancien: #007363 -->
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>S</phoneme>				
-				
-			<color>#4A3651</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>v</phoneme>				
-				
-			<color>#AE9A00</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>z</phoneme>				
-				
-			<color>#912b14</color> <!-- avant 22 dec: #C5858F --> 
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>Z</phoneme>				
-				
-			<color>#8A44C6</color>P
-		</relation>
-		
-		<relation>
-			<phoneme>l</phoneme><color>#91BAA3</color> <!-- ancien: #9ADCC6 --> 
-		</relation>
-		
-		<relation>
-			<phoneme>R</phoneme><color>#ADA188</color>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>m</phoneme>				
-				
-			<color>#c5858f</color> <!-- avant 22 déc: #553F2C --><!-- ancien: #553F2C -->
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>n</phoneme>				
-				
-			<color>#546856</color> <!-- avant 22 dec: #7d250e --><!-- ancien: #5B2B2F -->
-		</relation>
-		
-		<!-- diphones --><!-- les consonnes -->
-		<relation>	
-			
-				<phoneme>k s</phoneme>		
-			
-			<colorBottom>#380096</colorBottom>			
-			<colorTop>#af8970</colorTop>
-		</relation>
-		
-		<relation>	
-			
-				<phoneme>g z</phoneme>		
-			
-			<colorTop>#602144</colorTop>	
-			<colorBottom>#912b14</colorBottom>
-		</relation>
-		
-			<relation>	
-<!-- AJOUTE par AF 20AUG2012 suite à la recherche de règle pour le doublon -CH- -->
-			
-				<phoneme>t S</phoneme>		
-			
-			<colorTop>#007363</colorTop>
-			<colorBottom>#4A3651</colorBottom>		
-		</relation>	
-		
-		<relation>	
- <!-- AJOUTE par AF 28AUG2012 suite à la recherche de règle pour le doublon -CH- -->
-			
-				<phoneme>d Z</phoneme>		
-			
-			<colorTop>#B06F00</colorTop>
-			<colorBottom>#8A44C6</colorBottom>
-		</relation>	
-		
-		<!-- diphones --><!-- les voyelles -->
-		<relation>	
- <!-- AJOUTE par AF 20AUG2012 suite à la recherche de règle pour le doublon -CH- -->
-			
-				<phoneme>a~ n</phoneme>		
-			
-			<colorTop>#E7C1E3</colorTop>
-			<colorBottom>#7d250e</colorBottom>			
-		</relation>	
-		
-		
-		<relation>	
-			
-				<phoneme>w a</phoneme>		
-			
-			<colorBottom>#B634BB</colorBottom>
-			<colorTop>#4AD6CA</colorTop>			
-		</relation>
+<Liste_des_relations_entre_SAMPASimplifies_et_SAMPAs>
+	<Date_du_fichier>30/12/2012</Date_du_fichier>
+	<relation>
+		<phoneme>j</phoneme>
+		<color>#894FBF</color>
+	</relation>
+	<relation>
+		<phoneme>i</phoneme>
+		<color>#E8112D</color>
+	</relation>
+	<relation>
+		<phoneme>e</phoneme>
+		<color>#ED6E00</color>
+	</relation>
+	<relation>
+		<phoneme>E</phoneme>
+		<color>#F43FA5</color>
+	</relation>
+	<relation>
+		<phoneme>a</phoneme>
+		<color>#930FA5</color>
+	</relation>
+	<relation>
+		<phoneme>O</phoneme>
+		<color>#5B77CC</color>
+	</relation>
+	<relation>
+		<phoneme>o</phoneme>
+		<color>#0051BA</color>
+	</relation>
+	<relation>
+		<phoneme>u</phoneme>
+		<color>#4CCED1</color>
+	</relation>
+	<relation>
+		<phoneme>w</phoneme>
+		<colorTop>#4CCED1</colorTop>
+		<colorBottom>#930FA5</colorBottom>
+	</relation>
+	<relation>
+		<phoneme>y</phoneme>
+		<color>#F7D917</color>
+	</relation>
+	<relation>
+		<phoneme>H</phoneme>
+		<colorTop>#F7D917</colorTop>
+		<colorBottom>#E8112D</colorBottom>
+	</relation>
+	<relation>
+		<phoneme>2</phoneme>
+		<color>#00B760</color>
+	</relation>
+	<relation>
+		<phoneme>9</phoneme>
+		<color>#CEEA82</color>
+	</relation>
+	<relation>
+		<phoneme>@</phoneme>
+		<color>#BDEC65</color>
+	</relation>
+	<relation>
+		<phoneme>e~</phoneme>
+		<color>#F9BF9E</color>
+	</relation>
+	<relation>
+		<phoneme>9~</phoneme>
+		<color>#F9BF9E</color>
+	</relation>
+	<relation>
+		<phoneme>a~</phoneme>
+		<color>#E7C1E3</color>
+	</relation>
+	<relation>
+		<phoneme>o~</phoneme>
+		<color>#C4D8E2</color>
+	</relation>
+	<relation>
+		<phoneme>p</phoneme>
+		<color>#3A7728</color>
+	</relation>
+	<relation>
+		<phoneme>t</phoneme>
+		<color>#007770</color>
+	</relation>
+	<relation>
+		<phoneme>k</phoneme>
+		<color>#3A4972</color>
+	</relation>
+	<relation>
+		<phoneme>b</phoneme>
+		<color>#84003C</color>
+	</relation>
+	<relation>
+		<phoneme>d</phoneme>
+		<color>#B06F00</color>
+	</relation>
+	<relation>
+		<phoneme>g</phoneme>
+		<color>#602144</color>
+	</relation>
+	<relation>
+		<phoneme>f</phoneme>
+		<color>#787A7B</color>
+	</relation>
+	<relation>
+		<phoneme>s</phoneme>
+		<color>#af8970</color>
+	</relation>
+	<relation>
+		<phoneme>S</phoneme>
+		<color>#4A3651</color>
+	</relation>
+	<relation>
+		<phoneme>v</phoneme>
+		<color>#AE9A00</color>
+	</relation>
+	<relation>
+		<phoneme>z</phoneme>
+		<color>#FC9BB2</color>
+	</relation>
+	<relation>
+		<phoneme>Z</phoneme>
+		<color>#894FBF</color>
+		P
+	</relation>
+	<relation>
+		<phoneme>l</phoneme>
+		<color>#A3C1AD</color>
+	</relation>
+	<relation>
+		<phoneme>R</phoneme>
+		<color>#D3BFB7</color>
+	</relation>
+	<relation>
+		<phoneme>m</phoneme>
+		<color>#A53F0F</color>
+	</relation>
+	<relation>
+		<phoneme>n</phoneme>
+		<color>#2B4C3F</color>
+	</relation>
+	<relation>
+		<phoneme>k s</phoneme>
+		<colorTop>#3A4972</colorTop>
+		<colorBottom>#F7D3B5</colorBottom>
+	</relation>
+	<relation>
+		<phoneme>g z</phoneme>
+		<colorTop>#9B0070</colorTop>
+		<colorBottom>#FC9BB2</colorBottom>
+	</relation>
+	<relation>
+		<phoneme>t S</phoneme>
+		<colorTop>#007770</colorTop>
+		<colorBottom>#CE898C</colorBottom>
+	</relation>
+	<relation>
+		<phoneme>d Z</phoneme>
+		<colorTop>#E29100</colorTop>
+		<colorBottom>#894FBF</colorBottom>
+	</relation>
+	<relation>
+		<phoneme>a~ n</phoneme>
+		<colorTop>#EDC4DD</colorTop>
+		<colorBottom>#2B4C3F</colorBottom>
+	</relation>
+	<relation>
+		<phoneme>w a</phoneme>
+		<colorBottom>#B634BB</colorBottom>
+		<colorTop>#4AD6CA</colorTop>
+	</relation>
+	<relation>
+		<phoneme>j E</phoneme>
+		<colorBottom>#E8112D</colorBottom>
+		<colorTop>#F43FA5</colorTop>
+	</relation>
+	<relation>
+		<phoneme>j e</phoneme>
+		<colorBottom>#E8112D</colorBottom>
+		<colorTop>#ED6E00</colorTop>
+	</relation>
+	<relation>
+		<phoneme>j 2</phoneme>
+		<colorBottom>#E8112D</colorBottom>
+		<colorTop>#00B760</colorTop>
+	</relation>
 </Liste_des_relations_entre_SAMPASimplifies_et_SAMPAs>

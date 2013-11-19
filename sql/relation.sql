@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.3
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 15, 2013 at 08:56 AM
--- Server version: 5.1.49
--- PHP Version: 5.3.27
+-- Generation Time: Nov 19, 2013 at 10:56 AM
+-- Server version: 5.5.25
+-- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,60 +26,63 @@ SET time_zone = "+00:00";
 -- Table structure for table `relation`
 --
 
-CREATE TABLE IF NOT EXISTS `relation` (
+CREATE TABLE `relation` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `phoneme` varchar(128) CHARACTER SET latin1 DEFAULT NULL,
-  `color` varchar(128) CHARACTER SET latin1 DEFAULT NULL,
-  `colorTop` varchar(128) CHARACTER SET latin1 DEFAULT NULL,
-  `colorBottom` varchar(128) CHARACTER SET latin1 DEFAULT NULL,
+  `phoneme` varchar(128) DEFAULT NULL,
+  `color` varchar(128) DEFAULT NULL,
+  `colorTop` varchar(128) DEFAULT NULL,
+  `colorBottom` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=41 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=84 ;
 
 --
 -- Dumping data for table `relation`
 --
 
 INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VALUES
-(1, 'j', '#FA002E', NULL, NULL),
-(2, 'i', '#FA002E', NULL, NULL),
-(3, 'e', '#FF5800', NULL, NULL),
-(4, 'E', '#F7007E', NULL, NULL),
-(5, 'a', '#B634BB', NULL, NULL),
-(6, 'O', '#4171d7', NULL, NULL),
-(7, 'o', '#002fb2', NULL, NULL),
-(8, 'u', '#4AD6CA', NULL, NULL),
-(9, 'w', '#4AD6CA', NULL, NULL),
-(10, 'y', '#FDD50E', NULL, NULL),
-(11, 'H', '#FDD50E', NULL, NULL),
-(12, '2', '#61DE4D', NULL, NULL),
-(13, '9', '#BDEC65', NULL, NULL),
-(14, '@', '#BDEC65', NULL, NULL),
-(15, 'e~', '#FFAD87', NULL, NULL),
-(16, '9~', '#FFAD87', NULL, NULL),
-(17, 'a~', '#E7C1E3', NULL, NULL),
-(18, 'o~', '#C2DEEA', NULL, NULL),
-(19, 'p', '#1f5630', NULL, NULL),
-(20, 't', '#007363', NULL, NULL),
-(21, 'k', '#380096', NULL, NULL),
-(22, 'b', '#84003C', NULL, NULL),
-(23, 'd', '#B06F00', NULL, NULL),
-(24, 'g', '#602144', NULL, NULL),
-(25, 'f', '#787A7B', NULL, NULL),
-(26, 's', '#af8970', NULL, NULL),
-(27, 'S', '#4A3651', NULL, NULL),
-(28, 'v', '#AE9A00', NULL, NULL),
-(29, 'z', '#912b14', NULL, NULL),
-(30, 'Z', '#8A44C6', NULL, NULL),
-(31, 'l', '#91BAA3', NULL, NULL),
-(32, 'R', '#ADA188', NULL, NULL),
-(33, 'm', '#c5858f', NULL, NULL),
-(34, 'n', '#546856', NULL, NULL),
-(35, 'k s', NULL, '#af8970', '#380096'),
-(36, 'g z', NULL, '#602144', '#912b14'),
-(37, 't S', NULL, '#007363', '#4A3651'),
-(38, 'd Z', NULL, '#B06F00', '#8A44C6'),
-(39, 'a~ n', NULL, '#E7C1E3', '#7d250e'),
-(40, 'w a', NULL, '#4AD6CA', '#B634BB');
+(41, 'j', '#894FBF', NULL, NULL),
+(42, 'i', '#E8112D', NULL, NULL),
+(43, 'e', '#ED6E00', NULL, NULL),
+(44, 'E', '#F43FA5', NULL, NULL),
+(45, 'a', '#930FA5', NULL, NULL),
+(46, 'O', '#5B77CC', NULL, NULL),
+(47, 'o', '#0051BA', NULL, NULL),
+(48, 'u', '#4CCED1', NULL, NULL),
+(49, 'w', NULL, '#4CCED1', '#930FA5'),
+(50, 'y', '#F7D917', NULL, NULL),
+(51, 'H', NULL, '#F7D917', '#E8112D'),
+(52, '2', '#00B760', NULL, NULL),
+(53, '9', '#CEEA82', NULL, NULL),
+(54, '@', '#BDEC65', NULL, NULL),
+(55, 'e~', '#F9BF9E', NULL, NULL),
+(56, '9~', '#F9BF9E', NULL, NULL),
+(57, 'a~', '#E7C1E3', NULL, NULL),
+(58, 'o~', '#C4D8E2', NULL, NULL),
+(59, 'p', '#3A7728', NULL, NULL),
+(60, 't', '#007770', NULL, NULL),
+(61, 'k', '#3A4972', NULL, NULL),
+(62, 'b', '#84003C', NULL, NULL),
+(63, 'd', '#B06F00', NULL, NULL),
+(64, 'g', '#602144', NULL, NULL),
+(65, 'f', '#787A7B', NULL, NULL),
+(66, 's', '#af8970', NULL, NULL),
+(67, 'S', '#4A3651', NULL, NULL),
+(68, 'v', '#AE9A00', NULL, NULL),
+(69, 'z', '#FC9BB2', NULL, NULL),
+(70, 'Z', '#894FBF', NULL, NULL),
+(71, 'l', '#A3C1AD', NULL, NULL),
+(72, 'R', '#D3BFB7', NULL, NULL),
+(73, 'm', '#A53F0F', NULL, NULL),
+(74, 'n', '#2B4C3F', NULL, NULL),
+(75, 'k s', NULL, '#3A4972', '#F7D3B5'),
+(76, 'g z', NULL, '#9B0070', '#FC9BB2'),
+(77, 't S', NULL, '#007770', '#CE898C'),
+(78, 'd Z', NULL, '#E29100', '#894FBF'),
+(79, 'a~ n', NULL, '#EDC4DD', '#2B4C3F'),
+(80, 'w a', NULL, '#4AD6CA', '#B634BB'),
+(81, 'j E', NULL, '#F43FA5', '#E8112D'),
+(82, 'j e', NULL, '#ED6E00', '#E8112D'),
+(83, 'j 2', NULL, '#00B760', '#E8112D');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
