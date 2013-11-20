@@ -184,6 +184,10 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
 function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr, $ph, $found){
 
+    if(strlen($ph) == 2){
+        $ph = preg_replace('/\s+/', '', $ph);
+    }
+
     $tempGr = null;
     $tempPh = null;
     $arrayTail = array();
@@ -220,7 +224,15 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
        }else{
 
            $tempGr = $gr . $letterArray[0];
+           $tempPh = null;
+
+           if($phonemesArray[0] != null){
+
            $tempPh = ($ph == null) ? $phonemesArray[0] : $ph . " " . $phonemesArray[0];
+           }else{
+
+           $tempPh =  $ph;
+           }
 
            for($i = 1; $i < $arrayLength; $i++){
 
@@ -240,14 +252,23 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                        if(!equalityRequest($letterArray[1], $phonemesArray[1]) && $arrayLength != 1){
 
-                           addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
-                           return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + strlen($tempGr), null, null, false);
+                           //catch neuf (n9f)
+                           if(equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0])){
+
+                               addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                               return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
+                           }else{
+
+                               addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
+                               return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + strlen($tempGr), null, null, false);
+                           }
                        }else{
                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
                            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
                        }
                    }else{
 
+                       //catch peu (p2), deux (d2)
                        if(equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0])){
 
                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
@@ -261,8 +282,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                    if(equalityRequest($tempGr, $tempPh)){
 
-                       $tempPh = $tempPh . " " . $phonemesArray[1];
-
+                            $tempPh = $tempPh . " " . $phonemesArray[1];
 
                            if(equalityRequest($tempGr, $tempPh)){
 
