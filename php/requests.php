@@ -184,7 +184,8 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
 function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr, $ph, $found){
 
-    if(strlen($ph) == 2 || strlen($ph) == 4){
+    if($ph[strlen($ph) - 1] == ' '){
+
         $ph = substr($ph, 0, strlen($ph) - 1);
     }
 
@@ -245,7 +246,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                        if(!equalityRequest($letterArray[1], $phonemesArray[1]) && $arrayLength != 1){
 
                            //catch neuf (n9f)
-                           if(equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0])){
+                           if(equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) && $gr == $ph){
 
                                addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
                                return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
