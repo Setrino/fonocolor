@@ -184,8 +184,8 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
 function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr, $ph, $found){
 
-    if(strlen($ph) == 2){
-        $ph = preg_replace('/\s+/', '', $ph);
+    if(strlen($ph) == 2 || strlen($ph) == 4){
+        $ph = substr($ph, 0, strlen($ph) - 1);
     }
 
     $tempGr = null;
@@ -224,15 +224,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
        }else{
 
            $tempGr = $gr . $letterArray[0];
-           $tempPh = null;
-
-           if($phonemesArray[0] != null){
-
            $tempPh = ($ph == null) ? $phonemesArray[0] : $ph . " " . $phonemesArray[0];
-           }else{
-
-           $tempPh =  $ph;
-           }
 
            for($i = 1; $i < $arrayLength; $i++){
 
@@ -286,7 +278,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                            if(equalityRequest($tempGr, $tempPh)){
 
-                               $phLength = (strlen($tempPh) > 1) ? 2 : 1;
+                               $phLength = (strlen($tempPh) > 2) ? 2 : 1;
 
                                $phArrayTail = array();
 
