@@ -391,7 +391,7 @@ function addArrayColor($color, $c, $length, &$colorArray){
 
 function checkColor($letter){
 
-    $sql_check = mysql_query("SELECT color, colorTop, colorBottom FROM relation WHERE phoneme='".$letter."'")
+    $sql_check = mysql_query("SELECT color, colorTop, colorBottom FROM relation WHERE BINARY phoneme='".$letter."'")
         or die(mysql_error());
 
     $rows = mysql_fetch_array($sql_check, MYSQL_ASSOC);
