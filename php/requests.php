@@ -232,21 +232,21 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                            if(equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) && $gr == $ph){
 
                                addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
-                               return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + sizeof(str_split_utf8($gr)), null, null, false);
+                               return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false);
                            } else if(equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) && $phonemesArray < $letterArray){
 
                                addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
-                               return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + sizeof(str_split_utf8($gr)), null, null, false);
+                               return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false);
                                }
                            else{
 
                                addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
-                               return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + sizeof(str_split_utf8($tempGr)), null, null, false);
+                               return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false);
                            }
                        }else{
 
                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
-                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + sizeof(str_split_utf8($gr)), null, null, false);
+                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false);
                        }
                    }else{
 
@@ -254,7 +254,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                        if(equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0])){
 
                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
-                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + sizeof(str_split_utf8($gr)), null, null, false);
+                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false);
                        }else{
 
                         return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c, $tempGr, $ph, true);
@@ -303,7 +303,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                            //If no new phoneme found, old phoneme is used
                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
 
-                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + sizeof(str_split_utf8($gr)), null, null, false);
+                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false);
                        }else{
 
                            if($ph != null){
@@ -371,7 +371,6 @@ function graphemeRequest($phoneme){
 
 function equalityRequest($grapheme, $phoneme){
 
-    mysql_query("SET NAMES UTF8");
     $sql_check = mysql_query("SELECT phoneme FROM graphemes WHERE grapheme='".$grapheme."' AND phoneme='".$phoneme."'")
         or die(mysql_error());
     $noOfRows = mysql_num_rows($sql_check);
