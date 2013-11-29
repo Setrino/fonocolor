@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.5.3
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 19, 2013 at 10:56 AM
--- Server version: 5.5.25
--- PHP Version: 5.4.4
+-- Generation Time: Nov 29, 2013 at 10:43 AM
+-- Server version: 5.1.49
+-- PHP Version: 5.3.27
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `relation`
 --
 
-CREATE TABLE `relation` (
+CREATE TABLE IF NOT EXISTS `relation` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phoneme` varchar(128) DEFAULT NULL,
   `color` varchar(128) DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `relation` (
 --
 
 INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VALUES
-(41, 'j', '#894FBF', NULL, NULL),
+(41, 'j', '#E8112D', NULL, NULL),
 (42, 'i', '#E8112D', NULL, NULL),
 (43, 'e', '#ED6E00', NULL, NULL),
 (44, 'E', '#F43FA5', NULL, NULL),
