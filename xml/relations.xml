@@ -38,6 +38,11 @@
 		<colorBottom>#930FA5</colorBottom>
 	</relation>
 	<relation>
+		<phoneme>w e~</phoneme>
+		<colorTop>#4CCED1</colorTop>
+		<colorBottom>#F9BF9E</colorBottom>
+	</relation>
+	<relation>
 		<phoneme>y</phoneme>
 		<color>#F7D917</color>
 	</relation>
@@ -45,6 +50,11 @@
 		<phoneme>H</phoneme>
 		<colorTop>#F7D917</colorTop>
 		<colorBottom>#E8112D</colorBottom>
+	</relation>
+	<relation>
+		<phoneme>H e~</phoneme>
+		<colorTop>#F7D917</colorTop>
+		<colorBottom>#F9BF9E</colorBottom>
 	</relation>
 	<relation>
 		<phoneme>2</phoneme>
@@ -108,7 +118,7 @@
 	</relation>
 	<relation>
 		<phoneme>S</phoneme>
-		<color>#4A3651</color>
+		<color>#C6888C</color>
 	</relation>
 	<relation>
 		<phoneme>v</phoneme>

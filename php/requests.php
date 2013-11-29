@@ -122,44 +122,21 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
     $arrayLength = sizeof($letterArray);
     mysql_query("SET NAMES UTF8");
-    $sql_check = mysql_query("SELECT phonetic1 FROM lex2_lemma WHERE content ='".$text."'") or die(mysql_error());
+    $sql_check = mysql_query("SELECT phonetic1 FROM lex2_inflection WHERE content ='".$text."'") or die(mysql_error());
 
-    if((mysql_num_rows($sql_check) != 0)){
+    $sql_checkL = mysql_query("SELECT phonetic1 FROM lex2_lemma WHERE content ='".$text."'") or die(mysql_error());
 
-        $rows = mysql_fetch_assoc($sql_check);
+    if((mysql_num_rows($sql_check) != 0) || (mysql_num_rows($sql_checkL) != 0)){
+
+        $tempQuery = (mysql_num_rows($sql_check) != 0) ? $sql_check : $sql_checkL;
+
+        $rows = mysql_fetch_assoc($tempQuery);
         $phonemes = $rows['phonetic1'];
         $phonemesArray = explode(" ", $phonemes);
 
-
         if($arrayLength != sizeof($phonemesArray)){
 
-            /*$currentPos = 0;
-
-            for($i = 0; $i < $arrayLength; $i++){
-
-                if(equalityRequest($letterArray[$i], $phonemesArray[$i])){
-
-                    addArrayColor(checkColor($phonemesArray[$i]), $i, 1, $colorArray);
-                }
-
-                $doublePhoneme = $phonemesArray[$i] . " " . $phonemesArray[$i + 1];
-
-                if(equalityRequest($letterArray[$i], $doublePhoneme)){
-
-                    addArrayColor(checkColor($doublePhoneme), $i, 1, $colorArray);
-
-                }else if(equalityRequest($letterArray[$i] . $letterArray[$i + 1], $phonemesArray[$i])){
-
-                    addArrayColor(checkColor($phonemesArray[$i]), $i, 2, $colorArray);
-
-                    $currentPos += 2;
-                }
-            }
-
-            //addArrayColor(checkColor($lastPhoneme), $arrayLength - 1, 1, $colorArray);*/
             return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, 0, null, null, false);
-            //return checkWord($letterArray, 0, null, null, $colorArray, $phonemesArray);
-
         }else{
 
             return solidColor($phonemesArray, $arrayLength, $colorArray);
@@ -196,6 +173,8 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
     $arrayLength = sizeof($letterArray);
     $phArrayLength = sizeof($phonemesArray);
     $clArrayLength = sizeof($colorArray);
+
+    //PHONEMES ARRAY SIE PASSED
 
     if($arrayLength == 0){
 
@@ -250,12 +229,18 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                                addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
                                return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
-                           }else{
+                           } else if(equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) && $phonemesArray < $letterArray){
+
+                               addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                               return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
+                               }
+                           else{
 
                                addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
                                return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + strlen($tempGr), null, null, false);
                            }
                        }else{
+
                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
                            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + strlen($gr), null, null, false);
                        }
@@ -376,6 +361,7 @@ function graphemeRequest($phoneme){
 
 function equalityRequest($grapheme, $phoneme){
 
+    mysql_query("SET NAMES UTF8");
     $sql_check = mysql_query("SELECT phoneme FROM graphemes WHERE grapheme='".$grapheme."' AND phoneme='".$phoneme."'")
         or die(mysql_error());
     $noOfRows = mysql_num_rows($sql_check);
