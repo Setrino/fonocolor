@@ -211,11 +211,11 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                $arrayTail[$i - 1] = $letterArray[$i];
            }
 
-           $phLength = (strlen($tempPh) > 2) ? 2 : 1;
+           //$phLength = (strlen($tempPh) > 2) ? 2 : 1;
 
-           for($i = $phLength; $i < $phArrayLength; $i++){
+           for($i = 1; $i < $phArrayLength; $i++){
 
-               $phArrayTail[$i - $phLength] = $phonemesArray[$i];
+               $phArrayTail[$i - 1] = $phonemesArray[$i];
            }
 
                if($ph != null && equalityRequest($tempGr, $ph)){
@@ -223,6 +223,25 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                    if($tempGr == 'ch'){
                        addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
                        return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false);
+                   }
+
+                   if($tempGr == 'hu' && $tempPh == 'H i'){
+
+                       $arrayTail = array();
+                       $phArrayTail = array();
+
+                       for($i = 2; $i < $arrayLength; $i++){
+
+                           $arrayTail[$i - 2] = $letterArray[$i];
+                       }
+
+                       for($i = 1; $i < $phArrayLength; $i++){
+
+                           $phArrayTail[$i - 1] = $phonemesArray[$i];
+                       }
+
+                       addArrayColor(checkColor($tempPh), $c, strlen($tempGr) + 1, $colorArray);
+                       return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8") + 1, null, null, false);
                    }
 
                    if(equalityRequest($letterArray[0], $phonemesArray[0])){
@@ -348,7 +367,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                                }
                            }else{
 
-                           //If no new phoneme found, old phoneme is used
+                               //If no new phoneme found, old phoneme is used
                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
                            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false);
                            }
