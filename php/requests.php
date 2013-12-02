@@ -122,13 +122,13 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
     $arrayLength = sizeof($letterArray);
     mysql_query("SET NAMES UTF8");
-    //$sql_check = mysql_query("SELECT phonetic1 FROM lex2_inflection WHERE content ='".$text."'") or die(mysql_error());
+    $sql_check = mysql_query("SELECT phonetic1 FROM lex2_inflection WHERE content ='".$text."'") or die(mysql_error());
 
     $sql_checkL = mysql_query("SELECT phonetic1 FROM lex2_lemma WHERE content ='".$text."'") or die(mysql_error());
 
-    if((mysql_num_rows($sql_checkL) != 0)){
+    if((mysql_num_rows($sql_check) != 0) || (mysql_num_rows($sql_checkL) != 0)){
 
-        $tempQuery = $sql_checkL;
+        $tempQuery = (mysql_num_rows($sql_check) != 0) ? $sql_check : $sql_checkL;
 
         $rows = mysql_fetch_assoc($tempQuery);
         $phonemes = $rows['phonetic1'];
