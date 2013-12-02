@@ -172,7 +172,8 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
     if($arrayLength == 0){
 
-        addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+        addArrayColor(checkColor($ph), $c, mb_strlen($gr, "UTF-8"), $colorArray);
+
         return $colorArray;
     }
     else{
@@ -238,7 +239,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                        return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8") + 1, null, null, false);
                    }
 
-                   if(equalityRequest($letterArray[0], $phonemesArray[0])){
+                   if(equalityRequest($letterArray[0], $phonemesArray[0]) && $phArrayLength != 0){
 
                        if(!equalityRequest($letterArray[1], $phonemesArray[1]) && $arrayLength != 1){
 
@@ -268,6 +269,9 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false);
                        }
                    }else{
+
+
+
 
                        //catch peu (p2), deux (d2)
                        if(likeEqualityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) && $tempGr != 'ph'){
