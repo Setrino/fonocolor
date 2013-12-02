@@ -134,13 +134,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
         $phonemes = $rows['phonetic1'];
         $phonemesArray = explode(" ", $phonemes);
 
-        if($arrayLength != sizeof($phonemesArray)){
-
-            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, 0, null, null, false);
-        }else{
-
-            return solidColor($phonemesArray, $arrayLength, $colorArray);
-        }
+        return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, 0, null, null, false);
 
     }else{
 
@@ -276,7 +270,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                    }else{
 
                        //catch peu (p2), deux (d2)
-                       if(likeEqualityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0])){
+                       if(likeEqualityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) && $tempGr != 'ph'){
 
                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
                            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false);
