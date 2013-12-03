@@ -60,15 +60,16 @@ function catchColor(array, i, offsetX, yMultiplier){
     var xDistance = 0;
 
     textArray[i][1] = jQuery.parseJSON(array);
+    var currentWordArray = textArray[i][1];
 
-    for(var j = 0; j < textArray[i][1].length; j++){
+    for(var j = 0; j < currentWordArray.length; j++){
 
-        var letter = (textArray[i][1])[j][0];
+        var letter = currentWordArray[j][0];
 
         if(letter != undefined){
 
             ctx.beginPath();
-            drawText(3 + offsetX, pixel_size, letter, (textArray[i][1])[j][1], (textArray[i][1])[j][2],
+            drawText(3 + offsetX, pixel_size, letter, currentWordArray[j][1], currentWordArray[j][2],
                 xDistance, yMultiplier);
             ctx.closePath();
             xDistance += ctx.measureText(letter).width;
@@ -76,6 +77,28 @@ function catchColor(array, i, offsetX, yMultiplier){
     }
 
     //console.log(textArray[i][0] + " " + textArray[i][1]);
+}
+
+function drawWhite(array, i, offsetX, yMultiplier){
+
+    var xDistance = 0;
+
+    textArray[i][1] = array;
+    var currentWordArray = textArray[i][1];
+
+    for(var j = 0; j < currentWordArray.length; j++){
+
+        var letter = currentWordArray[j];
+
+        if(letter != undefined){
+
+            ctx.beginPath();
+            drawText(3 + offsetX, pixel_size, letter, '#FFFFFF', undefined,
+                xDistance, yMultiplier);
+            ctx.closePath();
+            xDistance += ctx.measureText(letter).width;
+        }
+    }
 }
 
 
@@ -94,8 +117,8 @@ function colorArray(text){
             textArray = [];
         }
 
-    text = text.replace(/[\,\r,>>,<<]/gm, "") ;
-    text = text.replace(/[\n,\b,\t,\']/gm, " ");
+    text = text.replace(/[\,\r]/gm, "") ;
+    text = text.replace(/[\n,\b,\t]/gm, " ");
     text = text.replace("  ", " ");
 
     console.log(text);
@@ -141,15 +164,16 @@ function drawArray(){
         }
 
         var xDistance = 0;
+        var currentWordArray = (textArray[i][1]);
 
-        for(var j = 0; j < (textArray[i][1]).length; j++){
+        for(var j = 0; j < currentWordArray.length; j++){
 
-            var letter = (textArray[i][1])[j][0];
+            var letter = currentWordArray[j][0];
 
             if(letter != undefined){
 
                 ctx.beginPath();
-                drawText(3 + offsetX, pixel_size, letter, (textArray[i][1])[j][1], (textArray[i][1])[j][2],
+                drawText(3 + offsetX, pixel_size, letter, currentWordArray[j][1], currentWordArray[j][2],
                     xDistance, yMultiplier);
                 ctx.closePath();
                 xDistance += ctx.measureText(letter).width;
@@ -198,7 +222,7 @@ window.onmouseup = function(){
 
 window.onmousemove = function(e){
     var evt = e || event;
-    window.event.returnValue = false;
+    window.event.preventDefault();
     if (dragging){
         var delta = evt.offsetY - lastY;
         translated += delta;
