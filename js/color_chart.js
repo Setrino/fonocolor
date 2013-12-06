@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     drawConsonants();
     drawVowels();
-    drawGrid();
+    //drawGrid();
 })
 
 var width = 650,

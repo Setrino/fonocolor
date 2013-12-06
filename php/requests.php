@@ -276,6 +276,11 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                        return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
                    }
 
+                   if($tempGr == 'th'){
+                       addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
+                       return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
+                   }
+
                    if($tempGr == 'hu' && $tempPh == 'H i'){
 
                        $arrayTail = array();
