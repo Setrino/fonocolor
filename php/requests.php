@@ -191,8 +191,21 @@ function checkDatabase($text, $letterArray, &$colorArray, $begin){
 
     }else{
 
-        addArrayColor("#FFFFFF", 0, $arrayLength, $colorArray);
-        return $colorArray;
+        if(strpos($text, 'oe')){
+
+            $text = strtr ($text, array ('oe' => 'œ'));
+            return checkDatabase($text, $letterArray, $colorArray, 0);
+
+        }elseif(strpos($text, 'ae')){
+
+            $text = strtr ($text, array ('oe' => 'æ'));
+            return checkDatabase($text, $letterArray, $colorArray, 0);
+
+        }else{
+
+            addArrayColor("#FFFFFF", 0, $arrayLength, $colorArray);
+            return $colorArray;
+        }
     }
 }
 

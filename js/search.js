@@ -120,6 +120,7 @@ function colorArray(text){
     text = text.replace(/[\,\r]/gm, "") ;
     text = text.replace(/[\n,\b,\t]/gm, " ");
     text = text.replace("  ", " ");
+    text = text.toLowerCase();
 
     console.log(text);
 
