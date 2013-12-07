@@ -39,24 +39,11 @@ $(document).ready(function(){
         colorArray($(".search_form").val());
     });
 
-    $('.color_text').bind({
+    $('.color_text').click(function(){
 
-        mouseenter: function(){
-            $(this).html("<img src=\"images/result_hover.png\"/>");
-        },
-
-        mouseout: function(){
-            $(this).html("<img src=\"images/result.png\"/>");
-        },
-
-        mouseleave: function(){
-            $(this).html("<img src=\"images/result.png\"/>");
-        },
-
-        click: function(){
-            colorArray($(".search_form").val());
-            $(this).html("<img src=\"images/result.png\"/>");
-        }
+        //$(this).html("<img src=\"images/result_hover.png\"/>");
+        colorArray($(".search_form").val());
+        //$(this).html("<img src=\"images/result.png\"/>");
     });
 
     // Toggle overlayBox
