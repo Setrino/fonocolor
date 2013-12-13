@@ -15,7 +15,7 @@ var width = 700,
 c.width = width;
 c.height = height;
 
-var pixel_size = 30,
+var pixel_size = 43,
     dragging = false,
     lastY = 0,
     translated = 0,
@@ -144,7 +144,7 @@ function colorArray(text){
 
             searchRequest(temp, i, offsetX, yMultiplier);
 
-            offsetX += ctx.measureText(temp + " ").width;
+            offsetX += ctx.measureText(temp + " ").width * 1.1;
 
         }
 }
@@ -200,8 +200,12 @@ function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier){
     ctx.fillStyle = colorTop;
     }
 
+    if(yMultiplier != 1){
+        yMultiplier = yMultiplier * 1.1;
+    }
+
     ctx.font= y + "px fundamental__brigade_schwerRg";
-    ctx.fillText(text, x + xDistance, y * yMultiplier);
+    ctx.fillText(text, x + xDistance * 1.1, y * yMultiplier);
 }
 
 c.onmousedown = function(e){

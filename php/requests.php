@@ -284,17 +284,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                if($ph != null && equalityRequest($tempGr, $ph)){
 
-                   if($tempGr == 'ch'){
-                       addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
-                       return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
-                   }
-
-                   if($tempGr == 'th'){
-                       addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
-                       return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
-                   }
-
-                   if($tempGr == 'sh'){
+                   if($tempGr == 'ch' || $tempGr == 'th' || $tempGr == 'sh'){
                        addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
                        return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
                    }
