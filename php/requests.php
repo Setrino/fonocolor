@@ -126,6 +126,13 @@ function retrieveWord($text, $letterArray, &$colorArray){
         $previousNonAlpha = 0;
         $counter = 0;
 
+        if(substr_count($text, "-") > 0){
+
+            if($phonemesArrayFull = checkHyphen($text)){
+                return hyphenatedWord($text, $letterArray, $colorArray, strrpos($text, "-"), $phonemesArrayFull);
+            }
+        }
+
         for($i = 0; $i < $arrayLength; $i++){
 
             /*if($i == $arrayLength - 1){
@@ -209,6 +216,60 @@ function checkDatabase($text, $letterArray, &$colorArray, $begin){
     }
 }
 
+function checkHyphen($text){
+
+    mysql_query("SET NAMES UTF8");
+    $sql_check = mysql_query("SELECT phonetic1 FROM lex2_inflection WHERE content ='".$text."'") or die(mysql_error());
+    $sql_checkL = mysql_query("SELECT phonetic1 FROM lex2_lemma WHERE content ='".$text."'") or die(mysql_error());
+
+    if((mysql_num_rows($sql_check) != 0) || (mysql_num_rows($sql_checkL) != 0)){
+
+        $tempQuery = (mysql_num_rows($sql_check) != 0) ? $sql_check : $sql_checkL;
+
+        $rows = mysql_fetch_assoc($tempQuery);
+        $phonemes = $rows['phonetic1'];
+        $phonemesArray = explode(" ", $phonemes);
+
+        return $phonemesArray;
+    }else{
+        return false;
+    }
+}
+
+function hyphenatedWord($text, $letterArray, &$colorArray, $hyphenPosition, $phonemesArrayFull){
+
+    $subString = substr($text, $hyphenPosition + 1, strlen($text) - 1);
+    $phonemesArray = null;
+    $phArrayFullLength = sizeof($phonemesArrayFull);
+
+    mysql_query("SET NAMES UTF8");
+    $sql_check = mysql_query("SELECT phonetic1 FROM lex2_inflection WHERE content ='".$subString."'") or die(mysql_error());
+
+    $sql_checkL = mysql_query("SELECT phonetic1 FROM lex2_lemma WHERE content ='".$subString."'") or die(mysql_error());
+
+    if((mysql_num_rows($sql_check) != 0) || (mysql_num_rows($sql_checkL) != 0)){
+
+        $tempQuery = (mysql_num_rows($sql_check) != 0) ? $sql_check : $sql_checkL;
+
+        $rows = mysql_fetch_assoc($tempQuery);
+        $phonemes = $rows['phonetic1'];
+        $phonemesArray = explode(" ", $phonemes);
+    }
+
+    $differenceArrayLength = $phArrayFullLength - sizeof($phonemesArray);
+
+    recursiveWordCheck(array_slice($phonemesArrayFull, 0, $differenceArrayLength), array_slice($letterArray, 0, $hyphenPosition), $colorArray, 0, null, null, false, 0, $differenceArrayLength + 1);
+    checkDatabase(substr($text, $hyphenPosition + 1, strlen($text) - 1), array_slice($letterArray, $hyphenPosition + 1, strlen($text) - 1),
+        $colorArray, $hyphenPosition + 1);
+
+    addArrayColor("#FFFFFF", $hyphenPosition, 1, $colorArray);
+
+    return $colorArray;
+}
+
+// peut - substr($text, 0, $hyphenPosition)
+// etre - substr($text, $hyphenPosition + 1, strlen($text) - 1)
+
 /*
  * $phonemesArray - Tail of phonemes received for the current word from the database
  * $letteArray - Tail of letters for the current word being broken down
@@ -273,6 +334,18 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
            for($i = 1; $i < $arrayLength; $i++){
 
                $arrayTail[$i - 1] = $letterArray[$i];
+           }
+
+
+           if($letterArray[0] == '-' && $gr != null){
+
+               addArrayColor(checkColor($ph), $c, mb_strlen($gr, "UTF-8"), $colorArray);
+               addArrayColor(checkColor($letterArray[0]), $c + mb_strlen($gr, "UTF-8"), 1, $colorArray);
+               return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($gr, "UTF-8") + 1, null, null, false,  $begin, $wordLength);
+           }elseif($letterArray[0] == '-' && $gr == null){
+
+               addArrayColor(checkColor($letterArray[0]), $c, 1, $colorArray);
+               return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + 1, null, null, false,  $begin, $wordLength);
            }
 
            //$phLength = (strlen($tempPh) > 2) ? 2 : 1;
@@ -359,7 +432,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                             $tempPhD = $tempPh . " " . $phonemesArray[1];
 
-                           if(equalityRequest($tempGr, $tempPhD)){
+                           if(equalityRequest($tempGr, $tempPhD) && $phonemesArray[1] != null){
 
                                $phLength = (strlen($tempPhD) > 2) ? 2 : 1;
 
@@ -368,7 +441,6 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                                for($i = $phLength; $i < $phArrayLength; $i++){
 
                                    $phArrayTail[$i - $phLength] = $phonemesArray[$i];
-
                                }
 
                                return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPhD, true, $begin,  $wordLength);
@@ -376,7 +448,14 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                                //If only one phoneme for the grapheme(s), then check for the next grapheme
                            }else{
 
-                               return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPh, true,  $begin, $wordLength);
+                               if($phArrayLength == 1 && equalityRequest(implode("", $letterArray), $tempPh)){
+
+                                   addArrayColor(checkColor($tempPh), $c, $arrayLength, $colorArray);
+                                   return recursiveWordCheck(array(), array(), $colorArray, $c + $arrayLength, null, null, false, $begin,  $wordLength);
+                               }else{
+
+                                   return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPh, true,  $begin, $wordLength);
+                               }
                            }
                    }elseif($ph != null && equalityRequest($gr, $tempPh)){
 
