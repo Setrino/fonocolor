@@ -190,12 +190,6 @@ ul#useful_links_bot li{
     background-color: #BFBFBF;
     color: #FFFFFF;
     letter-spacing: 1px;
-    -webkit-touch-callout: default;
-    -webkit-user-select: default;
-    -khtml-user-select: default;
-    -moz-user-select: default;
-    -ms-user-select: default;
-    user-select: default;
 }
 
 .search_output{
