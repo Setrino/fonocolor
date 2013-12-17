@@ -124,6 +124,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
     if(preg_match('~([^\A-Z0-9ÀÁÅÃÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ ])~i', $text)){
 
         $previousNonAlpha = 0;
+        $letterArrayLength = 0;
         $counter = 0;
 
         if(substr_count($text, "-") > 0){
@@ -147,11 +148,14 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
                 if($counter != 0){
 
+                    $tempPreviousAlpha = ($letterArrayLength > 1) ? 1 : 0;
+
                     checkDatabase(substr($text, $previousNonAlpha , $counter), array_slice($letterArray,
-                        $previousNonAlpha, $counter), $colorArray, $previousNonAlpha);
+                        $previousNonAlpha - $tempPreviousAlpha, $counter), $colorArray, $previousNonAlpha - $tempPreviousAlpha);
                     $counter = 0;
                 }
-                $previousNonAlpha = $i + 1;
+                $letterArrayLength = strlen($letterArray[$i]);
+                $previousNonAlpha = $i + $letterArrayLength;
             }else{
 
                 $counter++;
@@ -163,11 +167,14 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
                 if($counter != 0){
 
-                    checkDatabase(substr($text, $previousNonAlpha , $counter), array_slice($letterArray,
-                        $previousNonAlpha, $counter), $colorArray, $previousNonAlpha);
+                    $tempPreviousAlpha = ($letterArrayLength > 1) ? 1 : 0;
+
+                    checkDatabase(substr($text, $previousNonAlpha, $counter), array_slice($letterArray,
+                        $previousNonAlpha - $tempPreviousAlpha, $counter), $colorArray, $previousNonAlpha - $tempPreviousAlpha);
                     $counter = 0;
                 }
-                $previousNonAlpha = $i + 1;
+                $letterArrayLength = strlen($letterArray[$i]);
+                $previousNonAlpha = $i + $letterArrayLength;
             }
         }
 
@@ -305,7 +312,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
     }
     else{
         //Check if the last phoneme is @, and if so, replace with the color of the previous value
-       if($arrayLength < 3 && $phonemesArray[0] == '@' && $clArrayLength > 2){
+       if($arrayLength < 3 && $phonemesArray[0] == '@' && $clArrayLength > 2 && $colorArray[$wordLength + $begin - 2][0] != 'u'){
 
            if($ph != null && $gr != null){
 
@@ -357,7 +364,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                if($ph != null && equalityRequest($tempGr, $ph)){
 
-                   if($tempGr == 'ch' || $tempGr == 'th' || $tempGr == 'sh'){
+                   if($tempGr == 'ch' || $tempGr == 'th' || $tempGr == 'sh' || $tempGr == 'qu'){
                        addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
                        return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
                    }
@@ -403,6 +410,10 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                                addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
                                return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false,  $begin, $wordLength);
+                           }elseif(equalityRequest($letterArray[1] . $letterArray[2], $phonemesArray[1])){
+
+                               addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                               return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false,  $begin, $wordLength);
                            }
                            else{
 
@@ -436,14 +447,22 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                                $phLength = (strlen($tempPhD) > 2) ? 2 : 1;
 
-                               $phArrayTail = array();
+                               $phArrayTailD = array();
 
                                for($i = $phLength; $i < $phArrayLength; $i++){
 
-                                   $phArrayTail[$i - $phLength] = $phonemesArray[$i];
+                                   $phArrayTailD[$i - $phLength] = $phonemesArray[$i];
                                }
 
-                               return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPhD, true, $begin,  $wordLength);
+
+                               if($tempPhD == 'k s' && $letterArray[1] == 'c'){
+
+                                   addArrayColor(checkColor($tempPh), $c, 1, $colorArray);
+                                   return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c + 1, null, null, false, $begin, $wordLength);
+                               }else{
+
+                                   return recursiveWordCheck($phArrayTailD, $arrayTail, $colorArray, $c, $tempGr, $tempPhD, true, $begin, $wordLength);
+                               }
 
                                //If only one phoneme for the grapheme(s), then check for the next grapheme
                            }else{
