@@ -158,7 +158,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
                 $previousNonAlpha = $i + $letterArrayLength;
             }else{
 
-                $counter++;
+                $counter+= strlen($letterArray[$i]);
             }
 
             if($i == $arrayLength - 1){
