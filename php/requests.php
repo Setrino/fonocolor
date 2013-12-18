@@ -126,6 +126,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
         $previousNonAlpha = 0;
         $letterArrayLength = 0;
         $counter = 0;
+        $tempV = 0;
 
         if(substr_count($text, "-") > 0){
 
@@ -142,6 +143,8 @@ function retrieveWord($text, $letterArray, &$colorArray){
                     $previousNonAlpha + 1, $arrayLength), $colorArray, $previousNonAlpha + 1);
             }*/
 
+            $tempV += (strlen($letterArray[$i]) > 1) ? 1 : 0;
+
             if(preg_match('~([^\A-Z0-9ÀÁÅÃÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ ])~i', $letterArray[$i])){
 
                 addArrayColor("#FFFFFF", $i, 1, $colorArray);
@@ -149,16 +152,18 @@ function retrieveWord($text, $letterArray, &$colorArray){
                 if($counter != 0){
 
                     $tempPreviousAlpha = ($letterArrayLength > 1) ? 1 : 0;
+                    $currentAlpha = (strlen($letterArray[$i]) > 1) ? 1 : 0;
 
-                    checkDatabase(substr($text, $previousNonAlpha , $counter), array_slice($letterArray,
+                    checkDatabase(substr($text, $previousNonAlpha , $counter + $tempV - $tempPreviousAlpha - $currentAlpha), array_slice($letterArray,
                         $previousNonAlpha - $tempPreviousAlpha, $counter), $colorArray, $previousNonAlpha - $tempPreviousAlpha);
                     $counter = 0;
                 }
+
                 $letterArrayLength = strlen($letterArray[$i]);
                 $previousNonAlpha = $i + $letterArrayLength;
             }else{
 
-                $counter+= strlen($letterArray[$i]);
+                $counter++;
             }
 
             if($i == $arrayLength - 1){
@@ -169,7 +174,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
                     $tempPreviousAlpha = ($letterArrayLength > 1) ? 1 : 0;
 
-                    checkDatabase(substr($text, $previousNonAlpha, $counter), array_slice($letterArray,
+                    checkDatabase(substr($text, $previousNonAlpha , ($counter + $tempV - $tempPreviousAlpha)), array_slice($letterArray,
                         $previousNonAlpha - $tempPreviousAlpha, $counter), $colorArray, $previousNonAlpha - $tempPreviousAlpha);
                     $counter = 0;
                 }
