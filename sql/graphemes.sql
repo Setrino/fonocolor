@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 29, 2013 at 03:12 PM
+-- Generation Time: Dec 21, 2013 at 02:26 AM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -31,7 +31,7 @@ CREATE TABLE `graphemes` (
   `grapheme` varchar(128) DEFAULT NULL,
   `phoneme` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=874 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=885 ;
 
 --
 -- Dumping data for table `graphemes`
@@ -904,12 +904,19 @@ INSERT INTO `graphemes` (`id`, `grapheme`, `phoneme`) VALUES
 (864, 'oyes', 'w a'),
 (865, 'oys', 'w a'),
 (866, 'o', 'O'),
+(874, '-', '-'),
 (868, 'hui', 'H i'),
 (869, 'ui', 'H i'),
 (870, 'oins', 'w e~'),
 (871, 'oint', 'w e~'),
 (872, 'oin', 'w e~'),
-(873, 'oing', 'w e~');
+(873, 'oing', 'w e~'),
+(875, 'uits', 'H i'),
+(876, 'uit', 'H i'),
+(878, 'uie', 'H i'),
+(879, 'uient', 'H i'),
+(880, 'uies', 'H i'),
+(881, 'uis', 'H i');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,4 +1,4 @@
-function searchRequest(text, i, offsetX, yMultiplier){
+function searchRequest(text, i, offsetX, yMultiplier, callback){
 
     $('.reply').html('<img src="images/preloader.gif" align="absmiddle">&nbsp;Fonocolorizing...');
 
@@ -15,7 +15,7 @@ function searchRequest(text, i, offsetX, yMultiplier){
             else
             {
                 try{
-                    catchColor(msg, i, offsetX, yMultiplier);
+                    catchColor(msg, i, offsetX.value, yMultiplier, function(){callback(text, offsetX);});
                     //$('.reply').html(msg);
                     $('.reply').html('');
 

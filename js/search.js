@@ -22,7 +22,8 @@ var pixel_size = 43,
     rowLength = 85,
     textArray = new Array(),
     previousLength = 0,
-    coloredBlockHeight = 0;
+    coloredBlockHeight = 0,
+    INCREASE_MULTIPLIER = 1.1;
 
 function drawRectangle(){
 
@@ -51,11 +52,10 @@ function placeInArray(text){
     draw();
 }
 
-
 //Receives array of [[letter, color]]
 //i - current word in the textArray
 //offsetX - offset along the x axis from previous word
-function catchColor(array, i, offsetX, yMultiplier){
+function catchColor(array, i, offsetX, yMultiplier, callback){
 
     var xDistance = 0;
 
@@ -75,7 +75,7 @@ function catchColor(array, i, offsetX, yMultiplier){
             xDistance += ctx.measureText(letter).width;
         }
     }
-
+    callback();
     //console.log(textArray[i][0] + " " + textArray[i][1]);
 }
 
@@ -101,12 +101,20 @@ function drawWhite(array, i, offsetX, yMultiplier){
     }
 }
 
+function offSetX(){
+    this.value = 0;
+}
+
+function addOffSetX(offSetX, value){
+
+    offSetX.value += value;
+}
 
 // i - currently select word
 function colorArray(text){
 
         var textLength = text.length;
-        var offsetX = 0;
+        var offsetX = new offSetX();
         var yMultiplier = 1;
         var textareaWidth = $(".search_output").width();
 
@@ -129,29 +137,31 @@ function colorArray(text){
 
         //console.log(text);
 
-        for(var i = 0; i < splitArray.length; i ++){
+    for(var i = 0; i < splitArray.length; i ++){
 
-            var temp = splitArray[i];
+        var temp = splitArray[i];
 
-            textArray[i] = new Array();
-            textArray[i][0] = temp;
+        textArray[i] = new Array();
+        textArray[i][0] = temp;
 
-            if((offsetX + ctx.measureText(temp + " ").width / yMultiplier) > textareaWidth){
-                ++yMultiplier;
-                offsetX = 0;
-                setBlockHeight(yMultiplier);
-            }
-
-            searchRequest(temp, i, offsetX, yMultiplier);
-
-            offsetX += ctx.measureText(temp + " ").width * 1.1;
-
+        if((offsetX.value + ctx.measureText(temp + " ").width / yMultiplier) > textareaWidth){
+            ++yMultiplier;
+            offsetX.value = 0;
+            setBlockHeight(yMultiplier);
         }
-}
 
+            searchRequest(temp, i, offsetX, yMultiplier, function(temp, offsetX){
+
+            addOffSetX(offsetX, ctx.measureText(temp + " ").width);
+
+            });
+    }
+}
 
 //Redraw the entire array
 function drawArray(){
+
+    console.log("S");
 
     var offsetX = 0;
     var yMultiplier = 1;
@@ -189,7 +199,7 @@ function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier){
     var lingrad = '';
 
     if(yMultiplier != 1){
-        yMultiplier = yMultiplier * 1.1;
+        yMultiplier = yMultiplier * INCREASE_MULTIPLIER;
     }
 
     if(colorBottom != undefined){
@@ -205,7 +215,7 @@ function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier){
     }
 
     ctx.font= y + "px fundamental__brigade_schwerRg";
-    ctx.fillText(text, x + xDistance * 1.1, y * yMultiplier);
+    ctx.fillText(text, x + xDistance, y * yMultiplier);
 }
 
 c.onmousedown = function(e){

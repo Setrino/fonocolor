@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 29, 2013 at 03:12 PM
+-- Generation Time: Dec 21, 2013 at 02:25 AM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -33,7 +33,7 @@ CREATE TABLE `relation` (
   `colorTop` varchar(128) DEFAULT NULL,
   `colorBottom` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=223 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=225 ;
 
 --
 -- Dumping data for table `relation`
@@ -85,7 +85,9 @@ INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VAL
 (82, 'j e', NULL, '#ED6E00', '#E8112D'),
 (83, 'j 2', NULL, '#00B760', '#E8112D'),
 (219, 'w e~', NULL, '#4CCED1', '#F9BF9E'),
-(221, 'H i', NULL, '#F7D917', '#E8112D');
+(221, 'H i', NULL, '#F7D917', '#E8112D'),
+(223, '-', '#FFFFFF', NULL, NULL),
+(224, 'w', '#4AD6CA', NULL, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
