@@ -1,24 +1,32 @@
 $(document).ready(function(){
 
+    var fullScreen = 0;
     $("#full_screen").click(function(){
 
-        /*if ($('body').css("background-color") == "rgb(0, 0, 0)"){
-            $('body').css("background-color", "#696969");
-        }else{
-            $('body').css("background-color", "#000000");
-        }*/
-
-        if(document.fullScreen){
-
-            //$("#canvas").css("background-color", "#000000");
-
-        }
-
-        c = document.getElementById('canvas');
-
+        fullScreenOn();
+        fullScreen = 1;
         fullScreenApi.requestFullScreen(document.getElementById("canvas"));
 
     });
+
+    document.addEventListener("fullscreenchange", function () {
+        if(fullScreen == 1 && document.fullscreen == false){
+            fullScreen == 0;
+            fullScreenOff();
+        }
+    }, false);
+    document.addEventListener("mozfullscreenchange", function () {
+        if(fullScreen == 1 && document.mozFullScreen == false){
+            fullScreen == 0;
+            fullScreenOff();
+        }
+    }, false);
+    document.addEventListener("webkitfullscreenchange", function () {
+        if(fullScreen == 1 && document.webkitIsFullScreen == false){
+            fullScreen == 0;
+            fullScreenOff();
+        }
+    }, false);
 
     $(".copyright").css("margin-right", $("#wrapper").width() / 1.1 - $(".copyright").width() * 3);
     //$(".email").css("margin-left", $("#wrapper").width() / 2);
@@ -40,6 +48,7 @@ $(document).ready(function(){
 
         $(".search_form").val(previousValue);
         colorArray($(".search_form").val());
+        resetCanvas();
     });
 
     $('.color_text').click(function(){

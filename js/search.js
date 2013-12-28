@@ -6,6 +6,7 @@ $(document).ready(function(){
 var width = 700,
 //width of the canvas
     height = 148,
+    full_screen_height = 0,
 //height of the canvas
     c = document.getElementById('canvas'),
 //canvas itself
@@ -55,7 +56,7 @@ function placeInArray(text){
 //Receives array of [[letter, color]]
 //i - current word in the textArray
 //offsetX - offset along the x axis from previous word
-function catchColor(array, i, offsetX, yMultiplier, callback){
+function catchColor(array, i, offsetX, yMultiplier){
 
     var xDistance = 0;
 
@@ -75,7 +76,6 @@ function catchColor(array, i, offsetX, yMultiplier, callback){
             xDistance += ctx.measureText(letter).width;
         }
     }
-    callback();
     //console.log(textArray[i][0] + " " + textArray[i][1]);
 }
 
@@ -118,7 +118,7 @@ function colorArray(text){
         var yMultiplier = 1;
         var textareaWidth = $(".search_output").width();
 
-        ctx.clearRect(0, 0, c.width, c.height);
+        ctx.clearRect(0, 0, c.width, (full_screen_height != 0) ? full_screen_height : c.height);
 
         if(previousLength < textLength || textLength == 0){
 
@@ -134,34 +134,50 @@ function colorArray(text){
 
     //Sentence
         var splitArray = text.split(" ");
+        var splitArrayL = splitArray.length;
 
         //console.log(text);
 
-    for(var i = 0; i < splitArray.length; i ++){
+    var asyncLoop = function(o){
+        var i=-1,
+            length = o.length;
 
-        var temp = splitArray[i];
-
-        textArray[i] = new Array();
-        textArray[i][0] = temp;
-
-        if((offsetX.value + ctx.measureText(temp + " ").width / yMultiplier) > textareaWidth){
-            ++yMultiplier;
-            offsetX.value = 0;
-            setBlockHeight(yMultiplier);
+        var loop = function(){
+            i++;
+            if(i==length){o.callback(); return;}
+            o.functionToLoop(loop, i);
         }
-
-            searchRequest(temp, i, offsetX, yMultiplier, function(temp, offsetX){
-
-            addOffSetX(offsetX, ctx.measureText(temp + " ").width);
-
-            });
+        loop();//init
     }
+
+    asyncLoop({
+        length : splitArrayL,
+        functionToLoop : function(loop, i){
+
+                var temp = splitArray[i];
+
+                textArray[i] = new Array();
+                textArray[i][0] = temp;
+
+                if((offsetX.value + ctx.measureText(temp + " ").width) > width){
+                    ++yMultiplier;
+                    offsetX.value = 0;
+                    setBlockHeight(yMultiplier);
+                }
+                searchRequest(temp, i, offsetX, yMultiplier, addOffSetX, loop);
+        },
+        callback : function(){
+            //Loop finished
+            full_screen_height = yMultiplier * pixel_size * INCREASE_MULTIPLIER + 6;
+        }
+    });
+
+
+    for(var i = 0; i < splitArray.length; i ++){}
 }
 
 //Redraw the entire array
 function drawArray(){
-
-    console.log("S");
 
     var offsetX = 0;
     var yMultiplier = 1;
@@ -169,7 +185,7 @@ function drawArray(){
 
     for(var i = 0; i < textArray.length; i++){
 
-        if((offsetX + ctx.measureText(textArray[i][0] + " ").width / yMultiplier) > textareaWidth){
+        if((offsetX + ctx.measureText(textArray[i][0] + " ").width) > width){
             ++yMultiplier;
             offsetX = 0;
         }
@@ -222,7 +238,7 @@ c.onmousedown = function(e){
 
     var evt = e || event;
     dragging = true;
-    lastY = evt.offsetY;
+    lastY = evt.offsetY==undefined?evt.layerY:evt.offsetY;
 }
 
 c.onmouseout = function(){
@@ -230,31 +246,39 @@ c.onmouseout = function(){
     dragging = false;
 }
 
+c.ontouchstart = function(e) {
+    if (e.touches) e = e.touches[0];
+    return false;
+}
+
 window.onmouseup = function(){
 
     dragging = false;
 }
 
+
 window.onmousemove = function(e){
     var evt = e || event;
-    window.event.preventDefault();
     if (dragging){
-        var delta = evt.offsetY - lastY;
+        var offSetY = evt.offsetY==undefined?evt.layerY:evt.offsetY;
+        var delta =  offSetY - lastY;
         translated += delta;
-        lastY = evt.offsetY;
+        lastY = offSetY;
         draw(delta);
     }
 }
 
 function draw(delta){
 
-    var difference = c.height - pixel_size * coloredBlockHeight;
+    var difference = c.height - full_screen_height;
+
+    console.log("T " + translated + " D " + (difference * 2 - 3) + " F " + full_screen_height);
 
     if((translated) <= difference * 2 - 3){
 
         translated = difference * 2 - 3;
 
-    }else if( ( translated ) >= difference ){
+    }else if( ( translated ) > difference ){
 
         translated = difference;
 
@@ -269,11 +293,26 @@ function draw(delta){
 
         drawArray();
     }
-
     //console.log(lastY + " " + (translated - difference) + " t " + difference);
 }
 
 function setBlockHeight(height){
 
     coloredBlockHeight = height;
+}
+
+function fullScreenOn(){
+
+    c.height = full_screen_height;
+    drawArray();
+}
+
+function fullScreenOff(){
+
+    c.height = height;
+    drawArray();
+}
+
+function resetCanvas(){
+    full_screen_height = 0;
 }
