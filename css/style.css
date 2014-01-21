@@ -91,6 +91,16 @@ ul#useful_links_top li{
     display: inline-block;
 }
 
+ul.disc{
+    list-style: disc;
+    padding: 0 5em 0 5em;
+}
+
+ul.square{
+    list-style: square;
+    padding: 0 7em 0 7em;
+}
+
 .clean{
     margin-top: 0.5em;
     margin-right: 0.5em;

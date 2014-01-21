@@ -20,6 +20,7 @@ var pixel_size = 43,
     dragging = false,
     lastY = 0,
     translated = 0,
+    translatedD = 0,
     rowLength = 85,
     textArray = new Array(),
     previousLength = 0,
@@ -272,7 +273,7 @@ function draw(delta){
 
     var difference = c.height - full_screen_height;
 
-    console.log("T " + translated + " D " + (difference * 2 - 3) + " F " + full_screen_height);
+    //console.log("T " + translated + " D " + (difference * 2 - 3) + " F " + full_screen_height);
 
     if((translated) <= difference * 2 - 3){
 
@@ -293,6 +294,8 @@ function draw(delta){
 
         drawArray();
     }
+
+    translatedD = -(translated - difference);
     //console.log(lastY + " " + (translated - difference) + " t " + difference);
 }
 
@@ -314,5 +317,7 @@ function fullScreenOff(){
 }
 
 function resetCanvas(){
+
     full_screen_height = 0;
+    ctx.translate(0, translatedD);
 }

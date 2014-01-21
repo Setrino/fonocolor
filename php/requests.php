@@ -309,7 +309,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
     //PHONEMES ARRAY SIE PASSED
 
-    if($arrayLength == 0){
+    if($arrayLength == 0 && $phonemesArray == null){
 
         addArrayColor(checkColor($ph), $c, mb_strlen($gr, "UTF-8"), $colorArray);
 
@@ -317,7 +317,8 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
     }
     else{
         //Check if the last phoneme is @, and if so, replace with the color of the previous value
-       if($arrayLength < 3 && $phonemesArray[0] == '@' && $clArrayLength > 2 && $colorArray[$wordLength + $begin - 2][0] != 'u'){
+        // && $clArrayLength > 2 && $colorArray[$wordLength + $begin - 2][0] != 'u'
+       if($arrayLength < 3 && $phonemesArray[0] == '@' && $phArrayLength == 1 && $gr == null){
 
            if($ph != null && $gr != null){
 
@@ -369,9 +370,19 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                if($ph != null && equalityRequest($tempGr, $ph)){
 
-                   if($tempGr == 'ch' || $tempGr == 'th' || $tempGr == 'sh' || $tempGr == 'qu'){
+                   if($tempGr == 'ch' || $tempGr == 'th' || $tempGr == 'sh' || $tempGr == 'il' || $tempGr == 'hi'){
                        addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
                        return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
+                   }
+
+                   if($tempGr == 'qu' && $phonemesArray[0] != 'w'){
+                       addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
+                       return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
+                   }
+
+                   if($tempGr == 'ie' && $letterArray[1] == 'r'){
+                       addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                       return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false,  $begin, $wordLength);
                    }
 
                    if($tempGr == 'hu' && $tempPh == 'H i'){
