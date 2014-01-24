@@ -121,7 +121,8 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
     $arrayLength = sizeof($letterArray);
 
-    if(preg_match('~([^\A-Z0-9ÀÁÅÃÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ ])~i', $text)){
+    //Check whether the alphanumeric value is an escape character (non-letter or number)
+    if(preg_match('~([^\A-Z0-9ÀÁÅÃÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿœæ ])~i', $text)){
 
         $previousNonAlpha = 0;
         $letterArrayLength = 0;
@@ -137,15 +138,9 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
         for($i = 0; $i < $arrayLength; $i++){
 
-            /*if($i == $arrayLength - 1){
-
-                checkDatabase(substr($text, $previousNonAlpha + 1, $arrayLength), array_slice($letterArray,
-                    $previousNonAlpha + 1, $arrayLength), $colorArray, $previousNonAlpha + 1);
-            }*/
-
             $tempV += (strlen($letterArray[$i]) > 1) ? 1 : 0;
 
-            if(preg_match('~([^\A-Z0-9ÀÁÅÃÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ ])~i', $letterArray[$i])){
+            if(preg_match('~([^\A-Z0-9ÀÁÅÃÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿœæ ])~i', $letterArray[$i])){
 
                 addArrayColor("#FFFFFF", $i, 1, $colorArray);
 
@@ -153,6 +148,10 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
                     $tempPreviousAlpha = ($letterArrayLength > 1) ? 1 : 0;
                     $currentAlpha = (strlen($letterArray[$i]) > 1) ? 1 : 0;
+
+                    if(preg_match("/^[’']+$/",$letterArray[$i])) {
+                        setTrueApostrophe();
+                    }
 
                     checkDatabase(substr($text, $previousNonAlpha , $counter + $tempV - $tempPreviousAlpha - $currentAlpha), array_slice($letterArray,
                         $previousNonAlpha - $tempPreviousAlpha, $counter), $colorArray, $previousNonAlpha - $tempPreviousAlpha);
@@ -175,7 +174,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
                     $tempPreviousAlpha = ($letterArrayLength > 1) ? 1 : 0;
 
                     checkDatabase(substr($text, $previousNonAlpha , ($counter + $tempV - $tempPreviousAlpha)), array_slice($letterArray,
-                        $previousNonAlpha - $tempPreviousAlpha, $counter), $colorArray, $previousNonAlpha - $tempPreviousAlpha);
+                        $previousNonAlpha - $tempPreviousAlpha - $tempV, $counter), $colorArray, $previousNonAlpha - $tempPreviousAlpha - $tempV);
                     $counter = 0;
                 }
                 $letterArrayLength = strlen($letterArray[$i]);
@@ -313,6 +312,11 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
         addArrayColor(checkColor($ph), $c, mb_strlen($gr, "UTF-8"), $colorArray);
 
+        return $colorArray;
+    }elseif(($letterArray[0] == 's' || $letterArray[0] == 'n') && $wordLength == 1 && constant('apostrophe')){
+
+        addArrayColor(checkColor($letterArray[0]), $c, 1, $colorArray);
+        setFalseApostrophe();
         return $colorArray;
     }
     else{
@@ -694,5 +698,15 @@ function str_split_utf8($jstring)
     }
     return $ret;
 }
+
+function setTrueApostrophe(){
+
+    define("Apostrophe", true, true);
+}
+
+function setFalseApostrophe(){
+
+    define("Apostrophe", false, true);
+};
 
 ?>
