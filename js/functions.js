@@ -28,7 +28,7 @@ $(document).ready(function(){
         }
     }, false);
 
-    $(".copyright").css("margin-right", $("#wrapper").width() / 1.1 - $(".copyright").width() * 3);
+    //$(".copyright").css("margin-right", $("#wrapper").width() / 1.1 - $(".copyright").width() * 3);
     //$(".email").css("margin-left", $("#wrapper").width() / 2);
 
     $("#answer").css("margin-left", $("#phonetic").width() / 2 - 97 / 2);

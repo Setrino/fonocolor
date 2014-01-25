@@ -52,6 +52,11 @@ footer span{
     bottom: -13px;
 }
 
+#footer_wrapper{
+
+    margin-bottom: 1em;
+}
+
 a{
     text-decoration: none;
     color: #FFFFFF;
@@ -72,8 +77,13 @@ ul{
     list-style-image: none;
 }
 
+ul#header_links{
+    height: 20px;
+    margin-bottom: 1em;
+}
+
 ul#header_links li{
-    margin-top: 2px;
+    margin-top: 2em;
     display: inline-block;
 }
 
@@ -158,11 +168,15 @@ article p{
 }
 
 .copyright{
-
+    float: left;
+    width: 20px;
+    margin-left: 1em;
 }
 
 .email{
-
+    float: right;
+    width: 20px;
+    margin-right: 1em;
 }
 
 .logo{
@@ -237,7 +251,6 @@ article p{
     color: #000;
     font-family: Arial;
     font-size: 15px;
-    //border: 2px solid #000;
     position: absolute;
     display: none;
     width: 500px;
