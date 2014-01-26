@@ -164,7 +164,7 @@ function drawTextConsonantVowel(text, color, letter){
 
                 ctx.fillStyle = color;
 
-                if(word[j] == '\''){
+                if(word[j] == '\'' || word[j] == '1' || word[j] == '2'){
 
                     ctx.fillStyle = "#FFFFFF";
                 }else if(word[j - 1] == 'J' || word[j - 1] == 'C'){
@@ -177,6 +177,11 @@ function drawTextConsonantVowel(text, color, letter){
             }else{
 
                 ctx.fillStyle = "#EDC4DD";
+
+                if(word[j - 2] == '1' || word[j - 2] == '2'){
+
+                    ctx.fillStyle = color;
+                }
             }
 
             ctx.fillText(word[j], offSetX, textFontSize * offSetY);
