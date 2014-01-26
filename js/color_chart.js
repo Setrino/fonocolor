@@ -5,15 +5,19 @@ $(document).ready(function(){
     //drawGrid();
 })
 
-var width = 650,
+var width = 500,
 //width of the canvas
-    height = 450,
+    height = 650,
 //height of the canvas
     dim = 50,
     grid = null,
     c = document.getElementById('c'),
 //canvas itself
-    ctx = c.getContext('2d');
+    ctx = c.getContext('2d'),
+//constant for canvas to move vowels drawing
+    HORIZONTAl_RIGHT = 6,
+//space between boxes and circles
+    SPACING = 0;
 //and two-dimensional graphic context of the
 //canvas, the only one supported by all
 //browsers for now
@@ -23,39 +27,39 @@ consonants = new Array();
 
 consonants = [
     [0, 0, "#A53F0F", "m"],
-    [1, 3, "#AA930A", "v"],
-    [1, 1, "#96938E", "f"],
-    [2, 2, "#3A7728", "p"],
-    [2, 4, "#A50544", "b"],
-    [4, 0, "#2B4C3F", "n"],
-    [5, 1, "#F7D3B5", "s"],
-    [5, 3, "#FC9BB2", "z"],
-    [6, 2, "#007770", "t"],
-    [6, 4, "#E29100", "d"],
-    [7, 1, "#CE898C", "ch"],
-    [7, 3, "#894FBF", "ge"],
-    [8, 0, "#A3C1AD", "l"],
-    [10, 0, "#D3BFB7", "r"],
-    [12, 2, "#3A4972", "k"],
-    [12, 4, "#9B0070", "g"]
+    [2, 1, "#AA930A", "v"],
+    [4, 1, "#96938E", "f"],
+    [3, 2, "#3A7728", "p"],
+    [1, 2, "#A50544", "b"],
+    [0, 4, "#2B4C3F", "n"],
+    [4, 5, "#F7D3B5", "s"],
+    [2, 5, "#FC9BB2", "z"],
+    [3, 6, "#007770", "t"],
+    [1, 6, "#E29100", "d"],
+    [4, 7, "#CE898C", "ch"],
+    [2, 7, "#894FBF", "ge"],
+    [0, 8, "#A3C1AD", "l"],
+    [0, 10, "#D3BFB7", "r"],
+    [3, 12, "#3A4972", "k"],
+    [1, 12, "#9B0070", "g"]
             ];
 
 vowels = new Array();
 
 vowels = [
-    [0, 0 + 5, "#E8112D", "i"],
-    [0, 2 + 5, "#F7D917", "u"],
-    [2, 0 + 5, "#ED6E00", "ez"],
-    [2, 2 + 5, "#00B760", "eu"],
-    [3, 3 + 5, "#F9BF9E", "in"],
-    [4, 0 + 5, "#F43FA5", "ei"],
-    [4, 2 + 5, "#CEEA82", "oe"],
-    [6, 3 + 5, "#EDC4DD", "an"],
-    [6, 1 + 5, "#930FA5", "a"],
-    [8, 1 + 5, "#5B77CC", "ot"],
-    [9, 3 + 5, "#C4D8E2", "on"],
-    [10, 1 + 5, "#0051BA", "au"],
-    [12, 1 + 5, "#4CCED1", "ou"]
+    [2 + HORIZONTAl_RIGHT, 0, "#E8112D", "i"],
+    [0 + HORIZONTAl_RIGHT, 0, "#F7D917", "u"],
+    [2 + HORIZONTAl_RIGHT, 2, "#ED6E00", "ez"],
+    [0 + HORIZONTAl_RIGHT, 2, "#00B760", "eu"],
+    [3 + HORIZONTAl_RIGHT, 3, "#F9BF9E", "in"],
+    [2 + HORIZONTAl_RIGHT, 4, "#F43FA5", "ei"],
+    [0 + HORIZONTAl_RIGHT, 4, "#CEEA82", "oe"],
+    [3 + HORIZONTAl_RIGHT, 6, "#EDC4DD", "an"],
+    [1 + HORIZONTAl_RIGHT, 6, "#930FA5", "a"],
+    [1 + HORIZONTAl_RIGHT, 8, "#5B77CC", "ot"],
+    [3 + HORIZONTAl_RIGHT, 9, "#C4D8E2", "on"],
+    [1 + HORIZONTAl_RIGHT, 10, "#0051BA", "au"],
+    [1 + HORIZONTAl_RIGHT, 12, "#4CCED1", "ou"]
 ];
 
 c.width = width;
@@ -114,7 +118,7 @@ function drawBox(x, y, color, sound){
     orgX = x * dim;
     orgY = y * dim;
 
-    ctx.fillRect(orgX, orgY, dim, dim);
+    ctx.fillRect(orgX + SPACING, orgY + SPACING, dim - SPACING, dim - SPACING);
 
     ctx.closePath();
 }
