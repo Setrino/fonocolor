@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 21, 2013 at 02:26 AM
+-- Generation Time: Jan 26, 2014 at 06:37 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -31,7 +31,7 @@ CREATE TABLE `graphemes` (
   `grapheme` varchar(128) DEFAULT NULL,
   `phoneme` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=885 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=895 ;
 
 --
 -- Dumping data for table `graphemes`
@@ -575,7 +575,6 @@ INSERT INTO `graphemes` (`id`, `grapheme`, `phoneme`) VALUES
 (535, 'hu', 'w'),
 (536, 'o', 'w'),
 (537, 'oo', 'w'),
-(538, 'ou', 'w'),
 (539, 'u', 'w'),
 (540, 'w', 'w'),
 (541, 'wh', 'w'),
@@ -899,7 +898,6 @@ INSERT INTO `graphemes` (`id`, `grapheme`, `phoneme`) VALUES
 (859, 'oîts', 'w a'),
 (860, 'oix', 'w a'),
 (861, 'ooi', 'w a'),
-(862, 'oy', 'w a'),
 (863, 'oye', 'w a'),
 (864, 'oyes', 'w a'),
 (865, 'oys', 'w a'),
@@ -913,10 +911,16 @@ INSERT INTO `graphemes` (`id`, `grapheme`, `phoneme`) VALUES
 (873, 'oing', 'w e~'),
 (875, 'uits', 'H i'),
 (876, 'uit', 'H i'),
+(887, 'n', 'E n'),
 (878, 'uie', 'H i'),
 (879, 'uient', 'H i'),
 (880, 'uies', 'H i'),
-(881, 'uis', 'H i');
+(881, 'uis', 'H i'),
+(886, 'er', 'j e'),
+(885, 's', 'E s'),
+(893, 'ouah', 'w a'),
+(889, 'oua', 'w a'),
+(892, 'o', 'w a');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
