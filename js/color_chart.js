@@ -17,7 +17,7 @@ var width = 700,
 //constant for canvas to move vowels drawing
     RIGHT_OFFSET = 6,
 //space between boxes and circles
-    SPACING = 0,
+    SPACING = 3,
 //width of the consonants and vowels block used for right offset
     SOUNDS_WIDTH = 500,
 //canvas text font size
@@ -135,7 +135,7 @@ function drawCircle(x, y, color, sound){
     orgX = x * dim + dim / 2;
     orgY = y * dim + dim / 2;
 
-    ctx.arc(orgX, orgY, dim / 2, 0 , 2 * Math.PI);
+    ctx.arc(orgX + SPACING, orgY + SPACING, (dim - SPACING) / 2, 0, 2 * Math.PI);
     ctx.fill();
 
     ctx.closePath();
