@@ -41,7 +41,7 @@ consonants = [
     [3, 6, "#007770", "t", ["tant", "taon", "temps", "tend"]],
     [1, 6, "#E29100", "d", ["dent", "dans", "d'en"]],
     [4, 7, "#CE898C", "ch", ["champ", "chant"]],
-    [2, 7, "#894FBF", "ge", ["gens", "Jean", "j'en"]],
+    [2, 7, "#894FBF", "j", ["gens", "Jean", "j'en"]],
     [0, 8, "#A3C1AD", "l", ["lent", "l'an"]],
     [0, 10, "#D3BFB7", "r", ["rang", "rend"]],
     [3, 12, "#3A4972", "qu", ["quand", "qu'en", "quant", "Caen"]],
@@ -135,7 +135,7 @@ function drawCircle(x, y, color, sound){
     orgX = x * dim + dim / 2;
     orgY = y * dim + dim / 2;
 
-    ctx.arc(orgX + SPACING, orgY + SPACING, (dim - SPACING) / 2, 0, 2 * Math.PI);
+    ctx.arc(orgX + (SPACING / 2), orgY + (SPACING / 2), (dim - SPACING) / 2, 0, 2 * Math.PI);
     ctx.fill();
 
     ctx.closePath();
@@ -148,7 +148,24 @@ function drawCircle(x, y, color, sound){
 function drawTextConsonantVowel(text, color, letter){
 
     var textL = text.length;
-    var offSetY = 3;
+    var offSetY = 1;
+    var beginY = 0;
+
+    switch(textL){
+        case 1:
+            beginY = 285;
+            break;
+        case 2:
+            beginY = 255;
+            break;
+        case 3:
+            beginY = 225;
+            break;
+        case 4:
+            beginY = 195;
+            break;
+    }
+
     ctx.font= textFontSize + "px fundamental__brigade_schwerRg";
 
     for(var i = 0; i < textL; i++){
@@ -184,7 +201,7 @@ function drawTextConsonantVowel(text, color, letter){
                 }
             }
 
-            ctx.fillText(word[j], offSetX, textFontSize * offSetY);
+            ctx.fillText(word[j], offSetX, beginY + offSetY * textFontSize);
 
             offSetX += ctx.measureText(word[j]).width;
         }
@@ -220,7 +237,7 @@ c.addEventListener('click', function(e) {
             drawTextConsonantVowel(consonant[4], consonant[2], consonant[3]);
             var snd = new Audio("sound/consonant/" + consonant[3] + ".wav");
                 snd.play();
-                ctx.globalAlpha = 0.5;
+                ctx.globalAlpha = 0.4;
                 drawConsonants();
                 drawVowels();
                 ctx.globalAlpha = 1.0;
@@ -239,16 +256,19 @@ c.addEventListener('click', function(e) {
             ctx.clearRect(0, 0, c.width, c.height);
             var snd = new Audio("sound/vowel/" + vowel[3] + ".wav");
             snd.play();
-            ctx.globalAlpha = 0.5;
+            ctx.globalAlpha = 0.4;
             drawConsonants();
             drawVowels();
             ctx.globalAlpha = 1.0;
             drawCircle(vowel[0], vowel[1], vowel[2]);
             snd.addEventListener("ended", function()
             {
-                ctx.clearRect(0, 0, c.width, c.height);
-                drawConsonants();
-                drawVowels();
+                setTimeout(
+                    function() {
+                        ctx.clearRect(0, 0, c.width, c.height);
+                        drawConsonants();
+                        drawVowels();
+                    }, 500);
             });
         }
     }, false);
