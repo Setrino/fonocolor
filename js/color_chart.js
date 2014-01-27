@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 var width = 720,
 //width of the canvas
-    height = 650,
+    height = 550,
 //height of the canvas
     dim = 50,
     grid = null,
@@ -32,20 +32,20 @@ consonants = new Array();
 consonants = [
     [0, 0, "#A53F0F", "m", ["ment", "m'en", "mans", "mens"]],
     [2, 1, "#AA930A", "v", ["vent", "vans", "vend"]],
-    [4, 1, "#96938E", "f", ["faon", "fend"]],
-    [3, 2, "#3A7728", "p", ["paon", "pan", "pend"]],
+    [3, 1, "#96938E", "f", ["faon", "fend"]],
+    [2, 2, "#3A7728", "p", ["paon", "pan", "pend"]],
     [1, 2, "#A50544", "b", ["banc", "ban"]],
     [0, 4, "#2B4C3F", "n", ["1 n an"]],
-    [4, 5, "#F7D3B5", "s", ["sans", "cent", "sang", "s'en"]],
+    [3, 5, "#F7D3B5", "s", ["sans", "cent", "sang", "s'en"]],
     [2, 5, "#FC9BB2", "z", ["2 z ans"]],
-    [3, 6, "#007770", "t", ["tant", "taon", "temps", "tend"]],
+    [2, 6, "#007770", "t", ["tant", "taon", "temps", "tend"]],
     [1, 6, "#E29100", "d", ["dent", "dans", "d'en"]],
-    [4, 7, "#CE898C", "ch", ["champ", "chant"]],
+    [3, 7, "#CE898C", "ch", ["champ", "chant"]],
     [2, 7, "#894FBF", "j", ["gens", "Jean", "j'en"]],
     [0, 8, "#A3C1AD", "l", ["lent", "l'an"]],
-    [0, 10, "#D3BFB7", "r", ["rang", "rend"]],
-    [3, 12, "#3A4972", "qu", ["quand", "qu'en", "quant", "Caen"]],
-    [1, 12, "#9B0070", "g", ["gant", "Gand"]]
+    [0, 9, "#D3BFB7", "r", ["rang", "rend"]],
+    [2, 10, "#3A4972", "qu", ["quand", "qu'en", "quant", "Caen"]],
+    [1, 10, "#9B0070", "g", ["gant", "Gand"]]
             ];
 
 vowels = new Array();
@@ -58,12 +58,12 @@ vowels = [
     [3 + RIGHT_OFFSET, 3, "#F9BF9E", "in"],
     [2 + RIGHT_OFFSET, 4, "#F43FA5", "ei"],
     [0 + RIGHT_OFFSET, 4, "#CEEA82", "oe"],
-    [3 + RIGHT_OFFSET, 6, "#EDC4DD", "an"],
-    [1 + RIGHT_OFFSET, 6, "#930FA5", "a"],
-    [1 + RIGHT_OFFSET, 8, "#5B77CC", "ot"],
-    [3 + RIGHT_OFFSET, 9, "#C4D8E2", "on"],
-    [1 + RIGHT_OFFSET, 10, "#0051BA", "au"],
-    [1 + RIGHT_OFFSET, 12, "#4CCED1", "ou"]
+    [3 + RIGHT_OFFSET, 5, "#EDC4DD", "an"],
+    [1 + RIGHT_OFFSET, 5, "#930FA5", "a"],
+    [2 + RIGHT_OFFSET, 6, "#5B77CC", "ot"],
+    [3 + RIGHT_OFFSET, 7, "#C4D8E2", "on"],
+    [1 + RIGHT_OFFSET, 8, "#0051BA", "au"],
+    [1 + RIGHT_OFFSET, 10, "#4CCED1", "ou"]
 ];
 
 c.width = width;

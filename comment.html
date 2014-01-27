@@ -7,28 +7,37 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/copyright.js"></script>
     <script src="js/functions.js"></script>
+    <script src="js/video.js"></script>
 </head>
 <body>
+<!--  <body> onload="checkCookie()"-->
 <div id="wrapper">
     <!--<header>
          <div id="header_wrapper">
              <a href="index.html"><img class="logo" src="images/logo.png"/></a>
          </div>
     </header>-->
-    <div id="">
-        <p class="consonant_text"></p>
-        <canvas id="c"></canvas>
-        <script src="js/color_chart.js"></script>
+    <div class="body_wrapper">
+        <a href="#" class="register"><img src="images/video.gif"/></a></li>
+        <div id="">
+            <p class="consonant_text"></p>
+            <canvas id="c"></canvas>
+            <script src="js/color_chart.js"></script>
+        </div>
+            <nav id="menu">
+                <ul>
+                    <li class="comment"><a href="#" class="active">Comment</a></li>
+                    <li class="colorier"><a href="index.html">Accueil</a></li>
+                    <li class="pourquoi"><a href="pourquoi.html">Quoi</a></li>
+                </ul>
+            </nav>
     </div>
-    <nav id="menu">
-        <ul>
-            <li class="comment"><a href="#" class="active">Comment</a></li>
-            <li class="colorier"><a href="index.html">Accueil</a></li>
-            <li class="pourquoi"><a href="pourquoi.html">Quoi</a></li>
-        </ul>
-    </nav>
-    <footer>
-    </footer>
+    <div class="video">
+        <a href="#" class="video_skip">Skip video >></a>
+        <iframe class="video_frame" src="//player.vimeo.com/video/59646335" width="700" height="394" frameborder="0" webkitallowfullscreen
+                mozallowfullscreen allowfullscreen>
+        </iframe>
+    </div>
 </div>
 </body>
 </html>

@@ -5,9 +5,8 @@
         <link rel="stylesheet" href="css/fonts.css" type="text/css" charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="js/jquery-1.10.2.min.js"></script>
-        <script src="js/video.js"></script>
     </head>
-    <body onload="checkCookie()">
+    <body>
         <div id="wrapper">
             <header>
                 <div id="header_wrapper">
@@ -29,13 +28,12 @@
                         <textarea rows="4" cols="50" name="text_output" class="search_output"></textarea>
                         <canvas id="canvas"></canvas>
                         <script src="js/search.js"></script>
+                        <ul id="useful_links_bot">
+                            <li id="full_screen"><a href="#"><img src="images/full_screen.png"/></a></li>
+                        </ul>
                         <div id="slider_vertical"></div>
                         <p class="reply"></p>
                     </div>
-                    <!--<ul id="useful_links_bot">
-                        <li class="register"><a href="#"><img src="images/register.png"/></a></li>
-                        <li id="full_screen"><a href="#"><img src="images/full_screen.png"/></a></li>
-                    </ul>-->
                 </div>
                 <nav id="menu">
                     <ul>
@@ -44,12 +42,6 @@
                         <li class="pourquoi"><a href="pourquoi.html">Quoi</a></li>
                     </ul>
                 </nav>
-            </div>
-            <div class="video">
-                <a href="#" class="video_skip">Skip video >></a>
-                <iframe class="video_frame" src="//player.vimeo.com/video/59646335" width="700" height="394" frameborder="0" webkitallowfullscreen
-                        mozallowfullscreen allowfullscreen>
-                </iframe>
             </div>
             <script src="js/copyright.js"></script>
             <script src="js/requests.js"></script>

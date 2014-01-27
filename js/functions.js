@@ -69,7 +69,19 @@ $(document).ready(function(){
         "click", doOverlayClose
     )
 
+    hideFullScreen();
+
 });
+
+function hideFullScreen(){
+
+    $("#useful_links_bot").css("display", "none");
+}
+
+function showFullScreen(){
+
+    $("#useful_links_bot").css("display", "block");
+}
 
 (function() {
     var

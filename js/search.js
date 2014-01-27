@@ -164,6 +164,12 @@ function colorArray(text){
                     ++yMultiplier;
                     offsetX.value = 0;
                     setBlockHeight(yMultiplier);
+
+                    if(yMultiplier > 3){
+                        showFullScreen();
+                    }else{
+                        hideFullScreen();
+                    }
                 }
                 searchRequest(temp, i, offsetX, yMultiplier, addOffSetX, loop);
         },
