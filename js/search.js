@@ -157,7 +157,7 @@ function colorArray(text){
 
                 var temp = splitArray[i];
 
-                textArray[i] = new Array();
+                textArray[i] = {};
                 textArray[i][0] = temp;
 
                 if((offsetX.value + ctx.measureText(temp + " ").width) > width){
