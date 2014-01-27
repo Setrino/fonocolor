@@ -92,23 +92,34 @@ ul#header_links li a{
     width: 2em;
 }
 
-ul#useful_links_top{
+#useful_links_top{
     position: relative;
     margin-top: 1.9em;
 }
 
-ul#useful_links_top li{
+#useful_links_top li{
     display: inline-block;
 }
 
-ul.disc{
+.disc{
     list-style: disc;
     padding: 0 6em 0 6em;
+    text-align:left;
 }
 
-ul.square{
-    list-style: square;
+.square{
+    list-style: decimal;
     padding: 0 8em 0 8em;
+    text-align:left;
+}
+
+.quoi_image{
+    display: block;
+    margin: 0 auto;
+}
+
+#quoi_images{
+    text-align: center;
 }
 
 .clean{
@@ -130,7 +141,7 @@ ul#useful_links_bot li{
 article p{
 
     margin: 0 3.5em 0 3.5em;
-    text-align:justify;
+    text-align:left;
 }
 
 .register{
