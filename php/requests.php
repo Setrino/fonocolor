@@ -496,7 +496,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                                    return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPh, true,  $begin, $wordLength);
                                }
                            }
-                   }elseif($ph != null && equalityRequest($tempGr = $tempGr . $letterArray[1], $ph)){
+                   }elseif($ph != null && equalityRequest($tempGr = $tempGr . $letterArray[1], $ph) && $tempGr == 'oua'){
 
                        $arrayTail = array();
 
