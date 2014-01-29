@@ -5,9 +5,9 @@ $(document).ready(function(){
     //drawGrid();
 })
 
-var width = 720,
+var width = 860,
 //width of the canvas
-    height = 650,
+    height = 600,
 //height of the canvas
     dim = 50,
     grid = null,
@@ -15,11 +15,11 @@ var width = 720,
 //canvas itself
     ctx = c.getContext('2d'),
 //constant for canvas to move vowels drawing
-    RIGHT_OFFSET = 6,
+    RIGHT_OFFSET = 7,
 //space between boxes and circles
     SPACING = 3,
 //width of the consonants and vowels block used for right offset
-    SOUNDS_WIDTH = 500,
+    SOUNDS_WIDTH = 650,
 //canvas text font size
     textFontSize = 60;
 //and two-dimensional graphic context of the
@@ -30,7 +30,7 @@ var width = 720,
 consonants = new Array();
 
 consonants = [
-    [0, 0, "#A53F0F", "m", ["ment", "m'en", "mans", "mens"]],
+    [0, 0, "#A53F0F", "m", ["ment", "m'en", "Mans", "mens"]],
     [2, 1, "#AA930A", "v", ["vent", "vans", "vend"]],
     [4, 1, "#96938E", "f", ["faon", "fend"]],
     [3, 2, "#3A7728", "p", ["paon", "pan", "pend"]],
@@ -41,11 +41,11 @@ consonants = [
     [3, 6, "#007770", "t", ["tant", "taon", "temps", "tend"]],
     [1, 6, "#E29100", "d", ["dent", "dans", "d'en"]],
     [4, 7, "#CE898C", "ch", ["champ", "chant"]],
-    [2, 7, "#894FBF", "ge", ["gens", "Jean", "j'en"]],
+    [2, 7, "#894FBF", "j", ["gens", "Jean", "j'en"]],
     [0, 8, "#A3C1AD", "l", ["lent", "l'an"]],
     [0, 10, "#D3BFB7", "r", ["rang", "rend"]],
-    [3, 12, "#3A4972", "qu", ["quand", "qu'en", "quant", "Caen"]],
-    [1, 12, "#9B0070", "g", ["gant", "Gand"]]
+    [3, 11, "#3A4972", "qu", ["quand", "qu'en", "quant", "Caen"]],
+    [1, 11, "#9B0070", "g", ["gant", "Gand"]]
             ];
 
 vowels = new Array();
@@ -55,13 +55,13 @@ vowels = [
     [0 + RIGHT_OFFSET, 0, "#F7D917", "u"],
     [2 + RIGHT_OFFSET, 2, "#ED6E00", "ez"],
     [0 + RIGHT_OFFSET, 2, "#00B760", "eu"],
-    [3 + RIGHT_OFFSET, 3, "#F9BF9E", "in"],
+    [4 + RIGHT_OFFSET, 3, "#F9BF9E", "in"],
     [2 + RIGHT_OFFSET, 4, "#F43FA5", "ei"],
     [0 + RIGHT_OFFSET, 4, "#CEEA82", "oe"],
-    [3 + RIGHT_OFFSET, 6, "#EDC4DD", "an"],
+    [4 + RIGHT_OFFSET, 6, "#EDC4DD", "an"],
     [1 + RIGHT_OFFSET, 6, "#930FA5", "a"],
     [1 + RIGHT_OFFSET, 8, "#5B77CC", "ot"],
-    [3 + RIGHT_OFFSET, 9, "#C4D8E2", "on"],
+    [4 + RIGHT_OFFSET, 9, "#C4D8E2", "on"],
     [1 + RIGHT_OFFSET, 10, "#0051BA", "au"],
     [1 + RIGHT_OFFSET, 12, "#4CCED1", "ou"]
 ];
@@ -133,7 +133,7 @@ function drawCircle(x, y, color, sound){
     ctx.fillStyle = color;
 
     orgX = x * dim + dim / 2;
-    orgY = y * dim + dim / 2;
+    orgY = (y + 1) * 41 + dim / 2 + 12;
 
     ctx.arc(orgX + (SPACING / 2), orgY + (SPACING / 2), (dim - SPACING) / 2, 0, 2 * Math.PI);
     ctx.fill();
@@ -209,11 +209,12 @@ function drawTextConsonantVowel(text, color, letter){
     }
 }
 
-function collides(rects, x, y) {
+function collides(rects, x, y, dimY, offSetY, multiplierY) {
     var isCollision = false;
+
     for (var i = 0, len = rects.length; i < len; i++) {
         var left = rects[i][0] * dim, right = rects[i][0] * dim + dim;
-        var top = rects[i][1] * dim, bottom = rects[i][1] * dim + dim;
+        var top = (rects[i][1] + multiplierY) * dimY + offSetY, bottom = (rects[i][1] + multiplierY) * dimY + dimY + offSetY;
 
         if (right >= x
             && left <= x
@@ -230,7 +231,7 @@ c.addEventListener('click', function(e) {
     var x = e.pageX - c.offsetLeft;
     var y = e.pageY - c.offsetTop;
 
-        var consonant = collides(consonants, x, y);
+        var consonant = collides(consonants, x, y, dim, 0, 0);
         if (consonant) {
 
             ctx.clearRect(0, 0, c.width, c.height);
@@ -251,7 +252,8 @@ c.addEventListener('click', function(e) {
                 drawVowels();
             });
         }
-        var vowel = collides(vowels, x, y);
+    //For reason of scaling size less than dimension of box was used, so dim = 41, offSetY = 12 and multiplierY = 1
+        var vowel = collides(vowels, x, y, 41, 12, 1);
         if (vowel) {
             ctx.clearRect(0, 0, c.width, c.height);
             var snd = new Audio("sound/vowel/" + vowel[3] + ".wav");
@@ -268,7 +270,7 @@ c.addEventListener('click', function(e) {
                         ctx.clearRect(0, 0, c.width, c.height);
                         drawConsonants();
                         drawVowels();
-                    }, 500);
+                    }, 1500);
             });
         }
     }, false);

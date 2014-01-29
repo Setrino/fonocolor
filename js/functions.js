@@ -9,6 +9,12 @@ $(document).ready(function(){
 
     });
 
+    $(".comment_full_screen").click(function(){
+
+        fullScreenApi.requestFullScreen(document.getElementById("wrapper"));
+
+    });
+
     document.addEventListener("fullscreenchange", function () {
         if(fullScreen == 1 && document.fullscreen == false){
             fullScreen == 0;

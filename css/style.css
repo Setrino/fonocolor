@@ -36,6 +36,10 @@ nav ul li{
     background-position: center;
 }
 
+nav ul li a{
+    color: #A4A5A7;
+}
+
 header{
     padding-top: 2em;
     height: 53px;
@@ -102,7 +106,7 @@ ul#header_links li a{
 }
 
 .disc{
-    list-style: disc;
+    list-style: decimal;
     padding: 0 6em 0 6em;
     text-align:left;
 }
@@ -144,11 +148,14 @@ article p{
     text-align:left;
 }
 
-.register{
+.register, .comment_full_screen{
     float: right;
-    margin-left: -1.5em;
-    margin-top: 2em;
+    margin: 2em 2em 0 -1.5em;
     padding-top: 0.2em;
+}
+
+.comment_full_screen{
+    z-index: 3;
 }
 
 #full_screen{
