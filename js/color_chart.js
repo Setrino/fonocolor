@@ -5,7 +5,7 @@ $(document).ready(function(){
     //drawGrid();
 })
 
-var width = 860,
+var width = 820,
 //width of the canvas
     height = 600,
 //height of the canvas
@@ -19,7 +19,7 @@ var width = 860,
 //space between boxes and circles
     SPACING = 3,
 //width of the consonants and vowels block used for right offset
-    SOUNDS_WIDTH = 650,
+    SOUNDS_WIDTH = 620,
 //canvas text font size
     textFontSize = 60;
 //and two-dimensional graphic context of the
