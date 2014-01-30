@@ -5,7 +5,7 @@ $(document).ready(function(){
     //drawGrid();
 })
 
-var width = 820,
+var width = 830,
 //width of the canvas
     height = 600,
 //height of the canvas
@@ -19,7 +19,7 @@ var width = 820,
 //space between boxes and circles
     SPACING = 3,
 //width of the consonants and vowels block used for right offset
-    SOUNDS_WIDTH = 620,
+    SOUNDS_WIDTH = 615,
 //canvas text font size
     textFontSize = 60;
 //and two-dimensional graphic context of the
@@ -35,9 +35,9 @@ consonants = [
     [4, 1, "#96938E", "f", ["faon", "fend"]],
     [3, 2, "#3A7728", "p", ["paon", "pan", "pend"]],
     [1, 2, "#A50544", "b", ["banc", "ban"]],
-    [0, 4, "#2B4C3F", "n", ["1 nan"]],
+    [0, 4, "#2B4C3F", "n", ["1 n an"]],
     [4, 5, "#F7D3B5", "s", ["sans", "cent", "sang", "s'en"]],
-    [2, 5, "#FC9BB2", "z", ["2 zan"]],
+    [2, 5, "#FC9BB2", "z", ["2 z ans"]],
     [3, 6, "#007770", "t", ["tant", "taon", "temps", "tend"]],
     [1, 6, "#E29100", "d", ["dent", "dans", "d'en"]],
     [4, 7, "#CE898C", "ch", ["champ", "chant"]],
