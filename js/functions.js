@@ -54,7 +54,7 @@ $(document).ready(function(){
 
         $(".search_form").val(previousValue);
         colorArray($(".search_form").val());
-        //resetCanvas();
+        resetCanvas();
     });
 
     $('.color_text').click(function(){

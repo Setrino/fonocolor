@@ -131,7 +131,7 @@ function colorArray(text){
     text = text.replace("  ", " ");
     text = text.toLowerCase();
 
-    console.log(text);
+    //console.log(text);
 
     //Sentence
         var splitArray = text.split(" ");
@@ -302,6 +302,7 @@ function draw(delta){
     }
 
     translatedD = -(translated - difference);
+
     //console.log(lastY + " " + (translated - difference) + " t " + difference);
 }
 
@@ -325,5 +326,5 @@ function fullScreenOff(){
 function resetCanvas(){
 
     full_screen_height = 0;
-    ctx.translate(0, translatedD);
+    ctx.translate(0, (translatedD <= 0) ? 0 : translatedD);
 }
