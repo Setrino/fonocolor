@@ -32,6 +32,7 @@ function doOverlayOpen() {
 
     showOverlayBox();
     $('.bgCover').css({opacity:0}).animate( {opacity:0.5, backgroundColor:'#000'} );
+    $('.overlayBox').css({opacity:0}).animate({opacity:1.0});
     // don't follow the link : so return false.
     return false;
 }
