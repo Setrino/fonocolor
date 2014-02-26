@@ -220,6 +220,18 @@ article p{
     background-color: #696969;
 }
 
+.readmore-js-toggle{
+    display: block;
+    text-align: left;
+    margin: 0 3.5em 0 5em;
+    color: #8B8B8B;
+    text-decoration: underline;
+}
+
+.readmore-js-toggle:hover{
+    color: #535353;
+}
+
 /* Search */
 
 .search_form, .search_output{
