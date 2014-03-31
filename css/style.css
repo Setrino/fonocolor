@@ -31,7 +31,8 @@ nav ul li{
     padding-right: 60px;
     height: 3em;
     width: 4.5em;
-    padding-top: 7em;
+    padding-top: 5em;
+    padding-bottom: 2em;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -204,16 +205,39 @@ article p{
     padding-top: 1.5em;
 }
 
-.comment{
+.comment a{
     background-image: url(../images/comment.png);
 }
 
-.colorier{
-    background-image: url(../images/colorier.png);
+.comment a:hover{
+    cursor: hand;
+    background-image: url(../images/comment_hover.png);
 }
 
-.pourquoi{
-    background-image: url(../images/pourquoi.png);
+.colorier a{
+    background-image: url(../images/main.png);
+}
+
+.colorier a:hover{
+    cursor: hand;
+    background-image: url(../images/main_hover.png);
+}
+
+.pourquoi a{
+    background-image: url(../images/quoi.png);
+}
+
+.pourquoi a:hover{
+    cursor: hand;
+    background-image: url(../images/quoi_hover.png);
+}
+
+.comment a, .colorier a, .pourquoi a{
+    display:block;
+    text-indent:-9999em;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    height: 51px;
 }
 
 .all_black{
