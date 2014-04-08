@@ -1,7 +1,0 @@
-﻿<ParametragesDeLApplication>
-	<Date_du_fichier>19/11/2010</Date_du_fichier>
-	<nomFichierRelation>Relation entre SAMPA Simplifie et SAMPAYves.xml</nomFichierRelation>
-	<nomFichierSAMPAGraphemes>ListePhonemesSAMPAGraphemesYves.xml</nomFichierSAMPAGraphemes>
-	<nomFichierReglesDeSAMPAaSAMPA>ReglesDeSAMPAaSAMPA.xml</nomFichierReglesDeSAMPAaSAMPA>
-	<nomFichierReglesMorphalouPasAdequation>ReglesMorphalouPasAdequation.xml</nomFichierReglesMorphalouPasAdequation>
-</ParametragesDeLApplication>
