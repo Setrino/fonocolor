@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+	<script language="JavaScript" type="text/javascript">
+	<!--
+ 		//<![CDATA[
+		var message = "entrez votre texte";
+		//]]>
+		
+		function erreur(){
+			alert("La phonetique de regerder n'existe pas. / La transcription en couleur du mot est n'a pas pu être faite. / ");
+		}
+		function changementFond(id,phoneme){
+		document.getElementById(id).style.backgroundColor='red';
+		setTimeout(function(){remettreFondNoir(id)},1500);
+		playSound(phoneme);
+		}
+		
+		function changementBord(id,phoneme){
+			document.getElementById(id).style.border ="medium dotted white";
+			setTimeout(function(){remettreBordNoir(id)},1500);
+			playSound(phoneme);
+		}
+		
+		function remettreBordNoir(id){
+			document.getElementById(id).style.border="none";
+		}
+	
+		function remettreFondNoir(id){
+			document.getElementById(id).style.backgroundColor='#000000';
+		}
+		
+		function chgtmentSouligne(id,phoneme){
+			document.getElementById(id).style.borderBottom  = "4px solid  white";
+			setTimeout(function(){enleverSouligne(id)},1500);
+			playSound(phoneme);
+			
+		}
+		function enleverSouligne(id){
+			document.getElementById(id).style.borderBottom = "none";
+		}
+	
+		function playSound(phoneme) {
+			var lec =  document.getElementById(phoneme);
+			
+			try {
+				lec.Play();
+				
+			}
+			catch (e) {
+				try {
+					//alert('doPlay');
+					lec.DoPlay();           // Some browsers doesn't understand the Play() command
+					
+				}
+				catch (e) {
+					// Do nothing if no Windows Media Player nor Quicktime installed
+					alert("Votre navigateur ne permets pas de lire des fichiers mp3. Si vous souhaitez écoutez les phonèmes il faut installer un module complémentaire  ...");
+				}
+			}
+		}
+
+//-->
+</script>
+ <!-- partie  du CSS pour la réponse --> 
+	<style type="text/css">
+	#bloc_dessous1{position: relative;left: 10px;top: 0px;width: 0px;height: 54px;padding: 0px;z-index: 1;}
+#bloc_dessus1{position: relative;left: 10px;top: -54px;width: 0px;height: 27px;padding: 0px;z-index: 2;overflow: hidden;}
+#bloc_dessous2{position: relative;left: 10px;top: -27px;width: 0px;height: 54px;padding: 0px;z-index: 1;}
+#bloc_dessus2{position: relative;left: 10px;top: -81px;width: 0px;height: 27px;padding: 0px;z-index: 2;overflow: hidden;}
+#bloc_dessous3{position: relative;left: 10px;top: -54px;width: 0px;height: 54px;padding: 0px;z-index: 1;}
+#bloc_dessus3{position: relative;left: 10px;top: -108px;width: 0px;height: 27px;padding: 0px;z-index: 2;overflow: hidden;}
+.couleur0 {  color:E4AAFF ; } 
+.white {  color:#FFFFFF ; } 
+.couleur52 {  color:#91BAA3 ; } 
+.couleur16 {  color:#FDD50E ; } 
+.couleur12 {  color:#4171D7 ; } 
+.couleur28 {  color:#2F3614 ; } 
+.couleur48 {  color:#C5858F ; } 
+.couleur32 {  color:#394a58 ; } 
+.couleur56 {  color:#af8970 ; } 
+.couleur6 {  color:#F7007E ; } 
+.couleur38 {  color:#602144 ; } 
+.couleur14 {  color:#4AD6CA ; } 
+.couleur40 {  color:#787A7B ; } 
+.couleur50 {  color:#8A44C6 ; } 
+.couleur10 {  color:#002FB2 ; } 
+.couleur24 {  color:#E7C1E3 ; } 
+.couleur36 {  color:#B06F00 ; } 
+.couleur54 {  color:#ADA188 ; } 
+.couleur46 {  color:#AE9A00 ; } 
+.couleur2 {  color:#FA002E ; } 
+.couleur60 {  color:#546856 ; } 
+.couleur44 {  color:#4A3651 ; } 
+.couleur22 {  color:#FFAD87 ; } 
+.couleur42 {  color:#546856  ; } 
+.couleur8 {  color:#B634BB ; } 
+.couleur4 {  color:#FF5800 ; } 
+.couleur58 {  color:#7d250e ; } 
+.couleur26 {  color:#C2DEEA ; } 
+.couleur20 {  color:#BDEC65 ; } 
+.couleur18 {  color:#61DE4D ; } 
+.couleur34 {  color:#84003C ; } 
+.couleur30 {  color:#007363 ; } 
+</style>
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./css/site.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>excercies</title>
+</head>
+
+<body  onload="erreur();"  style="font: 24px 'SourceSansProBold', Arial, sans-serif; font-weight: 400;" >
+	
+	<div id="global">
+		<form name="frmAccueil" method="post" >						
+					<input type="hidden" name="action" value="accueil" />
+			</form> 
+			<div id="entete"><a style="color: DarkGoldenRod" href="javascript:document.frmAccueil.submit();">Phonocolor</a></div> 
+<div id="banniereGauche"></div>
+    <!--  partie central   !!!! -->
+		<div id="cadre169">
+			<form name="frmExcercices" method="post" >						
+				<textarea name="saisie" style="font: 24px 'SourceSansProBold', Arial, sans-serif; font-weight: 400;"  onfocus="if (this.value==message) this.value=''" onblur="if (this.value=='') this.value=message" >bonjour et la 
+cela va plus vite et regarder les ascenseurs qui apparaissent qu'ils sont laids regerder
+est</textarea>
+				<div class="bouton">
+					<input type="submit" name="action" value="effacer" class="submit" />
+					<input type="submit" name="action" value="colorier" class="submit" />
+					<input type="submit" name="action" value="plein écran"  class="submit" />
+					<input type="submit" name="action" value="enregistrer" class="submit" />
+	 			</div>
+				<div style="font: 48px 'SourceSansProBold', Arial, sans-serif; font-weight: 400;" id="reponse">
+					<div id="bloc_dessous1" ><span id ="0" onClick="chgtmentSouligne('0'  ,'s'); " class="couleur34">b</span><span id ="1" onClick="chgtmentSouligne('1'  ,'s'); " class="couleur26">on</span><span id ="2" onClick="chgtmentSouligne('2'  ,'s'); " class="couleur50">j</span><span id ="3" onClick="chgtmentSouligne('3'  ,'s'); " class="couleur14">ou</span><span id ="4" onClick="chgtmentSouligne('4'  ,'s'); " class="couleur54">r</span><span id ="5" onClick="chgtmentSouligne('5'  ,'s'); " class="white">&nbsp;</span><span id ="6" onClick="chgtmentSouligne('6'  ,'s'); " class="couleur4">et</span><span id ="7" onClick="chgtmentSouligne('7'  ,'s'); " class="white">&nbsp;</span><span id ="8" onClick="chgtmentSouligne('8'  ,'s'); " class="couleur52">l</span><span id ="9" onClick="chgtmentSouligne('9'  ,'s'); " class="couleur8">a</span></div>
+<div id="bloc_dessus1" ><span id ="0" onClick="chgtmentSouligne('0'  ,'s'); "  class="couleur34">b</span><span id ="1" onClick="chgtmentSouligne('1'  ,'s'); "  class="couleur26">on</span><span id ="2" onClick="chgtmentSouligne('2'  ,'s'); "  class="couleur50">j</span><span id ="3" onClick="chgtmentSouligne('3'  ,'s'); "  class="couleur14">ou</span><span id ="4" onClick="chgtmentSouligne('4'  ,'s'); "  class="couleur54">r</span><span id ="5" onClick="chgtmentSouligne('5'  ,'s'); "  class="white">&nbsp;</span><span id ="6" onClick="chgtmentSouligne('6'  ,'s'); "  class="couleur4">et</span><span id ="7" onClick="chgtmentSouligne('7'  ,'s'); "  class="white">&nbsp;</span><span id ="8" onClick="chgtmentSouligne('8'  ,'s'); "  class="couleur52">l</span><span id ="9" onClick="chgtmentSouligne('9'  ,'s'); "  class="couleur8">a</span></div>
+<div id="bloc_dessous2" ><span id ="10" onClick="chgtmentSouligne('10'  ,'s'); " class="couleur42">c</span><span id ="11" onClick="chgtmentSouligne('11'  ,'s'); " class="couleur20">e</span><span id ="12" onClick="chgtmentSouligne('12'  ,'s'); " class="couleur52">l</span><span id ="13" onClick="chgtmentSouligne('13'  ,'s'); " class="couleur8">a</span><span id ="14" onClick="chgtmentSouligne('14'  ,'s'); " class="white">&nbsp;</span><span id ="15" onClick="chgtmentSouligne('15'  ,'s'); " class="couleur46">v</span><span id ="16" onClick="chgtmentSouligne('16'  ,'s'); " class="couleur8">a</span><span id ="17" onClick="chgtmentSouligne('17'  ,'s'); " class="white">&nbsp;</span><span id ="18" onClick="chgtmentSouligne('18'  ,'s'); " class="couleur28">p</span><span id ="19" onClick="chgtmentSouligne('19'  ,'s'); " class="couleur52">l</span><span id ="20" onClick="chgtmentSouligne('20'  ,'s'); " class="couleur16">us</span><span id ="21" onClick="chgtmentSouligne('21'  ,'s'); " class="white">&nbsp;</span><span id ="22" onClick="chgtmentSouligne('22'  ,'s'); " class="couleur46">v</span><span id ="23" onClick="chgtmentSouligne('23'  ,'s'); " class="couleur2">i</span><span id ="24" onClick="chgtmentSouligne('24'  ,'s'); " class="couleur30">te</span><span id ="25" onClick="chgtmentSouligne('25'  ,'s'); " class="white">&nbsp;</span><span id ="26" onClick="chgtmentSouligne('26'  ,'s'); " class="couleur4">et</span><span id ="27" onClick="chgtmentSouligne('27'  ,'s'); " class="white">&nbsp;</span><span id ="28" onClick="chgtmentSouligne('28'  ,'s'); " class="couleur54">r</span><span id ="29" onClick="chgtmentSouligne('29'  ,'s'); " class="couleur20">e</span><span id ="30" onClick="chgtmentSouligne('30'  ,'s'); " class="couleur38">g</span><span id ="31" onClick="chgtmentSouligne('31'  ,'s'); " class="couleur8">a</span><span id ="32" onClick="chgtmentSouligne('32'  ,'s'); " class="couleur54">r</span><span id ="33" onClick="chgtmentSouligne('33'  ,'s'); " class="couleur36">d</span><span id ="34" onClick="chgtmentSouligne('34'  ,'s'); " class="couleur4">er</span><span id ="35" onClick="chgtmentSouligne('35'  ,'s'); " class="white">&nbsp;</span><span id ="36" onClick="chgtmentSouligne('36'  ,'s'); " class="couleur52">l</span><span id ="37" onClick="chgtmentSouligne('37'  ,'s'); " class="couleur4">es</span><span id ="38" onClick="chgtmentSouligne('38'  ,'s'); " class="white">&nbsp;</span><span id ="39" onClick="chgtmentSouligne('39'  ,'s'); " class="couleur8">as</span><span id ="40" onClick="chgtmentSouligne('40'  ,'s'); " class="couleur42">c</span><span id ="41" onClick="chgtmentSouligne('41'  ,'s'); " class="couleur24">en</span><span id ="42" onClick="chgtmentSouligne('42'  ,'s'); " class="couleur42">se</span><span id ="43" onClick="chgtmentSouligne('43'  ,'s'); " class="couleur20">u</span><span id ="44" onClick="chgtmentSouligne('44'  ,'s'); " class="couleur54">rs</span><span id ="45" onClick="chgtmentSouligne('45'  ,'s'); " class="white">&nbsp;</span><span id ="46" onClick="chgtmentSouligne('46'  ,'s'); " class="couleur32">qu</span><span id ="47" onClick="chgtmentSouligne('47'  ,'s'); " class="couleur2">i</span><span id ="48" onClick="chgtmentSouligne('48'  ,'s'); " class="white">&nbsp;</span><span id ="49" onClick="chgtmentSouligne('49'  ,'s'); " class="couleur8">ap</span><span id ="50" onClick="chgtmentSouligne('50'  ,'s'); " class="couleur28">p</span><span id ="51" onClick="chgtmentSouligne('51'  ,'s'); " class="couleur8">a</span><span id ="52" onClick="chgtmentSouligne('52'  ,'s'); " class="couleur54">r</span><span id ="53" onClick="chgtmentSouligne('53'  ,'s'); " class="couleur6">ais</span><span id ="54" onClick="chgtmentSouligne('54'  ,'s'); " class="couleur42">sent</span><span id ="55" onClick="chgtmentSouligne('55'  ,'s'); " class="white">&nbsp;</span><span id ="56" onClick="chgtmentSouligne('56'  ,'s'); " class="couleur32">qu'</span><span id ="57" onClick="chgtmentSouligne('57'  ,'s'); " class="couleur2">i</span><span id ="58" onClick="chgtmentSouligne('58'  ,'s'); " class="couleur52">ls</span><span id ="59" onClick="chgtmentSouligne('59'  ,'s'); " class="white">&nbsp;</span><span id ="60" onClick="chgtmentSouligne('60'  ,'s'); " class="couleur42">s</span><span id ="61" onClick="chgtmentSouligne('61'  ,'s'); " class="couleur26">ont</span><span id ="62" onClick="chgtmentSouligne('62'  ,'s'); " class="white">&nbsp;</span><span id ="63" onClick="chgtmentSouligne('63'  ,'s'); " class="couleur52">l</span><span id ="64" onClick="chgtmentSouligne('64'  ,'s'); " class="couleur6">aids</span><span id ="65" onClick="chgtmentSouligne('65'  ,'s'); " class="white">&nbsp;</span><span id ="66" onClick="chgtmentSouligne('66'  ,'s'); " class="white">regerder</span></div>
+<div id="bloc_dessus2" ><span id ="10" onClick="chgtmentSouligne('10'  ,'s'); "  class="couleur42">c</span><span id ="11" onClick="chgtmentSouligne('11'  ,'s'); "  class="couleur20">e</span><span id ="12" onClick="chgtmentSouligne('12'  ,'s'); "  class="couleur52">l</span><span id ="13" onClick="chgtmentSouligne('13'  ,'s'); "  class="couleur8">a</span><span id ="14" onClick="chgtmentSouligne('14'  ,'s'); "  class="white">&nbsp;</span><span id ="15" onClick="chgtmentSouligne('15'  ,'s'); "  class="couleur46">v</span><span id ="16" onClick="chgtmentSouligne('16'  ,'s'); "  class="couleur8">a</span><span id ="17" onClick="chgtmentSouligne('17'  ,'s'); "  class="white">&nbsp;</span><span id ="18" onClick="chgtmentSouligne('18'  ,'s'); "  class="couleur28">p</span><span id ="19" onClick="chgtmentSouligne('19'  ,'s'); "  class="couleur52">l</span><span id ="20" onClick="chgtmentSouligne('20'  ,'s'); "  class="couleur16">us</span><span id ="21" onClick="chgtmentSouligne('21'  ,'s'); "  class="white">&nbsp;</span><span id ="22" onClick="chgtmentSouligne('22'  ,'s'); "  class="couleur46">v</span><span id ="23" onClick="chgtmentSouligne('23'  ,'s'); "  class="couleur2">i</span><span id ="24" onClick="chgtmentSouligne('24'  ,'s'); "  class="couleur30">te</span><span id ="25" onClick="chgtmentSouligne('25'  ,'s'); "  class="white">&nbsp;</span><span id ="26" onClick="chgtmentSouligne('26'  ,'s'); "  class="couleur4">et</span><span id ="27" onClick="chgtmentSouligne('27'  ,'s'); "  class="white">&nbsp;</span><span id ="28" onClick="chgtmentSouligne('28'  ,'s'); "  class="couleur54">r</span><span id ="29" onClick="chgtmentSouligne('29'  ,'s'); "  class="couleur20">e</span><span id ="30" onClick="chgtmentSouligne('30'  ,'s'); "  class="couleur38">g</span><span id ="31" onClick="chgtmentSouligne('31'  ,'s'); "  class="couleur8">a</span><span id ="32" onClick="chgtmentSouligne('32'  ,'s'); "  class="couleur54">r</span><span id ="33" onClick="chgtmentSouligne('33'  ,'s'); "  class="couleur36">d</span><span id ="34" onClick="chgtmentSouligne('34'  ,'s'); "  class="couleur4">er</span><span id ="35" onClick="chgtmentSouligne('35'  ,'s'); "  class="white">&nbsp;</span><span id ="36" onClick="chgtmentSouligne('36'  ,'s'); "  class="couleur52">l</span><span id ="37" onClick="chgtmentSouligne('37'  ,'s'); "  class="couleur4">es</span><span id ="38" onClick="chgtmentSouligne('38'  ,'s'); "  class="white">&nbsp;</span><span id ="39" onClick="chgtmentSouligne('39'  ,'s'); "  class="couleur8">as</span><span id ="40" onClick="chgtmentSouligne('40'  ,'s'); "  class="couleur42">c</span><span id ="41" onClick="chgtmentSouligne('41'  ,'s'); "  class="couleur24">en</span><span id ="42" onClick="chgtmentSouligne('42'  ,'s'); "  class="couleur42">se</span><span id ="43" onClick="chgtmentSouligne('43'  ,'s'); "  class="couleur20">u</span><span id ="44" onClick="chgtmentSouligne('44'  ,'s'); "  class="couleur54">rs</span><span id ="45" onClick="chgtmentSouligne('45'  ,'s'); "  class="white">&nbsp;</span><span id ="46" onClick="chgtmentSouligne('46'  ,'s'); "  class="couleur32">qu</span><span id ="47" onClick="chgtmentSouligne('47'  ,'s'); "  class="couleur2">i</span><span id ="48" onClick="chgtmentSouligne('48'  ,'s'); "  class="white">&nbsp;</span><span id ="49" onClick="chgtmentSouligne('49'  ,'s'); "  class="couleur8">ap</span><span id ="50" onClick="chgtmentSouligne('50'  ,'s'); "  class="couleur28">p</span><span id ="51" onClick="chgtmentSouligne('51'  ,'s'); "  class="couleur8">a</span><span id ="52" onClick="chgtmentSouligne('52'  ,'s'); "  class="couleur54">r</span><span id ="53" onClick="chgtmentSouligne('53'  ,'s'); "  class="couleur6">ais</span><span id ="54" onClick="chgtmentSouligne('54'  ,'s'); "  class="couleur42">sent</span><span id ="55" onClick="chgtmentSouligne('55'  ,'s'); "  class="white">&nbsp;</span><span id ="56" onClick="chgtmentSouligne('56'  ,'s'); "  class="couleur32">qu'</span><span id ="57" onClick="chgtmentSouligne('57'  ,'s'); "  class="couleur2">i</span><span id ="58" onClick="chgtmentSouligne('58'  ,'s'); "  class="couleur52">ls</span><span id ="59" onClick="chgtmentSouligne('59'  ,'s'); "  class="white">&nbsp;</span><span id ="60" onClick="chgtmentSouligne('60'  ,'s'); "  class="couleur42">s</span><span id ="61" onClick="chgtmentSouligne('61'  ,'s'); "  class="couleur26">ont</span><span id ="62" onClick="chgtmentSouligne('62'  ,'s'); "  class="white">&nbsp;</span><span id ="63" onClick="chgtmentSouligne('63'  ,'s'); "  class="couleur52">l</span><span id ="64" onClick="chgtmentSouligne('64'  ,'s'); "  class="couleur6">aids</span><span id ="65" onClick="chgtmentSouligne('65'  ,'s'); "  class="white">&nbsp;</span><span id ="66" onClick="chgtmentSouligne('66'  ,'s'); "  class="white">regerder</span></div>
+<div id="bloc_dessous3" ><span id ="67" onClick="chgtmentSouligne('67'  ,'s'); " class="white">est</span></div>
+<div id="bloc_dessus3" ><span id ="67" onClick="chgtmentSouligne('67'  ,'s'); "  class="white">est</span></div>
+</div>
+				<div class="boutonAuDessus">
+				lala 
+				</div>
+			</form>
+		</div>		
+		<!--  partie central   !!!! -->	
+		<div style="font: 16px 'SourceSansProBold', Arial, sans-serif; font-weight: 400;" id="banniereDroite">
+			<div id="banniereDroitHaut">
+				<div id="banniereText">vider</div>
+			</div>
+			<div id="banniereDroitBas">
+				<div id="banniereText">plein écran</div> 
+				<div id="banniereText">enregistrer</div>
+			</div>
+		</div><div class="clr"></div>
+		<div s id="basDePage">
+			
+				<form name="frmExcercices" method="post" >						
+					<input type="hidden" name="action" value="excercices" />
+			</form>
+			<div class="boiteNavigation">
+			   <a href="#">comment</a>
+			   <a href="javascript:document.frmExcercices.submit();">excercises</a>
+			   <a href="#">pourquoi</a>
+			</div>		
+		</div> </div>
+	
+	<object id="s" data="sons/s.mp3" type="audio/mpeg" height="1" width="1" >
+	 <param name="src" value="sons/u.mp3" />
+	 <param name="autoplay" value="false" />               
+	 <param name="autostart" value="0" />  
+	</object>
+
+<!--  				<div class="boutonForm">
+				   <input type="submit" value="colorier" id="valider" class="submit" />
+				</div> 
+-->
+	
+</body>
+</html>
+

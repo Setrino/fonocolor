@@ -1,0 +1,558 @@
+@CHARSET "ISO-8859-1";
+
+	/* les polices */
+	
+	@font-face {
+		font-family: 'SourceSansProBold';
+		src: url('./polices/SourceSansPro-fontfacekit/SourceSansPro-Bold-webfont.eot');
+		src: url('./polices/SourceSansPro-fontfacekit/SourceSansPro-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+			 url('./polices/SourceSansPro-fontfacekit/SourceSansPro-Bold-webfont.woff') format('woff'),
+			 url('./polices/SourceSansPro-fontfacekit/SourceSansPro-Bold-webfont.ttf') format('truetype'),
+			 url('./polices/SourceSansPro-fontfacekit/SourceSansPro-Bold-webfont.svg#SourceSansProBold') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+	
+	@font-face {
+    font-family: 'fundbrigschwer';
+    src: url('./polices/FundamentalBrigade-fontfacekit/fundamental_brigade_schwer-webfont.eot');
+		src: url('./polices/FundamentalBrigade-fontfacekit/fundamental_brigade_schwer-webfont.eot?#iefix') format('embedded-opentype'),
+			 url('./polices/FundamentalBrigade-fontfacekit/fundamental_brigade_schwer-webfont.woff') format('woff'),
+			 url('./polices/FundamentalBrigade-fontfacekit/fundamental_brigade_schwer-webfont.ttf') format('truetype'),
+			 url('./polices/FundamentalBrigade-fontfacekit/fundamental_brigade_schwer-webfont.svg#fundamental__brigade_schwerRg') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+
+	body{
+			font-family: 'fundbrigschwer'; 
+			font-size: 36pt;
+			background: #000000; 
+	}
+
+	/* les conteneurs */
+	
+	/* largeur 1000px centré */
+	#global {
+			position: relative; 
+			width: 1000px;
+			/*height: 400px; */
+			margin-left: auto;
+			margin-right: auto; 
+			padding: 0px;
+			/*background: yellow; */
+	}
+
+	#globalAvecH {
+			position: relative;
+			width: 1000px;
+			height: 750px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: 0px;
+			padding: 0px;
+			/*background: yellow;
+			background: black;
+			border-style:solid;
+			border-color:yellow; */
+	}
+	
+	/* avec hauteur et padding */
+	#globalAvecPaddingEtHauteur {
+			width: 1000px;
+			height: 750px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: 100px;
+			padding-right: 100px;
+			/*background: black;
+			border-style:solid;
+			border-color:yellow; */
+	}
+	
+
+	/* entête */	
+	#entete {
+			width: 100%;
+			height: 98px;
+			padding-top: 52px;
+			margin-top: 0px;
+			margin-bottom: 0px;		
+			margin-left: auto;
+			margin-right: auto;
+			/*background: green;
+			border-style:solid;
+			border-color:bleu; 
+			text-align: center; 
+			background: black; 
+			color: DarkGoldenRod; */
+	}
+	
+	#boiteTitre {
+			width: 343px;
+			height: 55px;
+			margin: 0px;
+			padding: 0px;
+			margin-left: auto;
+			margin-right: auto;
+			border: none 0px;
+	/*		border-style:solid;
+			border-color:blue; 
+			text-align: center; 
+		background: black; 
+			color: DarkGoldenRod; */
+	}
+	
+	#imgTitre {
+			position: absolute;
+			top: 25px;
+			left: 329px; 
+			width: 343px;
+			height: 55px;
+			padding: 0px;
+			margin-bottom: 25px;
+			border: none 0px;
+	/*	
+				border-style:solid;
+			border-color:black;	
+		border-style:solid;
+			border-color:blue; 
+			text-align: center; 
+		background: black; 
+			color: DarkGoldenRod; */
+	}
+	
+	#avertissement {
+			position: absolute;
+			top: 107px;
+			left: 329px; 
+			width: 343px;
+			height: 40px;
+			padding-top: 15px;
+			margin-bottom: 25px;
+			border: none 0px;
+			font-size: 18px;
+			color: white;
+			background: #000000;
+			z-index: 2;	
+			text-align: center;
+	/* sans padding width: 343px;		
+		border-style:solid;
+			border-color:blue; 
+			text-align: center; 
+		background: black; 
+			color: DarkGoldenRod; */
+	}
+
+	#load{
+	 	position: absolute; 
+	 	width: 700px;
+	 	height: 55px;
+	 	top: 300px; 
+		left: 150px;
+		padding-top: 15px;
+	 	background-color: white; 
+	 	color: red;
+	 	font-size: 24pt;
+	 	text-align: center;
+		z-index:2;
+	}
+	
+	/* parties interieures */
+	
+	/* animation (sans titre avec bas de page ) */
+	#partieInterieurH600{
+			position: relative; 
+			/*float:left; */
+			width: 1000px;
+			height: 600px;
+			margin-top: 0px;
+			margin-bottom: 0px;		
+	 		margin-left: auto;
+			margin-right: auto;
+			/*border-style:solid;
+			border-color:bleu; 
+			background: blue; */
+	}
+	
+		/* partie intérieure  ( avec titre et bas de page ) */
+	#partieInterieurH400{
+			position: relative; 
+			/*float:left; */
+			width: 800px;
+			height: 450px;
+			margin-top: 0px;
+			margin-bottom: 0px;		
+	 		margin-left: auto;
+			margin-right: auto;
+			/*border-style:solid;
+			border-color:bleu; 
+			background: red; */
+	}
+	
+		#textePourquoiEtComment{
+			position: relative;
+			width: 744px;
+			height: 394px;
+			padding: 28px;
+			margin: 0px;
+			border: 0px;
+			font-size: 24pt;
+			overflow-y: auto; 
+			overflow-x: auto; 
+			overflow:auto;	
+			background: #BFBFBF;
+			
+	}
+		#textePourquoiEtCommentPE{
+			position: relative;
+			top:105px;
+			width: 100%;
+			padding: 0%;
+			margin: 0px;
+			border: 0px;
+			font-size: 24pt;
+			overflow-y: auto; 
+			overflow-x: auto; 
+			overflow:auto;
+			color: white;
+			/*border-style:solid;
+			border-color:red; 	*/	
+	}
+
+	
+	/* display: block; a la l'intérieur du milieu */
+	
+	#partieTexte{
+			position: relative;
+			width: 94%;
+			height: 90%;
+			padding: 3%;
+			margin: 0px;
+			border: 0px;
+			overflow-y: auto; 
+			overflow-x: auto; 
+			overflow:auto;
+			font-size: 24pt;	
+			/*
+			border-style:solid;
+			border-color:green;		*/
+	}
+	 
+	textarea{
+		display: block;
+		width: 744px; 
+		height: 214px;
+		padding: 28px;
+		margin: 0px;
+		border: 0px;
+		overflow-y: auto; 
+		overflow-x: auto; 
+		overflow:auto;
+		background: #BFBFBF;
+		font-family: 'fundbrigschwer'; 
+		font-size: 36pt;
+	}
+
+	
+	#reponse{
+			position: relative;
+			top:-44px;
+			width: 744px;
+			height: 170px;
+			padding: 28px;
+			margin: 0px;
+			border: 0px;
+			background: #000000;
+			overflow-y: auto; 
+			overflow-x: auto; 
+			overflow:auto;	
+			background: #000000;
+			/*  #333333 border-style:solid;
+			border-color:green;		*/
+	}
+
+	
+	#contenuPE{
+			position: relative;
+			top:105px;
+			width: 100%;
+			padding: 0%;
+			margin: 0px;
+			border: 0px;
+			overflow-y: auto; 
+			overflow-x: auto; 
+			overflow:auto;
+			color: white;
+			border-style:solid;
+			border-color:red; 
+			
+	}
+	
+	#basDePage {
+			width: 800px;
+			height: 140px;
+			bottom: 0;
+			padding-top: 10px;
+			margin-top: 0px;
+			margin-bottom: 0px;	 
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center; 
+		/*	background: black; background-color: blue; border-style:solid;
+			border-color:red; */
+	}	
+	
+	#boiteNavigation {
+			width: 366px;
+			height: 82px;
+			padding-top: 0px;
+			margin-left: auto;
+			margin-right: auto;
+	}
+	
+	.colorier{
+			position:absolute;
+			top:204px;
+			left:344px;
+			width:112px;
+			height:43px;
+			border: 0px;
+			border: none;
+			z-index:2; 	
+	}
+
+	
+		div.colorier input {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/colorier_rel.gif") ;
+		cursor:pointer;
+		border: 0px;
+		border: none;
+	}
+	
+		div.colorier input:active  {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/colorier_prs.gif") ; 
+		cursor:pointer;
+		border: 0px;
+		border: none;
+		z-index: 2;
+	}
+	
+	.enregistrer{
+			position:absolute;
+			top:419px;
+			left: 2px;
+			width:34px;
+			height:28px;
+			border: 0px;
+			border: none;
+			z-index:2; 	
+	}
+
+		div.enregistrer input {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/enregistrer_rel.gif") ;
+		cursor:pointer;
+		border: 0px;
+		border: none;
+	}
+	
+		div.enregistrer input:active  {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/enregistrer_prs.gif") ; 
+		cursor:pointer;
+		border: 0px;
+		border: none;
+		z-index: 2;
+	}
+
+	.effacer{
+			position:absolute;
+			top:2px;
+			left: 763px;
+			width:34px;
+			height:28px;
+			border: 0px;
+			border: none;
+			z-index:2; 	
+	}
+
+	
+		div.effacer input {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/effacer_rel.gif") ;
+		cursor:pointer;
+		border: 0px;
+		border: none;
+		
+	}
+	
+	
+		div.effacer input:active  {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/effacer_prs.gif") ; 
+		cursor:pointer;
+		border: 0px;
+		border: none;
+		z-index: 2;
+	}
+
+	
+	.pleinecran{
+			position:absolute;
+			top:419px;
+			left: 763px;
+			width:34px;
+			height:28px;
+			border: 0px;
+			border: none;
+			z-index:2; 	
+	}
+
+		div.pleinecran input {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/pleinecran_rel.gif") ;
+		cursor:pointer;
+		border: 0px;
+		border: none;
+		
+	}
+		div.pleinecran input:active  {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/pleinecran_prs.gif") ; 
+		cursor:pointer;
+		border: 0px;
+		border: none;
+		z-index: 2;
+	}
+
+	.comment {
+			float: left;
+			width: 91px;
+			height: 82px;
+			padding: 0px;
+			margin: 0px;
+			border: none;
+	}
+	
+	div.comment input {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/comment_rel.gif") ;
+		cursor:pointer;
+		border: 0px;
+		z-index: 2;
+	}
+	
+	div.comment input:active  {
+		width: 100%;
+		height: 100%;									
+		background-image: url("images/comment_prs.gif") ;
+		cursor:pointer;
+		border: 0px;
+		border: none;
+		z-index: 2;
+	}
+	
+	.ncolorier {
+			float: left;
+			width: 91px;
+			height: 82px;
+			margin-left: 46px;
+			margin-right: 47px;	
+					
+		/*	background-color: black; 
+			border-style:solid;
+			border-color:blue; */
+	}
+	
+	div.ncolorier input {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/ncolorier_rel.gif") ;
+		cursor:pointer;
+		border: 0px;
+		z-index: 4;
+	}
+	
+		div.ncolorier input:active  {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/ncolorier_prs.gif") ;
+		cursor:pointer;
+		border: 0px;
+		border: none;
+		z-index: 2;
+	}
+	
+	.pourquoi {
+			float: left;
+			width: 91px;
+			height: 82px;
+			padding: 0px;
+			margin: 0px;
+		/*	background-color: black; 
+			border-style:solid;
+			border-color:blue; */
+	}
+	
+	div.pourquoi input {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/pourquoi_rel.gif") ;
+		cursor:pointer;
+		border: 0px;
+		z-index: 4;
+	}
+	
+	div.pourquoi input:active  {
+		width: 100%;
+		height: 100%;
+		background-image: url("images/pourquoi_prs.gif") ;
+		cursor:pointer;
+		border: 0px;
+		border: none;
+		z-index: 2;
+	}
+	
+	.input{
+			margin: 0px;
+			padding: 0px;
+			border: none 0px;
+	}
+
+	.img{
+		/*	display: block; */
+			margin: 0px;
+			padding: 0px;
+			border: none 0px;
+	}
+	
+	/*.a{
+		border: none 0px;
+	} */
+	
+	span{
+		position: relative;
+		margin: 0px;
+		padding: 0px;
+	}	
+	
+	.clr {
+       clear: both;
+       font-size:0;
+       line-height:0;
+       border: 0px;
+  }
+

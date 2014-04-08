@@ -1,0 +1,271 @@
+﻿<Liste_des_relations_entre_SAMPASimplifies_et_SAMPAs>
+	<Date_du_fichier>2/4/2010</Date_du_fichier>
+	<RelationsSAMPASimplifiesEtSAMPAs class="java.util.ArrayList">		
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>i</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>j</PhonemeSAMPA>		
+				<PhonemeSAMPA>i</PhonemeSAMPA>		
+			</phonemesSAMPA>
+			<couleur>#FA002E</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>e</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>e</PhonemeSAMPA>	
+			</phonemesSAMPA>	
+			<couleur>#FA7100</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>E</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>E</PhonemeSAMPA>			
+			</phonemesSAMPA>	
+			<couleur>#F7007E</couleur>
+			<couleurBas></couleurBas>
+			<couleurHaut></couleurHaut>			
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>a</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>a</PhonemeSAMPA>			
+			</phonemesSAMPA>	
+			<couleur>#B634BB</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>O</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>O</PhonemeSAMPA>			
+			</phonemesSAMPA>	
+			<couleur>#002FB2</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>o</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>o</PhonemeSAMPA>			
+			</phonemesSAMPA>	
+			<couleur>#4171D7</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>u</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>u</PhonemeSAMPA>		
+				<PhonemeSAMPA>w</PhonemeSAMPA>		
+			</phonemesSAMPA>	
+			<couleur>#4AD6CA</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>y</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>y</PhonemeSAMPA>		
+				<PhonemeSAMPA>H</PhonemeSAMPA>		
+			</phonemesSAMPA>	
+			<couleur>#FDD50E</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>2</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>2</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#61DE4D</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>9</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>9</PhonemeSAMPA>		
+				<PhonemeSAMPA>@</PhonemeSAMPA>		
+			</phonemesSAMPA>	
+			<couleur>#BDEC65</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>e~</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>e~</PhonemeSAMPA>		
+				<PhonemeSAMPA>9~</PhonemeSAMPA>		
+			</phonemesSAMPA>	
+			<couleur>#FFAD87</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>a~</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>a~</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#E7C1E3</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>o~</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>o~</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#C2DEEA</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>p</phonemeSAMPASimplifie> 
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>p</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#2F3614</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>t</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>t</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#024731</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>k</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>k</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#003f72</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>b</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>b</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#84003C</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>d</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>d</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#B06F00</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>g</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>g</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#7D250E</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>f</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>f</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#787A7B</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>s</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>s</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#007363</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>S</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>S</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#4A3651</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>v</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>v</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#AE9A00</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>z</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>z</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#C5858F</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>Z</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>Z</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#8A44C6</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>l</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>l</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#9ADCC6</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>R</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>R</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#ADA188</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>m</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>m</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#553F2C</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>n</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>n</PhonemeSAMPA>				
+			</phonemesSAMPA>	
+			<couleur>#5B2B2F</couleur>
+		</RelationSAMPASimplifieEtSAMPAs>
+		
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>ks</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>k s</PhonemeSAMPA>		
+			</phonemesSAMPA>
+			<couleurBas>#007363</couleurBas>			
+			<couleurHaut>#003f72</couleurHaut>	
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>gz</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>g z</PhonemeSAMPA>		
+			</phonemesSAMPA>
+			<couleurHaut>#7D250E</couleurHaut>	
+			<couleurBas>#C5858F</couleurBas>			
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>ai</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>a j</PhonemeSAMPA>		
+			</phonemesSAMPA>
+			<couleurHaut>#B634BB</couleurHaut>
+			<couleurBas>#FA002E</couleurBas>			
+		</RelationSAMPASimplifieEtSAMPAs>
+				<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>ii</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>i j</PhonemeSAMPA>		
+			</phonemesSAMPA>
+			<couleurHaut>#FA002E</couleurHaut>
+			<couleurBas>#FA002E</couleurBas>			
+		</RelationSAMPASimplifieEtSAMPAs>
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie>ua</phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA>w a</PhonemeSAMPA>		
+			</phonemesSAMPA>
+			<couleurBas>#B634BB</couleurBas>
+			<couleurHaut>#4AD6CA</couleurHaut>			
+		</RelationSAMPASimplifieEtSAMPAs>		
+	<!--
+		<RelationSAMPASimplifieEtSAMPAs>	
+			<phonemeSAMPASimplifie></phonemeSAMPASimplifie>
+			<phonemesSAMPA class="java.util.ArrayList">
+				<PhonemeSAMPA></PhonemeSAMPA>		
+			</phonemesSAMPA>
+			<couleur></couleur>						
+			<couleurBas></couleurBas>
+			<couleurHaut></couleurHaut>			
+		</RelationSAMPASimplifieEtSAMPAs>
+		gz ks aj
+	-->
+	
+	
+	
+	</RelationsSAMPASimplifiesEtSAMPAs>
+</Liste_des_relations_entre_SAMPASimplifies_et_SAMPAs>

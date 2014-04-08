@@ -1,0 +1,64 @@
+<ListeReglesDeSAMPAaSAMPA>
+	<Date_du_fichier>10/12/2010</Date_du_fichier>
+	<ReglesDeSAMPAaSAMPA>
+	<!-- condition 1 et condition 2
+		si vrai phoneme 1 remplacé par phoneme 2
+		si faux phoneme 3 remplacé par phoneme 4
+		les condition et les phonèmes sont écris à l'aide de regex-->
+		<UneRegleDeSAMPAaSAMPA>
+		<!-- description de la règle: [N] est remplacé [n g] à l'exception des mots suivants: leggins, junker, links où il remplacé par [n] -->
+			<!-- condition 1 -->
+			<YaTilDansLaPhonetiqueLePhoneme>N</YaTilDansLaPhonetiqueLePhoneme>
+			<!-- condition 2 -->
+			<YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
+				<ConditionGrapheme>\bleggins\b</ConditionGrapheme>
+				<ConditionGrapheme>\bjunker\b</ConditionGrapheme>
+				<ConditionGrapheme>\blinks\b</ConditionGrapheme>
+			</YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
+			<!-- si les conditions 1 et 2 sont vrai phoneme 1 remplacé par phoneme 2 -->
+			<SiOui>
+				<LePhoneme>N</LePhoneme>
+				<EstRemplacePar>n</EstRemplacePar>
+			</SiOui>
+			<!-- si faux phoneme 3 remplacé par phoneme 4 -->
+			<SiNon>
+				<LePhoneme>N</LePhoneme>
+				<EstRemplacePar>n g</EstRemplacePar>
+			</SiNon>
+		</UneRegleDeSAMPAaSAMPA>
+		<UneRegleDeSAMPAaSAMPA>
+		<!-- description de la règle: [J] est remplacé par [n j]-->
+			<YaTilDansLaPhonetiqueLePhoneme>J</YaTilDansLaPhonetiqueLePhoneme>
+			<YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
+				<ConditionGrapheme>.</ConditionGrapheme>
+			</YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
+			<SiOui>
+				<LePhoneme>J</LePhoneme>
+				<EstRemplacePar>n j</EstRemplacePar>
+			</SiOui>
+		</UneRegleDeSAMPAaSAMPA>
+		<UneRegleDeSAMPAaSAMPA>
+		<!-- description de la règle: si est @ finale et n'est pas pour les mots ce, de, je, le, me, ne, que, se, te, alors on n'en tient pas compte.  -->
+			<YaTilDansLaPhonetiqueLePhoneme>@$</YaTilDansLaPhonetiqueLePhoneme>
+			<YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
+				<ConditionGrapheme>\bce\b</ConditionGrapheme> <!-- ajout AF 6 juin 2012 ATTENTION ERREUR MORPHALOU! c' transcrit [k] et non [s] -->
+				<ConditionGrapheme>\bde\b</ConditionGrapheme>
+				<ConditionGrapheme>\bje\b</ConditionGrapheme>
+				<ConditionGrapheme>\ble\b</ConditionGrapheme>
+				<ConditionGrapheme>\bme\b</ConditionGrapheme>
+				<ConditionGrapheme>\bne\b</ConditionGrapheme>
+				<ConditionGrapheme>\bque\b</ConditionGrapheme> <!-- ajout AF 6 juin 2012-->
+				<ConditionGrapheme>\bse\b</ConditionGrapheme> <!-- ajout AF 6 juin 2012-->
+				<ConditionGrapheme>\bte\b</ConditionGrapheme> 
+			</YaTilDansOrthographeDuMotUnDesGraphemeSuivants>
+			<SiOui>
+				<LePhoneme>@</LePhoneme>
+				<EstRemplacePar>@</EstRemplacePar>
+			</SiOui>
+			<SiNon>
+				<LePhoneme>@$</LePhoneme>
+				<EstRemplacePar></EstRemplacePar>
+			</SiNon>
+		</UneRegleDeSAMPAaSAMPA>
+	</ReglesDeSAMPAaSAMPA>
+</ListeReglesDeSAMPAaSAMPA>

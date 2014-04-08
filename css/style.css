@@ -164,6 +164,18 @@ article p{
     float: right;
     margin-right: 1em;
     padding-bottom: 5em;
+    z-index: 5;
+}
+
+#download{
+    float: left;
+    margin-left: 1em;
+    padding-bottom: 5em;
+    z-index: 5;
+}
+
+#full_screen:hover, #download:hover{
+    cursor: pointer;
 }
 
 #answer{

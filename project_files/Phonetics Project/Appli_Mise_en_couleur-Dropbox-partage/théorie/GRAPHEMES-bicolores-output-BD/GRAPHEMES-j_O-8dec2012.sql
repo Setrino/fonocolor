@@ -1,0 +1,16 @@
+SELECT * 
+FROM LEX2_inflection
+WHERE phonetic1 LIKE "%j O%"
+AND content NOT LIKE "%illod"
+AND content NOT LIKE "%io%"
+AND content NOT LIKE "%iu%"
+AND content NOT LIKE "%yo%"
+AND content NOT LIKE "%illo%"
+AND content NOT LIKE "%yo%"
+AND content NOT LIKE "%ïo%"
+AND content NOT LIKE "%yu%"
+AND content NOT LIKE "%jo%"
+AND content NOT LIKE "%ilho%"
+AND content NOT LIKE "%iau%"
+AND content NOT LIKE "%yach%"
+AND content NOT LIKE "%yeo%"

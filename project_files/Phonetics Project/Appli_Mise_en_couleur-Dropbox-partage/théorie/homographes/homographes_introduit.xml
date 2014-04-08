@@ -1,0 +1,164 @@
+
+ 
+ UPDATE `lex2_inflection` ,  LEX2_hommo SET 
+ `homographeChoisi` = 1 ,  
+`typeModif` = 'm',
+`raisonModif` = 'ho',
+`destinataireModif`= 'motEnCouleur',
+`dateModif` = NOW(),
+`lex2_inflection`.`commentaireModif` = Lex2_hommo.`commentaireModif`
+ WHERE  `lex2_inflection`.`entryID` = LEX2_hommo.entryID
+ 
+ UPDATE `lex2_inflection` SET 
+ `homographeChoisi` = 1 ,  
+`typeModif` = 'm',
+`raisonModif` = 'ho',
+`destinataireModif`= 'motEnCouleur',
+`dateModif` = NOW()
+`lex2_inflection`.`commentaireModif`= LEX2_hommo`.`commentaireModif`
+ WHERE  `entryID` IN ( SELECT LEX2_hommo.entryID FROM LEX2_hommo)
+
+INSERT INTO lex2_hommo (`entryID`, `commentaireModif`, `content`, `phonetic1`, `phonetic2`) VALUES
+(599,' a k s E p t j o~ : 0.21 vs. 0 (602) a k s E p s j o~ ','acceptions','a k s E p t j o~','a k s E p t j o~'),
+
+(1607,' a d O p t j o~ : 0 vs. 0.09 (1612) a d O p s j o~ MAIS 0.2 vs. 0.07 fréqlivre: on privilégie le verbe sur le nom (cohérence) ','adoptions','a d O p t j o~','a d O/ p t j o~'),
+
+(1961,' a f l y @ : 0.69 vs. 0.21 (0.15+0.06 cumulé) a f l y a~ ET  1959 = 1960 (nom et adj) du point de vue phonétique ','affluent','a f l y @','a f l y @'),
+
+(7569,' a : 1274.31 vs. 18.78 (6240) a s ','as','a','a'),
+
+(6904,' a t a~ s j o~ : 1.63 vs. absent (6902) a t a~ t j o (et nom au singulier 156.9 vs. 0.39 verbe) ','attentions','a t a~ s j o~','a t a~ s j o~'),
+
+(9636,' AF tranche (b i t e (9637) : 0.23 vs. 0.02 (9636) b i t E R MAIS nom mal transcrit Q: s´agit-il du même mot? ','bitter','b i t E R','b i t E R'),
+
+(10827,' b O k s e : 3.14 vs. 0.62 (10826) b O k s E R ','boxer','b O k s e','b O/ k s e'),
+
+(14204,' S a l e n Z 2 R : 0.94 vs. 0.03 (14205) S a l E n Z e ','challenger','S a l e n Z 2 R','S a l e n Z 6 R'),
+
+(16802,' complétions: absent de Lexique 370, AF tranche VER > NOM (16804) k o~ p l e s j o~ ','complétions','k o~ p l e t j o~','k o~ p l E/ t j o~'),
+
+(17295,' AF tranche (congruent: k o~ g R y a~ et (17296) k o~ g R y absent de Lexique 370) ','congruent','k o~ g R y a~','k o~ g R y a~'),
+
+(17399,' AF tranche (connivent: k O n i v a~ et (17400) k O n i v @ absent de Lexique 370) ','connivent','k O n i v a~','k O/ n i v a~'),
+
+(17680,' k o~ t a~ : 114.75 vs. 0.49 (17693) k o~ t @ ET 17680 = 17681 (nom et adj) du point de vue phonétique ','content','k o~ t a~','k o~ t a~'),
+
+(17955,' k o~ v E R Z @ : 0.29 vs. 0.06 (17954) k o~ v E R Z a~ ','convergent','k o~ v E R Z @','k o~ v E R Z @'),
+
+(17939,' k o~ v j e~ : 19.21 vs. 0.45 (17984) k o~ v i ','convient','k o~ v j e~','k o~ v j e~'),
+
+(18254,' k O R n E R : 0.16 vs. 0.17 (18255) k O R n e, AF tranche ','corner','k O R n E R','k O R n E R'),
+
+(18833,' k u v a~ : 16.09 vs. 0.32 (18835) k u v @ ','couvent','k u v a~','k u v a~'),
+
+(18882,' k O e~ s i d @ : 0.44 vs. 0.01 (18881) k O e~ s i d a~ ','coïncident','k O e~ s i d @','k O/ e~ s i d @'),
+
+(21165,' d i v E R Z @ : 0.25 vs. 0.07 (21164) d i v E R Z a~ ','divergent','d i v E R Z @','d i v E R Z @'),
+
+(21319,' d O l a~ : 0 vs. absent de Lexique 370 (21321) d O l @ , AF tranche ','dolent','d O l a~','d O/ l a~'),
+
+(23812,' d e z E R s j o~ : 0.02 vs. absent de Lexique 370 (23810) d e z E R t j o~ , AF tranche ','désertions','d e z E R s j o~','d E/ z E R s j o~'),
+
+(23995,' d e t E R Z a~ : 0.99 (nom et adj) vs. absent de Lexique 370 (23997) d e t E R Z @ , AF tranche ','détergent','d e t E R Z a~','d E/ t E R Z a~'),
+
+(24324,' e f l y a~ : 0.01 vs. absent de Lexique 370 (24326) e f l y , AF tranche ','effluent','e f l y a~','E/ f l y a~'),
+
+(67366,' e : 19417.69 vs. 86 (25868) fréq cumulée nom et adj E s t ','est','e','E/'),
+
+(25882,' E s t E R : 0.25 vs. 0.01 (25883) E s t e, AF tranche  ','ester','E s t E R','E s t E R'),
+
+(26079,' E k s E l a~ : 46.87 vs. 0.82 (26081) E k s E l @  ','excellent','E k s E l a~','E k s E l a~'),
+
+(26142,' E k s k R e s j o~ : 0.04 vs. absent de Lexique 370 (26140) E k s k R e t j o~ , AF tranche  ','excrétions','E k s k R e s j o~','E k s k R E/ s j o~'),
+
+(27063,' f E R m @ : 3.65 vs. 0.06 (27058) f E R m a~  ','ferment','f E R m @','f E R m @'),
+
+(27240,' f j E R : 46.07 vs. 6.5 (27241) f j e  ','fier','f j E R','f j E R'),
+
+(27600,' f l i p e : 6.58 vs. 1.61 (27599) f l i p 9 R  ','flipper','f l i p e','f l i p e'),
+
+(27672,' fluent: absent de Lexique 370, AF tranche ','fluent','f l y a~','f l y a~'),
+
+(32746,' i m i n a~ : 1.79 vs. absent de Lexique 370 (32747) i m i n @  ','imminent','i m i n a~','i m i n a~'),
+
+(33891,' e~ f l y a~ : 1.38 vs. 0.15 (33894) e~ f l y  ','influent','e~ f l y a~','e~ f l y a~'),
+
+(34216,' e~ s O l a~ : 3.48 vs. 0 (34217) e~ s O l @  ','insolent','e~ s O l a~','e~ s O l a~'),
+
+(34431,' e~ t a~ s j o~ : 11.12 vs. 0.12 (34430) e~ t a~ t j o~  ','intentions','e~ t a~ s j o~','e~ t a~ s j o~'),
+
+(34806,' e~ v a~ s j o~ : 2.49 vs. 0 (34801) e~ v a~ t j o~  ','inventions','e~ v a~ s j o~','e~ v a~ s j o~'),
+
+(38517,' m a n a d Z E R : 7.54 vs. 1.22 (38518) m a n a d Z e  ','manager','m a n a d Z E R','m a n a d Z E R'),
+
+(39524,' m a~ s j o~ : 0.24 vs. 0.03 (39527) m a~ t j o~  ','mentions','m a~ s j o~','m a~ s j o~'),
+
+(39944,' m i n @ R E : 1.21 vs. 0.03 (39943) m i n @ R e  ','minerai','m i n @ R E','m i n @ R E/'),
+
+(42898,' n O s j o~ : 0.81 vs. 0 (42893) n O t j o~  ','notions','n O s j o~','n O/ s j o~'),
+
+(43208,' n e g l i Z a~ : 1.09 (fréq. cumulée adj et nom) vs. 0.48 (43209) n e g l i Z @  ','négligent','n e g l i Z a~','n E/ g l i Z a~'),
+
+(44987,' palmer: absent de Lexique 370, AF tranche ','palmer','p a l m e','p a l m e'),
+
+(45523,' p a R a~ : 12.39 (fréq. cumulée nom et adj) vs. 0.17 (45533) p a R @  ','parent','p a R a~','p a R a~'),
+
+(46519,' p E R m a n a~ : 3.75 (fréq. cumulée nom et adj) vs. absent de Lexique 370 (46521) p E R m a n @  ','permanent','p E R m a n a~','p E R m a n a~'),
+
+
+(48648,' p O R s j o~ : 0.83 vs. 0.36 (48640) p O R t j o~  ','portions','p O R s j o~','p O R s j o~'),
+
+(48725,' p O s t e : 2.16 vs. 1.28 (fréq. cumulée nom et adj (transcrits érronément p O s t e)  (48724) p O s t E R  ','poster','p O s t e','p O/ s t e'),
+
+(49756,' p R O e m i n a~ : 0.04  vs. absent de Lexique 370 (49757) p R O e m i n @  ','proéminent','p R O e m i n a~','p R O/ E/ m i n a~'),
+
+(50091,' p R e z i d a~ : 131.53 vs. 0.41 (50095) p R e z i d @  ','président','p R e z i d a~','p R E/ z i d a~'),
+
+(50141,' p R e v a l a~ : 0.14 vs. 0.01 (50142) p R e v a l @  ','prévalent','p R e v a l a~','p R E/ v a l a~'),
+
+(50553,' p y R y l a~ : 0.06  vs. absent de Lexique 370 (50554) p y R y l @  ','purulent','p y R y l a~','p y R y l a~'),
+
+(51831,' R a l a~ t i : 0.22  vs. absent de Lexique 370 (51834) R a l a~ s i MAIS ERREUR de Morphalou dans la transcription  ','ralentie','R a l a~ t i','R a l a~ t i'),
+
+(53147,' R @ p O R t E R : 3.01  vs. 2.35 (53148) R @ p O R t e, Lexique 370 mentionne un reporter ADJ, erreur probablement  ','reporter','R @ p O R t E R','R @ p O R t E R'),
+
+(53264,' R @ s e z i ou R 2 s e z i, variantes de formes verbales dans Morphalou, selon AF non pertinente, celle avec 2 supprimée  ','ressaisis','R @ s e z i','R @ s E/ z i'),
+
+(53611,' R i j a~ : 1.89 vs. 0.15 (53611) R i a~ MAIS l´allongement-j est optionnel selon Petit Robert ET on évite ainsi une double couleur... ','riant','R i a~','R i a~'),
+
+(55177,' R e z i d a~ : 0.72 (fréq. cumulée adj et nom) vs. 0.32 (55180) R e z i d @  ','résident','R e z i d a~','R E/ z i d a~'),
+
+(55406,' R e e d i s j o~ : 0.01  vs. absent de Lexique 370 (55405) R e e d i t j o~  ','rééditions','R e e d i s j o~','R E/ E/ d i s j o~'),
+
+(56795,' s a~ : 240.85 vs. 117.57 (56732) s a~ s, l´entrée 56719 indique un mot japonais de même prononciation que  56732   ','sens','s a~','s a~'),
+
+(57704,' s O m n O l a~ : 0.08  vs. 0.01 (57705) s O m n O l @  ','somnolent','s O m n O l a~','s O/ m n O/ l a~'),
+
+(58648,' s t R i d a~ : 0.4  vs. absent de Lexique 370 (58649) s t R i d @  ','strident','s t R i d a~','s t R i d a~'),
+
+(59119,' s y p E R : 226 (fréq. cumulée nom et adj)  vs. absent de Lexique 370 (59121) s y p e  ','super','s y p E R','s y p E R'),
+
+(59194,' s y p O R t e : 30.04  vs. 4.32 (59193) s y p O R t E R  ','supporter','s y p O R t e','s y p O R t e'),
+
+(59798,' s e k R e s j o~ : 0.66  vs. absent de Lexique 370 (59796) s e k R e t j o~  ','sécrétions','s e k R e s j o~','s E/ k R E/ s j o~'),
+
+(60181,' t a l a~ : 33.28  vs. 0.04 (60183) t a l @  ','talent','t a l a~','t a l a~'),
+
+(61982,' t R a~ z i t : 1.64 (fréq. cumulée adj et nom)  vs. 0.01 (61978) t R a~ z i  ','transit','t R a~ z i t','t R a~ z i t'),
+
+(61988,' t R a~ z i s j o~ : 0.23  vs. absent de Lexique 370 (61986) t R a~ z i t j o~  ','transitions','t R a~ z i s j o~','t R a~ z i s j o~'),
+
+(63421,' y R Z a~ : 26.75  vs. 0.02 (63422) y R Z @ ','urgent','y R Z a~','y R Z a~'),
+
+(64452,' v j O l a~ : 13.92 (fréq. cumulée adj et nom)  vs. 0.61 (64454) v j O l @  ','violent','v j O l a~','v j O/ l a~'),
+
+(66049,' e d i s j o~ : 1.78  vs. 0.03 (66047) e d i t j o~ ','éditions','e d i s j o~','e d i s j o~'),
+
+(66395,' e m E R Z a~ : 0.1  vs. 0.22 (66396) e m E R Z @ MAIS AF tranche, car "pays émergens" +2´000´000 sur Google ','émergent','e m E R Z a~','e m E R Z a~'),
+
+(66927,' équipollent: absents de Lexique 370, AF tranche ','équipollent','e k i p O l a~','e k i p O l a~'),
+
+(66942,' e k i v a l a~ : 0.59  vs. 0.26 (66944) e k i v a l @ ET MORPHALOU nom et adj','équivalent','e k i v a l a~','e k i v a l a~'),
+
+(67334,' e v i d a~ : 28.75  vs. 0.19 (67335) e v i d @ ','évident','e v i d a~','e v i d a~')
+

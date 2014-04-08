@@ -1,0 +1,504 @@
+<DATA> 	<!-- Il s'agit de tous les homographes hétérophones trouvés par Steph' avec une requête sur la base de données Morphalou. -->
+		<!--NB: ceux pour lesquels AF n'a pas réussi à trancher ont été supprimés (si jamais, ils se trouvent dans homographes-tous.xml) -->
+	<ROW>
+		<entryID>599</entryID> <!-- a k s E p t j o~ : 0.21 vs. 0 (602) a k s E p s j o~ -->
+		<content>acceptions</content>
+		<phonetic1>a k s E p t j o~</phonetic1>
+		<phonetic2>a k s E p t j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>1607</entryID> <!-- a d O p t j o~ : 0 vs. 0.09 (1612) a d O p s j o~ MAIS 0.2 vs. 0.07 fréqlivre: on privilégie le verbe sur le nom (cohérence) -->
+		<content>adoptions</content>
+		<phonetic1>a d O p t j o~</phonetic1>
+		<phonetic2>a d O/ p t j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>1961</entryID> <!-- a f l y @ : 0.69 vs. 0.21 (0.15+0.06 cumulé) a f l y a~ ET  1959 = 1960 (nom et adj) du point de vue phonétique -->
+		<content>affluent</content>
+		<phonetic1>a f l y @</phonetic1>
+		<phonetic2>a f l y @</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>7569</entryID> <!-- a : 1274.31 vs. 18.78 (6240) a s -->
+		<content>as</content>
+		<phonetic1>a</phonetic1>
+		<phonetic2>a</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>6904</entryID> <!-- a t a~ s j o~ : 1.63 vs. absent (6902) a t a~ t j o (et nom au singulier 156.9 vs. 0.39 verbe) -->
+		<content>attentions</content> 
+		<phonetic1>a t a~ s j o~</phonetic1>
+		<phonetic2>a t a~ s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>9636</entryID> <!-- AF tranche (b i t e (9637) : 0.23 vs. 0.02 (9636) b i t E R MAIS nom mal transcrit (Q: s'agit-il du même mot?)) -->
+		<content>bitter</content>
+		<phonetic1>b i t E R</phonetic1>
+		<phonetic2>b i t E R</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>10827</entryID> <!-- b O k s e : 3.14 vs. 0.62 (10826) b O k s E R -->
+		<content>boxer</content>
+		<phonetic1>b O k s e</phonetic1>
+		<phonetic2>b O/ k s e</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>14204</entryID> <!-- S a l e n Z 2 R : 0.94 vs. 0.03 (14205) S a l E n Z e -->
+		<content>challenger</content>
+		<phonetic1>S a l e n Z 2 R</phonetic1>
+		<phonetic2>S a l e n Z 6 R</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>16802</entryID> <!-- complétions: absent de Lexique 370, AF tranche VER > NOM (16804) k o~ p l e s j o~ -->
+		<content>complétions</content>
+		<phonetic1>k o~ p l e t j o~</phonetic1>
+		<phonetic2>k o~ p l E/ t j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>17295</entryID> <!-- AF tranche (congruent: k o~ g R y a~ et (17296) k o~ g R y absent de Lexique 370) -->
+		<content>congruent</content>
+		<phonetic1>k o~ g R y a~</phonetic1>
+		<phonetic2>k o~ g R y a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>17399</entryID>  <!-- AF tranche (connivent: k O n i v a~ et (17400) k O n i v @ absent de Lexique 370) -->
+		<content>connivent</content>
+		<phonetic1>k O n i v a~</phonetic1>
+		<phonetic2>k O/ n i v a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>17680</entryID> <!-- k o~ t a~ : 114.75 vs. 0.49 (17693) k o~ t @ ET 17680 = 17681 (nom et adj) du point de vue phonétique -->
+		<content>content</content>
+		<phonetic1>k o~ t a~</phonetic1>
+		<phonetic2>k o~ t a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>17955</entryID> <!-- k o~ v E R Z @ : 0.29 vs. 0.06 (17954) k o~ v E R Z a~ -->
+		<content>convergent</content>
+		<phonetic1>k o~ v E R Z @</phonetic1>
+		<phonetic2>k o~ v E R Z @</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>17939</entryID> <!-- k o~ v j e~ : 19.21 vs. 0.45 (17984) k o~ v i -->
+		<content>convient</content>
+		<phonetic1>k o~ v j e~</phonetic1>
+		<phonetic2>k o~ v j e~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>18254</entryID> <!-- k O R n E R : 0.16 vs. 0.17 (18255) k O R n e, AF tranche -->
+		<content>corner</content>
+		<phonetic1>k O R n E R</phonetic1>
+		<phonetic2>k O R n E R</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>18833</entryID> <!-- k u v a~ : 16.09 vs. 0.32 (18835) k u v @ -->
+		<content>couvent</content>
+		<phonetic1>k u v a~</phonetic1>
+		<phonetic2>k u v a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>18882</entryID> <!-- k O e~ s i d @ : 0.44 vs. 0.01 (18881) k O e~ s i d a~ -->
+		<content>coïncident</content>
+		<phonetic1>k O e~ s i d @</phonetic1>
+		<phonetic2>k O/ e~ s i d @</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>21165</entryID>
+		<content>divergent</content> <!-- d i v E R Z @ : 0.25 vs. 0.07 (21164) d i v E R Z a~ -->
+		<phonetic1>d i v E R Z @</phonetic1>
+		<phonetic2>d i v E R Z @</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>21319</entryID> <!-- d O l a~ : 0 vs. absent de Lexique 370 (21321) d O l @ , AF tranche -->
+		<content>dolent</content>
+		<phonetic1>d O l a~</phonetic1>
+		<phonetic2>d O/ l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>23812</entryID>
+		<content>désertions</content> <!-- d e z E R s j o~ : 0.02 vs. absent de Lexique 370 (23810) d e z E R t j o~ , AF tranche -->
+		<phonetic1>d e z E R s j o~</phonetic1>
+		<phonetic2>d E/ z E R s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>23995</entryID><!-- d e t E R Z a~ : 0.99 (nom et adj) vs. absent de Lexique 370 (23997) d e t E R Z @ , AF tranche -->
+		<content>détergent</content>
+		<phonetic1>d e t E R Z a~</phonetic1>
+		<phonetic2>d E/ t E R Z a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>24324</entryID> <!-- e f l y a~ : 0.01 vs. absent de Lexique 370 (24326) e f l y , AF tranche -->
+		<content>effluent</content>
+		<phonetic1>e f l y a~</phonetic1>
+		<phonetic2>E/ f l y a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>67366</entryID> <!-- e : 19417.69 vs. 86 (25868) fréq cumulée nom et adj E s t -->
+		<content>est</content> 
+		<phonetic1>e</phonetic1>
+		<phonetic2>E/</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>25882</entryID> <!-- E s t E R : 0.25 vs. 0.01 (25883) E s t e, AF tranche  -->
+		<content>ester</content>
+		<phonetic1>E s t E R</phonetic1>
+		<phonetic2>E s t E R</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>26079</entryID> <!-- E k s E l a~ : 46.87 vs. 0.82 (26081) E k s E l @  -->
+		<content>excellent</content> 
+		<phonetic1>E k s E l a~</phonetic1>
+		<phonetic2>E k s E l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>26142</entryID> <!-- E k s k R e s j o~ : 0.04 vs. absent de Lexique 370 (26140) E k s k R e t j o~ , AF tranche  -->
+		<content>excrétions</content>
+		<phonetic1>E k s k R e s j o~</phonetic1>
+		<phonetic2>E k s k R E/ s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>27063</entryID> <!-- f E R m @ : 3.65 vs. 0.06 (27058) f E R m a~  -->
+		<content>ferment</content>
+		<phonetic1>f E R m @</phonetic1>
+		<phonetic2>f E R m @</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>27240</entryID> <!-- f j E R : 46.07 vs. 6.5 (27241) f j e  -->
+		<content>fier</content>
+		<phonetic1>f j E R</phonetic1>
+		<phonetic2>f j E R</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>27600</entryID> <!-- f l i p e : 6.58 vs. 1.61 (27599) f l i p 9 R  -->
+		<content>flipper</content>
+		<phonetic1>f l i p e</phonetic1>
+		<phonetic2>f l i p e</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>27672</entryID> <!-- fluent: absent de Lexique 370, AF tranche -->
+		<content>fluent</content>
+		<phonetic1>f l y a~</phonetic1>
+		<phonetic2>f l y a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>32746</entryID> <!-- i m i n a~ : 1.79 vs. absent de Lexique 370 (32747) i m i n @  -->
+		<content>imminent</content>
+		<phonetic1>i m i n a~</phonetic1>
+		<phonetic2>i m i n a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>33891</entryID> <!-- e~ f l y a~ : 1.38 vs. 0.15 (33894) e~ f l y  -->
+		<content>influent</content>
+		<phonetic1>e~ f l y a~</phonetic1>
+		<phonetic2>e~ f l y a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>34216</entryID> <!-- e~ s O l a~ : 3.48 vs. 0 (34217) e~ s O l @  -->
+		<content>insolent</content>
+		<phonetic1>e~ s O l a~</phonetic1>
+		<phonetic2>e~ s O l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>34431</entryID> <!-- e~ t a~ s j o~ : 11.12 vs. 0.12 (34430) e~ t a~ t j o~  -->
+		<content>intentions</content>
+		<phonetic1>e~ t a~ s j o~</phonetic1>
+		<phonetic2>e~ t a~ s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>34806</entryID>
+		<content>inventions</content> <!-- e~ v a~ s j o~ : 2.49 vs. 0 (34801) e~ v a~ t j o~  -->
+		<phonetic1>e~ v a~ s j o~</phonetic1>
+		<phonetic2>e~ v a~ s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>38517</entryID> <!-- m a n a d Z E R : 7.54 vs. 1.22 (38518) m a n a d Z e  -->
+		<content>manager</content>
+		<phonetic1>m a n a d Z E R</phonetic1>
+		<phonetic2>m a n a d Z E R</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>39524</entryID> <!-- m a~ s j o~ : 0.24 vs. 0.03 (39527) m a~ t j o~  -->
+		<content>mentions</content>
+		<phonetic1>m a~ s j o~</phonetic1>
+		<phonetic2>m a~ s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>39944</entryID> <!-- m i n @ R E : 1.21 vs. 0.03 (39943) m i n @ R e  -->
+		<content>minerai</content> 
+		<phonetic1>m i n @ R E</phonetic1>
+		<phonetic2>m i n @ R E/</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>42898</entryID> <!-- n O s j o~ : 0.81 vs. 0 (42893) n O t j o~  -->
+		<content>notions</content>
+		<phonetic1>n O s j o~</phonetic1>
+		<phonetic2>n O/ s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>43208</entryID> <!-- n e g l i Z a~ : 1.09 (fréq. cumulée adj et nom) vs. 0.48 (43209) n e g l i Z @  -->
+		<content>négligent</content> 
+		<phonetic1>n e g l i Z a~</phonetic1>
+		<phonetic2>n E/ g l i Z a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>44987</entryID> <!-- palmer: absent de Lexique 370, AF tranche -->
+		<content>palmer</content>
+		<phonetic1>p a l m e</phonetic1>
+		<phonetic2>p a l m e</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>45523</entryID> <!-- p a R a~ : 12.39 (fréq. cumulée nom et adj) vs. 0.17 (45533) p a R @  -->
+		<content>parent</content>
+		<phonetic1>p a R a~</phonetic1>
+		<phonetic2>p a R a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>46519</entryID> <!-- p E R m a n a~ : 3.75 (fréq. cumulée nom et adj) vs. absent de Lexique 370 (46521) p E R m a n @  -->
+		<content>permanent</content>
+		<phonetic1>p E R m a n a~</phonetic1>
+		<phonetic2>p E R m a n a~</phonetic2>
+	</ROW>
+
+
+	<ROW>
+		<entryID>48648</entryID> <!-- p O R s j o~ : 0.83 vs. 0.36 (48640) p O R t j o~  -->
+		<content>portions</content>
+		<phonetic1>p O R s j o~</phonetic1>
+		<phonetic2>p O R s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>48725</entryID> <!-- p O s t e : 2.16 vs. 1.28 (fréq. cumulée nom et adj (transcrits érronément p O s t e)  (48724) p O s t E R  -->
+		<content>poster</content>
+		<phonetic1>p O s t e</phonetic1>
+		<phonetic2>p O/ s t e</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>49756</entryID> <!-- p R O e m i n a~ : 0.04  vs. absent de Lexique 370 (49757) p R O e m i n @  -->
+		<content>proéminent</content>
+		<phonetic1>p R O e m i n a~</phonetic1>
+		<phonetic2>p R O/ E/ m i n a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>50091</entryID> <!-- p R e z i d a~ : 131.53 vs. 0.41 (50095) p R e z i d @  -->
+		<content>président</content>
+		<phonetic1>p R e z i d a~</phonetic1>
+		<phonetic2>p R E/ z i d a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>50141</entryID> <!-- p R e v a l a~ : 0.14 vs. 0.01 (50142) p R e v a l @  -->
+		<content>prévalent</content>
+		<phonetic1>p R e v a l a~</phonetic1>
+		<phonetic2>p R E/ v a l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>50553</entryID>  <!-- p y R y l a~ : 0.06  vs. absent de Lexique 370 (50554) p y R y l @  -->
+		<content>purulent</content>
+		<phonetic1>p y R y l a~</phonetic1>
+		<phonetic2>p y R y l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>51831</entryID> <!-- R a l a~ t i : 0.22  vs. absent de Lexique 370 (51834) R a l a~ s i MAIS ERREUR de Morphalou dans la transcription  -->
+		<content>ralentie</content>
+		<phonetic1>R a l a~ t i</phonetic1>
+		<phonetic2>R a l a~ t i</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>53147</entryID> <!-- R @ p O R t E R : 3.01  vs. 2.35 (53148) R @ p O R t e, Lexique 370 mentionne un reporter ADJ, erreur probablement  -->
+		<content>reporter</content>
+		<phonetic1>R @ p O R t E R</phonetic1>
+		<phonetic2>R @ p O R t E R</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>53264</entryID> <!-- R @ s e z i ou R 2 s e z i, variantes de formes verbales dans Morphalou, selon AF non pertinente, celle avec 2 supprimée  -->
+		<content>ressaisis</content>
+		<phonetic1>R @ s e z i</phonetic1>
+		<phonetic2>R @ s E/ z i</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>53611</entryID> <!-- R i j a~ : 1.89 vs. 0.15 (53611) R i a~ MAIS l'allongement (j) est optionnel selon Petit Robert ET on évite ainsi une double couleur... -->
+		<content>riant</content>
+		<phonetic1>R i a~</phonetic1>
+		<phonetic2>R i a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>55177</entryID> <!-- R e z i d a~ : 0.72 (fréq. cumulée adj et nom) vs. 0.32 (55180) R e z i d @  -->
+		<content>résident</content>
+		<phonetic1>R e z i d a~</phonetic1>
+		<phonetic2>R E/ z i d a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>55406</entryID> <!-- R e e d i s j o~ : 0.01  vs. absent de Lexique 370 (55405) R e e d i t j o~  -->
+		<content>rééditions</content>
+		<phonetic1>R e e d i s j o~</phonetic1>
+		<phonetic2>R E/ E/ d i s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>56795</entryID> <!-- s a~ : 240.85 vs. 117.57 (56732) s a~ s, l'entrée 56719 indique un mot japonais de même prononciation que  56732   -->
+		<content>sens</content> 
+		<phonetic1>s a~</phonetic1>
+		<phonetic2>s a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>57704</entryID> <!-- s O m n O l a~ : 0.08  vs. 0.01 (57705) s O m n O l @  -->
+		<content>somnolent</content>
+		<phonetic1>s O m n O l a~</phonetic1>
+		<phonetic2>s O/ m n O/ l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>58648</entryID> <!-- s t R i d a~ : 0.4  vs. absent de Lexique 370 (58649) s t R i d @  -->
+		<content>strident</content>
+		<phonetic1>s t R i d a~</phonetic1>
+		<phonetic2>s t R i d a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>59119</entryID> <!-- s y p E R : 226 (fréq. cumulée nom et adj)  vs. absent de Lexique 370 (59121) s y p e  -->
+		<content>super</content>
+		<phonetic1>s y p E R</phonetic1>
+		<phonetic2>s y p E R</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>59194</entryID> <!-- s y p O R t e : 30.04  vs. 4.32 (59193) s y p O R t E R  -->
+		<content>supporter</content>
+		<phonetic1>s y p O R t e</phonetic1>
+		<phonetic2>s y p O R t e</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>59798</entryID> <!-- s e k R e s j o~ : 0.66  vs. absent de Lexique 370 (59796) s e k R e t j o~  -->
+		<content>sécrétions</content> 
+		<phonetic1>s e k R e s j o~</phonetic1>
+		<phonetic2>s E/ k R E/ s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>60181</entryID>  <!-- t a l a~ : 33.28  vs. 0.04 (60183) t a l @  -->
+		<content>talent</content>
+		<phonetic1>t a l a~</phonetic1>
+		<phonetic2>t a l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>61982</entryID>
+		<content>transit</content> <!-- t R a~ z i t : 1.64 (fréq. cumulée adj et nom)  vs. 0.01 (61978) t R a~ z i  -->
+		<phonetic1>t R a~ z i t</phonetic1>
+		<phonetic2>t R a~ z i t</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>61988</entryID> <!-- t R a~ z i s j o~ : 0.23  vs. absent de Lexique 370 (61986) t R a~ z i t j o~  -->
+		<content>transitions</content>
+		<phonetic1>t R a~ z i s j o~</phonetic1>
+		<phonetic2>t R a~ z i s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>63421</entryID> <!-- y R Z a~ : 26.75  vs. 0.02 (63422) y R Z @ -->
+		<content>urgent</content>
+		<phonetic1>y R Z a~</phonetic1>
+		<phonetic2>y R Z a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>64452</entryID> <!-- v j O l a~ : 13.92 (fréq. cumulée adj et nom)  vs. 0.61 (64454) v j O l @  -->
+		<content>violent</content>
+		<phonetic1>v j O l a~</phonetic1>
+		<phonetic2>v j O/ l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>66049</entryID> <!-- e d i s j o~ : 1.78  vs. 0.03 (66047) e d i t j o~ -->
+		<content>éditions</content>
+		<phonetic1>e d i s j o~</phonetic1>
+		<phonetic2>e d i s j o~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>66395</entryID> <!-- e m E R Z a~ : 0.1  vs. 0.22 (66396) e m E R Z @ MAIS AF tranche, car "pays émergents" +2'000'000 sur Google -->
+		<content>émergent</content>
+		<phonetic1>e m E R Z a~</phonetic1>
+		<phonetic2>e m E R Z a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>66927</entryID> <!-- équipollent: absents de Lexique 370, AF tranche -->
+		<content>équipollent</content>
+		<phonetic1>e k i p O l a~</phonetic1>
+		<phonetic2>e k i p O l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>66942</entryID> <!-- e k i v a l a~ : 0.59  vs. 0.26 (66944) e k i v a l @ ET MORPHALOU nom et adj-->
+		<content>équivalent</content>
+		<phonetic1>e k i v a l a~</phonetic1>
+		<phonetic2>e k i v a l a~</phonetic2>
+		<entryID>66943</entryID> 
+		<content>équivalent</content>
+		<phonetic1>e k i v a l a~</phonetic1>
+		<phonetic2>e k i v a l a~</phonetic2>
+	</ROW>
+
+	<ROW>
+		<entryID>67334</entryID> <!-- e v i d a~ : 28.75  vs. 0.19 (67335) e v i d @ -->
+		<content>évident</content>
+		<phonetic1>e v i d a~</phonetic1>
+		<phonetic2>e v i d a~</phonetic2>
+	</ROW>
+</DATA>

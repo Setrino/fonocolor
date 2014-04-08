@@ -120,6 +120,8 @@ function colorArray(text){
         var textareaWidth = $(".search_output").width();
 
         ctx.clearRect(0, 0, c.width, (full_screen_height != 0) ? full_screen_height : c.height);
+        ctx.fillStyle="#000000";
+        ctx.fillRect(0, 0, c.width, (full_screen_height != 0) ? full_screen_height : c.height);
 
         if(previousLength < textLength || textLength == 0){
 
@@ -189,6 +191,8 @@ function drawArray(){
     var offsetX = 0;
     var yMultiplier = 1;
     var textareaWidth = $(".search_output").width();
+    ctx.fillStyle="#000000";
+    ctx.fillRect(0, 0, c.width, (full_screen_height != 0) ? full_screen_height : c.height);
 
     for(var i = 0; i < textArray.length; i++){
 
@@ -304,6 +308,36 @@ function draw(delta){
     translatedD = -(translated - difference);
 
     //console.log(lastY + " " + (translated - difference) + " t " + difference);
+}
+
+//Save canvas to PNG on button click
+function savePNG(){
+
+    if($(".search_form").val() != ''){
+        fullScreenOn();
+        fname = 'screenshot';
+
+        var data = c.toDataURL("image/png");
+        data = data.substr(data.indexOf(',') + 1).toString();
+
+        var dataInput = document.createElement("input") ;
+        dataInput.setAttribute("name", 'imgdata') ;
+        dataInput.setAttribute("value", data);
+        dataInput.setAttribute("type", "hidden");
+
+        var nameInput = document.createElement("input") ;
+        nameInput.setAttribute("name", 'name') ;
+        nameInput.setAttribute("value", fname + '.png');
+
+        var form = document.createElement("form");
+        form.method = 'POST';
+        form.action = 'php/requests.php';
+
+        form.appendChild(dataInput);
+        form.appendChild(nameInput);
+        form.submit();
+        fullScreenOff();
+    }
 }
 
 function setBlockHeight(height){

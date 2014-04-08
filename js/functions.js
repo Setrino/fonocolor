@@ -55,6 +55,8 @@ $(document).ready(function(){
         $(".search_form").val(previousValue);
         colorArray($(".search_form").val());
         resetCanvas();
+        hideFullScreen();
+        hideDownloadPNG();
     });
 
     $('.color_text').click(function(){
@@ -76,16 +78,32 @@ $(document).ready(function(){
     )
 
     hideFullScreen();
+    hideDownloadPNG();
+
+    $("#download").bind(
+
+        "click", savePNG
+    )
 });
 
 function hideFullScreen(){
 
-    $("#useful_links_bot").css("display", "none");
+    $("#full_screen").css("display", "none");
 }
 
 function showFullScreen(){
 
-    $("#useful_links_bot").css("display", "block");
+    $("#full_screen").css("display", "block");
+}
+
+function hideDownloadPNG(){
+
+    $("#download").css("display", "none");
+}
+
+function showDownloadPNG(){
+
+    $("#download").css("display", "block");
 }
 
 (function() {
@@ -168,6 +186,7 @@ var checkLoop = function(){
 
             //------ Remove placeInArray -------//
             //placeInArray($(".search_form").val());
+            showDownloadPNG();
             colorArray($(".search_form").val());
             $(".color_text").html("<img src=\"images/result.png\"/>");
 

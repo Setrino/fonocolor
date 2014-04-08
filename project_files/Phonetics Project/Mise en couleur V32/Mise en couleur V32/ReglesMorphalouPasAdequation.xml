@@ -1,0 +1,13 @@
+﻿<ListeRegleRelatifsMorphalouPasAdequationEntreOrthographeEnvoyeeEtReçue>
+	<Date_du_fichier>10/12/2010</Date_du_fichier>
+	<Regles>
+		<Regle>
+			<CesCaracteres>œ</CesCaracteres>
+			<RemplacePar>oe</RemplacePar>
+		</Regle>
+		<Regle>
+			<CesCaracteres>oe</CesCaracteres>
+			<RemplacePar>œ</RemplacePar>
+		</Regle>
+	</Regles>
+</ListeRegleRelatifsMorphalouPasAdequationEntreOrthographeEnvoyeeEtReçue>

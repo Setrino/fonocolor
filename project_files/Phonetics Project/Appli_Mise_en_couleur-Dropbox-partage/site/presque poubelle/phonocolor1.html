@@ -1,0 +1,187 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+ <style type="text/css">
+/*
+#bloc_dessous1{position: relative;left: 10px;top: 0px;width: 100px;height: 30px;padding-top: 0px;padding-left: 0px;z-index: 1;
+		border-style:1px;
+		border-color:green;	
+		background: red;
+		}
+#bloc_dessus1{position: relative;left: 10px;top:-30px;width: 100px;height: 15px;padding: 0px;margin: 0px;z-index: 2;overflow: hidden;
+		border-style:1px;
+		border-color:green;	
+		background: blue;
+}
+police 24
+#bloc_dessous1{position: relative;left: 10px;top: 0px;width: 40px;height: 30px;padding: 0px;z-index: 1;}
+#bloc_dessus1{position: relative;left: 10px;top: -30px;width: 40px;height: 15px;padding: 0px;z-index: 2;overflow: hidden;}
+police 36
+#bloc_dessous1{position: relative;left: 10px;top: 0px;width: 60px;height: 40px;padding: 0px; margin: 0px; z-index: 1;}
+#bloc_dessus1{position: relative;left: 10px;top: -40px;width: 60px;height: 22px;padding: 0px;margin: 0px; z-index: 2;overflow: hidden;}
+
+police 48 
+#bloc_dessous1{position: relative;left: 10px;top: 0px;width: 80px;height: 52px;padding: 0px; margin: 0px; z-index: 1;}
+#bloc_dessus1{position: relative;left: 10px;top: -52px;width: 80px;height: 29px;padding: 0px;margin: 0px; z-index: 2;overflow: hidden;}
+
+*/
+
+#bloc_dessous1{position: relative;left: 10px;top: 0px;width: 100px;height: 54px;padding: 0px; margin: 0px; z-index: 1;}
+#bloc_dessus1{position: relative;left: 10px;top: -54px;width: 100px;height: 30px;padding: 0px;margin: 0px; z-index: 2;overflow: hidden;}
+#bloc_dessous2{position: relative;left: 10px;top: -54px;width: 80px;height: 54px;padding: 0px; margin: 0px; z-index: 1;}
+#bloc_dessus2{position: relative;left: 10px;top: -108px;width: 80px;height: 30px;padding: 0px;margin: 0px; z-index: 2;overflow: hidden;}
+
+	#reponse1{
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			width: 800px;
+			border-style:solid;
+			border-color:green;	
+			overflow-y: auto; 
+			overflow-x: auto; 
+			overflow:auto;	
+				background: black;
+	}
+	
+.couleur0 {  color:E4AAFF ; } 
+.white {  color:#FFFFFF ; } 
+.couleur54 {  color:#EAADEA ; } 
+.couleur18 {  color:#DB9370 ; } 
+.couleur10 {  color:#8C1717 ; } 
+.couleur26 {  color:#00FF7F ; } 
+.couleur42 {  color:#6B8E23 ; } 
+.couleur2 {  color:#D9D919 ; } 
+.couleur12 {  color:#426F42 ; } 
+.couleur4 {  color:#0000FF ; } 
+.couleur8 {  color:#CD7F32 ; } 
+.couleur24 {  color:#DBDB70 ; } 
+.couleur46 {  color:#32CD32 ; } 
+.couleur28 {  color:#00FFFF ; } 
+.couleur6 {  color:#6B4226 ; } 
+.couleur38 {  color:#FF7F00 ; } 
+.couleur22 {  color:#871F78 ; } 
+.couleur14 {  color:#8E6B23 ; } 
+.couleur48 {  color:#9932CD ; } 
+.couleur20 {  color:#BC8F8F ; } 
+.couleur36 {  color:#5959AB ; } 
+.couleur44 {  color:#3299CC ; } 
+.couleur40 {  color:#545454 ; } 
+.couleur34 {  color:#7FFF00 ; } 
+.couleur50 {  color:#FF0000 ; } 
+.couleur16 {  color:#FF00FF ; } 
+.couleur52 {  color:#CC3299 ; } 
+.couleur30 {  color:#7F00FF ; } 
+.couleur32 {  color:#8F8F8D ; } 
+  
+
+</style>
+ 
+ <script language="JavaScript" type="text/javascript">
+<!--
+	//<![CDATA[
+		var message = "entrez votre texte";
+	//]]>
+	
+	function changementFond(id,phoneme){
+	document.getElementById(id).style.backgroundColor='red';
+	setTimeout(function(){remettreFondNoir(id)},1500);
+	playSound(phoneme);
+	}
+	
+	function changementBord(id,phoneme){
+		document.getElementById(id).style.border ="medium dotted white";
+		setTimeout(function(){remettreBordNoir(id)},1500);
+		playSound(phoneme);
+	}
+	
+	function remettreBordNoir(id){
+		document.getElementById(id).style.border="none";
+	}
+
+	function remettreFondNoir(id){
+		document.getElementById(id).style.backgroundColor='#000000';
+	}
+	
+	function chgtmentSouligne(id,phoneme){
+		document.getElementById(id).style.borderBottom  = "4px solid  white";
+		setTimeout(function(){enleverSouligne(id)},1500);
+		playSound(phoneme);
+		
+	}
+	function enleverSouligne(id){
+		document.getElementById(id).style.borderBottom = "none";
+	}
+
+	function playSound(phoneme) {
+		var lec =  document.getElementById(phoneme);
+		
+		try {
+			lec.Play();
+			
+		}
+		catch (e) {
+			try {
+				//alert('doPlay');
+				lec.DoPlay();           // Some browsers doesn't understand the Play() command
+				
+			}
+			catch (e) {
+				// Do nothing if no Windows Media Player nor Quicktime installed
+				alert("Votre navigateur ne permets pas de lire des fichiers mp3. Si vous souhaitez écoutez les phonèmes il faut installer un module complémentaire  ...");
+			}
+		}
+	}
+
+//-->
+</script>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./css/site.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Phonocolor</title>
+</head>
+<body style="font: 48px 'SourceSansProBold', Arial, sans-serif; font-weight: 400;" >
+ 
+ <div id="global">
+	<div id="entete">Testa</div> 
+	<form>
+		<textarea name="saisie"  onfocus="if (this.value==message) this.value=''" onblur="if (this.value=='') this.value=message" >taxi</textarea>
+
+		<div class="bouton">
+			<input type="submit" value="colorier" id="valider" class="submit" />
+	 	</div>
+	</form>
+	<div id="reponse1">
+<div id="bloc_dessous1" ><span id ="0" onClick="chgtmentSouligne('0'  ,'s'); " class="couleur34">b</span><span id ="1" onClick="chgtmentSouligne('1'  ,'s'); " class="couleur8">xxx</span></div> 
+<div id="bloc_dessus1" ><span id ="0" onClick="chgtmentSouligne('0'  ,'s'); "  class="couleur34">b</span><span id ="1" onClick="chgtmentSouligne('1'  ,'s'); "  class="couleur4">xxx</span></div>
+<div id="bloc_dessous2" ><span id ="0" onClick="chgtmentSouligne('0'  ,'s'); " class="couleur34">b</span><span id ="1" onClick="chgtmentSouligne('1'  ,'s'); " class="couleur8">x</span></div> 
+<div id="bloc_dessus2" ><span id ="0" onClick="chgtmentSouligne('0'  ,'s'); "  class="couleur34">b</span><span id ="1" onClick="chgtmentSouligne('1'  ,'s'); "  class="couleur4">x</span></div>
+</div>
+
+	</div> 
+	
+	<object id="s" data="sons/u.mp3" type="audio/mpeg" height="1" width="1" >
+		 <param name="src" value="sons/u.mp3" />
+		 <param name="autoplay" value="false" />               <!-- //Quicktime -->
+		 <param name="autostart" value="0" />  <!-- //WMP -->
+		</object>
+
+		<object id="a" data="sons/a.mp3" type="audio/mpeg" height="1" width="1" >
+		 <param name="src" value="sons/a.mp3" />
+		 <param name="autoplay" value="false" />               <!-- //Quicktime -->
+		 <param name="autostart" value="0" />  <!-- //WMP -->
+		</object>
+		<object id="l" data="sons/l.mp3" type="audio/mpeg" height="1" width="1" >
+		 <param name="src" value="sons/l.mp3" />
+		 <param name="autoplay" value="false" />               <!-- //Quicktime -->
+		 <param name="autostart" value="0" />  <!-- //WMP -->
+		</object>
+		<object id="u" data="sons/u.mp3" type="audio/mpeg" height="1" width="1" >
+		 <param name="src" value="sons/u.mp3" />
+		 <param name="autoplay" value="false" />               <!-- //Quicktime -->
+		 <param name="autostart" value="0" />  <!-- //WMP -->
+		</object>
+</div>
+</body>
+</html>
