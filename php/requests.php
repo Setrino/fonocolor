@@ -8,6 +8,11 @@ require_once 'login.php';
 if(isset($_POST['text'])){
 
     $word = $_POST['text'];
+    $firstLetter = false;
+    if(checkUpper($word)){
+        $firstLetter = true;
+        $word = mb_strtolower($word, "UTF-8");
+    };
     $letterArray = str_split_utf8($word);
     $colorArray = array();
 
@@ -21,7 +26,12 @@ if(isset($_POST['text'])){
 
     if(true){
 
+        //Change back first letter of string to upper case if needed
+        if($firstLetter){
+            $request[0][0] = mb_strtoupper($request[0][0], "UTF-8");
+        }
         echo json_encode($request);
+        $firstLetter = false;
 
     }else{
 
@@ -199,6 +209,7 @@ function checkDatabase($text, $letterArray, &$colorArray, $begin){
 
     $arrayLength = sizeof($letterArray);
     mysql_query("SET NAMES UTF8");
+
     $sql_check = mysql_query("SELECT phonetic1 FROM lex2_inflection WHERE content ='".$text."'") or die(mysql_error());
 
     $sql_checkL = mysql_query("SELECT phonetic1 FROM lex2_lemma WHERE content ='".$text."'") or die(mysql_error());
@@ -691,8 +702,14 @@ function checkColor($letter){
     }
 }
 
-function str_split_utf8($jstring)
-{
+function checkUpper($word) {
+
+    $chr = mb_substr ($word, 0, 1, "UTF-8");
+    return mb_strtolower($chr, "UTF-8") != $chr;
+}
+
+function str_split_utf8($jstring){
+
     if (mb_strlen ($jstring, 'UTF-8') == 0)
         return array();
 
@@ -719,7 +736,12 @@ function setFalseApostrophe(){
     define("Apostrophe", false, true);
 };
 
-// Checks the request
+function setFirstUpper($state){
+
+    define("first_up", $state, true);
+}
+
+// Decode base64 image canvas image
 if(isset($_POST['name'])){
 
     # we are a PNG image
