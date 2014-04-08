@@ -315,7 +315,11 @@ function savePNG(){
 
     if($(".search_form").val() != ''){
         fullScreenOn();
-        fname = 'screenshot';
+        var date = new Date();
+        var twoDigitDay = ((date.getDate().length + 1) === 1) ? (date.getDate()) : '0' + (date.getDate());
+        var twoDigitMonth = ((date.getMonth().length + 1) === 1)? (date.getMonth() + 1) : '0' + (date.getMonth() + 1);
+        var currentDate = twoDigitDay + "-" + twoDigitMonth + "-" + date.getFullYear();
+        fname = 'fonocolor-' + currentDate;
 
         var data = c.toDataURL("image/png");
         data = data.substr(data.indexOf(',') + 1).toString();
