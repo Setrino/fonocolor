@@ -79,11 +79,6 @@ $(document).ready(function(){
 
     hideFullScreen();
     hideDownloadPNG();
-
-    $("#download").bind(
-
-        "click", savePNG
-    )
 });
 
 function hideFullScreen(){

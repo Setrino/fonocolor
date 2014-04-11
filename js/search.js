@@ -1,6 +1,11 @@
 $(document).ready(function(){
 
     draw();
+
+    $("#download").bind(
+
+        "click", savePNG
+    )
 })
 
 var width = 700,
