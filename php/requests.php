@@ -290,7 +290,7 @@ function hyphenatedWord($text, $letterArray, &$colorArray, $hyphenPosition, $pho
     checkDatabase(substr($text, $hyphenPosition + 1, strlen($text) - 1), array_slice($letterArray, $hyphenPosArray + 1, strlen($text) - 1),
         $colorArray, $hyphenPosArray + 1);
 
-    addArrayColor("#FFFFFF", $hyphenPosition, 1, $colorArray);
+    addArrayColor("#FFFFFF", $hyphenPosArray, 1, $colorArray);
 
     return $colorArray;
 }
