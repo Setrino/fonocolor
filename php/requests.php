@@ -266,10 +266,10 @@ function checkHyphen($text){
 
 function hyphenatedWord($text, $letterArray, &$colorArray, $hyphenPosition, $phonemesArrayFull){
 
-    $subString = substr($text, $hyphenPosition + 1, strlen($text) - 1);
+    $subString = substr($text, $hyphenPosition + 1, mb_strlen($text, "UTF-8") - 1);
+    $hyphenPosArray = array_search('-', $letterArray);
     $phonemesArray = null;
     $phArrayFullLength = sizeof($phonemesArrayFull);
-
     mysql_query("SET NAMES UTF8");
     $sql_check = mysql_query("SELECT phonetic1 FROM lex2_inflection WHERE content ='".$subString."'") or die(mysql_error());
 
@@ -287,8 +287,8 @@ function hyphenatedWord($text, $letterArray, &$colorArray, $hyphenPosition, $pho
     $differenceArrayLength = $phArrayFullLength - sizeof($phonemesArray);
 
     recursiveWordCheck(array_slice($phonemesArrayFull, 0, $differenceArrayLength), array_slice($letterArray, 0, $hyphenPosition), $colorArray, 0, null, null, false, 0, $differenceArrayLength + 1);
-    checkDatabase(substr($text, $hyphenPosition + 1, strlen($text) - 1), array_slice($letterArray, $hyphenPosition + 1, strlen($text) - 1),
-        $colorArray, $hyphenPosition + 1);
+    checkDatabase(substr($text, $hyphenPosition + 1, strlen($text) - 1), array_slice($letterArray, $hyphenPosArray + 1, strlen($text) - 1),
+        $colorArray, $hyphenPosArray + 1);
 
     addArrayColor("#FFFFFF", $hyphenPosition, 1, $colorArray);
 
