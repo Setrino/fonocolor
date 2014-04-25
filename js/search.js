@@ -12,6 +12,7 @@ var width = 700,
 //width of the canvas
     height = 148,
     full_screen_height = 0,
+    full_screen_width = 0,
 //height of the canvas
     c = document.getElementById('canvas'),
 //canvas itself
@@ -62,7 +63,7 @@ function placeInArray(text){
 //Receives array of [[letter, color]]
 //i - current word in the textArray
 //offsetX - offset along the x axis from previous word
-function catchColor(array, i, offsetX, yMultiplier){
+function catchColor(array, i, offsetX, yMultiplier, length){
 
     var xDistance = 0;
 
@@ -80,6 +81,18 @@ function catchColor(array, i, offsetX, yMultiplier){
                 xDistance, yMultiplier);
             ctx.closePath();
             xDistance += ctx.measureText(letter).width;
+        }
+    }
+
+    if((i == length - 1)){
+
+        $('.reply').html('');
+        showDownloadPNG();
+
+        if(yMultiplier > 3){
+            showFullScreen();
+        }else{
+            hideFullScreen();
         }
     }
     //console.log(textArray[i][0] + " " + textArray[i][1]);
@@ -117,7 +130,7 @@ function addOffSetX(offSetX, value){
 }
 
 // i - currently select word
-function colorArray(text){
+function colorArray(text, callback){
 
         var textLength = text.length;
         var offsetX = new offSetX();
@@ -144,8 +157,6 @@ function colorArray(text){
         var splitArray = text.split(" ");
         var splitArrayL = splitArray.length;
 
-        //console.log(text);
-
     var asyncLoop = function(o){
         var i=-1,
             length = o.length;
@@ -171,18 +182,13 @@ function colorArray(text){
                     ++yMultiplier;
                     offsetX.value = 0;
                     setBlockHeight(yMultiplier);
-
-                    if(yMultiplier > 3){
-                        showFullScreen();
-                    }else{
-                        hideFullScreen();
-                    }
                 }
-                searchRequest(temp, i, offsetX, yMultiplier, addOffSetX, loop);
+                searchRequest(temp, i, offsetX, yMultiplier, addOffSetX, loop, splitArrayL);
         },
         callback : function(){
             //Loop finished
             full_screen_height = yMultiplier * pixel_size * INCREASE_MULTIPLIER + 6;
+            if(callback) callback();
         }
     });
 
@@ -201,7 +207,7 @@ function drawArray(){
 
     for(var i = 0; i < textArray.length; i++){
 
-        if((offsetX + ctx.measureText(textArray[i][0] + " ").width) > width){
+        if((offsetX + ctx.measureText(textArray[i][0] + " ").width) > c.width){
             ++yMultiplier;
             offsetX = 0;
         }
@@ -357,17 +363,20 @@ function setBlockHeight(height){
 function fullScreenOn(){
 
     c.height = full_screen_height;
+    c.width = $(document).width() * 0.8;
     drawArray();
 }
 
-function fullScreenOff(){
+function fullScreenOff(canvasMarginTop){
 
     c.height = height;
+    c.width = width;
+    $("#canvas").css("margin-top", canvasMarginTop);
     drawArray();
 }
 
 function resetCanvas(){
 
     full_screen_height = 0;
-    ctx.translate(0, (translatedD <= 0) ? 0 : translatedD);
+    ctx.translate(0, (translatedD <= 0) ? 0 : translatedD);;
 }

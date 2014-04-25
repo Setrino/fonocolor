@@ -1,4 +1,4 @@
-function searchRequest(text, i, offsetX, yMultiplier, callback, loop){
+function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
 
     $('.reply').html('<img src="images/preloader.gif" align="absmiddle">&nbsp;Fonocolorizing...');
 
@@ -16,11 +16,10 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop){
             {
                 try{
 
-                    catchColor(msg, i, offsetX.value, yMultiplier);
+                    catchColor(msg, i, offsetX.value, yMultiplier, length);
                     callback(offsetX, ctx.measureText(text + " ").width);
                     loop();
                     //$('.reply').html(msg);
-                    $('.reply').html('');
 
                 }catch(e){
 

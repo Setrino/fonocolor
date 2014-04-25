@@ -1,12 +1,13 @@
 $(document).ready(function(){
 
     var fullScreen = 0;
+    var canvasTopMargin = -$(".search_output").height() - 5;
     $("#full_screen").click(function(){
 
         fullScreenOn();
         fullScreen = 1;
         fullScreenApi.requestFullScreen(document.getElementById("canvas"));
-
+        $("#canvas").css("margin-top", 0);
     });
 
     $(".comment_full_screen").click(function(){
@@ -18,19 +19,19 @@ $(document).ready(function(){
     document.addEventListener("fullscreenchange", function () {
         if(fullScreen == 1 && document.fullscreen == false){
             fullScreen == 0;
-            fullScreenOff();
+            fullScreenOff(canvasTopMargin);
         }
     }, false);
     document.addEventListener("mozfullscreenchange", function () {
         if(fullScreen == 1 && document.mozFullScreen == false){
             fullScreen == 0;
-            fullScreenOff();
+            fullScreenOff(canvasTopMargin);
         }
     }, false);
     document.addEventListener("webkitfullscreenchange", function () {
         if(fullScreen == 1 && document.webkitIsFullScreen == false){
             fullScreen == 0;
-            fullScreenOff();
+            fullScreenOff(canvasTopMargin);
         }
     }, false);
 
@@ -46,17 +47,17 @@ $(document).ready(function(){
     $(".search_output").css("left", ( $("#result").width() - $(".search_output").width() ) / 2 );
     $(".search_output").css("margin-top", ( $("#result").height() - $(".search_output").height() ) / 2 - 5 );
 
-    $("#canvas").css("margin-top", -$(".search_output").height() - 5);
+    $("#canvas").css("margin-top", canvasTopMargin);
 
     $('.clean').click(function(){
 
         previousValue = '';
-
         $(".search_form").val(previousValue);
-        colorArray($(".search_form").val());
-        resetCanvas();
-        hideFullScreen();
-        hideDownloadPNG();
+        colorArray($(".search_form").val(), function(){
+            resetCanvas();
+            hideFullScreen();
+            hideDownloadPNG();
+        });
     });
 
     $('.color_text').click(function(){
@@ -180,12 +181,10 @@ $(".search_form").bind('input propertychange', function(){
                 previousValue = value;
 
                 //Enter the AJAX check here
-                showDownloadPNG();
                 colorArray(value);
                 $(".color_text").html("<img src=\"images/result.png\"/>");
             }
     }else{
-
         if(previousValue != ''){
             previousValue = '';
         }
