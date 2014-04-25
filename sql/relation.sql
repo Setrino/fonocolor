@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 26, 2014 at 06:40 PM
+-- Generation Time: Apr 25, 2014 at 02:11 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -33,7 +33,7 @@ CREATE TABLE `relation` (
   `colorTop` varchar(128) DEFAULT NULL,
   `colorBottom` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=229 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=236 ;
 
 --
 -- Dumping data for table `relation`
@@ -82,7 +82,7 @@ INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VAL
 (79, 'a~ n', NULL, '#EDC4DD', '#2B4C3F'),
 (80, 'w a', NULL, '#4AD6CA', '#B634BB'),
 (81, 'j E', NULL, '#F43FA5', '#E8112D'),
-(82, 'j e', NULL, '#ED6E00', '#E8112D'),
+(82, 'j e', NULL, '#E8112D', '#ED6E00'),
 (83, 'j 2', NULL, '#00B760', '#E8112D'),
 (219, 'w e~', NULL, '#4CCED1', '#F9BF9E'),
 (221, 'H i', NULL, '#F7D917', '#E8112D'),
@@ -90,7 +90,14 @@ INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VAL
 (224, 'w', '#4AD6CA', NULL, NULL),
 (225, 'E s', NULL, '#F43FA5', '#AF8970'),
 (227, 'E n', NULL, '#F43FA5', '#2B4C3F'),
-(228, 'E l', NULL, '#F43FA5', '#A3C1AD');
+(228, 'E l', NULL, '#F43FA5', '#A3C1AD'),
+(229, 'N', NULL, '#2B4C3F', '#602144'),
+(230, 'E f', NULL, '#F43FA5', '#787A7B'),
+(231, 'a S', NULL, '#930FA5', '#CE898C'),
+(232, 'E R', NULL, '#930FA5', '#D3BFB7'),
+(233, 'd v', NULL, '#B06F00', '#AE9A00'),
+(234, 'k s', NULL, '#3A4972', '#AF8970'),
+(235, 'z d', NULL, '#FC9BB2', '#B06F00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

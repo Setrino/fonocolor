@@ -169,33 +169,25 @@ function showDownloadPNG(){
 
 var previousValue = '';
 
-var checkLoop = function(){
+$(".search_form").bind('input propertychange', function(){
 
-    if($(".search_form").val() != '' || $(".search_form").val() != undefined){
+    var value = this.value;
 
-        if(previousValue != $(".search_form").val()){
+        if(value != '' || value != undefined){
 
-            previousValue = $(".search_form").val();
+            if(previousValue != value){
 
-            //Enter the AJAX check here
+                previousValue = value;
 
-            //------ Remove placeInArray -------//
-            //placeInArray($(".search_form").val());
-            showDownloadPNG();
-            colorArray($(".search_form").val());
-            $(".color_text").html("<img src=\"images/result.png\"/>");
-
-            //searchText(previousValue);
-        }
+                //Enter the AJAX check here
+                showDownloadPNG();
+                colorArray(value);
+                $(".color_text").html("<img src=\"images/result.png\"/>");
+            }
     }else{
 
         if(previousValue != ''){
-
-            //placeInArray('');
             previousValue = '';
         }
     }
-
-    gLoop = setTimeout(checkLoop, 2000);
-}
-checkLoop();
+});

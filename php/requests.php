@@ -214,6 +214,7 @@ function checkDatabase($text, $letterArray, &$colorArray, $begin){
 
     $sql_checkL = mysql_query("SELECT phonetic1 FROM lex2_lemma WHERE content ='".$text."'") or die(mysql_error());
 
+
     if((mysql_num_rows($sql_check) != 0) || (mysql_num_rows($sql_checkL) != 0)){
 
         $tempQuery = (mysql_num_rows($sql_check) != 0) ? $sql_check : $sql_checkL;
