@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     var fullScreen = 0;
+    var scroll = true;
     var canvasTopMargin = $(".search_output").height() - 5;
     $("#full_screen").click(function(){
 
@@ -46,6 +47,24 @@ $(document).ready(function(){
 
     $(".search_output").css("left", ( $("#result").width() - $(".search_output").width() ) / 2 );
     $(".search_output").css("margin-top", ( $("#result").height() - $(".search_output").height() ) / 2 - 5 );
+
+    $(document).scroll(function(){
+        (scroll) ? $(this).scrollTop() : $(this).scrollTop(0);
+    });
+
+    $(".search_form").scroll(function(){
+       $(".scroll_canvas").scrollTop($(this).scrollTop() * 1.27);
+    });
+
+    $(".search_form, .scroll_canvas").bind({
+
+        mouseenter: function(){
+            scroll = false;
+        },
+        mouseleave: function(){
+            scroll = true;
+        }
+    });
 
     $(".scroll_canvas").css("bottom", canvasTopMargin);
 

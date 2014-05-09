@@ -31,7 +31,7 @@ var pixel_size = 43,
     textArray = new Array(),
     previousLength = 0,
     coloredBlockHeight = 0,
-    INCREASE_MULTIPLIER = 1.1;
+    INCREASE_MULTIPLIER = 1.11;
 
 function drawRectangle(){
 
