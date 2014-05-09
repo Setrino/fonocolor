@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 09, 2014 at 01:03 PM
--- Server version: 5.5.25
--- PHP Version: 5.4.4
+-- Generation Time: May 09, 2014 at 03:24 PM
+-- Server version: 5.5.35
+-- PHP Version: 5.3.10-1ubuntu3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `graphemes`
 --
 
-CREATE TABLE `graphemes` (
+CREATE TABLE IF NOT EXISTS `graphemes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `grapheme` varchar(128) DEFAULT NULL,
   `phoneme` varchar(128) DEFAULT NULL,

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 09, 2014 at 03:21 PM
--- Server version: 5.5.25
--- PHP Version: 5.4.4
+-- Generation Time: May 09, 2014 at 03:24 PM
+-- Server version: 5.5.35
+-- PHP Version: 5.3.10-1ubuntu3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,14 +26,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `relation`
 --
 
-CREATE TABLE `relation` (
+CREATE TABLE IF NOT EXISTS `relation` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phoneme` varchar(128) DEFAULT NULL,
   `color` varchar(128) DEFAULT NULL,
   `colorTop` varchar(128) DEFAULT NULL,
   `colorBottom` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=281 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=236 ;
 
 --
 -- Dumping data for table `relation`
@@ -85,7 +85,7 @@ INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VAL
 (82, 'j e', NULL, '#E8112D', '#ED6E00'),
 (83, 'j 2', NULL, '#00B760', '#E8112D'),
 (219, 'w e~', NULL, '#4CCED1', '#F9BF9E'),
-(236, 'H e', NULL, '#F7D917', '#ED6E00'),
+(221, 'H i', NULL, '#F7D917', '#E8112D'),
 (223, '-', '#FFFFFF', NULL, NULL),
 (224, 'w', '#4AD6CA', NULL, NULL),
 (225, 'E s', NULL, '#F43FA5', '#AF8970'),
@@ -97,50 +97,7 @@ INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VAL
 (232, 'E R', NULL, '#930FA5', '#D3BFB7'),
 (233, 'd v', NULL, '#B06F00', '#AE9A00'),
 (234, 'k s', NULL, '#3A4972', '#AF8970'),
-(235, 'z d', NULL, '#FC9BB2', '#B06F00'),
-(237, 'H E', NULL, '#F7D917', '#F43FA5'),
-(238, 'H a', NULL, '#F7D917', '#930FA5'),
-(239, 'H O', NULL, '#F7D917', '#5B77CC'),
-(240, 'H 2', NULL, '#F7D917', '#00B760'),
-(241, 'H 9', NULL, '#F7D917', '#CEEA82'),
-(242, 'H e~', NULL, '#F7D917', '#F9BF9E'),
-(243, 'H a~', NULL, '#F7D917', '#E7C1E3'),
-(244, 'H R', NULL, '#F7D917', '#D3BFB7'),
-(245, 'u j', NULL, '#4CCED1', '#E8112D'),
-(246, 'u w', NULL, '#4CCED1', '#4AD6CA'),
-(247, 'O j', NULL, '#5B77CC', '#E8112D'),
-(248, 'O w', NULL, '#5B77CC', '#4AD6CA'),
-(249, 'w i', NULL, '#4AD6CA', '#E8112D'),
-(250, 'w E', NULL, '#4AD6CA', '#F43FA5'),
-(251, 'w e', NULL, '#4AD6CA', '#ED6E00'),
-(252, 'w O', NULL, '#4AD6CA', '#5B77CC'),
-(253, 'w o', NULL, '#4AD6CA', '#0051BA'),
-(254, 'w u', NULL, '#4AD6CA', '#4CCED1'),
-(255, 'w 9', NULL, '#4AD6CA', '#CEEA82'),
-(256, 'w @', NULL, '#4AD6CA', '#BDEC65'),
-(257, 'w a', NULL, '#4AD6CA', '#930FA5'),
-(258, 'w a~', NULL, '#4AD6CA', '#E7C1E3'),
-(259, 'a w', NULL, '#930FA5', '#4AD6CA'),
-(260, 'w o~', NULL, '#4AD6CA', '#C4D8E2'),
-(261, 'j i', NULL, '#2B4C3F', '#E8112D'),
-(262, 'a j', NULL, '#930FA5', '#E8112D'),
-(263, 'j a', NULL, '#E8112D', '#930FA5'),
-(264, 'j O', NULL, '#E8112D', '#5B77CC'),
-(265, 'j o', NULL, '#E8112D', '#0051BA'),
-(266, 'j u', NULL, '#E8112D', '#4CCED1'),
-(267, 'j y', NULL, '#E8112D', '#F7D917'),
-(268, 'j 2', NULL, '#E8112D', '#00B760'),
-(269, 'j 9', NULL, '#E8112D', '#CEEA82'),
-(270, 'j @', NULL, '#E8112D', '#BDEC65'),
-(271, 'j e~', NULL, '#E8112D', '#F9BF9E'),
-(272, 'j a~', NULL, '#E8112D', '#E7C1E3'),
-(273, 'j o~', NULL, '#E8112D', '#C4D8E2'),
-(278, 'y j', NULL, '#F7D917', '#E8112D'),
-(275, 'i j', NULL, '#E8112D', '#2B4C3F'),
-(276, 'E j', NULL, '#F43FA5', '#E8112D'),
-(277, 'e j', NULL, '#ED6E00', '#E8112D'),
-(279, '2 j', NULL, '#00B760', '#E8112D'),
-(280, '9 j', NULL, '#CEEA82', '#E8112D');
+(235, 'z d', NULL, '#FC9BB2', '#B06F00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
