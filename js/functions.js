@@ -85,11 +85,13 @@ $(document).ready(function(){
 function hideFullScreen(){
 
     $("#full_screen").css("display", "none");
+    $("#canvas").css("overflow-y", "hidden");
 }
 
 function showFullScreen(){
 
     $("#full_screen").css("display", "block");
+    $("#canvas").css("overflow-y", "scroll");
 }
 
 function hideDownloadPNG(){

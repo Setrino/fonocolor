@@ -147,15 +147,16 @@ function colorArray(text, callback){
             textArray = [];
         }
 
-    text = text.replace(/[\,\r]/gm, "") ;
-    text = text.replace(/[\n,\b,\t]/gm, " ");
-    text = text.replace("  ", " ");
+    //text = text.replace(/[\,\r]/gm, "") ;
+    text = text.replace(/\r\n|\n|\r/g, " ± ");
+    //text = text.replace("  ", " ");
     //text = text.toLowerCase();
 
     //console.log(text);
 
     //Sentence
         var splitArray = text.split(" ");
+        //console.log(text.search(/\r\n|\n|\r/g));
         var splitArrayL = splitArray.length;
 
     var asyncLoop = function(o){
@@ -179,12 +180,17 @@ function colorArray(text, callback){
                 textArray[i] = {};
                 textArray[i][0] = temp;
 
-                if((offsetX.value + ctx.measureText(temp + " ").width) > width){
+                if((offsetX.value + ctx.measureText(temp + " ").width) > width || temp == '±'){
                     ++yMultiplier;
                     offsetX.value = 0;
                     setBlockHeight(yMultiplier);
                 }
-                searchRequest(temp, i, offsetX, yMultiplier, addOffSetX, loop, splitArrayL);
+                if(temp != '±'){
+                    searchRequest(temp, i, offsetX, yMultiplier, addOffSetX, loop, splitArrayL);
+                }else{
+                    loop();
+                }
+
         },
         callback : function(){
             //Loop finished
@@ -208,28 +214,35 @@ function drawArray(){
 
     for(var i = 0; i < textArray.length; i++){
 
-        if((offsetX + ctx.measureText(textArray[i][0] + " ").width) > c.width){
+        if(textArray[i][0] == '±'){
+
             ++yMultiplier;
             offsetX = 0;
-        }
+        }else{
 
-        var xDistance = 0;
-        var currentWordArray = (textArray[i][1]);
-
-        for(var j = 0; j < currentWordArray.length; j++){
-
-            var letter = currentWordArray[j][0];
-
-            if(letter != undefined){
-
-                ctx.beginPath();
-                drawText(3 + offsetX, pixel_size, letter, currentWordArray[j][1], currentWordArray[j][2],
-                    xDistance, yMultiplier);
-                ctx.closePath();
-                xDistance += ctx.measureText(letter).width;
+            if((offsetX + ctx.measureText(textArray[i][0] + " ").width) > c.width){
+                ++yMultiplier;
+                offsetX = 0;
             }
+
+            var xDistance = 0;
+            var currentWordArray = (textArray[i][1]);
+
+            for(var j = 0; j < currentWordArray.length; j++){
+
+                var letter = currentWordArray[j][0];
+
+                if(letter != undefined){
+
+                    ctx.beginPath();
+                    drawText(3 + offsetX, pixel_size, letter, currentWordArray[j][1], currentWordArray[j][2],
+                        xDistance, yMultiplier);
+                    ctx.closePath();
+                    xDistance += ctx.measureText(letter).width;
+                }
+            }
+            offsetX += ctx.measureText(textArray[i][0] + " ").width;
         }
-        offsetX += ctx.measureText(textArray[i][0] + " ").width;
     }
 }
 
@@ -366,6 +379,7 @@ function fullScreenOn(){
     c.height = full_screen_height;
     c.width = $(document).width() * 0.8;
     drawArray();
+    $("#canvas").css("overflow-y", "hidden");
 }
 
 function fullScreenOff(canvasMarginTop){
@@ -373,6 +387,7 @@ function fullScreenOff(canvasMarginTop){
     c.height = height;
     c.width = width;
     $("#canvas").css("margin-top", canvasMarginTop);
+    $("#canvas").css("overflow-y", "scroll");
     drawArray();
 }
 
