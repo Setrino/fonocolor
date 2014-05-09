@@ -358,6 +358,7 @@ article p{
 
 #c{
     margin-top: 2em;
+    cursor: pointer;
 }
 
 :-webkit-full-screen {
@@ -378,6 +379,12 @@ article p{
     background-color: #BFBFBF;
     border: 1px solid #FFFFFF;
     line-height: 150%;
+}
+
+.reference{
+   font-size: 11px;
+   text-align: left;
+   margin: 0 4.5 0 7.8em;
 }
 
 ::-webkit-scrollbar {
