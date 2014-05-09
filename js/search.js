@@ -195,6 +195,8 @@ function colorArray(text, callback){
         callback : function(){
             //Loop finished
             full_screen_height = yMultiplier * pixel_size * INCREASE_MULTIPLIER + 6;
+            c.height = (full_screen_height > height) ? full_screen_height : height;
+            drawArray();
             if(callback) callback();
         }
     });
@@ -379,15 +381,15 @@ function fullScreenOn(){
     c.height = full_screen_height;
     c.width = $(document).width() * 0.8;
     drawArray();
-    $("#canvas").css("overflow-y", "hidden");
+    //$("#canvas").css("overflow-y", "hidden");
 }
 
-function fullScreenOff(canvasMarginTop){
+function fullScreenOff(){
 
-    c.height = height;
+    c.height = (full_screen_height > height) ? full_screen_height : height;
     c.width = width;
-    $("#canvas").css("margin-top", canvasMarginTop);
-    $("#canvas").css("overflow-y", "scroll");
+    //$("#canvas").css("margin-top", canvasMarginTop);
+    //$("#canvas").css("overflow-y", "scroll");
     drawArray();
 }
 

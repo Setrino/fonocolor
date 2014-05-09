@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     var fullScreen = 0;
-    var canvasTopMargin = -$(".search_output").height() - 5;
+    var canvasTopMargin = $(".search_output").height() - 5;
     $("#full_screen").click(function(){
 
         fullScreenOn();
@@ -47,7 +47,7 @@ $(document).ready(function(){
     $(".search_output").css("left", ( $("#result").width() - $(".search_output").width() ) / 2 );
     $(".search_output").css("margin-top", ( $("#result").height() - $(".search_output").height() ) / 2 - 5 );
 
-    $("#canvas").css("margin-top", canvasTopMargin);
+    $(".scroll_canvas").css("bottom", canvasTopMargin);
 
     $('.clean').click(function(){
 
@@ -85,13 +85,13 @@ $(document).ready(function(){
 function hideFullScreen(){
 
     $("#full_screen").css("display", "none");
-    $("#canvas").css("overflow-y", "hidden");
+    //$("#canvas").css("overflow-y", "hidden");
 }
 
 function showFullScreen(){
 
     $("#full_screen").css("display", "block");
-    $("#canvas").css("overflow-y", "scroll");
+    //$("#canvas").css("overflow-y", "scroll");
 }
 
 function hideDownloadPNG(){

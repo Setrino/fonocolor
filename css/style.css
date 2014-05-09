@@ -140,7 +140,7 @@ ul#useful_links_bot{
 
 ul#useful_links_bot li{
     display: inline-block;
-    margin-top: -7em;
+    margin-top: -15.5em;
 }
 
 article p{
@@ -355,6 +355,15 @@ article p{
 /* END Video */
 
 /* Canvas */
+
+.scroll_canvas{
+    position: relative;
+    width: 700px;
+    height: 148px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
 
 #c{
     margin-top: 2em;
