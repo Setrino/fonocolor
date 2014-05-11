@@ -191,7 +191,12 @@ function showDownloadPNG(){
 
 var previousValue = '';
 
-$(".search_form").bind('input propertychange', function(){
+$(".search_form").bind('input propertychange keydown', function(e){
+
+    if ((e.keyCode || e.which) == 9) {
+        e.preventDefault();
+        this.value += "    ";
+    }
 
     var value = this.value;
 
