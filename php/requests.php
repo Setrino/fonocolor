@@ -61,10 +61,10 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
        if($ph != null){
 
-           addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+           addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
        }
 
-       addArrayColor("#FFFFFF", $c + strlen($gr), strlen($temp), $colorArray);
+       addArrayColor("#FFFFFF", null, $c + strlen($gr), strlen($temp), $colorArray);
 
        for($i = 1; $i < $arrayLength; $i++){
 
@@ -79,7 +79,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
         phonemeRequest($temp, $phoneme, $noOfRows);
 
-        addArrayColor(checkColor($phoneme), $c, strlen($temp), $colorArray);
+        addArrayColor(checkColor($phoneme), $phoneme, $c, strlen($temp), $colorArray);
 
         return $colorArray;
 
@@ -99,7 +99,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
             if(sizeof($array) == 0){
 
-                addArrayColor(checkColor($phoneme), $c, strlen($temp), $colorArray);
+                addArrayColor(checkColor($phoneme), $phoneme, $c, strlen($temp), $colorArray);
                 return $colorArray;
             }
             else{
@@ -108,7 +108,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
 
         }elseif($noOfRows == 1){
 
-            addArrayColor(checkColor($phoneme), $c, strlen($temp), $colorArray);
+            addArrayColor(checkColor($phoneme), $phoneme, $c, strlen($temp), $colorArray);
 
             if(sizeof($array) == 0){
 
@@ -119,7 +119,7 @@ function checkWord($array, $c, $ph, $gr, &$colorArray){
             }
         }elseif($noOfRows == 0){
 
-            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+            addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
 
             return checkWord($array, $c + strlen($temp) - 1, null, null, $colorArray);
         }
@@ -158,7 +158,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
             if(preg_match('~([^\A-Z0-9ÀÁÅÃÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿœæ ])~i', $letterArray[$i])){
 
-                addArrayColor("#FFFFFF", $i, 1, $colorArray);
+                addArrayColor("#FFFFFF", null, $i, 1, $colorArray);
 
                 if($counter != 0){
 
@@ -183,7 +183,7 @@ function retrieveWord($text, $letterArray, &$colorArray){
 
             if($i == $arrayLength - 1){
 
-                addArrayColor("#FFFFFF", $i, 1, $colorArray);
+                addArrayColor("#FFFFFF", null, $i, 1, $colorArray);
 
                 if($counter != 0){
 
@@ -239,7 +239,7 @@ function checkDatabase($text, $letterArray, &$colorArray, $begin){
 
         }else{
 
-            addArrayColor("#FFFFFF", 0, $arrayLength, $colorArray);
+            addArrayColor("#FFFFFF", null, 0, $arrayLength, $colorArray);
             return $colorArray;
         }
     }
@@ -291,7 +291,7 @@ function hyphenatedWord($text, $letterArray, &$colorArray, $hyphenPosition, $pho
     checkDatabase(substr($text, $hyphenPosition + 1, strlen($text) - 1), array_slice($letterArray, $hyphenPosArray + 1, strlen($text) - 1),
         $colorArray, $hyphenPosArray + 1);
 
-    addArrayColor("#FFFFFF", $hyphenPosArray, 1, $colorArray);
+    addArrayColor("#FFFFFF", null, $hyphenPosArray, 1, $colorArray);
 
     return $colorArray;
 }
@@ -328,12 +328,12 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
     if($arrayLength == 0 && $phonemesArray == null){
 
-        addArrayColor(checkColor($ph), $c, mb_strlen($gr, "UTF-8"), $colorArray);
+        addArrayColor(checkColor($ph), $ph, $c, mb_strlen($gr, "UTF-8"), $colorArray);
 
         return $colorArray;
     }elseif(($letterArray[0] == 's' || $letterArray[0] == 'n') && $wordLength == 1 && constant('apostrophe')){
 
-        addArrayColor(checkColor($letterArray[0]), $c, 1, $colorArray);
+        addArrayColor(checkColor($letterArray[0]), $letterArray[0], $c, 1, $colorArray);
         setFalseApostrophe();
         return $colorArray;
     }
@@ -345,7 +345,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
            if($ph != null && $gr != null){
 
-               addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+               addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
            }
 
            $lastLetter = $wordLength + $begin;
@@ -372,12 +372,12 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
            if($letterArray[0] == '-' && $gr != null){
 
-               addArrayColor(checkColor($ph), $c, mb_strlen($gr, "UTF-8"), $colorArray);
-               addArrayColor(checkColor($letterArray[0]), $c + mb_strlen($gr, "UTF-8"), 1, $colorArray);
+               addArrayColor(checkColor($ph), $ph, $c, mb_strlen($gr, "UTF-8"), $colorArray);
+               addArrayColor(checkColor($letterArray[0]), $letterArray[0], $c + mb_strlen($gr, "UTF-8"), 1, $colorArray);
                return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($gr, "UTF-8") + 1, null, null, false,  $begin, $wordLength);
            }elseif($letterArray[0] == '-' && $gr == null){
 
-               addArrayColor(checkColor($letterArray[0]), $c, 1, $colorArray);
+               addArrayColor(checkColor($letterArray[0]), $letterArray[0], $c, 1, $colorArray);
                return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + 1, null, null, false,  $begin, $wordLength);
            }
 
@@ -390,12 +390,12 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                    if($tempGr == 'ch' || $tempGr == 'th' || $tempGr == 'sh' || $tempGr == 'hi' ||
                        ($tempGr == 'qu' && $letterArray[1] != 'a') ||
                             ($tempGr == 'ge' && $letterArray[1]. $letterArray[2] == 'ai')){
-                       addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
+                       addArrayColor(checkColor($ph), $ph, $c, strlen($tempGr), $colorArray);
                        return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
                    }
 
                    if($tempGr == 'ie' && $letterArray[1] == 'r'){
-                       addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                       addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                        return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false,  $begin, $wordLength);
                    }
 
@@ -404,7 +404,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                        arrayTail($arrayTail, 2, $arrayLength, $letterArray);
                        arrayTail($phArrayTail, 1, $phArrayLength, $phonemesArray);
 
-                       addArrayColor(checkColor($tempPh), $c, strlen($tempGr) + 1, $colorArray);
+                       addArrayColor(checkColor($tempPh), $tempPh, $c, strlen($tempGr) + 1, $colorArray);
                        return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8") + 1, null, null, false,  $begin, $wordLength);
                    }
 
@@ -415,21 +415,21 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                            //catch neuf (n9f)
                            if((equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) || equalityRequest($letterArray[0] . $letterArray[1] . $letterArray[2], $phonemesArray[0])) && $gr == $ph){
 
-                               addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                               addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                                return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false,  $begin, $wordLength);
                            }else if((equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) && $phonemesArray < $letterArray) || (strtolower($gr) == strtolower($ph))
                                || ($letterArray[0] == $phonemesArray[0]) || (equalityRequest($letterArray[1] . $letterArray[2], $phonemesArray[1]))){
 
-                                addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                                addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                                 return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false,  $begin, $wordLength);
                            }else{
 
-                               addArrayColor(checkColor($ph), $c, strlen($tempGr), $colorArray);
+                               addArrayColor(checkColor($ph), $ph, $c, strlen($tempGr), $colorArray);
                                return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
                            }
                        }else{
 
-                           addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                           addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false, $begin,  $wordLength);
                        }
                    }else{
@@ -437,7 +437,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                        //catch peu (p2), deux (d2)
                        if(likeEqualityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) && $tempGr != 'ph'){
 
-                            addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                            addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                             return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false, $begin,  $wordLength);
                        }else{
 
@@ -446,7 +446,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                    }
                }elseif($wordLength > 3 && mb_strlen($tempGr, "UTF-8") == 2 && equalityRequest($letterArray[0], $phonemesArray[0])){
 
-                   addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                   addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                    return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false, $begin,  $wordLength);
 
                }else{
@@ -465,7 +465,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                                if($tempPhD == 'k s' && $letterArray[1] == 'c'){
 
-                                   addArrayColor(checkColor($tempPh), $c, 1, $colorArray);
+                                   addArrayColor(checkColor($tempPh), $tempPh, $c, 1, $colorArray);
                                    return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c + 1, null, null, false, $begin, $wordLength);
                                }else{
 
@@ -477,7 +477,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                                if($phArrayLength == 1 && equalityRequest(implode("", $letterArray), $tempPh)){
 
-                                   addArrayColor(checkColor($tempPh), $c, $arrayLength, $colorArray);
+                                   addArrayColor(checkColor($tempPh), $tempPh, $c, $arrayLength, $colorArray);
                                    return recursiveWordCheck(array(), array(), $colorArray, $c + $arrayLength, null, null, false, $begin,  $wordLength);
                                }else{
 
@@ -504,7 +504,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                                if($phArrayLength == 1){
 
-                                   addArrayColor(checkColor('w e~'), $c, strlen($gr) + $arrayLength, $colorArray);
+                                   addArrayColor(checkColor('w e~'), 'w e~', $c, strlen($gr) + $arrayLength, $colorArray);
                                    return recursiveWordCheck(array(), array(), $colorArray, $c + mb_strlen($gr, "UTF-8") + $arrayLength, null, null, false, $begin,  $wordLength);
                                }else{
 
@@ -513,14 +513,14 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                                        arrayTail($phArrayTail, 1, $phArrayLength, $phonemesArray);
                                        arrayTail($arrayTail, 3, $arrayLength, $letterArray);
 
-                                       addArrayColor(checkColor('w e~'), $c, strlen($gr) + 3, $colorArray);
+                                       addArrayColor(checkColor('w e~'), 'w e~', $c, strlen($gr) + 3, $colorArray);
                                        return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c + mb_strlen($gr, "UTF-8") + 3, null, null, false, $begin,  $wordLength);
                                    }else{
 
                                        arrayTail($phArrayTail, 1, $phArrayLength, $phonemesArray);
                                        arrayTail($arrayTail, 2, $arrayLength, $letterArray);
 
-                                       addArrayColor(checkColor('w e~'), $c, strlen($gr) + 2, $colorArray);
+                                       addArrayColor(checkColor('w e~'), 'w e~', $c, strlen($gr) + 2, $colorArray);
                                        return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c + mb_strlen($gr, "UTF-8") + 2, null, null, false, $begin,  $wordLength);
                                    }
                                }
@@ -530,13 +530,13 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                                arrayTail($phArrayTail, 1, $phArrayLength, $phonemesArray);
                                arrayTail($arrayTail, 1, $arrayLength, $letterArray);
 
-                               addArrayColor(checkColor($tempPh), $c, strlen($tempGr), $colorArray);
+                               addArrayColor(checkColor($tempPh), $tempPh, $c, strlen($tempGr), $colorArray);
                                return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false, $begin,  $wordLength);
 
                            }else{
 
                                //If no new phoneme found, old phoneme is used
-                           addArrayColor(checkColor($ph), $c, strlen($gr), $colorArray);
+                           addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                            return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false, $begin,  $wordLength);
                            }
                        }else{
@@ -577,10 +577,10 @@ function solidColor($phonemesArray, $arrayLength, &$colorArray){
 
         if($phonemesArray[$i + 1] != null && graphemeRequest($tempPh)){
 
-            addArrayColor(checkColor($tempPh), $i, 2, $colorArray);
+            addArrayColor(checkColor($tempPh), $tempPh, $i, 2, $colorArray);
             $counter++;
         }else{
-            addArrayColor(checkColor($phonemesArray[$i]), $i, 1, $colorArray);
+            addArrayColor(checkColor($phonemesArray[$i]), $phonemesArray[$i], $i, 1, $colorArray);
         }
     }
 
@@ -639,9 +639,10 @@ function arrayTail(&$arrayTail, $pointer, $length, $originalArray){
 }
 
 //$c - starting character
+//$ph - phoneme associated with letter
 //$length - length of colors to fill in
 
-function addArrayColor($color, $c, $length, &$colorArray){
+function addArrayColor($color, $ph, $c, $length, &$colorArray){
 
     for($i = $c; $i < $c + $length; $i++){
 
@@ -654,6 +655,8 @@ function addArrayColor($color, $c, $length, &$colorArray){
                 $colorArray[$i][1] = $color;
             }
         }
+
+        $colorArray[$i][3] = $ph;
     }
 }
 

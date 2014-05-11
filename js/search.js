@@ -149,6 +149,7 @@ function colorArray(text, callback){
 
     //text = text.replace(/[\,\r]/gm, "") ;
     text = text.replace(/\r\n|\n|\r/g, " ± ");
+    text = text.replace(/\t/g, "    ");
     //text = text.replace("  ", " ");
     //text = text.toLowerCase();
 
@@ -185,6 +186,7 @@ function colorArray(text, callback){
                     offsetX.value = 0;
                     setBlockHeight(yMultiplier);
                 }
+
                 if(temp != '±'){
                     searchRequest(temp, i, offsetX, yMultiplier, addOffSetX, loop, splitArrayL);
                 }else{
