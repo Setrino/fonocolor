@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     var fullScreen = 0;
     var scroll = true;
+    var lastScrollValue = 0;
     var canvasTopMargin = $(".search_output").height() - 5;
     $("#full_screen").click(function(){
 
@@ -49,7 +50,15 @@ $(document).ready(function(){
     $(".search_output").css("margin-top", ( $("#result").height() - $(".search_output").height() ) / 2 - 5 );
 
     $(document).scroll(function(){
-        (scroll) ? $(this).scrollTop() : $(this).scrollTop(0);
+        if(!scroll){
+            if(lastScrollValue == 0){
+                lastScrollValue = $(this).scrollTop();
+            }
+            $(this).scrollTop(lastScrollValue);
+        }else{
+            lastScrollValue = 0;
+            $(this).scrollTop();
+        }
     });
 
     $(".search_form").scroll(function(){

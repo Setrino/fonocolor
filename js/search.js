@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    draw();
+    //draw();
 
     $("#download").bind(
 
@@ -23,6 +23,7 @@ c.width = width;
 c.height = height;
 
 var pixel_size = 43,
+    point_size = pixel_size * 72 / 96,
     dragging = false,
     lastY = 0,
     translated = 0,
@@ -68,19 +69,27 @@ function catchColor(array, i, offsetX, yMultiplier, length){
     var xDistance = 0;
 
     textArray[i][1] = jQuery.parseJSON(array);
+    textArray[i][2] = yMultiplier;
     var currentWordArray = textArray[i][1];
 
     for(var j = 0; j < currentWordArray.length; j++){
 
         var letter = currentWordArray[j][0];
 
+        if(j == 0){
+            textArray[i][2] = 3 + offsetX;
+        }
+
         if(letter != undefined){
 
             ctx.beginPath();
             drawText(3 + offsetX, pixel_size, letter, currentWordArray[j][1], currentWordArray[j][2],
-                xDistance, yMultiplier);
+                xDistance, yMultiplier, i);
             ctx.closePath();
             xDistance += ctx.measureText(letter).width;
+        }
+        if(j == currentWordArray.length - 1){
+            textArray[i][4] = 3 + offsetX + xDistance;
         }
     }
 
@@ -114,7 +123,7 @@ function drawWhite(array, i, offsetX, yMultiplier){
 
             ctx.beginPath();
             drawText(3 + offsetX, pixel_size, letter, '#FFFFFF', undefined,
-                xDistance, yMultiplier);
+                xDistance, yMultiplier, i);
             ctx.closePath();
             xDistance += ctx.measureText(letter).width;
         }
@@ -240,7 +249,7 @@ function drawArray(){
 
                     ctx.beginPath();
                     drawText(3 + offsetX, pixel_size, letter, currentWordArray[j][1], currentWordArray[j][2],
-                        xDistance, yMultiplier);
+                        xDistance, yMultiplier, i);
                     ctx.closePath();
                     xDistance += ctx.measureText(letter).width;
                 }
@@ -250,7 +259,7 @@ function drawArray(){
     }
 }
 
-function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier){
+function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier, i){
 
     var lingrad = '';
 
@@ -271,7 +280,10 @@ function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier){
     }
 
     ctx.font= y + "px fundamental__brigade_schwerRg";
-    ctx.fillText(text, x + xDistance, y * yMultiplier);
+    console.log(text + ' ' + (x + xDistance) + ' ' + y * yMultiplier);
+    var yPixels = y * yMultiplier;
+    textArray[i][3] = yPixels;
+    ctx.fillText(text, x + xDistance, yPixels);
 }
 
 c.onmousedown = function(e){
@@ -304,7 +316,7 @@ window.onmousemove = function(e){
         var delta =  offSetY - lastY;
         translated += delta;
         lastY = offSetY;
-        draw(delta);
+        //draw(delta);
     }
 }
 
@@ -400,3 +412,56 @@ function resetCanvas(){
     full_screen_height = 0;
     ctx.translate(0, (translatedD <= 0) ? 0 : translatedD);;
 }
+
+function collides(rects, x, y, dimY, offSetY, multiplierY) {
+    var isCollision = false;
+
+    for (var i = 0, len = rects.length; i < len; i++) {
+        var left = rects[i][0] * dim, right = rects[i][0] * dim + dim;
+        var top = (rects[i][1] + multiplierY) * dimY + offSetY, bottom = (rects[i][1] + multiplierY) * dimY + dimY + offSetY;
+
+        if (right >= x
+            && left <= x
+            && bottom >= y
+            && top <= y) {
+            isCollision = rects[i];
+        }
+    }
+    return isCollision;
+}
+
+//textArray[i][0] - word
+//textArray[i][1] - wordArray
+//textArray[i][2] - xBeginning
+//textArray[i][4] - xEnd
+//textArray[i][3] - yBeginning
+//current
+c.addEventListener('click', function(e) {
+
+    var x = e.pageX - $('#canvas').offset().left;
+    var y = e.pageY - $('#canvas').offset().top;
+    var textArrayLength = textArray.length;
+
+    console.log("x " + x + " y " + y + ' ' + (textArray[0][2]));
+
+    for(var i = 0; i < textArrayLength; i++){
+        var xBegin = textArray[i][2];
+
+        if(textArray[i][3] - point_size  < y && y < textArray[i][3]){
+            if(xBegin < x && x < textArray[i][4]){
+                var currentWord = textArray[i][1];
+                var currentWordLength = currentWord.length;
+                var xIncrement = xBegin;
+
+                for(var j = 0; j < currentWordLength; j++){
+                    var letter = currentWord[j][0];
+
+                    if((xIncrement) < x && x < (xIncrement + ctx.measureText(letter).width)){
+                        console.log(textArray[i][0] + " Letter " + letter + " " + (xIncrement + ctx.measureText(letter).width));
+                    }
+                        xIncrement += ctx.measureText(letter).width;
+                }
+            }
+        }
+    }
+}, false);

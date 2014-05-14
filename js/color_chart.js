@@ -46,7 +46,7 @@ consonants = [
     [0, 10, "#D3BFB7", "r", ["rang", "rend"]],
     [3, 11, "#3A4972", "qu", ["quand", "qu'en", "quant", "Caen"]],
     [1, 11, "#9B0070", "g", ["gant", "Gand"]]
-            ];
+];
 
 vowels = new Array();
 
@@ -275,17 +275,17 @@ c.addEventListener('click', function(e) {
         }
     }, false);
 
-c.addEventListener('mouseover', function(e) {
+/*c.addEventListener('mouseover', function(e) {
 
     var x = e.pageX - c.offsetLeft;
     var y = e.pageY - c.offsetTop;
 
-    var consonant = collides(consonants, x, y);
+    var consonant = collides(consonants, x, y, dim, 0, 0);
     if (consonant) {
         $('#c').css('cursor','pointer');
     }
-    var vowel = collides(vowels, x, y);
+    var vowel = collides(vowels, x, y, dim, 0, 0);
     if (vowel) {
         $('#c').css('cursor','pointer');
     }
-}, false);
+}, false);*/
