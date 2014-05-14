@@ -25,6 +25,7 @@ c.height = height;
 
 var pixel_size = 43,
     point_size = pixel_size * 72 / 96,
+    snd = null,
     dragging = false,
     lastY = 0,
     translated = 0,
@@ -413,23 +414,6 @@ function resetCanvas(){
     ctx.translate(0, (translatedD <= 0) ? 0 : translatedD);;
 }
 
-function collides(rects, x, y, dimY, offSetY, multiplierY) {
-    var isCollision = false;
-
-    for (var i = 0, len = rects.length; i < len; i++) {
-        var left = rects[i][0] * dim, right = rects[i][0] * dim + dim;
-        var top = (rects[i][1] + multiplierY) * dimY + offSetY, bottom = (rects[i][1] + multiplierY) * dimY + dimY + offSetY;
-
-        if (right >= x
-            && left <= x
-            && bottom >= y
-            && top <= y) {
-            isCollision = rects[i];
-        }
-    }
-    return isCollision;
-}
-
 //Checks where on the canvas the user has clicked to find which word and letter he clicked
 //textArray[i][0] - word
 //textArray[i][1] - wordArray
@@ -440,8 +424,31 @@ function collides(rects, x, y, dimY, offSetY, multiplierY) {
 
 function collides(event, single){
 
+    if(snd){snd.pause();}
     var x = event.pageX - $('#canvas').offset().left;
     var y = event.pageY - $('#canvas').offset().top;
+    var buffer = {
+
+        buffer : [],
+
+        addTrack : function(track){
+            this.buffer.push(track);
+        },
+        nextTrack : function(){
+            snd = new Audio(this.buffer.shift());
+            snd.play();
+            snd.addEventListener("ended", function()
+            {
+                buffer.nextTrack();
+            });
+        },
+        clearBuffer : function(){
+            this.buffer = [];
+        },
+        bufferLength : function(){
+            return this.buffer.length;
+        }
+    }
     var textArrayLength = textArray.length;
 
     //console.log("x " + x + " y " + y + ' ' + (textArray[0][2]));
@@ -454,18 +461,34 @@ function collides(event, single){
                 var currentWord = textArray[i][1];
                 var currentWordLength = currentWord.length;
                 var xIncrement = xBegin;
+                var location = '';
 
                 for(var j = 0; j < currentWordLength; j++){
                     var letter = currentWord[j][0];
 
-                    if((xIncrement) < x && x < (xIncrement + ctx.measureText(letter).width)){
-                        if(single){
-                            console.log("Letter " + letter);
-                        }else{
-                            console.log("Word " + textArray[i][0]);
+                    if(single){
+                        if((xIncrement) < x && x < (xIncrement + ctx.measureText(letter).width)){
+                            var location = "sound/color/" + currentWord[j][1] +
+                                ((currentWord[j][2] != undefined) ? currentWord[j][2] : '')  + ".wav";
+                            location = location.replace(/#/g, "_");
+                            //console.log("Letter " + currentWord[j][0] + " " + location);
+                            snd = new Audio(location);
+                            snd.play();
                         }
+                    }else{
+                        var soundTemp = ("sound/color/" + currentWord[j][1] +
+                            ((currentWord[j][2] != undefined) ? currentWord[j][2] : '') + ".wav").replace(/#/g, "_");
+                        if(soundTemp != location){
+                            //console.log("Word " + textArray[i][0] + " " + soundTemp);
+                            buffer.addTrack(soundTemp);
+                        }
+                        location = soundTemp;
                     }
                     xIncrement += ctx.measureText(letter).width;
+                }
+
+                if(!single && buffer.bufferLength() > 0){
+                    buffer.nextTrack();
                 }
             }
         }

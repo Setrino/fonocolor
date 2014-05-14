@@ -48,6 +48,8 @@ consonants = [
     [1, 11, "#9B0070", "g", ["gant", "Gand"]]
 ];
 
+//
+
 vowels = new Array();
 
 vowels = [
