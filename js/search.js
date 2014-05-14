@@ -17,7 +17,8 @@ var width = 700,
     c = document.getElementById('canvas'),
 //canvas itself
     ctx = c.getContext('2d');
-    ctx.font = 'fundamental__brigade_schwerRg';
+    ctx.font = 'fundamental__brigade_schwerRg',
+    clicks = 0;
 
 c.width = width;
 c.height = height;
@@ -280,7 +281,6 @@ function drawText(x, y, text, colorTop, colorBottom, xDistance, yMultiplier, i){
     }
 
     ctx.font= y + "px fundamental__brigade_schwerRg";
-    console.log(text + ' ' + (x + xDistance) + ' ' + y * yMultiplier);
     var yPixels = y * yMultiplier;
     textArray[i][3] = yPixels;
     ctx.fillText(text, x + xDistance, yPixels);
@@ -430,19 +430,21 @@ function collides(rects, x, y, dimY, offSetY, multiplierY) {
     return isCollision;
 }
 
+//Checks where on the canvas the user has clicked to find which word and letter he clicked
 //textArray[i][0] - word
 //textArray[i][1] - wordArray
 //textArray[i][2] - xBeginning
 //textArray[i][4] - xEnd
 //textArray[i][3] - yBeginning
-//current
-c.addEventListener('click', function(e) {
+//double - if double clicked
 
-    var x = e.pageX - $('#canvas').offset().left;
-    var y = e.pageY - $('#canvas').offset().top;
+function collides(event, single){
+
+    var x = event.pageX - $('#canvas').offset().left;
+    var y = event.pageY - $('#canvas').offset().top;
     var textArrayLength = textArray.length;
 
-    console.log("x " + x + " y " + y + ' ' + (textArray[0][2]));
+    //console.log("x " + x + " y " + y + ' ' + (textArray[0][2]));
 
     for(var i = 0; i < textArrayLength; i++){
         var xBegin = textArray[i][2];
@@ -457,11 +459,32 @@ c.addEventListener('click', function(e) {
                     var letter = currentWord[j][0];
 
                     if((xIncrement) < x && x < (xIncrement + ctx.measureText(letter).width)){
-                        console.log(textArray[i][0] + " Letter " + letter + " " + (xIncrement + ctx.measureText(letter).width));
+                        if(single){
+                            console.log("Letter " + letter);
+                        }else{
+                            console.log("Word " + textArray[i][0]);
+                        }
                     }
-                        xIncrement += ctx.measureText(letter).width;
+                    xIncrement += ctx.measureText(letter).width;
                 }
             }
         }
+    }
+}
+
+c.addEventListener('click', function(event) {
+
+    clicks++;
+    if (clicks == 1) {
+        setTimeout(function(){
+            if(clicks == 1) {
+                collides(event, true);
+                //console.log("SINGLE");
+            } else {
+                collides(event, false);
+                //console.log("DOUBLE");
+            }
+            clicks = 0;
+        }, 300);
     }
 }, false);
