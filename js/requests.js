@@ -32,3 +32,20 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
         }
     });
 }
+
+function audioRequest(path, callback){
+
+    $.ajax({
+        type: "POST",
+        url: "php/requests.php",
+        data: {filepath: path},
+        success: function(msg){
+
+            if(msg == 'ERROR'){
+                $('.reply').html('Couldn\'t retrieve audio files');
+            }else{
+                callback(jQuery.parseJSON(msg));
+            }
+        }
+    });
+}

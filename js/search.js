@@ -1,11 +1,9 @@
 $(document).ready(function(){
 
-    //draw();
-
     $("#download").bind(
-
         "click", savePNG
-    )
+    );
+    audioRequest('/fonocolor/sound/color', preloadAudio);
 })
 
 var width = 700,
@@ -25,6 +23,8 @@ c.height = height;
 
 var pixel_size = 43,
     point_size = pixel_size * 72 / 96,
+    audioFiles = {},
+    audioPath = 'sound/color/',
     snd = null,
     dragging = false,
     lastY = 0,
@@ -414,6 +414,19 @@ function resetCanvas(){
     ctx.translate(0, (translatedD <= 0) ? 0 : translatedD);;
 }
 
+//Create an object with preloaded audioFiles
+//fileName - e.g. _087292.wav
+//audioFiles - object with preloaded audio files
+function preloadAudio(array){
+    array.splice(0, 3);
+    for(var path in array){
+        var fileName = array[path];
+        var temp = new Audio(audioPath + fileName);
+        temp.preload = 'auto';
+        audioFiles[fileName.replace('.wav', '')] = temp;
+    }
+}
+
 //Checks where on the canvas the user has clicked to find which word and letter he clicked
 //textArray[i][0] - word
 //textArray[i][1] - wordArray
@@ -421,7 +434,6 @@ function resetCanvas(){
 //textArray[i][4] - xEnd
 //textArray[i][3] - yBeginning
 //double - if double clicked
-
 function collides(event, single){
 
     if(snd){snd.pause();}
@@ -435,12 +447,19 @@ function collides(event, single){
             this.buffer.push(track);
         },
         nextTrack : function(){
-            snd = new Audio(this.buffer.shift());
-            snd.play();
-            snd.addEventListener("ended", function()
-            {
-                buffer.nextTrack();
-            });
+            if(this.buffer.length != 0){
+                var temp = this.buffer.shift();
+                snd = audioFiles[temp];
+                try{
+                    snd.play();
+                    snd.addEventListener("ended", function()
+                    {
+                        buffer.nextTrack();
+                    });
+                }catch(e){
+                    $('.reply').html('Missing audio file for ' + temp);
+                }
+            }
         },
         clearBuffer : function(){
             this.buffer = [];
@@ -468,16 +487,13 @@ function collides(event, single){
 
                     if(single){
                         if((xIncrement) < x && x < (xIncrement + ctx.measureText(letter).width)){
-                            var location = "sound/color/" + currentWord[j][1] +
-                                ((currentWord[j][2] != undefined) ? currentWord[j][2] : '')  + ".wav";
-                            location = location.replace(/#/g, "_");
+                            var location = currentWord[j][1] + ((currentWord[j][2] != undefined) ? currentWord[j][2] : '').replace(/#/g, "_");
                             //console.log("Letter " + currentWord[j][0] + " " + location);
-                            snd = new Audio(location);
+                            snd = audioFiles[location];
                             snd.play();
                         }
                     }else{
-                        var soundTemp = ("sound/color/" + currentWord[j][1] +
-                            ((currentWord[j][2] != undefined) ? currentWord[j][2] : '') + ".wav").replace(/#/g, "_");
+                        var soundTemp = (currentWord[j][1] + ((currentWord[j][2] != undefined) ? currentWord[j][2] : '')).replace(/#/g, "_");
                         if(soundTemp != location){
                             //console.log("Word " + textArray[i][0] + " " + soundTemp);
                             buffer.addTrack(soundTemp);
