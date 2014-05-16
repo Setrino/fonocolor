@@ -97,8 +97,8 @@ function catchColor(array, i, offsetX, yMultiplier, length){
 
     if((i == length - 1)){
 
-        //$('.reply').html('');
-        $('.reply').html(array);
+        $('.reply').html('');
+        //$('.reply').html(array);
         showDownloadPNG();
 
         if(yMultiplier > 3){
