@@ -3,7 +3,11 @@ $(document).ready(function(){
     drawConsonants();
     drawVowels();
     //drawGrid();
-})
+    audioRequest((location.href.indexOf('localhost') == -1) ? consonantPath : '/fonocolor/' +
+        consonantPath, consonantAudio, consonantPath, preloadAudio);
+    audioRequest((location.href.indexOf('localhost') == -1) ? vowelPath : '/fonocolor/' +
+        vowelPath, vowelsAudio, vowelPath, preloadAudio);
+});
 
 var width = 830,
 //width of the canvas
@@ -21,7 +25,14 @@ var width = 830,
 //width of the consonants and vowels block used for right offset
     SOUNDS_WIDTH = 615,
 //canvas text font size
-    textFontSize = 60;
+    textFontSize = 60,
+//prebuffered object of audio files
+    consonantAudio = {},
+//prebuffered object of audio files
+    vowelsAudio = {},
+//path to audio files
+    consonantPath = 'sound/consonant/',
+    vowelPath = 'sound/vowel/';
 //and two-dimensional graphic context of the
 //canvas, the only one supported by all
 //browsers for now
@@ -238,7 +249,7 @@ c.addEventListener('click', function(e) {
 
             ctx.clearRect(0, 0, c.width, c.height);
             drawTextConsonantVowel(consonant[4], consonant[2], consonant[3]);
-            var snd = new Audio("sound/consonant/" + consonant[3] + ".wav");
+            var snd = consonantAudio[consonant[3]];
                 snd.play();
                 ctx.globalAlpha = 0.4;
                 drawConsonants();
@@ -258,7 +269,7 @@ c.addEventListener('click', function(e) {
         var vowel = collides(vowels, x, y, 41, 12, 1);
         if (vowel) {
             ctx.clearRect(0, 0, c.width, c.height);
-            var snd = new Audio("sound/vowel/" + vowel[3] + ".wav");
+            var snd = vowelsAudio[vowel[3]];
             snd.play();
             ctx.globalAlpha = 0.4;
             drawConsonants();
@@ -276,6 +287,10 @@ c.addEventListener('click', function(e) {
             });
         }
     }, false);
+
+//Create an object with preloaded audioFiles
+//fileName - e.g. a.wav
+//audioFiles - object with preloaded audio files
 
 /*c.addEventListener('mouseover', function(e) {
 

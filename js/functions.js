@@ -110,6 +110,20 @@ $(document).ready(function(){
     hideDownloadPNG();
 });
 
+//Create an object with preloaded audioFiles
+//fileName - e.g. _087292.wav
+//audioFiles - object with preloaded audio files
+function preloadAudio(array, object, audioPath){
+    array.splice(0, 3);
+    for(var path in array){
+        var fileName = array[path];
+        var temp = new Audio(audioPath + fileName);
+        temp.preload = 'auto';
+
+        object[fileName.replace('.wav', '')] = temp;
+    }
+}
+
 function hideFullScreen(){
 
     $("#full_screen").css("display", "none");

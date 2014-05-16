@@ -3,10 +3,8 @@ $(document).ready(function(){
     $("#download").bind(
         "click", savePNG
     );
-    audioRequest((location.href.indexOf('localhost') == -1) ? audioPath : '/fonocolor/sound/color', preloadAudio);
-
-    console.log();
-})
+    audioRequest((location.href.indexOf('localhost') == -1) ? audioPath : '/fonocolor/sound/color', audioFiles, audioPath, preloadAudio);
+});
 
 var width = 700,
 //width of the canvas
@@ -416,19 +414,6 @@ function resetCanvas(){
     ctx.translate(0, (translatedD <= 0) ? 0 : translatedD);;
 }
 
-//Create an object with preloaded audioFiles
-//fileName - e.g. _087292.wav
-//audioFiles - object with preloaded audio files
-function preloadAudio(array){
-    array.splice(0, 3);
-    for(var path in array){
-        var fileName = array[path];
-        var temp = new Audio(audioPath + fileName);
-        temp.preload = 'auto';
-        audioFiles[fileName.replace('.wav', '')] = temp;
-    }
-}
-
 //Checks where on the canvas the user has clicked to find which word and letter he clicked
 //textArray[i][0] - word
 //textArray[i][1] - wordArray
@@ -489,7 +474,8 @@ function collides(event, single){
 
                     if(single){
                         if((xIncrement) < x && x < (xIncrement + ctx.measureText(letter).width)){
-                            var location = currentWord[j][1] + ((currentWord[j][2] != undefined) ? currentWord[j][2] : '').replace(/#/g, "_");
+                            var location = currentWord[j][1] + ((currentWord[j][2] != undefined) ? currentWord[j][2] : '');
+                            location = location.replace(/#/g, "_");
                             //console.log("Letter " + currentWord[j][0] + " " + location);
                             snd = audioFiles[location];
                             snd.play();

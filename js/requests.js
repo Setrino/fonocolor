@@ -33,7 +33,7 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
     });
 }
 
-function audioRequest(path, callback){
+function audioRequest(path, object, audioPath, callback){
 
     $.ajax({
         type: "POST",
@@ -44,7 +44,7 @@ function audioRequest(path, callback){
             if(msg == 'ERROR'){
                 $('.reply').html('Couldn\'t retrieve audio files');
             }else{
-                callback(jQuery.parseJSON(msg));
+                callback(jQuery.parseJSON(msg), object, audioPath);
             }
         }
     });
