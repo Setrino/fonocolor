@@ -97,8 +97,8 @@ function catchColor(array, i, offsetX, yMultiplier, length){
 
     if((i == length - 1)){
 
-        $('.reply').html('');
-        //$('.reply').html(array);
+        //$('.reply').html('');
+        $('.reply').html(array);
         showDownloadPNG();
 
         if(yMultiplier > 3){
@@ -478,7 +478,11 @@ function collides(event, single){
                             location = location.replace(/#/g, "_");
                             //console.log("Letter " + currentWord[j][0] + " " + location);
                             snd = audioFiles[location];
-                            snd.play();
+                            try{
+                                snd.play();
+                            }catch(e){
+                                $('.reply').html('Missing audio file for ' + location);
+                            }
                         }
                     }else{
                         var soundTemp = (currentWord[j][1] + ((currentWord[j][2] != undefined) ? currentWord[j][2] : '')).replace(/#/g, "_");
