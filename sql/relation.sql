@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 09, 2014 at 03:21 PM
+-- Generation Time: May 17, 2014 at 01:31 AM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -33,7 +33,7 @@ CREATE TABLE `relation` (
   `colorTop` varchar(128) DEFAULT NULL,
   `colorBottom` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=281 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=284 ;
 
 --
 -- Dumping data for table `relation`
@@ -51,10 +51,10 @@ INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VAL
 (48, 'u', '#4CCED1', NULL, NULL),
 (220, 'H i', NULL, '#F7D917', '#E8112D'),
 (50, 'y', '#F7D917', NULL, NULL),
-(222, 'H', NULL, '#F7D917', '#E8112D'),
+(283, 'H j', NULL, '#F7D917', '#E8112D'),
 (52, '2', '#00B760', NULL, NULL),
 (53, '9', '#CEEA82', NULL, NULL),
-(54, '@', '#BDEC65', NULL, NULL),
+(54, '@', '#CEEA82', NULL, NULL),
 (55, 'e~', '#F9BF9E', NULL, NULL),
 (56, '9~', '#F9BF9E', NULL, NULL),
 (57, 'a~', '#E7C1E3', NULL, NULL),
@@ -65,10 +65,10 @@ INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VAL
 (62, 'b', '#84003C', NULL, NULL),
 (63, 'd', '#B06F00', NULL, NULL),
 (64, 'g', '#602144', NULL, NULL),
-(65, 'f', '#787A7B', NULL, NULL),
+(65, 'f', '#96938E', NULL, NULL),
 (66, 's', '#AF8970', NULL, NULL),
 (67, 'S', '#CE898C', NULL, NULL),
-(68, 'v', '#AE9A00', NULL, NULL),
+(68, 'v', '#AA930A', NULL, NULL),
 (69, 'z', '#FC9BB2', NULL, NULL),
 (70, 'Z', '#894FBF', NULL, NULL),
 (71, 'l', '#A3C1AD', NULL, NULL),
@@ -81,7 +81,7 @@ INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VAL
 (78, 'd Z', NULL, '#E29100', '#894FBF'),
 (79, 'a~ n', NULL, '#EDC4DD', '#2B4C3F'),
 (80, 'w a', NULL, '#4AD6CA', '#B634BB'),
-(81, 'j E', NULL, '#F43FA5', '#E8112D'),
+(81, 'j E', NULL, '#E8112D', '#F43FA5'),
 (82, 'j e', NULL, '#E8112D', '#ED6E00'),
 (83, 'j 2', NULL, '#00B760', '#E8112D'),
 (219, 'w e~', NULL, '#4CCED1', '#F9BF9E'),
@@ -140,7 +140,8 @@ INSERT INTO `relation` (`id`, `phoneme`, `color`, `colorTop`, `colorBottom`) VAL
 (276, 'E j', NULL, '#F43FA5', '#E8112D'),
 (277, 'e j', NULL, '#ED6E00', '#E8112D'),
 (279, '2 j', NULL, '#00B760', '#E8112D'),
-(280, '9 j', NULL, '#CEEA82', '#E8112D');
+(280, '9 j', NULL, '#CEEA82', '#E8112D'),
+(282, '9~ n', NULL, '#F9BF9E', '#2B4C3F');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -50,7 +50,7 @@ consonants = [
     [4, 5, "#F7D3B5", "s", ["sans", "cent", "sang", "s'en"]],
     [2, 5, "#FC9BB2", "z", ["2 z ans"]],
     [3, 6, "#007770", "t", ["tant", "taon", "temps", "tend"]],
-    [1, 6, "#E29100", "d", ["dent", "dans", "d'en"]],
+    [1, 6, "#B06F00", "d", ["dent", "dans", "d'en"]],
     [4, 7, "#CE898C", "ch", ["champ", "chant"]],
     [2, 7, "#894FBF", "j", ["gens", "Jean", "j'en"]],
     [0, 8, "#A3C1AD", "l", ["lent", "l'an"]],
@@ -246,10 +246,10 @@ c.addEventListener('click', function(e) {
 
         var consonant = collides(consonants, x, y, dim, 0, 0);
         if (consonant) {
-
-            ctx.clearRect(0, 0, c.width, c.height);
-            drawTextConsonantVowel(consonant[4], consonant[2], consonant[3]);
-            var snd = consonantAudio[consonant[3]];
+            if(consonantAudio[consonant[3]] != undefined){
+                ctx.clearRect(0, 0, c.width, c.height);
+                drawTextConsonantVowel(consonant[4], consonant[2], consonant[3]);
+                var snd = consonantAudio[consonant[3]];
                 snd.play();
                 ctx.globalAlpha = 0.4;
                 drawConsonants();
@@ -258,33 +258,40 @@ c.addEventListener('click', function(e) {
                 drawBox(consonant[0], consonant[1], consonant[2]);
                 drawCircle(vowels[7][0], vowels[7][1], vowels[7][2]);
 
-            snd.addEventListener("ended", function()
-            {
-                ctx.clearRect(0, 0, SOUNDS_WIDTH, c.height);
-                drawConsonants();
-                drawVowels();
-            });
+                snd.addEventListener("ended", function()
+                {
+                    ctx.clearRect(0, 0, SOUNDS_WIDTH, c.height);
+                    drawConsonants();
+                    drawVowels();
+                });
+            }else{
+                $(".downloading").html('Audio en train de télécharger').show().fadeOut(1000);
+            }
         }
     //For reason of scaling size less than dimension of box was used, so dim = 41, offSetY = 12 and multiplierY = 1
         var vowel = collides(vowels, x, y, 41, 12, 1);
         if (vowel) {
-            ctx.clearRect(0, 0, c.width, c.height);
-            var snd = vowelsAudio[vowel[3]];
-            snd.play();
-            ctx.globalAlpha = 0.4;
-            drawConsonants();
-            drawVowels();
-            ctx.globalAlpha = 1.0;
-            drawCircle(vowel[0], vowel[1], vowel[2]);
-            snd.addEventListener("ended", function()
-            {
-                setTimeout(
-                    function() {
-                        ctx.clearRect(0, 0, c.width, c.height);
-                        drawConsonants();
-                        drawVowels();
-                    }, 1500);
-            });
+            if(vowelsAudio[vowel[3]] != undefined){
+                ctx.clearRect(0, 0, c.width, c.height);
+                var snd = vowelsAudio[vowel[3]];
+                snd.play();
+                ctx.globalAlpha = 0.4;
+                drawConsonants();
+                drawVowels();
+                ctx.globalAlpha = 1.0;
+                drawCircle(vowel[0], vowel[1], vowel[2]);
+                snd.addEventListener("ended", function()
+                {
+                    setTimeout(
+                        function() {
+                            ctx.clearRect(0, 0, c.width, c.height);
+                            drawConsonants();
+                            drawVowels();
+                        }, 600);
+                });
+            }else{
+                $(".downloading").html('Audio en train de télécharger').show().fadeOut(1000);
+            }
         }
     }, false);
 
