@@ -416,3 +416,9 @@ article p{
     left: 42%;
     z-index: 1;
 }
+
+.nonselectable{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
