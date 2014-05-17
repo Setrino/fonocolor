@@ -438,7 +438,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                            }
                        }elseif(equalityRequest($tempGr, $tempPh)){
 
-                           addArrayColor(checkColor($tempPh), $tempPh, $c, strlen($tempGr), $colorArray);
+                           addArrayColor(checkColor($tempPh), $tempPh, $c, mb_strlen($tempGr, "UTF-8"), $colorArray);
                            return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false, $begin,  $wordLength);
                        }else{
 
