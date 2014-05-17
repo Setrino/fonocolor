@@ -1,8 +1,7 @@
 $(document).ready(function(){
 
     $(".video").css("display", "none");
-    
-    document.getElementById("videoFile").preload = 'none';
+
     $(".video_skip").click(hideVideo);
 
     $(".register").click(function(){
@@ -13,6 +12,11 @@ $(document).ready(function(){
 
 function displayVideo(){
 
+    var video = document.getElementById("videoFile");
+    if(video.src == ""){
+        video.src = "video/phonocolor2.mp4";
+        video.load();
+    }
     $("#header_wrapper").css("display", "none");
     $(".body_wrapper").css("display", "none");
     $(".video").css("display", "block");
