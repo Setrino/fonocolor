@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     $(".video").css("display", "none");
+    document.getElementById('videoFile').preload = 'none';
 
     $(".video_skip").click(hideVideo);
 
@@ -15,11 +16,15 @@ function displayVideo(){
     $("#header_wrapper").css("display", "none");
     $(".body_wrapper").css("display", "none");
     $(".video").css("display", "block");
-    $(".video_skip").css("margin-right", ($(".video").width() - $(".video_frame").width()) / 1.3);
+    $(".video_skip").css({
+        'left' : $("#videoFile").width(),
+        'bottom' : $("#videoFile").height() + 10
+    });
 }
 
 function hideVideo(){
 
+    document.getElementById('videoFile').pause();
     $("#header_wrapper").css("display", "block");
     $(".body_wrapper").css("display", "block");
     $(".video").css("display", "none");
@@ -69,7 +74,6 @@ function checkCookie()
 
         hideVideo();
     }else{
-
         displayVideo();
     }
 }
