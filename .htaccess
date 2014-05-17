@@ -12,6 +12,6 @@ SetOutputFilter DEFLATE
 FileETag MTime Size
 
 # Future Expires Headers
-<filesmatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|wav|mp4|swf)$">
+<filesmatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|wav|mp4|ico|swf)$">
 Header set Expires "Sat, 27 Dec 2015 23:59:59 GMT"
 </filesmatch>
