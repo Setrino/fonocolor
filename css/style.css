@@ -363,9 +363,12 @@ article p{
     margin: 0 auto;
 }
 
+#canvas, #c{
+    cursor: pointer;
+}
+
 #c{
     margin-top: 2em;
-    cursor: pointer;
 }
 
 :-webkit-full-screen {
