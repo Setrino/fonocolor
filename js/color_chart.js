@@ -45,7 +45,7 @@ consonants = [
     [2, 1, "#AA930A", "v", ["vent", "vans", "vend"]],
     [4, 1, "#96938E", "f", ["faon", "fend"]],
     [3, 2, "#3A7728", "p", ["paon", "pan", "pend"]],
-    [1, 2, "#A50544", "b", ["banc", "ban"]],
+    [1, 2, "#84003C", "b", ["banc", "ban"]],
     [0, 4, "#2B4C3F", "n", ["1 n an"]],
     [4, 5, "#F7D3B5", "s", ["sans", "cent", "sang", "s'en"]],
     [2, 5, "#FC9BB2", "z", ["2 z ans"]],
