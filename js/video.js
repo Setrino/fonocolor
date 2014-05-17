@@ -1,7 +1,8 @@
 $(document).ready(function(){
 
     $(".video").css("display", "none");
-
+    
+    document.getElementById("videoFile").preload = 'none';
     $(".video_skip").click(hideVideo);
 
     $(".register").click(function(){
