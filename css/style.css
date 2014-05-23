@@ -207,10 +207,20 @@ article p{
     margin-left: 1em;
 }
 
-.email{
+.social_share{
     float: right;
     width: 20px;
     margin-right: 1em;
+    cursor: pointer;
+}
+
+.social_links{
+    position: relative;
+    display: inline-block;
+    height: 36px;
+    width: 160px;
+    bottom: 45px;
+    right: 35px;
 }
 
 .logo{
