@@ -49,7 +49,7 @@ $(document).ready(function(){
     $(".search_output").css("left", ( $("#result").width() - $(".search_output").width() ) / 2 );
     $(".search_output").css("margin-top", ( $("#result").height() - $(".search_output").height() ) / 2 - 5 );
 
-    if(window.location.pathname == '/fonocolor/pourquoi.html'){
+    if(window.location.pathname == '/pourquoi.html'){
         $('.logo').css('bottom', '50');
     }
 
