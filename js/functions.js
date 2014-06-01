@@ -79,9 +79,6 @@ $(document).ready(function(){
 
     $('.clean').click(function(){
 
-        if(getCookie("summer") == null){
-            setCookie("summer","summer",0);
-        }
         previousValue = '';
         $(".search_form").val(previousValue);
         colorArray($(".search_form").val(), function(){
@@ -216,11 +213,6 @@ function showDownloadPNG(){
 })();
 
 var previousValue = '';
-
-if(getCookie("summer") == null){
-    $(".search_form").val("C'est le premier jour d'été!");
-    colorArray("C'est le premier jour d'été!");
-}
 
 $(".search_form").bind('input propertychange keydown', function(e){
 
