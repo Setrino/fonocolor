@@ -5,6 +5,7 @@ title{
 #wrapper{
     width: 950px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 body {
@@ -224,7 +225,10 @@ article p{
 }
 
 .logo{
-    padding-top: 1.5em;
+    //padding-top: 1.5em;
+    position: relative;
+    bottom: 90px;
+
 }
 
 .comment a{
