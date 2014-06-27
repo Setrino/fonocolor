@@ -225,10 +225,7 @@ article p{
 }
 
 .logo{
-    //padding-top: 1.5em;
-    position: relative;
-    bottom: 90px;
-
+    padding-top: 1.5em;
 }
 
 .comment a{
