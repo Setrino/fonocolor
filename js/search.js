@@ -3,6 +3,8 @@ $(document).ready(function(){
     $("#download").bind(
         "click", savePNG
     );
+    console.log(location.href);
+    console.log(audioPath);
     audioRequest((location.href.indexOf('localhost') == -1) ? audioPath : '/fonocolor/sound/color', audioFiles, audioPath, preloadAudio);
 });
 
