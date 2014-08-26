@@ -3,7 +3,9 @@ $(document).ready(function(){
     $("#download").bind(
         "click", savePNG
     );
-    audioRequest(audioPath, audioFiles, audioPath, preloadAudio);
+    console.log(location.href);
+    console.log(audioPath);
+    audioRequest((location.href.indexOf('localhost') == -1) ? audioPath : 'fonocolor/sound/color', audioFiles, audioPath, preloadAudio);
 });
 
 var width = 700,

@@ -44,6 +44,7 @@ function audioRequest(path, object, audioPath, callback){
             if(msg == 'ERROR'){
                 $('.reply').html('Couldn\'t retrieve audio files');
             }else{
+                console.log(msg);
                 callback(jQuery.parseJSON(msg), object, audioPath);
             }
         }
