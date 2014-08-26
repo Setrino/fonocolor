@@ -40,7 +40,7 @@ function audioRequest(path, object, audioPath, callback){
     $.ajax({
         type: "POST",
         url: "php/requests.php",
-        data: {filepath: '/var/www/fonocolor/color/'},
+        data: {filepath: '/fonocolor/sound/color'},
         success: function(msg){
 
             if(msg == 'ERROR'){
