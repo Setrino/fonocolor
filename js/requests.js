@@ -35,12 +35,10 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
 
 function audioRequest(path, object, audioPath, callback){
 
-    console.log(path);
-
     $.ajax({
         type: "POST",
         url: "php/requests.php",
-        data: {filepath: '/fonocolor/sound/color'},
+        data: {filepath: path},
         success: function(msg){
 
             if(msg == 'ERROR'){
