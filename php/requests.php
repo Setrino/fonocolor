@@ -800,7 +800,7 @@ if(isset($_POST['filepath'])){
     $audioFiles = scandir($_SERVER['DOCUMENT_ROOT'].$path);
 
     if(sizeof($audioFiles) > 0){
-        echo $_SERVER['DOCUMENT_ROOT'].$path;
+        echo $audioFiles;
     }else{
         echo 'ERROR';
     }
