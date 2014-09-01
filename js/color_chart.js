@@ -31,8 +31,8 @@ var width = 830,
 //prebuffered object of audio files
     vowelsAudio = {},
 //path to audio files
-    consonantPath = 'sound/consonant/',
-    vowelPath = 'sound/vowel/';
+    consonantPath = '/sound/consonant/',
+    vowelPath = '/sound/vowel/';
 //and two-dimensional graphic context of the
 //canvas, the only one supported by all
 //browsers for now
