@@ -475,7 +475,12 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                    //H 9, but havent found it yet
                    }else if($tempPh == 'H 9' || $ph == 'w' || $ph == '9' || $ph == 'j'){
 
-                       return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPh, false,  $begin, $wordLength);
+                       if($tempPh == 'w a'){
+                           addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
+                           return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false, $begin,  $wordLength);
+                       }else{
+                           return recursiveWordCheck($phArrayTail, $arrayTail, $colorArray, $c, $tempGr, $tempPh, false,  $begin, $wordLength);
+                       }
                    }else{
                        addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                        return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false, $begin,  $wordLength);
