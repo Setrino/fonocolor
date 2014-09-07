@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("#download").bind(
         "click", savePNG
     );
-    audioRequest((location.href.indexOf('localhost') == -1) ? audioPath : '/fonocolor/sound/color', audioFiles, audioPath, preloadAudio);
+    audioRequest(audioPath, audioFiles, audioPath, preloadAudio);
 });
 
 var width = 700,
@@ -24,7 +24,7 @@ c.height = height;
 var pixel_size = 43,
     point_size = pixel_size * 72 / 96,
     audioFiles = {},
-    audioPath = '/sound/color/',
+    audioPath = '/fonocolor/sound/color/',
     snd = null,
     dragging = false,
     lastY = 0,
@@ -444,7 +444,9 @@ function collides(event, single){
                         buffer.nextTrack();
                     });
                 }catch(e){
-                    $('.reply').html('Missing audio file for ' + temp);
+                    if(temp != 'undefined' && temp != 'null'){
+                        $('.reply').html('Missing audio file for ' + temp);
+                    }
                 }
             }
         },
