@@ -801,11 +801,12 @@ if(isset($_POST['name'])){
 
 if(isset($_POST['filepath'])){
 
+    $temp = getcwd();
     $path = $_POST['filepath'];
-    $audioFiles = scandir($_SERVER['DOCUMENT_ROOT'].$path);
+    $audioFiles = scandir(substr($temp, 0, strlen($temp) - 3).$path);
 
     if(sizeof($audioFiles) > 0){
-        echo $_SERVER['DOCUMENT_ROOT'];
+        echo json_encode($audioFiles);
     }else{
         echo 'ERROR';
     }
