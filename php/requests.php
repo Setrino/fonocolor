@@ -805,7 +805,7 @@ if(isset($_POST['filepath'])){
     $audioFiles = scandir($_SERVER['DOCUMENT_ROOT'].$path);
 
     if(sizeof($audioFiles) > 0){
-        echo json_encode($audioFiles);
+        echo $_SERVER['DOCUMENT_ROOT'];
     }else{
         echo 'ERROR';
     }
