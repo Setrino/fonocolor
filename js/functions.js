@@ -8,8 +8,12 @@ $(document).ready(function(){
 
         fullScreenOn();
         fullScreen = 1;
-        fullScreenApi.requestFullScreen(document.getElementById("canvas"));
-        $("#canvas").css("margin-top", 0);
+        fullScreenApi.requestFullScreen(document.getElementById("scroll_canvas"));
+        $("#scroll_canvas").css({'margin-top': '40px',
+                                 'width': '100%',
+                                 'height': '100%',
+                                 'bottom': 0
+        });
     });
 
     $(".comment_full_screen").click(function(){
@@ -66,10 +70,10 @@ $(document).ready(function(){
     });
 
     $(".search_form").scroll(function(){
-       $(".scroll_canvas").scrollTop($(this).scrollTop() * 1.27);
+       $("#scroll_canvas").scrollTop($(this).scrollTop() * 1.27);
     });
 
-    $(".search_form, .scroll_canvas").bind({
+    $(".search_form, #scroll_canvas").bind({
 
         mouseenter: function(){
             scroll = false;
@@ -79,7 +83,7 @@ $(document).ready(function(){
         }
     });
 
-    $(".scroll_canvas").css("bottom", canvasTopMargin);
+    $("#scroll_canvas").css("bottom", canvasTopMargin);
 
     $('.clean').click(function(){
 

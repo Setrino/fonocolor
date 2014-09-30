@@ -401,6 +401,12 @@ function fullScreenOn(){
 
 function fullScreenOff(){
 
+    $("#scroll_canvas").css({
+        'margin-top': '0',
+        'bottom': '141px',
+        'width': '700px',
+        'height': '148px'
+    });
     c.height = (full_screen_height > height) ? full_screen_height : height;
     c.width = width;
     //$("#canvas").css("margin-top", canvasMarginTop);
