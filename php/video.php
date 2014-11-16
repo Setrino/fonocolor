@@ -1,1 +1,1 @@
-<div class="video"> <a href="#" class="video_skip">Fermer vidéo >></a> <video id="videoFile" controls style="width:640px;height:360px;" poster="images/logo.png"> <source src="" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'/> </video> </div>
+<div class="video"> <a href="#" class="video_skip">Fermer la vidéo >></a> <video id="videoFile" controls style="width:640px;height:360px;" poster="images/logo.png"> <source src="" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'/> </video> </div>
