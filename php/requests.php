@@ -339,7 +339,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
     else{
         //Check if the last phoneme is @, and if so, replace with the color of the previous value
         // && $clArrayLength > 2 && $colorArray[$wordLength + $begin - 2][0] != 'u'
-       if($arrayLength < 4 && $phonemesArray[0] == '@' && $phArrayLength == 1 && $gr == null && ($wordLength > 3 || $colorArray[0][0] == 'â'
+       if($arrayLength < 4 && $phonemesArray[0] == '@' && $phArrayLength == 1 && $gr == null && ($wordLength > 2 || $colorArray[0][0] == 'â'
            || $colorArray[0][0] == 'î')){
 
            if($ph != null && $gr != null){
