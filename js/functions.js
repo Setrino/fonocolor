@@ -124,15 +124,15 @@ $(document).ready(function(){
     $('.filter_drop').click(function(){
         $(this).find('img').toggleClass(function(){
             if($(this).attr('class') == 'rotate'){
-                $(this).removeClass('rotate');
                 $(".overlayFilter").animate({height: '0', top: '+=150'}, 1000);
+                $(this).removeClass('rotate');
                 setTimeout(function(){
                     $('.closeFilter, .overlayFilterContent').css('display', 'none');
                 }, 900);
                 return 'rotate_back';
             }else{
-                $(this).removeClass('rotate_back');
                 $(".overlayFilter").animate({height: '150', top: '-=150'}, 1000);
+                $(this).removeClass('rotate_back');
                 $('.closeFilter, .overlayFilterContent').css('display', 'block');
                 return 'rotate';
             }
