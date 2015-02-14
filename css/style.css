@@ -377,6 +377,7 @@ article p{
 }
 
 .closeFilter{
+    cursor: pointer;
     display: none;
     left: 84%;
 }
