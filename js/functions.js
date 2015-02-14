@@ -121,6 +121,16 @@ $(document).ready(function(){
         });
     });
 
+    $('.closeFilter').click(closeFilter);
+
+    function closeFilter(){
+        $(".overlayFilter").animate({height: '0', top: '+=150'}, 1000);
+        $('.filter_drop img').removeClass('rotate').addClass('rotate_back');
+        setTimeout(function(){
+            $('.closeFilter, .overlayFilterContent').css('display', 'none');
+        }, 900);
+    }
+
     $('.filter_drop').click(function(){
         $(this).find('img').toggleClass(function(){
             if($(this).attr('class') == 'rotate'){
