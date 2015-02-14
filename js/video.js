@@ -32,7 +32,7 @@ function hideVideo(){
     $("#header_wrapper").css("display", "block");
     $(".body_wrapper").css("display", "block");
     $(".video").css("display", "none");
-    $(".search_form").css("margin-left", ( $("#enter").width() - $(".search_form").width() ) / 2 - 20 );
+    $(".search_form").css("margin-left", 7);
     $(".search_form").css("margin-top", ( $("#enter").height() - $(".search_form").height() ) / 2 );
     setCookie("video_view","video_view",0);
 };

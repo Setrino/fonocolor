@@ -47,11 +47,14 @@ $(document).ready(function(){
     $("#answer").css("margin-left", $("#phonetic").width() / 2 - 97 / 2);
     $("#answer").css("margin-top", - 19 / 2);
 
-    $(".search_form").css("margin-left", ( $("#enter").width() - $(".search_form").width() ) / 2 - 20 );
+    $(".search_form").css("margin-left", 7);
     $(".search_form").css("margin-top", ( $("#enter").height() - $(".search_form").height() ) / 2 );
 
     $(".search_output").css("left", ( $("#result").width() - $(".search_output").width() ) / 2 );
     $(".search_output").css("margin-top", ( $("#result").height() - $(".search_output").height() ) / 2 - 5 );
+
+    $(".overlayFilter").css("left", $("#enter").offset().left);
+    $(".overlayFilter").css("top", $("#enter").offset().top);
 
     /*if(window.location.pathname == '/pourquoi.html'){
         $('.logo').css('bottom', '50');
@@ -67,6 +70,28 @@ $(document).ready(function(){
             lastScrollValue = 0;
             $(this).scrollTop();
         }
+    });
+
+    $("#voyelle").change(function() {
+        if(this.checked) {
+            setVoyelle(true);
+        }else{
+            setVoyelle(false);
+        }
+        drawArray();
+    });
+
+    $("#consonnes").change(function() {
+        if(this.checked) {
+            setConsonnes(true);
+        }else{
+            setConsonnes(false);
+        }
+        drawArray();
+    });
+
+    $(window).resize(function() {
+        $(".overlayFilter").css("left", $("#enter").offset().left);
     });
 
     $(".search_form").scroll(function(){
@@ -93,6 +118,24 @@ $(document).ready(function(){
             resetCanvas();
             hideFullScreen();
             hideDownloadPNG();
+        });
+    });
+
+    $('.filter_drop').click(function(){
+        $(this).find('img').toggleClass(function(){
+            if($(this).attr('class') == 'rotate'){
+                $(this).removeClass('rotate');
+                $(".overlayFilter").animate({height: '0', top: '+=150'}, 1000);
+                setTimeout(function(){
+                    $('.closeFilter, .overlayFilterContent').css('display', 'none');
+                }, 900);
+                return 'rotate_back';
+            }else{
+                $(this).removeClass('rotate_back');
+                $(".overlayFilter").animate({height: '150', top: '-=150'}, 1000);
+                $('.closeFilter, .overlayFilterContent').css('display', 'block');
+                return 'rotate';
+            }
         });
     });
 

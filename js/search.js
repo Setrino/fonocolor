@@ -16,7 +16,9 @@ var width = 700,
 //canvas itself
     ctx = c.getContext('2d');
     ctx.font = 'fundamental__brigade_schwerRg',
-    clicks = 0;
+    clicks = 0,
+    voyelle = true,
+    consonne = true;
 
 c.width = width;
 c.height = height;
@@ -35,6 +37,17 @@ var pixel_size = 43,
     previousLength = 0,
     coloredBlockHeight = 0,
     INCREASE_MULTIPLIER = 1.11;
+
+
+function setVoyelle(value){
+    voyelle = value;
+}
+
+
+
+function setConsonnes(value){
+    consonne = value;
+}
 
 function drawRectangle(){
 
@@ -249,8 +262,16 @@ function drawArray(){
 
                 if(letter != undefined){
 
+                    var color1 = currentWordArray[j][1];
+                    var color2 = currentWordArray[j][2];
+
+                    if(currentWordArray[j][3] == 'c' && !consonne || currentWordArray[j][3] == 'v' && !voyelle){
+                        color1 = '#FFFFFF';
+                        color2 = undefined;
+                    }
+
                     ctx.beginPath();
-                    drawText(3 + offsetX, pixel_size, letter, currentWordArray[j][1], currentWordArray[j][2],
+                    drawText(3 + offsetX, pixel_size, letter, color1, color2,
                         xDistance, yMultiplier, i);
                     ctx.closePath();
                     xDistance += ctx.measureText(letter).width;
