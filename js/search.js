@@ -86,7 +86,6 @@ function catchColor(array, i, offsetX, yMultiplier, length){
     textArray[i][1] = jQuery.parseJSON(array);
     textArray[i][2] = yMultiplier;
     var currentWordArray = textArray[i][1];
-    console.log(currentWordArray);
 
     for(var j = 0; j < currentWordArray.length; j++){
 
