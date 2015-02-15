@@ -355,9 +355,11 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                 $colorArray[$lastLetter - 1][1] = $colorArray[$lastLetter - 2][1];
                 $colorArray[$lastLetter - 1][2] = $colorArray[$lastLetter - 2][2];
+                $colorArray[$lastLetter - 1][3] = 'c';
             }else{
 
                 $colorArray[$lastLetter - 1][1] = $colorArray[$lastLetter - 2][1];
+                $colorArray[$lastLetter - 1][3] = 'c';
             }
 
             return $colorArray;
