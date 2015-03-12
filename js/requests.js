@@ -49,3 +49,20 @@ function audioRequest(path, object, audioPath, callback){
         }
     });
 }
+
+function generatePDF(pdfConfig, callback){
+
+    $.ajax({
+        type: "POST",
+        url: "php/requests.php",
+        data: {pdf: pdfConfig},
+        success: function(msg){
+
+            if(msg == 'ERROR'){
+                $('.reply').html('Couldn\'t generate PDF ');
+            }else{
+                callback(jQuery.parseJSON(msg), object, audioPath);
+            }
+        }
+    });
+}

@@ -181,6 +181,7 @@ function colorArray(text, callback){
 
     //Sentence
         var splitArray = text.split(" ");
+        //temp.replace(/oe/gi, "œ");
         //console.log(text.search(/\r\n|\n|\r/g));
         var splitArrayL = splitArray.length;
 
@@ -201,6 +202,7 @@ function colorArray(text, callback){
         functionToLoop : function(loop, i){
 
                 var temp = splitArray[i];
+                temp = temp.replace(/oe/gi, "œ");
 
                 textArray[i] = {};
                 textArray[i][0] = temp;
@@ -453,6 +455,7 @@ function collides(event, single){
     if(snd){snd.pause();}
     var x = event.pageX - $('#canvas').offset().left;
     var y = event.pageY - $('#canvas').offset().top;
+    var previous = null;
     var buffer = {
 
         buffer : [],
@@ -464,11 +467,15 @@ function collides(event, single){
             if(this.buffer.length != 0){
                 var temp = this.buffer.shift();
                 snd = audioFiles[temp];
+                //console.log(snd.readyState);
                 try{
                     snd.play();
                     snd.addEventListener("ended", function()
                     {
-                        buffer.nextTrack();
+                        if(previous != temp){
+                            previous = temp;
+                            buffer.nextTrack();
+                        }
                     });
                 }catch(e){
                     if(temp != 'undefined' && temp != 'null'){
@@ -482,6 +489,9 @@ function collides(event, single){
         },
         bufferLength : function(){
             return this.buffer.length;
+        },
+        bufferToArray : function(){
+            return $.makeArray(this.buffer);
         }
     }
     var textArrayLength = textArray.length;
@@ -517,6 +527,7 @@ function collides(event, single){
                         var soundTemp = (currentWord[j][1] + ((currentWord[j][2] != undefined) ? currentWord[j][2] : '')).replace(/#/g, "_");
                         if(soundTemp != location){
                             //console.log("Word " + textArray[i][0] + " " + soundTemp);
+                            //console.log(currentWord[j][0] + ' ' + soundTemp);
                             buffer.addTrack(soundTemp);
                         }
                         location = soundTemp;
