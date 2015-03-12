@@ -20,6 +20,7 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
                     callback(offsetX, ctx.measureText(text + " ").width);
                     loop();
                     //$('.reply').html(msg);
+                    //console.log(msg);
 
                 }catch(e){
 
