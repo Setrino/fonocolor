@@ -180,7 +180,7 @@ function colorArray(text, callback){
     //console.log(text);
 
     //Sentence
-        var splitArray = text.toString().split(" ");
+        var splitArray = text.split(" ");
         console.log(splitArray);
         //temp.replace(/oe/gi, "œ");
         //console.log(text.search(/\r\n|\n|\r/g));
@@ -191,7 +191,6 @@ function colorArray(text, callback){
             length = o.length;
 
         var loop = function(){
-            console.log("NA");
             i++;
             if(i==length){o.callback(); return;}
             o.functionToLoop(loop, i);
@@ -214,9 +213,7 @@ function colorArray(text, callback){
                     offsetX.value = 0;
                     setBlockHeight(yMultiplier);
                 }
-
                 if(temp != '±'){
-                    console.log(temp + ' ' + i);
                     searchRequest(temp, i, offsetX, yMultiplier, addOffSetX, loop, splitArrayL);
                 }else{
                     loop();

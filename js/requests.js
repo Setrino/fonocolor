@@ -2,6 +2,8 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
 
     $('.reply').html('<img src="images/preloader.gif" align="absmiddle">&nbsp;Fonocolorizing...');
 
+    console.log("Translate " + text);
+
     $.ajax({
         type: "POST",
         url: "php/requests.php",
@@ -51,7 +53,7 @@ function audioRequest(path, object, audioPath, callback){
     });
 }
 
-function generatePDF(pdfConfig, callback){
+/*function generatePDF(pdfConfig, callback){
 
     $.ajax({
         type: "POST",
@@ -66,4 +68,4 @@ function generatePDF(pdfConfig, callback){
             }
         }
     });
-}
+}*/
