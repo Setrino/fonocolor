@@ -191,6 +191,7 @@ function colorArray(text, callback){
             length = o.length;
 
         var loop = function(){
+            console.log("NA");
             i++;
             if(i==length){o.callback(); return;}
             o.functionToLoop(loop, i);
