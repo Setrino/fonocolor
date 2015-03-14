@@ -29,7 +29,7 @@ if(isset($_POST['text'])){
         if($firstLetter){
             $request[0][0] = mb_strtoupper($request[0][0], "UTF-8");
         }
-        echo json_encode($word);
+        echo json_encode($request);
         $firstLetter = false;
 
     }else{
