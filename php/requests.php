@@ -21,7 +21,6 @@ if(isset($_POST['text'])){
         $colorArray[$i][0] = $letterArray[$i];
     }
 
-    return $word;
     $request = retrieveWord($word, $letterArray, $colorArray);
 
     if(true){
@@ -30,7 +29,7 @@ if(isset($_POST['text'])){
         if($firstLetter){
             $request[0][0] = mb_strtoupper($request[0][0], "UTF-8");
         }
-        echo json_encode($request);
+        echo json_encode($word);
         $firstLetter = false;
 
     }else{
