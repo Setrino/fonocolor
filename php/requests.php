@@ -300,9 +300,8 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                 if($tempGr == 'ch' || $tempGr == 'th' || $tempGr == 'sh' || $tempGr == 'll' || $tempGr == 'hi' ||
                     ($tempGr == 'qu' && $letterArray[1] != 'a') ||
                     ($tempGr == 'ge' && $letterArray[1]. $letterArray[2] == 'ai') ||
-                    ($tempGr == 'gu' && $ph == 'g' && $phonemesArray[0] != 'H') ||
+                    ($tempGr == 'gu' && $ph == 'g' && $phonemesArray[0] != 'O' && $phonemesArray[0] != 'H') ||
                     ($tempGr == 'ui' && $ph == 'H i')){
-
                     addArrayColor(checkColor($ph), $ph, $c, strlen($tempGr), $colorArray);
                     return recursiveWordCheck($phonemesArray, $arrayTail, $colorArray, $c + mb_strlen($tempGr, "UTF-8"), null, null, false,  $begin, $wordLength);
                 }
@@ -327,7 +326,6 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
                         //catch neuf (n9f)
                         if((equalityRequest($letterArray[0] . $letterArray[1], $phonemesArray[0]) || equalityRequest($letterArray[0] . $letterArray[1] . $letterArray[2], $phonemesArray[0])) && $gr == $ph){
-
 
                             addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                             return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false,  $begin, $wordLength);
@@ -395,7 +393,7 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
                     }
                     //H 9, but havent found it yet
                 }else if($tempPh == 'H 9' || $ph == 'w' || $ph == '9' || $ph == 'j'){
-                    if($tempPh == 'w a' || $tempPh == 'j O'){
+                    if($tempPh == 'w a' || $tempPh == 'j O' || $gr == 'e'){
                         addArrayColor(checkColor($ph), $ph, $c, strlen($gr), $colorArray);
                         return recursiveWordCheck($phonemesArray, $letterArray, $colorArray, $c + mb_strlen($gr, "UTF-8"), null, null, false, $begin,  $wordLength);
                     }else{
