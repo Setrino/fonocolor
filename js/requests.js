@@ -19,8 +19,8 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
                     catchColor(msg, i, offsetX.value, yMultiplier, length);
                     callback(offsetX, ctx.measureText(text + " ").width);
                     loop();
-                    $('.reply').html(msg);
-                    //console.log(msg);
+                    //$('.reply').html(msg);
+                    console.log(msg + ' ' + i);
 
                 }catch(e){
 

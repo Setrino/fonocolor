@@ -214,8 +214,8 @@ function colorArray(text, callback){
                     setBlockHeight(yMultiplier);
                 }
 
-                console.log(temp + ' ' + textArray[i][0]);
                 if(temp != '±'){
+                    console.log(temp + ' ' + i);
                     searchRequest(temp, i, offsetX, yMultiplier, addOffSetX, loop, splitArrayL);
                 }else{
                     loop();
