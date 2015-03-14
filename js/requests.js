@@ -30,8 +30,9 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
                 }
             }
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert(textStatus+" - "+errorThrown);
+        error: function(error) {
+            console.log(error.responseText);
+            //alert(textStatus+" - "+errorThrown);
         }
     });
 }
