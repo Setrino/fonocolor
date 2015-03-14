@@ -21,6 +21,7 @@ if(isset($_POST['text'])){
         $colorArray[$i][0] = $letterArray[$i];
     }
 
+    return $word;
     $request = retrieveWord($word, $letterArray, $colorArray);
 
     if(true){
