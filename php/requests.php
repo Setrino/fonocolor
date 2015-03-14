@@ -41,6 +41,10 @@ if(isset($_POST['text'])){
 //Check whether a word with such spelling exists. If yes, return its phonetic state
 function retrieveWord($text, $letterArray, &$colorArray){
 
+    if($text == ''){
+        return array();
+    }
+
     $text = str_replace(array("’"), array('\''), $text);
 
     $arrayLength = sizeof($letterArray);

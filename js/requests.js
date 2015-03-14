@@ -1,9 +1,7 @@
 function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
 
     $('.reply').html('<img src="images/preloader.gif" align="absmiddle">&nbsp;Fonocolorizing...');
-
-    console.log("Translate " + text);
-
+    
     $.ajax({
         type: "POST",
         url: "php/requests.php",
@@ -30,9 +28,8 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
                 }
             }
         },
-        error: function(error) {
-            console.log(error.responseText);
-            //alert(textStatus+" - "+errorThrown);
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(textStatus+" - "+errorThrown);
         }
     });
 }
