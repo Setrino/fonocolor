@@ -1,7 +1,7 @@
 function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
 
     $('.reply').html('<img src="images/preloader.gif" align="absmiddle">&nbsp;Fonocolorizing...');
-    
+
     $.ajax({
         type: "POST",
         url: "php/requests.php",
@@ -20,7 +20,7 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
                     callback(offsetX, ctx.measureText(text + " ").width);
                     loop();
                     //$('.reply').html(msg);
-                    console.log(msg + ' ' + i);
+                    //console.log(msg + ' ' + i);
 
                 }catch(e){
 

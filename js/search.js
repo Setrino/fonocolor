@@ -181,7 +181,6 @@ function colorArray(text, callback){
 
     //Sentence
         var splitArray = text.split(" ");
-        console.log(splitArray);
         //temp.replace(/oe/gi, "œ");
         //console.log(text.search(/\r\n|\n|\r/g));
         var splitArrayL = splitArray.length;
