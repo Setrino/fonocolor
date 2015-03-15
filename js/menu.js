@@ -38,7 +38,7 @@ $(document).ready(function(){
                 if(window.location.hostname == 'localhost'){
                     window.open('/fonocolor', '_self');
                 }else{
-                    window.open(window.location.hostname, '_self');
+                    window.open('/', '_self');
                 }
             }, 400);
         }else{
