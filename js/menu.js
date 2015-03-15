@@ -24,15 +24,22 @@ $(document).ready(function(){
             var flipper = $(v);
             var image = references[image_id];
             flipper.css('transform', 'rotateY(180deg)');
-            if(image[k]){
+            if(image && image[k]){
                 flipper.find('.back').append(image[k]);
             }else{
-                flipper.css('display', 'none');
+                setTimeout(function(){
+                    flipper.css('display', 'none');
+                }, 400);
             }
         });
+
         if(image_id == 'colorize'){
             setTimeout(function(){
-                window.open('/fonocolor', '_self');
+                if(window.location.hostname == 'localhost'){
+                    window.open('/fonocolor', '_self');
+                }else{
+                    window.open(window.location.hostname, '_self');
+                }
             }, 400);
         }else{
             $('.back_arrow').css({
