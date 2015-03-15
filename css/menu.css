@@ -1,0 +1,64 @@
+#header_wrapper{
+    padding-bottom: 2em;
+}
+
+.menu_line{
+    padding: 1em 0 1em 0;
+}
+
+.menu_line img{
+    padding: 0 1em 0 1em;
+    cursor: pointer;
+}
+
+.back_arrow{
+    display: block;
+    height: 32px;
+    width: 32px;
+    background: url("../images/menu/back_arrow.png");
+    margin: 0 auto;
+    margin-left: 36%;
+    opacity: 0;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+    margin: 0 auto;
+    margin: 0 0.2em 0 0.2em;
+    perspective: 1000;
+}
+
+.flip-container, .front, .back {
+    width: 215px;
+    height: 185px;
+    display: inline-block;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
