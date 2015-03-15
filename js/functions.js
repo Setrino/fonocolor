@@ -53,8 +53,9 @@ $(document).ready(function(){
     $(".search_output").css("left", ( $("#result").width() - $(".search_output").width() ) / 2 );
     $(".search_output").css("margin-top", ( $("#result").height() - $(".search_output").height() ) / 2 - 5 );
 
-    $(".overlayFilter").css("left", $("#enter").offset().left);
-    $(".overlayFilter").css("top", $("#enter").offset().top);
+
+
+
 
     /*if(window.location.pathname == '/pourquoi.html'){
         $('.logo').css('bottom', '50');
@@ -88,10 +89,6 @@ $(document).ready(function(){
             setConsonnes(false);
         }
         drawArray();
-    });
-
-    $(window).resize(function() {
-        $(".overlayFilter").css("left", $("#enter").offset().left);
     });
 
     $(".search_form").scroll(function(){
@@ -175,6 +172,7 @@ $(document).ready(function(){
 //fileName - e.g. _087292.wav
 //audioFiles - object with preloaded audio files
 function preloadAudio(array, object, audioPath){
+    console.log(location.href.indexOf('localhost'));
     array.splice(0, (location.href.indexOf('localhost') == -1) ? 2 : 3);
     for(var path in array){
         var fileName = array[path];

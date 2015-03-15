@@ -138,6 +138,7 @@ ul#header_links li a{
     margin-top: 0.5em;
     margin-left: 0.5em;
     float:left;
+    cursor: pointer;
 }
 
 .rotate{
@@ -372,7 +373,7 @@ article p{
     position: relative;
     width: 16px;
     height: 16px;
-    left: 41%;
+    left: 47%;
     top: 5px;
 }
 
