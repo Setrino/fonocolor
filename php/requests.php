@@ -266,15 +266,17 @@ function recursiveWordCheck($phonemesArray, $letterArray, &$colorArray, $c, $gr,
 
             //return $lastLetter . ' ' . $c . ' ' . $wordLength . ' ' . $colorArray[$lastLetter - 1][0];
 
-            if($colorArray[$lastLetter - 2][2]){
-
-                $colorArray[$lastLetter - 1][1] = $colorArray[$lastLetter - 2][1];
-                $colorArray[$lastLetter - 1][2] = $colorArray[$lastLetter - 2][2];
-                $colorArray[$lastLetter - 1][3] = $colorArray[$lastLetter - 2][3];
+            if($colorArray[$c - 1][2]){
+                for($i = $c; $i < $wordLength; $i++){
+                    $colorArray[$i][1] = $colorArray[$c - 1][1];
+                    $colorArray[$i][2] = $colorArray[$c - 1][2];
+                    $colorArray[$i][3] = $colorArray[$c - 1][3];
+                }
             }else{
-
-                $colorArray[$lastLetter - 1][1] = $colorArray[$lastLetter - 2][1];
-                $colorArray[$lastLetter - 1][3] = $colorArray[$lastLetter - 2][3];
+                for($i = $c; $i < $wordLength; $i++){
+                    $colorArray[$i][1] = $colorArray[$c - 1][1];
+                    $colorArray[$i][3] = $colorArray[$c - 1][3];
+                }
             }
 
             return $colorArray;

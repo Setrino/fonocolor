@@ -172,7 +172,6 @@ $(document).ready(function(){
 //fileName - e.g. _087292.wav
 //audioFiles - object with preloaded audio files
 function preloadAudio(array, object, audioPath){
-    console.log(location.href.indexOf('localhost'));
     array.splice(0, (location.href.indexOf('localhost') == -1) ? 2 : 3);
     for(var path in array){
         var fileName = array[path];
