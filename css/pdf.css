@@ -1,0 +1,392 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    font-size: 0.4cm;
+}
+
+h1{
+    color: #df8900;
+    font-size: 0.84663626cm;
+}
+
+h4{
+    font-weight: normal;
+}
+
+.red-italic{
+    color: #df0000;
+    font-style: italic;
+}
+
+.gray-italic{
+    color: #888888;
+    font-style: italic;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+#move_top{
+    position: fixed;
+    height: 100%;
+    width: 150px;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    cursor: pointer;
+    background: url('../img/up_arrow_page.png') no-repeat bottom;
+    margin-bottom: 12px;
+}
+
+#move_top:hover{
+    background: url('../img/up_arrow_page_hover.png') no-repeat bottom;
+}
+
+#download_pdf{
+    position: fixed;
+    height: 31px;
+    width: 31px;
+    bottom: 0px;
+    margin-bottom: 12px;
+    right: 150px;
+    z-index: 50;
+    cursor: pointer;
+    background: url('../img/download_icon.png') no-repeat;
+}
+
+#download_pdf:hover{
+    background: url('../img/download_icon_hover.png') no-repeat;
+}
+
+/* Canvas styling */
+
+canvas{
+    display: block;
+    margin: 0 auto;
+}
+
+#pies{
+    position: relative;
+    margin: 0;
+    padding-top: 5.5cm;
+    left: -12px;
+    float: left;
+    border: none !important;
+}
+
+#arcs{
+    border: none !important;
+}
+
+#spider{
+    border: none !important;
+}
+
+#arcs2{
+    border: none !important;
+}
+
+#pies5{
+    border: none !important;
+    position: relative;
+    top: 0.5cm;
+}
+
+#bars_short{
+    float: right;
+    position: relative;
+    right: 0.84663626cm;
+    border: none !important;
+}
+
+#table_one, #table_two{
+    position: relative;
+    top: 1.69327252cm;
+    border: none !important;
+}
+
+#plan_text{
+    float: left;
+    position: relative;
+    left: 0.84663626cm;
+    bottom: 0.5cm;
+    width: 8cm;
+}
+
+/* End canvas styling */
+
+.page {
+    width: 21cm;
+    height: 29.7cm;
+    padding: 0.846774194cm;
+    margin: 1cm auto;
+    border: 1px #D3D3D3 solid;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.subpage {
+    position: relative;
+    height: 279.306451612mm;
+    /*
+    border: 1px solid red;
+    outline: 0.846774194cm #FFEAEA solid;
+    */
+}
+
+/* Style images */
+
+.logo{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 1.69327252cm;
+}
+
+.small_img{
+    padding-left: 0.8cm;
+    padding-top: 1.015963512cm;
+    height: 70px;
+}
+
+.badge_block{
+    display: inline-block;
+    position: relative;
+    width: 70%;
+    float: left;
+}
+
+.pot_man{
+    display: block;
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: url("../img/pot_man.png") no-repeat;
+    margin: 66px 26px 0px 28px;
+}
+
+/* End style images */
+
+.top_neg_6{
+    position: relative;
+    top: -7px;
+    left: -1px;
+    z-index: 5;
+}
+
+.title{
+    left: -2px;
+    margin: 0;
+}
+
+.profile_of{
+    padding-top: 0.84663626cm;
+    top: -11px;
+}
+
+.middle_title{
+    font-size: 0.5cm;
+    padding-top: 2.31cm;
+    text-align: center;
+}
+
+.inner_middle{
+    position: relative;
+    padding-top: 1.69327252cm;
+    font-size: 0.5cm;
+    padding-left: 0.8cm;
+    text-align: left;
+
+}
+
+.text{
+    padding-top: 0.64cm;
+    width: 17.612903226cm;
+    margin: 0 auto;
+}
+
+.page_number{
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+}
+
+.date{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* Specific style */
+
+.peld{
+    position: absolute;
+    padding-left: 0.8cm;
+    top: 24.552451539cm;
+    color: #888888;
+    font-size: 0.5cm;
+}
+
+.hermann{
+    padding-bottom: 2cm;
+}
+
+.spider_keys{
+    margin: 0 0.84663626cm;
+}
+
+.spider_key_inner{
+    margin: auto;
+    width: 50%;
+    padding-top: 0.42331813cm;
+    float: left;
+}
+
+.spider_text{
+    padding-left: 10px;
+    line-height: 160%;
+}
+
+.spider_circle{
+    display: block;
+    height: 0.7cm;
+    width: 0.7cm;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 50%;
+    float: left;
+    -webkit-print-color-adjust:exact;
+}
+
+/* End specific style */
+
+/* General style */
+
+.bold{
+}
+
+.padding-top-8{
+    padding-top: 0.9cm;
+}
+
+.no-top{
+    padding-top: 0;
+}
+
+.one-line{
+    margin: 0 0.84663626cm;
+}
+
+.one-line h4{
+    margin: 0;
+    float: left;
+    line-height: 180%;
+}
+
+.one-line img{
+    float: right;
+    height: 0.84663626cm;
+}
+
+.one-and-half{
+    padding-top: 1.26995439cm;
+}
+
+.three{
+    padding-top: 2.53990878cm;
+}
+
+.two{
+    padding-top: 1.69327252cm;
+}
+
+.one{
+    padding-top: 0.84663626cm;
+}
+
+.one_p{
+    margin-top: 0.64cm;
+}
+
+.half{
+    padding-top: 0.42331813cm;
+}
+
+.thousand{
+    padding-top: 4.5cm;
+}
+
+.sixhundred{
+    padding-top: 2.31cm;
+}
+
+.sixhundred_p{
+    margin-top: 2.31cm;
+}
+
+.font-3{
+    font-size: 0.4cm;
+}
+
+.font-5{
+    font-size: 0.5cm;
+}
+
+.orange{
+    color: #df8900;
+}
+
+.b_orange{
+    background-color: #df8900;
+    -webkit-print-color-adjust:exact;
+}
+
+.b_red{
+    background-color: #ea5c5c;
+    -webkit-print-color-adjust:exact;
+}
+
+.b_blue{
+    background-color: #5cbaea;
+    -webkit-print-color-adjust:exact;
+}
+
+.b_violet{
+    background-color: #a95cea;
+    -webkit-print-color-adjust:exact;
+}
+
+.clear{
+    clear: both;
+}
+
+/* End general style */
+
+@page {
+    size: A4;
+    margin: 0;
+}
+@media print {
+    .page {
+        margin: 0;
+        page-break-after: always;
+    }
+}
+
+/*
+.lines {
+    background-size: 0.84663626cm 0.84663626cm;
+    background-image:repeating-linear-gradient(0deg, #000, #000 1px, transparent 1px, transparent 0.84663626cm),repeating-linear-gradient(-90deg, #000, #000 1px, transparent 1px, transparent 0.84663626cm);
+    height:100%;
+    width:100%;
+    opacity:0.14;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:0;
+}
+*/

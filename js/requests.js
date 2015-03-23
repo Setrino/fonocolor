@@ -29,7 +29,7 @@ function searchRequest(text, i, offsetX, yMultiplier, callback, loop, length){
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert(textStatus+" - "+errorThrown);
+            $('.reply').html(textStatus+" - "+errorThrown);
         }
     });
 }

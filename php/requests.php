@@ -13,6 +13,7 @@ if(isset($_POST['text'])){
         $firstLetter = true;
         $word = mb_strtolower($word, "UTF-8");
     };
+    $word = str_replace(array("’"), array('\''), $word);
     $letterArray = str_split_utf8($word);
     $colorArray = array();
 
@@ -45,19 +46,17 @@ function retrieveWord($text, $letterArray, &$colorArray){
         return array();
     }
 
-    $text = str_replace(array("’"), array('\''), $text);
-
     $arrayLength = sizeof($letterArray);
 
     //Check whether the alphanumeric value is an escape character (non-letter or number)
     if(preg_match('~([^\A-Z0-9ÀÁÅÃÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿœæ ])~i', $text)){
 
-        if(substr_count($text, "-") > 0){
+        /*if(substr_count($text, "-") > 0){
 
             if($phonemesArrayFull = checkHyphen($text)){
                 return hyphenatedWord($text, $letterArray, $colorArray, strrpos($text, "-"), $phonemesArrayFull);
             }
-        }
+        }*/
 
         $counterL = 0;
         $beginPhonetic = 0;

@@ -86,7 +86,7 @@ List example:
 	<li><i>italic text</i></li>
 	<li><u>underlined text</u></li>
 	<li><b>b<i>bi<u>biu</u>bi</i>b</b></li>
-	<li><a href="http://www.tecnick.com" dir="ltr">link to http://www.tecnick.com</a></li>
+	<li><a href="http://www.tecnick.com" dir="ltr"></a></li>
 	<li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<br />Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</li>
 	<li>SUBLIST
 		<ol>
