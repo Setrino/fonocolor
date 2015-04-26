@@ -15,3 +15,9 @@ FileETag MTime Size
 <filesmatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|wav|mp4|ico|swf)$">
 Header set Expires "Sat, 27 Dec 2015 23:59:59 GMT"
 </filesmatch>
+
+#remove html tag
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteRule ^pdf.html php/pdf.php

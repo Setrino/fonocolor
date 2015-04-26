@@ -51,19 +51,16 @@ function audioRequest(path, object, audioPath, callback){
     });
 }
 
-/*function generatePDF(pdfConfig, callback){
+function generatePDF(textArray, callback){
+
+    var json = JSON.stringify(textArray);
 
     $.ajax({
         type: "POST",
         url: "php/requests.php",
-        data: {pdf: pdfConfig},
+        data: {textArray: json},
         success: function(msg){
-
-            if(msg == 'ERROR'){
-                $('.reply').html('Couldn\'t generate PDF ');
-            }else{
-                callback(jQuery.parseJSON(msg), object, audioPath);
-            }
+                callback(msg);
         }
     });
-}*/
+}

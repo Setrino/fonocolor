@@ -2,7 +2,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #FAFAFA;
-    font-size: 0.4cm;
+    font-size: 1cm;
+    color: #FFFFFF;
+    font-family: 'fundamental__brigade_schwerRg';
 }
 
 h1{
@@ -12,6 +14,14 @@ h1{
 
 h4{
     font-weight: normal;
+}
+
+footer{
+    position: absolute;
+    height: 2.7cm;
+    width: 100%;
+    bottom: 0;
+    display: block;
 }
 
 .red-italic{
@@ -24,9 +34,32 @@ h4{
     font-style: italic;
 }
 
+.yellow_text{
+    color: #eded3b;
+}
+
+.yellow_b{
+    border:solid 3px #eded3b;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
 * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
+}
+
+.small{
+    font-size: 1.1cm;
+}
+
+.medium{
+    font-size: 1.4cm;
+}
+
+.large{
+    font-size: 1.6cm;
 }
 
 #move_top{
@@ -37,12 +70,12 @@ h4{
     right: 0;
     z-index: 50;
     cursor: pointer;
-    background: url('../img/up_arrow_page.png') no-repeat bottom;
+    background: url('../images/pdf/up_arrow_page.png') no-repeat bottom;
     margin-bottom: 12px;
 }
 
 #move_top:hover{
-    background: url('../img/up_arrow_page_hover.png') no-repeat bottom;
+    background: url('../images/pdf/up_arrow_page_hover.png') no-repeat bottom;
 }
 
 #download_pdf{
@@ -50,15 +83,149 @@ h4{
     height: 31px;
     width: 31px;
     bottom: 0px;
+    height: 30px;
     margin-bottom: 12px;
     right: 150px;
     z-index: 50;
     cursor: pointer;
-    background: url('../img/download_icon.png') no-repeat;
+    background: url('../images/download.png') no-repeat;
 }
 
 #download_pdf:hover{
-    background: url('../img/download_icon_hover.png') no-repeat;
+    background: url('../images/download.png') no-repeat;
+}
+
+#template_selector{
+    background-color: #000000;
+    position: fixed;
+    height: 280px;
+    width: 200px;
+    bottom: 0px;
+    left: 0;
+    z-index: 50;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#template_selector > span{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 0.4cm;
+    margin-top: 15px;
+}
+
+.templates{
+    height: 60px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.template{
+    display: inline-block;
+    height: 58px;
+    cursor: pointer;
+}
+
+.template:first-child{
+
+}
+
+.text_size{
+    position: relative;
+    width: 100%;
+    height: 90px;
+}
+
+.text_size > span{
+    display: inline-block;
+    width: 29%;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.checks{
+}
+
+.checkboxes {
+    left: -1.8em;
+    width: 28px;
+    height: 28px;
+    background: #fcfff4;
+
+    background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+    margin: 20px auto;
+
+    -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.checkboxes input{
+    display: none;
+}
+
+.checkboxes label {
+    cursor: pointer;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 4px;
+    top: 4px;
+    text-indent: 40px;
+    font-size: 20px;
+
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+
+    background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+    background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+    background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+    background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+    background: linear-gradient(top, #222 0%, #45484d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+}
+
+.checkboxes label:after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 5px;
+    background: transparent;
+    top: 4px;
+    left: 4px;
+    border: 3px solid #fcfff4;
+    border-top: none;
+    border-right: none;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.checkboxes input[type=checkbox]:checked + label:after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
 }
 
 /* Canvas styling */
@@ -127,20 +294,26 @@ canvas{
     border-radius: 5px;
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #000000;
+
 }
 .subpage {
     position: relative;
     height: 279.306451612mm;
-    /*
+    background-color: #000000;
+/*
     border: 1px solid red;
     outline: 0.846774194cm #FFEAEA solid;
-    */
+*/
+
 }
 
 /* Style images */
 
 .logo{
-    position: absolute;
+    position: relative;
+    margin: 0 auto;
+    display: block;
     right: 0;
     top: 0;
     height: 1.69327252cm;
@@ -165,7 +338,7 @@ canvas{
     float: left;
     width: 100px;
     height: 100px;
-    background: url("../img/pot_man.png") no-repeat;
+    background: url("../images/clean.png") no-repeat;
     margin: 66px 26px 0px 28px;
 }
 
@@ -203,71 +376,64 @@ canvas{
 
 }
 
+.outer_canvas{
+    height: 250mm;
+    width: 100%;
+    display: block;
+    background-color: #000000;
+}
+
+canvas{
+    height: 250mm;
+    width: 100%;
+}
+
+.second_block{
+    width: 100%;
+    height: 123mm;
+    background-color: #000000;
+}
+
 .text{
-    padding-top: 0.64cm;
-    width: 17.612903226cm;
+    width: 99%;
     margin: 0 auto;
+    letter-spacing: 0.2mm;
+    line-height: 110%;
 }
 
 .page_number{
     position: absolute;
     bottom: 0;
-    left: -1px;
+    left: 4px;
 }
 
-.date{
-    position: absolute;
-    bottom: 0;
-    right: 0;
+.unil_logo{
+    position: relative;
+    float: right;
+    display: inline-block;
+    width: 171px;
+    height: 65px;
+    background: url('../images/pdf/logo_unil.png');
+    background-repeat: no-repeat;
+}
+
+.phonocolor{
+    position: relative;
+    float: left;
+    top: 40%;
+    display: inline-block;
+    font-size: 0.5cm;
+}
+
+.generated_image{
+    width: 19.306451612cm;
 }
 
 /* Specific style */
 
-.peld{
-    position: absolute;
-    padding-left: 0.8cm;
-    top: 24.552451539cm;
-    color: #888888;
-    font-size: 0.5cm;
-}
-
-.hermann{
-    padding-bottom: 2cm;
-}
-
-.spider_keys{
-    margin: 0 0.84663626cm;
-}
-
-.spider_key_inner{
-    margin: auto;
-    width: 50%;
-    padding-top: 0.42331813cm;
-    float: left;
-}
-
-.spider_text{
-    padding-left: 10px;
-    line-height: 160%;
-}
-
-.spider_circle{
-    display: block;
-    height: 0.7cm;
-    width: 0.7cm;
-    background-color: red;
-    border: 1px solid black;
-    border-radius: 50%;
-    float: left;
-    -webkit-print-color-adjust:exact;
-}
-
 /* End specific style */
 
 /* General style */
-
-.bold{
-}
 
 .padding-top-8{
     padding-top: 0.9cm;
@@ -369,18 +535,21 @@ canvas{
 @page {
     size: A4;
     margin: 0;
+    background-color: #000000;
 }
 @media print {
     .page {
         margin: 0;
         page-break-after: always;
+        background-color: #000000;
+        -webkit-print-color-adjust: exact;
     }
 }
 
-/*
-.lines {
+
+/*.lines {
     background-size: 0.84663626cm 0.84663626cm;
-    background-image:repeating-linear-gradient(0deg, #000, #000 1px, transparent 1px, transparent 0.84663626cm),repeating-linear-gradient(-90deg, #000, #000 1px, transparent 1px, transparent 0.84663626cm);
+    background-image: repeating-linear-gradient(0deg, #000, #000 1px, transparent 1px, transparent 0.84663626cm),repeating-linear-gradient(-90deg, #000, #000 1px, transparent 1px, transparent 0.84663626cm);
     height:100%;
     width:100%;
     opacity:0.14;
@@ -388,5 +557,4 @@ canvas{
     top:0;
     left:0;
     z-index:0;
-}
-*/
+}*/

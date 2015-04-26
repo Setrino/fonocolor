@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 header ('Content-type: text/html; charset=utf-8');
 define('INCLUDE_CHECK',true);
 require_once 'login.php';
@@ -749,6 +750,12 @@ if(isset($_POST['filepath'])){
     }else{
         echo 'ERROR';
     }
+}
+
+if(isset($_POST['textArray'])){
+
+    $_SESSION['textArray'] = $_POST['textArray'];
+    echo $_SESSION['textArray'];
 }
 
 ?>

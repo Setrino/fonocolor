@@ -1,8 +1,13 @@
 $(document).ready(function(){
 
-    $("#download").bind(
+    /*$("#download").bind(
         "click", savePNG
+    );*/
+
+    $("#download").bind(
+        "click", createPDF
     );
+
     audioRequest(audioPath, audioFiles, audioPath, preloadAudio);
 });
 
@@ -233,29 +238,30 @@ function colorArray(text, callback){
 }
 
 //Redraw the entire array
-function drawArray(){
+function drawArray(letterArray){
 
     var offsetX = 0;
     var yMultiplier = 1;
+    var array = letterArray || textArray;
     var textareaWidth = $(".search_output").width();
     ctx.fillStyle="#000000";
     ctx.fillRect(0, 0, c.width, (full_screen_height != 0) ? full_screen_height : c.height);
 
-    for(var i = 0; i < textArray.length; i++){
+    for(var i = 0; i < array.length; i++){
 
-        if(textArray[i][0] == '±'){
+        if(array[i][0] == '±'){
 
             ++yMultiplier;
             offsetX = 0;
         }else{
 
-            if((offsetX + ctx.measureText(textArray[i][0] + " ").width) > c.width){
+            if((offsetX + ctx.measureText(array[i][0] + " ").width) > c.width){
                 ++yMultiplier;
                 offsetX = 0;
             }
 
             var xDistance = 0;
-            var currentWordArray = (textArray[i][1]);
+            var currentWordArray = (array[i][1]);
 
             for(var j = 0; j < currentWordArray.length; j++){
 
@@ -278,7 +284,7 @@ function drawArray(){
                     xDistance += ctx.measureText(letter).width;
                 }
             }
-            offsetX += ctx.measureText(textArray[i][0] + " ").width;
+            offsetX += ctx.measureText(array[i][0] + " ").width;
         }
     }
 }
@@ -407,6 +413,14 @@ function savePNG(){
         fullScreenOff();
     }
 }
+
+function createPDF(){
+
+    generatePDF(textArray, function(msg){
+        window.open('pdf','_blank');
+    })
+}
+
 
 function setBlockHeight(height){
 
