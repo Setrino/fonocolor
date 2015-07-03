@@ -5,6 +5,7 @@ $(document).ready(function(){
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
     var current_size = 'small';
+    var portrait = true;
 
     if(dd < 10) {
         dd = '0' + dd
@@ -47,54 +48,136 @@ $(document).ready(function(){
         current_size = $(this).attr('class');
         switch(current_size){
             case 'small':
-                pixel_size = 43;
+                pixel_size = 58;
                 break;
             case 'medium':
-                pixel_size = 55;
+                pixel_size = 75;
                 break;
             case 'large':
-                pixel_size = 66;
+                pixel_size = 94;
                 break;
         }
         $(".small, .medium, .large").removeClass('yellow_text');
         $(this).addClass('yellow_text');
-        checkSize(textArray.slice(), document.getElementById('canvas1'));
+        checkSize(textArray.slice(), document.getElementById('canvas1'), (portrait) ? undefined : 'page_l');
         $('.text').removeClass("small medium large").addClass(current_size);
     });
+
+    $('.template_lp').click(function(){
+        $('.template_lp').removeClass('yellow_b');
+        $(this).addClass('yellow_b');
+
+        //Landscape mode
+        if(($(this).html()).match('c_only')){
+            $(this).css('height', '58px');
+            $(".two_lines").html('<img src="images/pdf/templates/l_t.png"/>');
+            $(".page").removeClass('page').addClass('page_l');
+            $(".subpage").removeClass('subpage').addClass('subpage_l');
+            $(".book").css('left', '50px');
+            $('canvas').css('height','160mm');
+            $('.outer_canvas').css('height','160mm');
+            widthH = $('.subpage_l').width();
+            heightH = $('canvas').height();
+            portrait = false;
+
+        //Portrait mode
+        }else{
+            $(".two_lines").html('<img src="images/pdf/templates/c_t.png"/>');
+            $(".page_l").removeClass('page_l').addClass('page');
+            $(".subpage_l").removeClass('subpage_l').addClass('subpage');
+            $(".book").css('left', '0px');
+            $('canvas').css('height','250mm');
+            $('.outer_canvas').css('height','250mm');
+            widthH = $('.subpage').width();
+            heightH = $('canvas').height();
+            portrait = true;
+        }
+
+        $('canvas').css('width', widthH);
+        $('.outer_canvas').css('width', widthH);
+        var c = document.getElementById('canvas1');
+        textObject = {};
+        checkSize(textArray.slice(), c, (portrait) ? undefined : 'page_l');
+        $('.template').addClass('yellow_b');
+        $(".two_lines").removeClass('yellow_b');
+        $('.second_block').remove();
+    });
+
+    var widthH = $('.subpage').width();
+    var heightH = $('canvas').height();
 
     //Set either two blocks on page, or one
     $('.template').click(function(){
         $('.template').removeClass('yellow_b');
         $(this).addClass('yellow_b');
 
+        var pageClass = '.page';
+        var secondBlock = 'second_block';
+        var space = '<hr>';
+
+        if(portrait){
+            pageClass = '.page';
+            secondBlock = 'second_block';
+            space = '<hr>';
+        }else{
+            pageClass = '.page_l';
+            secondBlock = 'second_block_l';
+            space = '';
+        }
+
         if(($(this).html()).match('c_t')){
+
+            $('canvas').css('width', widthH);
+            $('.outer_canvas').css('width', widthH);
             $('canvas').css('height','122mm');
             var c = document.getElementById('canvas1');
             textObject = {};
             checkArrays(textArray.slice(), c);
-            console.log(textObject);
             var i = 1;
-            $('.page:not(first-child)').slice(1).remove();
+            $(pageClass + ':not(first-child)').slice(1).remove();
             $.each(textObject, function(k, v){
                 if(i > 1){
-                    createPage('canvas' + i);
+                    createPage('canvas' + i, (portrait) ? undefined : 'page_l');
                 }
                 drawArray(getArray(v), document.getElementById('canvas' + i));
-                $('.page:nth-child(' + i + ') .outer_canvas').append('<div class="second_block"><hr>' +
+                $(pageClass + ':nth-child(' + i + ') .outer_canvas').append('<div class="' + secondBlock + '">' + space +
                     '<h4 class="text"></h4></div>');
                 $('.text').removeClass("small medium large").addClass(current_size);
-                $('.page:nth-child(' + i + ') .second_block .text').append(k);
+                $(pageClass + ':nth-child(' + i + ') .' + secondBlock + ' .text').append(k);
                 i++;
             });
             /*setTimeout(function(){
                 $('.second_block').css('overflow', 'hidden');
             }, 0);*/
-        }else{
-            $('canvas').css('height','250mm');
+        }else if(($(this).html()).match('c_only')){
+
+            $('canvas').css('width', widthH);
+            $('.outer_canvas').css('width', widthH);
+            $('canvas').css('height', heightH);
             var c = document.getElementById('canvas1');
             textObject = {};
-            checkSize(textArray.slice(), c);
-            $('.second_block').remove();
+            checkSize(textArray.slice(), c, (portrait) ? undefined : 'page_l');
+            $('.'+ secondBlock).remove();
+        }else if(($(this).html()).match('l_t')){
+
+            $('canvas').css('width', widthH / 2 - 1);
+            var c = document.getElementById('canvas1');
+            textObject = {};
+            checkSize(textArray.slice(), c, (portrait) ? undefined : 'page_l');
+            var i = 1;
+            $('.page_l:not(first-child)').slice(1).remove();
+            $.each(textObject, function(k, v){
+                if(i > 1){
+                    createPage('canvas' + i, 'page_l');
+                }
+                drawArray(getArray(v), document.getElementById('canvas' + i));
+                $('.page_l:nth-child(' + i + ') .outer_canvas').append('<div class="second_block_l">' +
+                    '<h4 class="text"></h4></div>');
+                $('.second_block_l').css('width', $('canvas').width() - 1);
+                $('.text').removeClass("small medium large").addClass(current_size);
+                $('.page_l:nth-child(' + i + ') .second_block_l .text').append(k);
+                i++;
+            });
         }
     });
 
@@ -108,7 +191,7 @@ $(document).ready(function(){
         c.height = $('canvas').height();
 
 
-    var pixel_size = 43,
+    var pixel_size = 57,
         INCREASE_MULTIPLIER = 1.11;
 
     var textArray = arrayText;
@@ -140,6 +223,7 @@ $(document).ready(function(){
     function checkArrays(array, c){
 
         c.height = $('canvas').height();
+        console.log(c.height);
         ctx = c.getContext('2d');
         var offsetX = 0;
         var yMultiplier = 0;
@@ -158,7 +242,7 @@ $(document).ready(function(){
                     offsetX = 0;
                 }
                 var add = pixel_size / 22;
-                var multiplier = (pixel_size > 60) ? 1.2 : 1.1;
+                var multiplier = (pixel_size > 60) ? 1.2 : 1.3;
                 if((yMultiplier + add) * pixel_size * multiplier > (c.height)){
                     splitVal = i;
                     break;
@@ -177,13 +261,16 @@ $(document).ready(function(){
 
     //createPage('canvas2');
 
-    function createPage(canvasId){
-            var page = '<div class="page"><div class="subpage"><div class="outer_canvas"><hr><canvas id=' + canvasId +
-                '></canvas></div><footer><hr><div class="phonocolor">phonocolor.ch</div><div class="unil_logo">' +
-                '</div></footer></div></div>';
+    function createPage(canvasId, classType){
+            var page = '<div class="' + (classType || "page") + '"><div class="' + ((classType) ? 'subpage_l' : 'subpage') +
+                '"><div class="outer_canvas"><hr>' +
+                '<canvas id=' + canvasId + '></canvas></div><footer><hr><div class="phonocolor">phonocolor.ch</div>' +
+                '<div class="unil_logo"></div></footer></div></div>';
 
             $('.book').append(page);
+            $('.outer_canvas').css('height', (classType) ? '160mm' : '250mm');
             $('canvas').css('height',$('canvas').css('height'));
+            $('canvas').css('width',$('canvas').css('width'));
 
             var c = document.getElementById(canvasId),
                 ctx = c.getContext('2d');
@@ -192,15 +279,16 @@ $(document).ready(function(){
                 c.height = $('canvas').height();
     }
 
-    function checkSize(array, c){
+    function checkSize(array, c, classType){
+        console.log(c.height);
         textObject = {};
         checkArrays(array, c);
         console.log(textObject);
         var i = 1;
-        $('.page:not(first-child)').slice(1).remove();
+        $('.' + (classType || "page") + ':not(first-child)').slice(1).remove();
         $.each(textObject, function(k, v){
             if(i > 1){
-                createPage('canvas' + i);
+                createPage('canvas' + i, classType);
             }
             drawArray(getArray(v), document.getElementById('canvas' + i));
             i++;
@@ -211,6 +299,7 @@ $(document).ready(function(){
     function drawArray(letterArray, c){
 
         c.height = $('canvas').height();
+        c.width = $('canvas').width();
         ctx = c.getContext('2d');
         var offsetX = 0;
         var yMultiplier = 1;

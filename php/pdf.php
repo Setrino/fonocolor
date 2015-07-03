@@ -9,11 +9,19 @@
 </head>
 <body>
 <div id="template_selector">
+    <div class="templates_lp">
+        <div class="template_lp yellow_b">
+            <img src="images/pdf/templates/l_only.png"/>
+        </div>
+        <div class="template_lp">
+            <img src="images/pdf/templates/c_only.png"/>
+        </div>
+    </div>
     <div class="templates">
         <div class="template yellow_b">
             <img src="images/pdf/templates/c_only.png"/>
         </div>
-        <div class="template">
+        <div class="template two_lines">
             <img src="images/pdf/templates/c_t.png"/>
         </div>
     </div>

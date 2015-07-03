@@ -417,7 +417,7 @@ function savePNG(){
 function createPDF(){
 
     generatePDF(textArray, function(msg){
-        window.open('pdf','_blank');
+        window.open('pdf','_newtab');
     })
 }
 
@@ -453,7 +453,7 @@ function fullScreenOff(){
 function resetCanvas(){
 
     full_screen_height = 0;
-    ctx.translate(0, (translatedD <= 0) ? 0 : translatedD);;
+    ctx.translate(0, (translatedD <= 0) ? 0 : translatedD);
 }
 
 //Checks where on the canvas the user has clicked to find which word and letter he clicked

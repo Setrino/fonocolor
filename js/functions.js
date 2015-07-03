@@ -4,6 +4,7 @@ $(document).ready(function(){
     var scroll = true;
     var lastScrollValue = 0;
     var canvasTopMargin = $(".search_output").height() - 5;
+    var documentHeight = $(document).height();
     $("#full_screen").click(function(){
 
         fullScreenOn();
@@ -54,12 +55,22 @@ $(document).ready(function(){
     $(".search_output").css("margin-top", ( $("#result").height() - $(".search_output").height() ) / 2 - 5 );
 
 
-
-
-
-    /*if(window.location.pathname == '/pourquoi.html'){
-        $('.logo').css('bottom', '50');
-    }*/
+    $(".logo").click(function(){
+        getPage("menu.html", function(data){
+            var newDiv = $("<div/>")
+                .addClass("menuOverlay")
+                .html(data);
+            $("#menu").after(newDiv);
+            var menuOverlay = $(".menuOverlay");
+            $('body').append('<script type="text/javascript" src="js/menu.js"></script>');
+            menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
+                '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
+            $(".menuClose").click(function(){
+                menuOverlay.animate({top: '-=' + documentHeight}, 1000, function(){
+                    menuOverlay.css('display', 'none'); });
+            });
+        });
+    });
 
     $(document).scroll(function(){
         if(!scroll){

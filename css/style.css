@@ -257,6 +257,10 @@ article p{
     padding-top: 1.5em;
 }
 
+.logo:hover{
+    cursor: pointer;
+}
+
 .comment a{
     background-image: url(../images/comment.png);
 }
@@ -343,9 +347,20 @@ article p{
 
 /* END Search */
 
+.menuClose{
+    display: block;
+    float: right;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
 /* Overlay copyright box */
 
-.bgCover{
+.bgCover, .menuOverlay{
     background-color: #fff;
     position: absolute;
     left: 0;
@@ -353,6 +368,11 @@ article p{
     display: none;
     overflow: hidden;
     z-index: 100;
+}
+
+.menuOverlay{
+    background-color: #000;
+    width: 100%;
 }
 
 .overlayBox{

@@ -64,3 +64,15 @@ function generatePDF(textArray, callback){
         }
     });
 }
+
+function getPage(page, callback){
+
+    $.ajax({
+        type: "GET",
+        url: page,
+        success: function(data){
+            callback(data);
+        },
+        async: true
+    });
+}
