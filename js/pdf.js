@@ -39,8 +39,11 @@ $(document).ready(function(){
                 }
             });*/
             $('#download_pdf, #move_top, #template_selector').css('display', 'none');
+            (portrait) ? cssPagedMedia.size('A4') : cssPagedMedia.size('landscape');
+            $('.book').css('left', '0');
             window.print();
             $('#download_pdf, #move_top, #template_selector').css('display', 'initial');
+            (portrait) ? $('.book').css('left', '0') : $('.book').css('left', '50px');
     });
 
     $(".small, .medium, .large").click(function(){
@@ -402,6 +405,18 @@ $(document).ready(function(){
         }
         checkSize(textArray.slice(), c);
     });
+
+    var cssPagedMedia = (function () {
+        var style = document.createElement('style');
+        document.head.appendChild(style);
+        return function (rule) {
+            style.innerHTML = rule;
+        };
+    }());
+
+    cssPagedMedia.size = function (size) {
+        cssPagedMedia('@page {size: ' + size + '}');
+    };
 
     function setVoyelle(value){
         voyelle = value;

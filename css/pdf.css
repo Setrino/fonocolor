@@ -569,7 +569,7 @@ canvas{
     background-color: #000000;
 }
 @media print {
-    .page {
+    .page, .page_l {
         margin: 0;
         page-break-after: always;
         background-color: #000000;
