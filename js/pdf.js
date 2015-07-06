@@ -59,7 +59,7 @@ $(document).ready(function(){
         }
         $(".small, .medium, .large").removeClass('yellow_text');
         $(this).addClass('yellow_text');
-        checkSize(textArray.slice(), document.getElementById('canvas1'), (portrait) ? undefined : 'page_l');
+        checkSize(textArray.slice(), c);
         $('.text').removeClass("small medium large").addClass(current_size);
     });
 
@@ -93,91 +93,52 @@ $(document).ready(function(){
             portrait = true;
         }
 
+        currentMode = 'c_only';
         $('canvas').css('width', widthH);
         $('.outer_canvas').css('width', widthH);
         var c = document.getElementById('canvas1');
         textObject = {};
-        checkSize(textArray.slice(), c, (portrait) ? undefined : 'page_l');
+        checkSize(textArray.slice(), c);
         $('.template').addClass('yellow_b');
         $(".two_lines").removeClass('yellow_b');
-        $('.second_block').remove();
+        $('.second_block, .second_block_l').remove();
     });
 
     var widthH = $('.subpage').width();
     var heightH = $('canvas').height();
+    var currentMode = 'c_only';
 
     //Set either two blocks on page, or one
     $('.template').click(function(){
         $('.template').removeClass('yellow_b');
         $(this).addClass('yellow_b');
 
-        var pageClass = '.page';
-        var secondBlock = 'second_block';
-        var space = '<hr>';
+        if(($(this).html()).match('c_only')){
 
-        if(portrait){
-            pageClass = '.page';
-            secondBlock = 'second_block';
-            space = '<hr>';
-        }else{
-            pageClass = '.page_l';
-            secondBlock = 'second_block_l';
-            space = '';
-        }
-
-        if(($(this).html()).match('c_t')){
-
-            $('canvas').css('width', widthH);
-            $('.outer_canvas').css('width', widthH);
-            $('canvas').css('height','122mm');
-            var c = document.getElementById('canvas1');
-            textObject = {};
-            checkArrays(textArray.slice(), c);
-            var i = 1;
-            $(pageClass + ':not(first-child)').slice(1).remove();
-            $.each(textObject, function(k, v){
-                if(i > 1){
-                    createPage('canvas' + i, (portrait) ? undefined : 'page_l');
-                }
-                drawArray(getArray(v), document.getElementById('canvas' + i));
-                $(pageClass + ':nth-child(' + i + ') .outer_canvas').append('<div class="' + secondBlock + '">' + space +
-                    '<h4 class="text"></h4></div>');
-                $('.text').removeClass("small medium large").addClass(current_size);
-                $(pageClass + ':nth-child(' + i + ') .' + secondBlock + ' .text').append(k);
-                i++;
-            });
-            /*setTimeout(function(){
-                $('.second_block').css('overflow', 'hidden');
-            }, 0);*/
-        }else if(($(this).html()).match('c_only')){
-
+            currentMode = 'c_only';
             $('canvas').css('width', widthH);
             $('.outer_canvas').css('width', widthH);
             $('canvas').css('height', heightH);
             var c = document.getElementById('canvas1');
             textObject = {};
-            checkSize(textArray.slice(), c, (portrait) ? undefined : 'page_l');
-            $('.'+ secondBlock).remove();
+            checkSize(textArray.slice(), c);
+            $('.second_block, .second_block_l').remove();
+        }else if(($(this).html()).match('c_t')){
+
+            currentMode = 'c_t';
+            $('canvas').css('width', widthH);
+            $('.outer_canvas').css('width', widthH);
+            $('canvas').css('height','122mm');
+            var c = document.getElementById('canvas1');
+            textObject = {};
+            checkSize(textArray.slice(), c);
         }else if(($(this).html()).match('l_t')){
 
+            currentMode = 'l_t';
             $('canvas').css('width', widthH / 2 - 1);
             var c = document.getElementById('canvas1');
             textObject = {};
-            checkSize(textArray.slice(), c, (portrait) ? undefined : 'page_l');
-            var i = 1;
-            $('.page_l:not(first-child)').slice(1).remove();
-            $.each(textObject, function(k, v){
-                if(i > 1){
-                    createPage('canvas' + i, 'page_l');
-                }
-                drawArray(getArray(v), document.getElementById('canvas' + i));
-                $('.page_l:nth-child(' + i + ') .outer_canvas').append('<div class="second_block_l">' +
-                    '<h4 class="text"></h4></div>');
-                $('.second_block_l').css('width', $('canvas').width() - 1);
-                $('.text').removeClass("small medium large").addClass(current_size);
-                $('.page_l:nth-child(' + i + ') .second_block_l .text').append(k);
-                i++;
-            });
+            checkSize(textArray.slice(), c);
         }
     });
 
@@ -219,14 +180,81 @@ $(document).ready(function(){
 
     var textObject = {};
 
+    function checkSize(array, c){
+
+        var pageClass = '.page';
+        var secondBlock = 'second_block';
+        var space = '<hr>';
+
+        if(portrait){
+            pageClass = '.page';
+            secondBlock = 'second_block';
+            space = '<hr>';
+        }else{
+            pageClass = '.page_l';
+            secondBlock = 'second_block_l';
+            space = '';
+        }
+
+        var classType = (portrait) ? undefined : 'page_l';
+
+        textObject = {};
+        checkArrays(array, c);
+        var i = 1;
+        $('.' + (classType || "page") + ':not(first-child)').slice(1).remove();
+        $.each(textObject, function(k, v){
+            if(i > 1){
+                createPage('canvas' + i, classType);
+            }
+            drawArray(getArray(v), document.getElementById('canvas' + i));
+            i++;
+        });
+
+        $('.second_block, .second_block_l').remove();
+        switch(currentMode){
+            case 'c_t':
+                var i = 1;
+                $(pageClass + ':not(first-child)').slice(1).remove();
+                $.each(textObject, function(k, v){
+                    if(i > 1){
+                        createPage('canvas' + i, (portrait) ? undefined : 'page_l');
+                    }
+                    drawArray(getArray(v), document.getElementById('canvas' + i));
+                    $(pageClass + ':nth-child(' + i + ') .outer_canvas').append('<div class="' + secondBlock + '">' + space +
+                        '<h4 class="text"></h4></div>');
+                    $('.text').removeClass("small medium large").addClass(current_size);
+                    $(pageClass + ':nth-child(' + i + ') .' + secondBlock + ' .text').append(k);
+                    i++;
+                });
+                break;
+            case 'l_t':
+                var i = 1;
+                $('.page_l:not(first-child)').slice(1).remove();
+                $.each(textObject, function(k, v){
+                    if(i > 1){
+                        createPage('canvas' + i, 'page_l');
+                    }
+                    drawArray(getArray(v), document.getElementById('canvas' + i));
+                    $('.page_l:nth-child(' + i + ') .outer_canvas').append('<div class="second_block_l">' +
+                        '<h4 class="text"></h4></div>');
+                    $('.second_block_l').css('width', $('canvas').width() - 1);
+                    $('.text').removeClass("small medium large").addClass(current_size);
+                    $('.page_l:nth-child(' + i + ') .second_block_l .text').append(k);
+                    i++;
+                });
+                break;
+        }
+    }
+
     //Recursive check and split of array
     function checkArrays(array, c){
 
         c.height = $('canvas').height();
-        console.log(c.height);
+        c.width = $('canvas').width();
         ctx = c.getContext('2d');
+        ctx.font= pixel_size + "px fundamental__brigade_schwerRg";
         var offsetX = 0;
-        var yMultiplier = 0;
+        var yMultiplier = 1;
         var textArray = array;
         var splitVal = undefined;
 
@@ -241,14 +269,16 @@ $(document).ready(function(){
                     yMultiplier++;
                     offsetX = 0;
                 }
-                var add = pixel_size / 22;
-                var multiplier = (pixel_size > 60) ? 1.2 : 1.3;
-                if((yMultiplier + add) * pixel_size * multiplier > (c.height)){
+
+                //var landscape = (classType) ? 1 : 0;
+
+                if((yMultiplier + 1) * pixel_size > c.height){
                     splitVal = i;
                     break;
                 }
                 offsetX += xLimit;
             }
+
         }
         if(splitVal){
             var temp = textArray.splice(0, splitVal);
@@ -258,8 +288,6 @@ $(document).ready(function(){
             textObject[getText(textArray)] = textArray;
         }
     }
-
-    //createPage('canvas2');
 
     function createPage(canvasId, classType){
             var page = '<div class="' + (classType || "page") + '"><div class="' + ((classType) ? 'subpage_l' : 'subpage') +
@@ -277,22 +305,6 @@ $(document).ready(function(){
             ctx.font = 'fundamental__brigade_schwerRg',
                 c.width = $('canvas').width(),
                 c.height = $('canvas').height();
-    }
-
-    function checkSize(array, c, classType){
-        console.log(c.height);
-        textObject = {};
-        checkArrays(array, c);
-        console.log(textObject);
-        var i = 1;
-        $('.' + (classType || "page") + ':not(first-child)').slice(1).remove();
-        $.each(textObject, function(k, v){
-            if(i > 1){
-                createPage('canvas' + i, classType);
-            }
-            drawArray(getArray(v), document.getElementById('canvas' + i));
-            i++;
-        });
     }
 
     //Redraw the entire array
@@ -314,7 +326,6 @@ $(document).ready(function(){
                 ++yMultiplier;
                 offsetX = 0;
             }else{
-
                 if((offsetX + ctx.measureText(array[i][0] + " ").width) > c.width){
                     ++yMultiplier;
                     offsetX = 0;
@@ -380,7 +391,7 @@ $(document).ready(function(){
         }else{
             setVoyelle(false);
         }
-        checkSize(textArray.slice(), document.getElementById('canvas1'));
+        checkSize(textArray.slice(), c);
     });
 
     $("#consonnes").change(function() {
@@ -389,7 +400,7 @@ $(document).ready(function(){
         }else{
             setConsonnes(false);
         }
-        checkSize(textArray.slice(), document.getElementById('canvas1'));
+        checkSize(textArray.slice(), c);
     });
 
     function setVoyelle(value){
