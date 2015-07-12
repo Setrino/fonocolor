@@ -1,0 +1,58 @@
+/* entire container, keeps perspective */
+.flip-container {
+    margin: 0 auto;
+    perspective: 1000;
+}
+
+.flip-container, .front, .back {
+    width: 185px;
+    height: 185px;
+    display: inline-block;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
+
+.difficulty{
+    margin: 2em 0 2em 0;
+}
+
+.difficulty > span:hover{
+    cursor: pointer;
+}
+
+.new_game:hover{
+    cursor: pointer;
+    color: #808080;
+}
+
+.two{
+    display: block;
+    margin: 2em 0 2em 0;
+}
