@@ -7,7 +7,8 @@ $(document).ready(function(){
     var references = {
         consonants: ['b', 'ch', 'd', 'ge', 'j', 'l', 'm', 'n', 'p', 'ph', 'r', 's', 't', 've', 'z'],
         vowels: [],
-        circles: []
+        circles: [],
+        squares: []
     };
 
     $('.difficulty > span').click(function(){
@@ -42,8 +43,8 @@ $(document).ready(function(){
             var randomInd = Math.floor(Math.random() * arrayRef.length);
             var face = arrayRef[randomInd];
             // Push 2 copies onto array
-            selected.push(face);
-            selected.push(face);
+            selected.push('consonants/' + face);
+            selected.push('squares/' + face);
             // Remove from array
             arrayRef.splice(randomInd, 1);
         }
@@ -57,15 +58,15 @@ $(document).ready(function(){
             bodyWrapper.append();
             for(var j = 0; j < x; j++){
                 var temp = selected.pop();
-                card_line += flip_card + temp + flip_card_2;
-                card_line += '<img src="../images/memory/consonants/' + temp + '_182.png">';
+                console.log(temp.substring(temp.length - 1));
+                card_line += flip_card + temp.substring(temp.length - 1) + flip_card_2;
+                card_line += '<img src="../images/memory/' + temp + '_182.png">';
                 card_line += '</div></div></div>';
             }
             card_line += '</div>';
             bodyWrapper.append(card_line);
         }
 
-        //setupCards();
         setupClicks();
     }
 
@@ -78,7 +79,7 @@ $(document).ready(function(){
         $('.flip-container .flipper').click(function(){
             console.log(previousObject);
             var that = $(this);
-            var tempClass = that.attr('class').replace("flipper", "");
+            var tempClass = that.attr('class').substring(that.attr('class').length - 1);
             that.css('transform', 'rotateY(180deg)');
             if(!previousObject){
                previousObject = $.extend(true, {}, $(this));
@@ -110,7 +111,6 @@ $(document).ready(function(){
         tilesCovered = 0;
         var menu = $('.menu');
         if(menu.length == 0){
-            console.log("NA");
             var div_win = '<div class="menu"><span class="player_won">Joueur 1 gagner<span><br>' +
                 '<span class="new_game">Nouveau Jeu</span></div>';
             $('#body_wrapper').append(div_win);
