@@ -2,18 +2,18 @@ $(document).ready(function(){
 
     var references = {
         games: {
-            0: '<a href="jeux/memory.html"><img src="images/menu/games.png"></a>',
-            1: '<a href="jeux/trouver.html"><img src="images/menu/games.png"></a>',
-            2: '<a href="jeux/memory.html"><img src="images/menu/games.png"></a>',
-            3: '<a href="jeux/trouver.html"><img src="images/menu/games.png"></a>'
+            0: '<a href="/fonocolor/jeux/memory.html"><img src="/fonocolor/images/menu/harmonie_1.png"></a>',
+            1: '<a href="/fonocolor/jeux/trouver.html"><img src="/fonocolor/images/menu/harmonie_2.png"></a>',
+            2: '<a href="/fonocolor/jeux/memory.html"><img src="/fonocolor/images/menu/games.png"></a>',
+            3: '<a href="/fonocolor/jeux/trouver.html"><img src="/fonocolor/images/menu/games.png"></a>'
         },
         understand: {
-            0 : '<a href="comment.html"><img src="images/menu/understand.png"></a>',
-            1: '<a href="comment.html"><img src="images/menu/understand.png"></a>'
+            0 : '<a href="/fonocolor/comment.html"><img src="/fonocolor/images/menu/understand.png"></a>',
+            1: '<a href="/fonocolor/comment.html"><img src="/fonocolor/images/menu/understand.png"></a>'
         },
         demander: {
-            0 : '<a href="pourquoi.html"><img src="images/menu/demander.png"></a>',
-            1: '<a href="pourquoi.html"><img src="images/menu/demander.png"></a>'
+            0 : '<a href="/fonocolor/pourquoi.html"><img src="/fonocolor/images/menu/demander.png"></a>',
+            1: '<a href="/fonocolor/pourquoi.html"><img src="/fonocolor/images/menu/demander.png"></a>'
         }
     };
 

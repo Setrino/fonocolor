@@ -1,23 +1,11 @@
-#header_wrapper{
-    padding-bottom: 2em;
-}
-
-.menu_line{
-    padding: 1em 0 1em 0;
-}
-
-.menu_line img{
-    padding: 0 1em 0 1em;
-    cursor: pointer;
-}
-
 .back_arrow{
     display: block;
     height: 32px;
     width: 32px;
     background: url("../images/menu/back_arrow.png");
     margin: 0 auto;
-    margin-left: 36%;
+    position: relative;
+    right: 230px;
     opacity: 0;
 }
 
