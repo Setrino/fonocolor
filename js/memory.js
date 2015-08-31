@@ -164,15 +164,20 @@ $(document).ready(function(){
             bodyWrapper.append(card_line);
         }
 
-        setupClicks();
+        setupClicks(players);
     }
 
-    function setupClicks(){
+    function setupClicks(players){
 
         var previousClass = undefined;
         var previousObject = undefined;
         var tilesOpened = 0;
         var disableClick = false;
+        var player1 = 0;
+        var player1_score = 0;
+        var player2 = 0;
+        var player2_score = 0;
+        var playerUpdate = (players > 1) ? true : false;
 
         $('.flip-container .flipper').click(function(){
             if(!disableClick && !$(this).css('transform').match('matrix3d')) {
@@ -184,6 +189,13 @@ $(document).ready(function(){
                     previousObject = $.extend(true, {}, $(this));
                     previousClass = tempClass;
                 } else {
+                    if(playerUpdate){
+                        player2++;
+                        playerUpdate = false;
+                    }else{
+                        player1++;
+                        playerUpdate = true;
+                    }
                     disableClick = true;
                     if(previousObject.attr('class').split(' ')[1] === classes[1] && previousClass == tempClass){
                         disableClick = false;
@@ -197,12 +209,25 @@ $(document).ready(function(){
                             disableClick = false;
                         }, 1000);
                     } else{
+                        if(!playerUpdate){
+                            player2_score++;
+                        }else{
+                            player1_score++;
+                        }
                         tilesOpened++;
                         previousClass = undefined;
                         previousObject = undefined;
                         if (tilesCovered == tilesOpened) {
                             setTimeout(function () {
-                                resetGame();
+                                if(players == 1){
+                                    resetGame(1, player1 + player2, tilesOpened);
+                                }else if(player1_score > player2_score){
+                                    resetGame(1, player1, player1_score);
+                                }else if(player2_score > player1_score){
+                                    resetGame(2, player2, player2_score);
+                                }else{
+                                    resetGame(0, player1, player1_score);
+                                }
                             }, 1000);
                         }
                         disableClick = false;
@@ -212,21 +237,16 @@ $(document).ready(function(){
         });
     }
 
-    function resetGame(){
+    function resetGame(player, noOfClick, score){
         $('.card_line').remove();
         tilesCovered = 0;
-        var menu = $('.menu');
-        if(menu.length == 0){
-            var div_win = '<div class="menu"><span class="player_won">Joueur 1 gagner<span><br>' +
-                '<span class="new_game">Nouveau Jeu</span></div>';
-            $('#body_wrapper').append(div_win);
-
-            $('.new_game').click(function(){
-                init();
-            });
+        if(player == 0){
+            $('.player_won').html("Il est un match nul, score " + score + "!");
         }else{
-            menu.css("display", "block");
+            $('.player_won').html("Joueur " + player + " a gagné avec score " + score + " dans " + noOfClick + " tentatives!");
         }
+        $("#continue").css("display", "none");
+        doOverlayOpen();
     }
 
     function setupCards(){
@@ -298,6 +318,7 @@ $(document).ready(function(){
         tilesCovered = 0;
         escapeCounter = 0;
         doOverlayClose();
+        $("#continue").css("display", "initial");
         init();
     });
 

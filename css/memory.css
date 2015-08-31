@@ -112,11 +112,17 @@
     }
 }
 
+.bgCover{
+    opacity: 0.4;
+}
+
 .overlayBox{
     background: none;
+    color: #FFFFFF;
+    font-size: 22px;
 }
 
 .overlayBox img{
-    margin: 0 2em;
+    margin: 1em 2em;
     cursor: pointer;
 }
