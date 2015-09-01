@@ -213,9 +213,18 @@ $(document).ready(function(){
                         }, 1000);
                     } else{
                         if(!playerUpdate){
-                            player2_score++;
+                            ++player2_score;
                         }else{
-                            player1_score++;
+                            ++player1_score;
+                        }
+                        if(!playerUpdate){
+                            if(players == 1){
+                                addToPile(that, previousObject, 1, player1_score);
+                            }else{
+                                addToPile(that, previousObject, 2, player2_score);
+                            }
+                        }else{
+                            addToPile(that, previousObject, 1, player1_score);
                         }
                         tilesOpened++;
                         previousClass = undefined;
@@ -269,33 +278,6 @@ $(document).ready(function(){
                     }, 400);
                 }
             });
-
-       /*
-        if(image_id == 'colorize'){
-            setTimeout(function(){
-                if(window.location.hostname == 'localhost'){
-                    window.open('/fonocolor', '_self');
-                }else{
-                    window.open('/', '_self');
-                }
-            }, 400);
-        }else{
-            $('.back_arrow').css({
-                'opacity' : 1,
-                'cursor': 'pointer'
-            });
-            $('.back_arrow').click(function(){
-                $(this).css({'opacity' : 0, 'cursor' : 'initial'});
-                var flipper = $('.flip-container .flipper');
-                flipper.css('display', 'block');
-                setTimeout(function(){
-                    flipper.css('transform', 'rotateY(0deg)');
-                },100);
-                setTimeout(function(){
-                    flipper.find('.back').empty();
-                },600);
-            });
-        }*/
         });
     }
 
@@ -342,6 +324,49 @@ $(document).ready(function(){
             }
         }
     });
+
+    function addToPile(obj1, obj2, player, player_score){
+
+        console.log(player_score);
+
+        var left = -700;
+        var left2 = -500;
+        var top = 300;
+        var bar = $('<div class="bar"></div>');
+        if(player_score > 1){
+            var neg = (player_score % 2) ? 8 : -8;
+            bar.css({'transform' : 'rotateZ(' + neg + 'deg)', 'bottom' : player_score * 10});
+        }
+
+
+        if(player == 2){
+            left = 500;
+            left2 = 700;
+            bar.css('left', '89%');
+        }
+        obj1.addClass('flip_pile');
+        obj1.parent().addClass('pile');
+        obj2.addClass('flip_pile2');
+        obj2.parent().addClass('pile2');
+        //player 1 left -700, top 300
+        //player 2 left 500, top 300
+        setTimeout(function () {
+            $(".flip_pile, .flip_pile2").css('transform', 'rotateX(90deg) rotateZ(90deg)');
+            $(".pile").animate({
+                left: "+=" + left,
+                top: "+=" + top
+            }, 1000, function(){
+                $(".pile").remove();
+            });
+            $(".pile2").animate({
+                left: "+=" + left2,
+                top: "+=" + top
+            }, 1000, function(){
+                $(".pile2").remove();
+                $("#body_wrapper").append(bar);
+            });
+        }, 1000);
+    }
 
     function animateCards(x, y){
 

@@ -165,6 +165,34 @@
     */
 }
 
+.pile{
+    width: 182px;
+    height: 182px;
+    position: absolute;
+    left: 700px;
+    top: 400px;
+    z-index: 10;
+}
+
+.pile2{
+    width: 182px;
+    height: 182px;
+    position: absolute;
+    left: 500px;
+    top: 400px;
+    z-index: 10;
+}
+
+.bar{
+    background-image: url("/fonocolor/images/game/bar.png");
+    position: absolute;
+    height: 5px;
+    width: 140px;
+    display: block;
+    left: 1%;
+    bottom: 10px;
+}
+
 .bgCover{
     opacity: 0.4;
 }
