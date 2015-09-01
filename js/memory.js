@@ -299,12 +299,16 @@ $(document).ready(function(){
     });
 
     $("#restart").click(function(){
-        $('.card_line').remove();
-        tilesCovered = 0;
-        escapeCounter = 0;
         doOverlayClose();
-        $("#continue").css("display", "initial");
-        init();
+        $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
+            "transition" : "all 0.9s ease-in", 'opacity' : 0});
+        setTimeout(function(){
+            $('.card_line').remove();
+            tilesCovered = 0;
+            escapeCounter = 0;
+            $("#continue").css("display", "initial");
+            init();
+        }, 1000);
     });
 
     $("#continue").click(function(){
