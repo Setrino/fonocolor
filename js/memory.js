@@ -11,6 +11,7 @@ $(document).ready(function(){
     var documentHeight = $(document).height();
     var tilesCovered = 0;
     var escapeCounter = 0;
+    var animationTime = 4000;
 
     var references = {
         consonants: ['c.b', 'c.ch', 'c.d', 'c.ge', 'c.j', 'c.l', 'c.m', 'c.n', 'c.p', 'c.ph', 'c.r', 'c.s', 'c.t', 'c.ve', 'c.z'],
@@ -119,8 +120,6 @@ $(document).ready(function(){
     function generateMatrix(x, y, array, players){
 
         var yAxis = y || x;
-        var bodyWrapper = $('#body_wrapper');
-
         var selected = [];
         var tilesNo = x * yAxis / 2;
         tilesCovered = tilesNo;
@@ -151,20 +150,24 @@ $(document).ready(function(){
             return 0.5 - Math.random();
         });
 
-        for(var i = 0; i < yAxis; i++){
-            var card_line = '<div class="card_line">';
-            bodyWrapper.append();
-            for(var j = 0; j < x; j++){
-                var temp = selected.pop();
-                card_line += flip_card + temp.split('/')[0] + " " + temp.split('/')[1] + flip_card_2;
-                card_line += '<img src="../images/memory/' + temp + '_182.png">';
-                card_line += '</div></div></div>';
-            }
-            card_line += '</div>';
-            bodyWrapper.append(card_line);
-        }
+        animateCards(x, y);
 
-        setupClicks(players);
+        setTimeout(function(){
+            var bodyWrapper = $('#body_wrapper');
+            for(var i = 0; i < yAxis; i++){
+                var card_line = '<div class="card_line">';
+                bodyWrapper.append();
+                for(var j = 0; j < x; j++){
+                    var temp = selected.pop();
+                    card_line += flip_card + temp.split('/')[0] + " " + temp.split('/')[1] + flip_card_2;
+                    card_line += '<img src="../images/memory/' + temp + '_182.png">';
+                    card_line += '</div></div></div>';
+                }
+                card_line += '</div>';
+                bodyWrapper.append(card_line);
+                setupClicks(players);
+            }
+        }, animationTime);
     }
 
     function setupClicks(players){
@@ -339,4 +342,42 @@ $(document).ready(function(){
             }
         }
     });
+
+    function animateCards(x, y){
+
+        var left = 75;
+        var top = 245;
+        var unil_left = "440px";
+
+        switch(x){
+            case 2:
+                unil_left = "440px";
+                break;
+            case 4:
+                unil_left = "560px";
+                left = -240;
+                top = 245;
+                break;
+            case 6:
+                unil_left = "740px";
+                left = -615;
+                top = 245;
+                break;
+        }
+
+        for(var i = 0; i < y; i++){
+            for(var j = 0; j < x; j++){
+                var $newdiv1 = $( "<div class='unil_card'></div>" );
+                $newdiv1.css("left", unil_left);
+                $("#body_wrapper").append($newdiv1);
+                $newdiv1.animate({
+                    left: "+=" + (left + 195 * j),
+                    top: "+=" + (top + 195 * i)
+                }, animationTime, function(){
+                    $(".unil_card").remove();
+                });
+                $newdiv1.css({"-webkit-animation" : "fly 4s", "animation" : "fly 4s"});
+            }
+        }
+    }
 });
