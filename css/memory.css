@@ -117,24 +117,6 @@
         transform: scale(0.25) rotate(0deg);
     }
 
-    /*30% {
-        top: 130px;
-        left: 500px;
-        transform: scale(0.5) rotate(1500deg);
-    }
-
-    60% {
-        top: 230px;
-        left: 500px;
-        transform: scale(0.7) rotate(2500deg);
-    }
-
-    90% {
-        top: 300px;
-        left: 500px;
-        transform: scale(0.9) rotate(3500deg);
-    }*/
-
     100% {
         /*710*/
         transform: scale(1.0) rotate(3960deg);
@@ -149,20 +131,6 @@
     top: 60px;
     transform: scale(0.25);
     background-image: url("/fonocolor/images/memory/unil_back_182.png");
-    /*
-    -webkit-animation-name: fly;
-    -webkit-animation-duration: 4s;
-    -webkit-animation-play-state: running;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-direction: normal;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-name: fly;
-    -moz-animation-duration: 5s;
-    -moz-animation-play-state: running;
-    -moz-animation-iteration-count: 1;
-    -moz-animation-direction: normal;
-    -moz-animation-timing-function: linear;
-    */
 }
 
 .pile{

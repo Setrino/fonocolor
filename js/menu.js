@@ -3,8 +3,8 @@ $(document).ready(function(){
     var references = {
         games: {
             0: '<a href="/fonocolor/jeux/memory.html"><img src="/fonocolor/images/menu/harmonie_1.png"></a>',
-            1: '<a href="/fonocolor/jeux/trouver.html"><img src="/fonocolor/images/menu/harmonie_2.png"></a>',
-            2: '<a href="/fonocolor/jeux/memory.html"><img src="/fonocolor/images/menu/games.png"></a>',
+            1: '<a href="/fonocolor/jeux/memory.html"><img src="/fonocolor/images/menu/harmonie_2.png"></a>',
+            2: '<a href="/fonocolor/jeux/trouver.html"><img src="/fonocolor/images/menu/games.png"></a>',
             3: '<a href="/fonocolor/jeux/trouver.html"><img src="/fonocolor/images/menu/games.png"></a>'
         },
         understand: {

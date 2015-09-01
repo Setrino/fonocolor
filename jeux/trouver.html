@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/Educational">
 <head>
-    <?php include '../php/meta_data.php'; ?>
-    <title></title>
+    <title>Décodade Phonocolor</title>
+    <link rel="stylesheet" href="../css/fonts.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/trouver.css" media="screen"/>
+    <script src="../js/jquery-1.10.2.min.js"></script>
 </head>
 <body>
-    Trouver
+<div id="wrapper">
+    <div id="body_wrapper">
+        <div id="menu"></div>
+        <div id="header_wrapper">
+            <span class="level"></span>
+            <div class="logo_block">
+                <img class="logo" src="../images/logo.png"/>
+            </div>
+            <span class="level"></span>
+        </div>
+        <div class="menu_line difficulty">
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="easy" src="../images/game/easy.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="medium" src="../images/game/medium.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="hard" src="../images/game/hard.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="two"></span>
+        <canvas id="canvas" width="800" height="148"></canvas>
+        <input type="text" id="decadade">
+    </div>
+    <div class="bgCover">&nbsp;</div>
+    <div class="overlayBox">
+        <span class="player_won"></span>
+        <img id="restart" src="../images/game/restart.png">
+        <img id="continue" src="../images/game/play.png">
+        <div class="overlayContent">
+
+        </div>
+    </div>
+</div>
 </body>
+<script src="../js/requests.js"></script>
+<script src="../js/trouver.js"></script>
+<script src="../js/copyright.js"></script>
 </html>
