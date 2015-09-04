@@ -1,10 +1,8 @@
 $(document).ready(function(){
 
-    console.log(window.location.pathname);
     var path = window.location.pathname.split("/")[1];
-    console.log(path);
-    if(path != ''){
-        path = "/" + path.trim();
+    if(path.match('fonocolor')){
+        path = "/fonocolor";
     }
 
     var references = {
