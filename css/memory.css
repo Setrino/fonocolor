@@ -119,7 +119,7 @@
 
     100% {
         /*710*/
-        transform: scale(1.0) rotate(3960deg);
+        transform: scale(1.0) rotate(720deg);
     }
 }
 
@@ -174,4 +174,13 @@
 .overlayBox img{
     margin: 1em 2em;
     cursor: pointer;
+}
+
+.card_line{
+    margin: 0 auto;
+}
+
+.memory{
+    float: left;
+    z-index: 20;
 }

@@ -12,7 +12,8 @@ $(document).ready(function(){
     var tilesCovered = 0;
     var tilesOpened = 0;
     var escapeCounter = 0;
-    var animationTime = 4000;
+    var animationTime = 2500;
+    var animationStep = 500;
 
     var references = {
         consonants: ['c.b', 'c.ch', 'c.d', 'c.ge', 'c.j', 'c.l', 'c.m', 'c.n', 'c.p', 'c.ph', 'c.r', 'c.s', 'c.t', 'c.ve', 'c.z'],
@@ -152,24 +153,7 @@ $(document).ready(function(){
             return 0.5 - Math.random();
         });
 
-        animateCards(x, y);
-
-        setTimeout(function(){
-            var bodyWrapper = $('#body_wrapper');
-            for(var i = 0; i < yAxis; i++){
-                var card_line = '<div class="card_line">';
-                bodyWrapper.append();
-                for(var j = 0; j < x; j++){
-                    var temp = selected.pop();
-                    card_line += flip_card + temp.split('/')[0] + " " + temp.split('/')[1] + flip_card_2;
-                    card_line += '<img src="../images/memory/' + temp + '_182.png">';
-                    card_line += '</div></div></div>';
-                }
-                card_line += '</div>';
-                bodyWrapper.append(card_line);
-                setupClicks(players);
-            }
-        }, animationTime);
+        animateCards(x, y, selected, players);
     }
 
     function setupClicks(players){
@@ -381,10 +365,10 @@ $(document).ready(function(){
         }, 800);
     }
 
-    function animateCards(x, y){
+    function animateCards(x, y, selected, players){
 
-        var left = 75;
-        var top = 245;
+        var left = 105;
+        var top = 220;
         var unil_left = "440px";
 
         switch(x){
@@ -393,29 +377,59 @@ $(document).ready(function(){
                 break;
             case 4:
                 unil_left = "560px";
-                left = -240;
-                top = 245;
+                left = -225;
+                top = 210;
                 break;
             case 6:
                 unil_left = "740px";
-                left = -615;
-                top = 245;
+                left = -570;
+                top = 220;
                 break;
         }
 
-        for(var i = 0; i < y; i++){
-            for(var j = 0; j < x; j++){
-                var $newdiv1 = $( "<div class='unil_card'></div>" );
-                $newdiv1.css("left", unil_left);
-                $("#body_wrapper").append($newdiv1);
-                $newdiv1.animate({
-                    left: "+=" + (left + 195 * j),
-                    top: "+=" + (top + 195 * i)
-                }, animationTime + (i+j) * 200, function(){
-                    $(".unil_card").remove();
-                });
-                $newdiv1.css({"-webkit-animation" : "fly 4s", "animation" : "fly 4s"});
+        // set interval
+        var i = 0;
+        var j = 0;
+        var bodyWrapper = $('#body_wrapper');
+        var tid = setInterval(loopCards, animationStep);
+        var card_line = $('<div class="card_line"></div>');
+        card_line.css('width', 200 * x);
+        bodyWrapper.append(card_line);
+        function loopCards() {
+            var $newdiv1 = $( "<div class='unil_card'>" );
+            var tempJ = j;
+            $newdiv1.css("left", unil_left);
+            $("#body_wrapper").append($newdiv1);
+            $newdiv1.animate({
+                left: "+=" + (left + 190 * j),
+                top: "+=" + (top + 190 * i)
+            }, animationTime, function(){
+                $newdiv1.remove();
+            });
+            $newdiv1.css({"-webkit-animation" : "fly 2.5s", "animation" : "fly 2.5s"});
+            setTimeout(function(){
+                var temp = selected.pop();
+                card_line.append(flip_card + temp.split('/')[0] + " " + temp.split('/')[1] + flip_card_2 +
+                    + '<img src="../images/memory/' + temp + '_182.png"></div></div></div>');
+                if(tempJ == x - 1){
+                    card_line = $('<div class="card_line"></div>');
+                    card_line.css('width', 200 * x);
+                    bodyWrapper.append(card_line);
+                }
+            }, animationTime);
+
+            j++;
+            if(j == x){
+                j = 0;
+                i++;
+                if(i == y){
+                    abortTimer();
+                }
             }
+        }
+        function abortTimer() {
+            clearInterval(tid);
+            setupClicks(players);
         }
     }
 });
