@@ -152,7 +152,7 @@
 }
 
 .bar{
-    background-image: url("/fonocolor/images/game/bar.png");
+    background-image: url("../images/game/bar.png");
     position: absolute;
     height: 5px;
     width: 140px;
