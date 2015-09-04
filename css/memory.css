@@ -130,7 +130,7 @@
     left: 440px;
     top: 60px;
     transform: scale(0.25);
-    background-image: url("/fonocolor/images/memory/unil_back_182.png");
+    background-image: url("../images/memory/unil_back_182.png");
 }
 
 .pile{
