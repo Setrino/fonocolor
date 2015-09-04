@@ -62,7 +62,7 @@ $(document).ready(function(){
                 .html(data);
             $("#menu").after(newDiv);
             var menuOverlay = $(".menuOverlay");
-            $('body').append('<link rel="stylesheet" type="text/css" href="/fonocolor/css/menu.css">');
+            $('body').append('<link rel="stylesheet" type="text/css" href="css/menu.css">');
             $('body').append('<script type="text/javascript" src="js/menu.js"></script>');
             menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
                 '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
