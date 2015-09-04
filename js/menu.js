@@ -7,6 +7,8 @@ $(document).ready(function(){
         path = "";
     }
 
+    $("img").attr('src', path + $("img").attr('src'));
+
     var references = {
         games: {
             0: '<a href=' + path + '"/jeux/memory.html"><img src=' + path + '"/images/menu/harmonie_1.png"></a>',
