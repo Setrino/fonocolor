@@ -7,22 +7,22 @@ $(document).ready(function(){
         path = "";
     }
 
-    $("img").attr('src', path + $("img").attr('src'));
+    $('.overlay_menu img').each(function(k, v) { if(!$(v).attr('src').match('fonocolor')){$(v).attr('src', path + $(v).attr('src'));}});
 
     var references = {
         games: {
-            0: '<a href=' + path + '"/jeux/memory.html"><img src=' + path + '"/images/menu/harmonie_1.png"></a>',
-            1: '<a href=' + path + '"/jeux/memory.html"><img src=' + path + '"/images/menu/harmonie_2.png"></a>',
-            2: '<a href=' + path + '"/jeux/trouver.html"><img src=' + path + '"/images/menu/games.png"></a>',
-            3: '<a href=' + path + '"/jeux/trouver.html"><img src=' + path + '"/images/menu/games.png"></a>'
+            0: '<a href=' + path + '/jeux/memory.html><img src=' + path + '/images/menu/harmonie_1.png></a>',
+            1: '<a href=' + path + '/jeux/memory.html><img src=' + path + '/images/menu/harmonie_2.png></a>',
+            2: '<a href=' + path + '/jeux/trouver.html><img src=' + path + '/images/menu/games.png></a>',
+            3: '<a href=' + path + '/jeux/trouver.html><img src=' + path + '/images/menu/games.png></a>'
         },
         understand: {
-            0 : '<a href=' + path + '"/comment.html"><img src=' + path + '"/images/menu/understand.png"></a>',
-            1: '<a href=' + path + '"/comment.html"><img src=' + path + '"/images/menu/understand.png"></a>'
+            0 : '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/understand.png></a>',
+            1: '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/understand.png></a>'
         },
         demander: {
-            0 : '<a href=' + path + '"/pourquoi.html"><img src=' + path + '"/images/menu/demander.png"></a>',
-            1: '<a href=' + path + '"/pourquoi.html"><img src=' + path + '"/images/menu/demander.png"></a>'
+            0 : '<a href=' + path + '/pourquoi.html><img src=' + path + '/images/menu/demander.png></a>',
+            1: '<a href=' + path + '/pourquoi.html><img src=' + path + '/images/menu/demander.png></a>'
         }
     };
 
@@ -53,7 +53,8 @@ $(document).ready(function(){
         }else{
             $('.back_arrow').css({
                 'opacity' : 1,
-                'cursor': 'pointer'
+                'cursor': 'pointer',
+                'background-image' : 'url(' + path + '/images/menu/back_arrow.png)'
             });
             $('.back_arrow').click(function(){
                 $(this).css({'opacity' : 0, 'cursor' : 'initial'});
