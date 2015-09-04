@@ -367,8 +367,8 @@ $(document).ready(function(){
 
     function animateCards(x, y, selected, players){
 
-        var left = 105;
-        var top = 220;
+        var left = 100;
+        var top = 210;
         var unil_left = "440px";
 
         switch(x){
@@ -382,8 +382,8 @@ $(document).ready(function(){
                 break;
             case 6:
                 unil_left = "740px";
-                left = -570;
-                top = 220;
+                left = -600;
+                top = 210;
                 break;
         }
 
@@ -402,7 +402,7 @@ $(document).ready(function(){
             $("#body_wrapper").append($newdiv1);
             $newdiv1.animate({
                 left: "+=" + (left + 190 * j),
-                top: "+=" + (top + 190 * i)
+                top: "+=" + (top + 195 * i)
             }, animationTime, function(){
                 $newdiv1.remove();
             });
