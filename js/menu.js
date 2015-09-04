@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+    console.log(window.location.pathname);
+    var path = window.location.pathname.split("/")[1];
+    console.log(path);
+
     var references = {
         games: {
             0: '<a href="/fonocolor/jeux/memory.html"><img src="/fonocolor/images/menu/harmonie_1.png"></a>',
@@ -58,5 +62,9 @@ $(document).ready(function(){
                 },600);
             });
         }
+    });
+
+    $(window).bind('beforeunload', function () {
+        $(".menu_line").css("display", "none");
     });
 });

@@ -10,6 +10,7 @@ $(document).ready(function(){
     var circ_squa = '<img src="../images/game/circ_squa.png"/>';
     var documentHeight = $(document).height();
     var tilesCovered = 0;
+    var tilesOpened = 0;
     var escapeCounter = 0;
     var animationTime = 4000;
 
@@ -26,6 +27,7 @@ $(document).ready(function(){
         var clickA = false;
         setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
         $('.menu').css('display', "none");
+        $('.bar').remove();
         $('.difficulty img').unbind('click');
         $('.type img').css('opacity', '1.0');
         hideAnimation('.level');
@@ -174,7 +176,7 @@ $(document).ready(function(){
 
         var previousClass = undefined;
         var previousObject = undefined;
-        var tilesOpened = 0;
+
         var disableClick = false;
         var player1 = 0;
         var player1_score = 0;
@@ -201,7 +203,9 @@ $(document).ready(function(){
                     }
                     disableClick = true;
                     if(previousObject.attr('class').split(' ')[1] === classes[1] && previousClass == tempClass){
-                        disableClick = false;
+                        setTimeout(function () {
+                            disableClick = false;
+                        }, 1000);
                     }
                     else if (previousClass != tempClass) {
                         setTimeout(function () {
@@ -212,21 +216,24 @@ $(document).ready(function(){
                             disableClick = false;
                         }, 1000);
                     } else{
+                        console.log(tilesCovered);
+                        tilesOpened++;
+                        console.log("Open " + tilesOpened);
                         if(!playerUpdate){
-                            ++player2_score;
-                        }else{
-                            ++player1_score;
-                        }
-                        if(!playerUpdate){
+                            player2_score++;
                             if(players == 1){
-                                addToPile(that, previousObject, 1, player1_score);
+                                addToPile(that, previousObject, 1, player1_score + player2_score);
                             }else{
                                 addToPile(that, previousObject, 2, player2_score);
                             }
                         }else{
-                            addToPile(that, previousObject, 1, player1_score);
+                            player1_score++;
+                            if(players == 1) {
+                                addToPile(that, previousObject, 1, player1_score + player2_score);
+                            }else{
+                                addToPile(that, previousObject, 1, player1_score);
+                            }
                         }
-                        tilesOpened++;
                         previousClass = undefined;
                         previousObject = undefined;
                         if (tilesCovered == tilesOpened) {
@@ -252,6 +259,7 @@ $(document).ready(function(){
     function resetGame(player, noOfClick, score){
         $('.card_line').remove();
         tilesCovered = 0;
+        tilesOpened = 0;
         if(player == 0){
             $('.player_won').html("Il est un match nul, score " + score + "!");
         }else{
@@ -369,7 +377,7 @@ $(document).ready(function(){
                 $(".pile2").remove();
                 $("#body_wrapper").append(bar);
             });
-        }, 1000);
+        }, 800);
     }
 
     function animateCards(x, y){
@@ -402,7 +410,7 @@ $(document).ready(function(){
                 $newdiv1.animate({
                     left: "+=" + (left + 195 * j),
                     top: "+=" + (top + 195 * i)
-                }, animationTime, function(){
+                }, animationTime + (i+j) * 200, function(){
                     $(".unil_card").remove();
                 });
                 $newdiv1.css({"-webkit-animation" : "fly 4s", "animation" : "fly 4s"});
