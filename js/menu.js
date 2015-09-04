@@ -3,21 +3,24 @@ $(document).ready(function(){
     console.log(window.location.pathname);
     var path = window.location.pathname.split("/")[1];
     console.log(path);
+    if(path != ''){
+        path = "/" + path;
+    }
 
     var references = {
         games: {
-            0: '<a href="/fonocolor/jeux/memory.html"><img src="/fonocolor/images/menu/harmonie_1.png"></a>',
-            1: '<a href="/fonocolor/jeux/memory.html"><img src="/fonocolor/images/menu/harmonie_2.png"></a>',
-            2: '<a href="/fonocolor/jeux/trouver.html"><img src="/fonocolor/images/menu/games.png"></a>',
-            3: '<a href="/fonocolor/jeux/trouver.html"><img src="/fonocolor/images/menu/games.png"></a>'
+            0: '<a href=' + path + '"/jeux/memory.html"><img src=' + path + '"/images/menu/harmonie_1.png"></a>',
+            1: '<a href=' + path + '"/jeux/memory.html"><img src=' + path + '"/images/menu/harmonie_2.png"></a>',
+            2: '<a href=' + path + '"/jeux/trouver.html"><img src=' + path + '"/images/menu/games.png"></a>',
+            3: '<a href=' + path + '"/jeux/trouver.html"><img src=' + path + '"/images/menu/games.png"></a>'
         },
         understand: {
-            0 : '<a href="/fonocolor/comment.html"><img src="/fonocolor/images/menu/understand.png"></a>',
-            1: '<a href="/fonocolor/comment.html"><img src="/fonocolor/images/menu/understand.png"></a>'
+            0 : '<a href=' + path + '"/comment.html"><img src=' + path + '"/images/menu/understand.png"></a>',
+            1: '<a href=' + path + '"/comment.html"><img src=' + path + '"/images/menu/understand.png"></a>'
         },
         demander: {
-            0 : '<a href="/fonocolor/pourquoi.html"><img src="/fonocolor/images/menu/demander.png"></a>',
-            1: '<a href="/fonocolor/pourquoi.html"><img src="/fonocolor/images/menu/demander.png"></a>'
+            0 : '<a href=' + path + '"/pourquoi.html"><img src=' + path + '"/images/menu/demander.png"></a>',
+            1: '<a href=' + path + '"/pourquoi.html"><img src=' + path + '"/images/menu/demander.png"></a>'
         }
     };
 
