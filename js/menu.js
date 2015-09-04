@@ -4,7 +4,7 @@ $(document).ready(function(){
     var path = window.location.pathname.split("/")[1];
     console.log(path);
     if(path != ''){
-        path = "/" + path;
+        path = "/" + path.trim();
     }
 
     var references = {
