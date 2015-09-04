@@ -3,6 +3,8 @@ $(document).ready(function(){
     var path = window.location.pathname.split("/")[1];
     if(path.match('fonocolor')){
         path = "/fonocolor";
+    }else{
+        path = "";
     }
 
     var references = {
