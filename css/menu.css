@@ -11,13 +11,13 @@
 /* entire container, keeps perspective */
 .flip-container {
     margin: 0 auto;
-    margin: 0 0.2em 0 0.2em;
+    margin: 0.2em;
     perspective: 1000;
 }
 
 .flip-container, .front, .back {
-    width: 215px;
-    height: 185px;
+    width: 185px;
+    min-height: 185px;
     display: inline-block;
 }
 
@@ -27,6 +27,12 @@
     transform-style: preserve-3d;
     position: relative;
     cursor: pointer;
+    height: auto;
+}
+
+.flipper img{
+    max-width: 100%;
+    height: auto;
 }
 
 /* hide back of pane during swap */
