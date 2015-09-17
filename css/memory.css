@@ -23,8 +23,6 @@
 }
 
 .flip-container, .flip-container_l, .front, .back {
-    width: 185px;
-    height: 185px;
     margin: 0.3em;
     display: inline-block;
 }
@@ -119,7 +117,7 @@
 
     100% {
         /*710*/
-        transform: scale(1.0) rotate(720deg);
+        transform: scale(0.8) rotate(720deg);
     }
 }
 
@@ -130,7 +128,7 @@
     left: 440px;
     top: 60px;
     transform: scale(0.25);
-    background-image: url("../images/memory/unil_back_182.png");
+    background-image: url("../images/memory/unil_back_200.png");
 }
 
 .pile{
@@ -177,6 +175,7 @@
 }
 
 .card_line{
+    position: relative;
     margin: 0 auto;
 }
 

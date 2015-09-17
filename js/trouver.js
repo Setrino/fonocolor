@@ -51,18 +51,16 @@ $(document).ready(function(){
         $(".difficulty").css("display", "none");
         switch($(this).attr('id')){
             case 'easy':
-                textArray[0] = 'bonjour';
-                wordRequest('bonjour');
+                textArray[0] = 'gars';
                 break;
             case 'medium':
-                textArray[0] = 'littérature';
-                wordRequest('littérature');
+                textArray[0] = 'toutes';
                 break;
             case 'hard':
-                textArray[0] = 'inéligibilité';
-                wordRequest('inéligibilité');
+                textArray[0] = 'partir';
                 break;
         }
+        wordRequest(textArray[0]);
     });
 
     //Receives array of [[letter, color]]
@@ -182,4 +180,6 @@ $(document).ready(function(){
             doOverlayOpen();
         }
     });
+
+    $(".draggable").draggable();
 });
