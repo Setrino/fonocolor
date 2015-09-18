@@ -117,13 +117,13 @@
 
     100% {
         /*710*/
-        transform: scale(0.8) rotate(720deg);
+        transform: scale(0.5) rotate(720deg);
     }
 }
 
 .unil_card {
-    width: 182px;
-    height: 182px;
+    width: 200px;
+    height: 200px;
     position: absolute;
     left: 440px;
     top: 60px;

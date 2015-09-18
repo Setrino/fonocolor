@@ -18,7 +18,30 @@
             </div>
             <span class="level"></span>
         </div>
-        <div class="menu_line difficulty">
+        <div class="menu_line type">
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="lvl_voy" src="../images/game/lvl_voy.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="lvl_con" src="../images/game/lvl_con.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="lvl_both" src="../images/game/lvl_both.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu_line difficulty disable">
             <div class="flip-container_l">
                 <div class="flipper">
                     <div class="front_l">
@@ -41,12 +64,31 @@
                 </div>
             </div>
         </div>
+        <div class="menu_line players">
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="one_p" src="../images/game/one_p.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="two_p" src="../images/game/two_p.png">
+                    </div>
+                </div>
+            </div>
+        </div>
         <span class="two"></span>
         <canvas id="canvas" width="800" height="148"></canvas>
         <input type="text" id="decadade">
     </div>
     <div class="ui-widget-content draggable">
-        <p>Drag me to my target</p>
+        <img class="trouver-card g" src="../images/memory/squares/g_200.png">
+    </div>
+    <div class="ui-widget-content draggable">
+        <img class="trouver-card a" src="../images/memory/circles/a_200.png">
     </div>
     <div class="bgCover">&nbsp;</div>
     <div class="overlayBox">
@@ -61,6 +103,6 @@
 </body>
 <script src="../js/requests.js"></script>
 <script src="../js/trouver.js"></script>
-<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/jGravity-min.js"></script>
 <script src="../js/copyright.js"></script>
 </html>

@@ -29,6 +29,7 @@ $(document).ready(function(){
         var clickA = false;
         setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
         $('.menu').css('display', "none");
+        $('.players').css("display", "none");
         $('.bar').remove();
         $('.difficulty img').unbind('click');
         $('.type img').css('opacity', '1.0');

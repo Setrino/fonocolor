@@ -85,7 +85,6 @@
     padding: 0.5em;
     float: left;
     margin: 10px 10px 10px 0;
-    border: 1px solid #FFFFFF;
 }
 
 .bgCover{
@@ -105,4 +104,54 @@
 
 .player_won{
     font-size: 40px;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1;  }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+    from { opacity: 1;
+        height: initial;}
+    to { opacity: 0;
+        height: 0;}
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; height: initial;}
+    to { opacity: 0;
+        height: 0;
+    }
+}
+
+@keyframes fly {
+    0% {
+        transform: scale(0.25) rotate(0deg);
+    }
+
+    100% {
+        /*710*/
+        transform: scale(0.8) rotate(720deg);
+    }
+}
+
+.trouver-card{
+    width: 100px;
+    height: 100px;
+}
+
+.unil_card {
+    width: 182px;
+    height: 182px;
+    position: absolute;
+    left: 440px;
+    top: 60px;
+    transform: scale(0.25);
+    background-image: url("../images/memory/unil_back_200.png");
 }
