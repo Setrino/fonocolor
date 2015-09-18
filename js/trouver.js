@@ -354,6 +354,8 @@ $(document).ready(function(){
         drag: true
     });
 
+    //$(".draggable").draggable();
+
     $("#restart").click(function(){
         $(".difficulty").css("display", "block");
         $("#decadade").css("display", 'none').val("");
