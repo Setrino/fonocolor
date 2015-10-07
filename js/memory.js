@@ -17,8 +17,8 @@ $(document).ready(function(){
     var card_width = 0;
 
     var references = {
-        consonants: ['c.b', 'c.c', 'c.d', 'c.f', 'c.g', 'c.p', 'c.t', 'c.ph', 'c.qu', 'c.r', 'c.s', 'c.se', 'c.sse', 'c.tt', 'c.ve', 'c.x', 'c.xx', 'c.z', 'c.ç', 'c.ce', 'c.ch', 'c.ge', 'c.gu', 'c.j', 'c.k', 'c.l', 'c.m', 'c.n'],
-        vowels: ['v.u', 'v.un', 'v.y', 'v.a', 'v.ai', 'v.ain', 'v.an', 'v.au', 'v.e_', 'v.e', 'v.ee', 'v.een', 'v.eeu', 'v.ei', 'v.ein', 'v.en', 'v.er', 'v.es', 'v.eu', 'v.eux', 'v.ez', 'v.i', 'v.in', 'v.o', 'v.oeu', 'v.oi', 'v.oin', 'v.om', 'v.on', 'v.oo', 'v.ou'],
+        consonants: ['c.b!14', 'c.c!8', 'c.d!17', 'c.f!7', 'c.g!6', 'c.p!12', 'c.t!10', 'c.ph!7', 'c.qu!8', 'c.r!13', 'c.s!1', 'c.se!5', 'c.sse!1', 'c.tt!1', 'c.ve!11', 'c.x!4', 'c.xx!3', 'c.z!5', 'c.ç!1', 'c.ce!1', 'c.ch!18', 'c.ge!2', 'c.gu!6', 'c.j!2', 'c.k!8', 'c.l!16', 'c.m!15', 'c.n!9'],
+        vowels: ['v.u!1', 'v.un!15', 'v.y!6', 'v.a!2', 'v.ai!7', 'v.ain!15', 'v.an!3', 'v.au!9', 'v.e_!4', 'v.e!7', 'v.ee!7', 'v.een!3', 'v.eeu!8', 'v.ei!7', 'v.ein!15', 'v.en!15', 'v.er!4', 'v.es!4', 'v.eu!8', 'v.eux!5', 'v.ez!4', 'v.i!6', 'v.in!15', 'v.o!9', 'v.oeu!8', 'v.oi!10', 'v.oin!11', 'v.om!12', 'v.on!12', 'v.oo!13', 'v.ou!14'],
         items:[],
         circles: [],
         squares: []
@@ -176,7 +176,8 @@ $(document).ready(function(){
             if(!disableClick && !$(this).css('transform').match('matrix3d')) {
                 var that = $(this);
                 var classes = that.attr('class').split(' ');
-                var tempClass = classes[2];
+                var tempClass = classes[2].split('!')[1];
+                console.log("Temp " + classes[1]);
                 that.css('transform', 'rotateY(180deg)');
                 if (!previousObject) {
                     previousObject = $.extend(true, {}, $(this));
@@ -381,7 +382,7 @@ $(document).ready(function(){
 
     function animateCards(x, y, selected, players){
 
-        var left = 100;
+        var left = 0;
         var top = 158;
         var width = (documentHeight - 310) / y;
         card_width = width;
