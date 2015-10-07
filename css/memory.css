@@ -1,3 +1,7 @@
+body{
+    overflow:hidden;
+}
+
 #wrapper{
     width: 1400px;
 }
@@ -18,17 +22,24 @@
 }
 
 /* entire container, keeps perspective */
-.flip-container, .flip-container_l {
-    margin: 0 auto;
+.flip-container,.flip-container_l, .front, .back {
+    display: inline-block;
 }
 
-.flip-container, .flip-container_l, .front, .back {
+.flip-container, .flip-container_l {
     margin: 0.3em;
-    display: inline-block;
 }
 
 .flip-container_l{
     padding: 1em;
+}
+
+.flip-container{
+    display: none;
+}
+
+.front, .back{
+    margin: 0px;
 }
 
 /* flip speed goes here */
@@ -42,7 +53,6 @@
 /* hide back of pane during swap */
 .front, .back {
     backface-visibility: hidden;
-
     position: absolute;
     top: 0;
     left: 0;
@@ -131,21 +141,10 @@
     background-image: url("../images/memory/unil_back_200.png");
 }
 
-.pile{
+.pile, .pile2{
     width: 182px;
     height: 182px;
     position: absolute;
-    left: 700px;
-    top: 400px;
-    z-index: 10;
-}
-
-.pile2{
-    width: 182px;
-    height: 182px;
-    position: absolute;
-    left: 500px;
-    top: 400px;
     z-index: 10;
 }
 

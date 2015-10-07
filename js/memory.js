@@ -14,6 +14,7 @@ $(document).ready(function(){
     var escapeCounter = 0;
     var animationTime = 2500;
     var animationStep = 500;
+    var card_width = 0;
 
     var references = {
         consonants: ['c.b', 'c.c', 'c.d', 'c.f', 'c.g', 'c.p', 'c.t', 'c.ph', 'c.qu', 'c.r', 'c.s', 'c.se', 'c.sse', 'c.tt', 'c.ve', 'c.x', 'c.xx', 'c.z', 'c.ç', 'c.ce', 'c.ch', 'c.ge', 'c.gu', 'c.j', 'c.k', 'c.l', 'c.m', 'c.n'],
@@ -214,16 +215,16 @@ $(document).ready(function(){
                                 addToPile(that, previousObject, 2, player2_score);
                             }
                         }else{
-                            player1_score++;
-                            if(players == 1) {
-                                addToPile(that, previousObject, 1, player1_score + player2_score);
-                            }else{
-                                addToPile(that, previousObject, 1, player1_score);
-                            }
+                                player1_score++;
+                                if (players == 1) {
+                                    addToPile(that, previousObject, 1, player1_score + player2_score);
+                                } else {
+                                    addToPile(that, previousObject, 1, player1_score);
+                                }
                         }
                         previousClass = undefined;
                         previousObject = undefined;
-                        if (tilesCovered == tilesOpened) {
+                        if (tilesCovered == tilesOpened){
                             setTimeout(function () {
                                 if(players == 1){
                                     resetGame(1, player1 + player2, tilesOpened);
@@ -283,8 +284,8 @@ $(document).ready(function(){
                 .html(data);
             $("#menu").after(newDiv);
             var menuOverlay = $(".menuOverlay");
-            $('body').append('<link rel="stylesheet" type="text/css" href="../css/menu.css">');
-            $('body').append('<script type="text/javascript" src="../js/menu.js"></script>');
+            $('body').append('<link rel="stylesheet" type="text/css" href="../css/menu.css">' +
+                '<script type="text/javascript" src="../js/menu.js"></script>');
             menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
             '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
             $(".menuClose").click(function(){
@@ -329,9 +330,10 @@ $(document).ready(function(){
 
         console.log(player_score);
 
-        var left = -700;
-        var left2 = -500;
-        var top = 300;
+        var documentWidth = $(document).width();
+        var left = - (documentWidth / 2 - card_width * 2);
+        var left2 = - (documentWidth / 2 - card_width * 1);
+        var top = card_width * 2.6;
         var bar = $('<div class="bar"></div>');
         if(player_score > 1){
             var neg = (player_score % 2) ? 8 : -8;
@@ -340,8 +342,8 @@ $(document).ready(function(){
 
 
         if(player == 2){
-            left = 500;
-            left2 = 700;
+            left = -left;
+            left2 = -left2;
             bar.css('left', '89%');
         }
         obj1.addClass('flip_pile');
@@ -350,22 +352,29 @@ $(document).ready(function(){
         obj2.parent().addClass('pile2');
         //player 1 left -700, top 300
         //player 2 left 500, top 300
+
+        //get the width * 2
+        obj1.parent().css("top", card_width * 1.5);
+        obj1.parent().css("left", card_width * 1 + 11);
+        obj2.parent().css("top", card_width * 1.5);
+        obj2.parent().css("left", card_width * 2 + 20);
+
         setTimeout(function () {
-            $(".flip_pile, .flip_pile2").css('transform', 'rotateX(90deg) rotateZ(90deg)');
+            $(".flip_pile, .flip_pile2").css({'transform': 'rotateX(90deg) rotateZ(90deg)', "transition-duration" : "1s"});
             $(".pile").animate({
                 left: "+=" + left,
                 top: "+=" + top
             }, 1000, function(){
-                $(".pile").remove();
+                //$(".pile").remove();
             });
             $(".pile2").animate({
                 left: "+=" + left2,
                 top: "+=" + top
             }, 1000, function(){
-                $(".pile2").remove();
+                //$(".pile2").remove();
                 $("#body_wrapper").append(bar);
             });
-        }, 800);
+        }, 2000);
     }
 
     console.log(documentHeight);
@@ -373,27 +382,27 @@ $(document).ready(function(){
     function animateCards(x, y, selected, players){
 
         var left = 100;
-        var top = 210;
+        var top = 158;
+        var width = (documentHeight - 310) / y;
+        card_width = width;
+        var card_lineWidth = ((width + 18) * x);
+        var left_step = ($(document).width() - card_lineWidth) / 2;
+        console.log("From left " + (left_step));
         var unil_left = "440px";
 
         switch(x){
-            case 2:
-                unil_left = "440px";
-                break;
             case 4:
-                unil_left = "560px";
-                left = -225;
-                top = 210;
+                unil_left = "440px";
+                left = -(Math.abs(left_step - 440 - 25));
+                top = 158;
                 break;
             case 6:
-                unil_left = "740px";
-                left = -600;
-                top = 210;
+                unil_left = "560px";
+                left = -(Math.abs(left_step - 560 - 42));
                 break;
             case 8:
                 unil_left = "740px";
-                left = -600;
-                top = 210;
+                left = -(Math.abs(left_step - 740 - 42));
                 break;
         }
 
@@ -401,7 +410,6 @@ $(document).ready(function(){
         var i = 0;
         var j = 0;
         var bodyWrapper = $('#body_wrapper');
-        var width = (documentHeight - 310) / y;
         var tid = setInterval(loopCards, animationStep);
         var card_line = $('<div class="card_line"></div>');
         card_line.css('width', (width + 18) * x);
@@ -409,37 +417,38 @@ $(document).ready(function(){
         function loopCards() {
             var $newdiv1 = $( "<div class='unil_card'>" );
             var tempJ = j;
+            if(i == 0) {
             $newdiv1.css("left", unil_left);
             $("#body_wrapper").append($newdiv1);
-            $newdiv1.animate({
-                left: "+=" + (left + (width + 8) * j),
-                top: "+=" + (top + (width + 13) * i)
-            }, animationTime, function(){
-                $newdiv1.remove();
-            });
-            $newdiv1.css({"-webkit-animation" : "fly 2.5s", "animation" : "fly 2.5s"});
-            $(".flip-container, .flip-container_l, .front, .back, .front img, .back img").css("width", width);
-            $(".flip-container, .flip-container_l, .front, .back, .front img, .back img").css("height", width);
+                $newdiv1.animate({
+                    left: "+=" + (left + (width + 10) * j),
+                    top: "+=" + (top + (width + 13) * i)
+                }, animationTime, function () {
+                    $newdiv1.remove();
+                });
+                $newdiv1.css({"-webkit-animation" : "fly 2.5s", "animation" : "fly 2.5s"});
+            }
             setTimeout(function(){
-                $(".flip-container, .flip-container_l, .front, .back, .front img, .back img").css("width", width);
-                $(".flip-container, .flip-container_l, .front, .back, .front img, .back img").css("height", width);
                 var temp = selected.pop();
                 console.log(temp);
-                card_line.append(flip_card + temp.split('/')[0] + " " + temp.split('/')[1] + flip_card_2 + '<img src="../images/memory/' + temp + '_200.png"></div></div></div>');
-                if(tempJ == x - 1){
-                    card_line = $('<div class="card_line"></div>');
-                    card_line.css('width', (width + 18) * x);
-                    bodyWrapper.append(card_line);
-                    $(".flip-container, .flip-container_l, .front, .back, .front img, .back img").css("width", width);
-                    $(".flip-container, .flip-container_l, .front, .back, .front img, .back img").css("height", width);
+                if(temp != undefined) {
+                    var add_card = $(flip_card + temp.split('/')[0] + " " + temp.split('/')[1] + flip_card_2 + '<img src="../images/memory/' + temp + '_200.png"></div></div></div>');
+                    card_line.append(add_card);
+                    $(".flip-container, .front, .back, .front img, .back img").css("width", width);
+                    $(".flip-container, .front, .back, .front img, .back img").css("height", width);
+                    $(".flip-container").css("display", "inline-block");
+                    if (tempJ == x - 1) {
+                        card_line = $('<div class="card_line"></div>');
+                        card_line.css('width', card_lineWidth);
+                        bodyWrapper.append(card_line);
+                    }
                 }
             }, animationTime);
-
             j++;
             if(j == x){
                 j = 0;
                 i++;
-                if(i == y){
+                if(i == y + 2){
                     abortTimer();
                 }
             }
@@ -447,6 +456,7 @@ $(document).ready(function(){
         function abortTimer() {
             clearInterval(tid);
             setupClicks(players);
+
         }
     }
 });

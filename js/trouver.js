@@ -350,11 +350,11 @@ $(document).ready(function(){
         }
     }
 
-    $('body').jGravity({
+    /*$('body').jGravity({
         drag: true
-    });
+    });*/
 
-    //$(".draggable").draggable();
+    $(".draggable").draggable();
 
     $("#restart").click(function(){
         $(".difficulty").css("display", "block");
