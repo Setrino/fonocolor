@@ -219,6 +219,10 @@ body{
     margin: 0 auto;
 }
 
+.clear{
+    clear: both;
+}
+
 #Stage:hover{
     cursor: pointer;
 }
