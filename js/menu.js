@@ -12,9 +12,9 @@ $(document).ready(function(){
     var references = {
         games: {
             0: '<a href=' + path + '/jeux/memory.html><img src=' + path + '/images/menu/harmonie_1.png></a>',
-            1: '<a href=' + path + '/jeux/memory.html><img src=' + path + '/images/menu/harmonie_2.png></a>',
+            1: '<a href=' + path + '/jeux/memory_2.html><img src=' + path + '/images/menu/harmonie_2.png></a>',
             2: '<a href=' + path + '/jeux/trouver.html><img src=' + path + '/images/menu/decodade_1.png></a>',
-            3: '<a href=' + path + '/jeux/trouver.html><img src=' + path + '/images/menu/decodade_2.png></a>'
+            3: '<a href=' + path + '/jeux/trouver_2.html><img src=' + path + '/images/menu/decodade_2.png></a>'
         },
         understand: {
             0 : '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/understand.png></a>',

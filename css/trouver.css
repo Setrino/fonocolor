@@ -1,27 +1,45 @@
+body{
+    overflow: hidden;
+}
+
+#wrapper{
+    width: 1400px;
+}
+
 .logo_block{
     display: inline-block;
     position: relative;
     width: 600px;
-    margin-bottom: 4em;
+    margin-bottom: 2em;
 }
 
 .logo{
 }
 
-/* entire container, keeps perspective */
-.flip-container, .flip-container_l {
-    margin: 0 auto;
+.color_icon{
+    position: absolute;
+    top:66%;
 }
 
-.flip-container, .flip-container_l, .front, .back {
-    width: 185px;
-    height: 185px;
-    margin: 0.3em;
+/* entire container, keeps perspective */
+.flip-container,.flip-container_l, .front, .back {
     display: inline-block;
+}
+
+.flip-container, .flip-container_l {
+    margin: 0.3em;
 }
 
 .flip-container_l{
     padding: 1em;
+}
+
+.flip-container{
+    display: none;
+}
+
+.front, .back{
+    margin: 0px;
 }
 
 /* flip speed goes here */
@@ -30,12 +48,18 @@
     transform-style: preserve-3d;
     position: relative;
     cursor: pointer;
+    max-width: 200px;
+    width: 90%;
+}
+
+.flipper img{
+    height: auto;
+    max-width: 100%;
 }
 
 /* hide back of pane during swap */
 .front, .back {
     backface-visibility: hidden;
-
     position: absolute;
     top: 0;
     left: 0;
@@ -53,57 +77,30 @@
     transform: rotateY(180deg);
 }
 
+.difficulty{
+}
+
+.players{
+    display: none;
+}
+
+.level, .level_block{
+    display: none;
+}
 
 .disable .flipper{
     opacity: 0.2;
     cursor: auto;
 }
 
-#canvas{
-    margin-top: 4em;
-}
-
-#decadade{
-    display: none;
-    font-family: fundamental__brigade_schwerRg;
-    width: 800px;
-    text-align: center;
-    font-size: 50px;
-    outline: none;
-    border: 0;
-    color: #FFFFFF;
-    background: #000000;
-    letter-spacing: 33px;
-    text-transform: uppercase;
-    position: relative;
-    left: 10px;
-}
-
-.draggable {
-    width: 100px;
-    height: 100px;
-    padding: 0.5em;
-    float: left;
-    margin: 10px 10px 10px 0;
-}
-
-.bgCover{
-    opacity: 0.4;
-}
-
-.overlayBox{
-    background: none;
-    color: #FFFFFF;
-    font-size: 22px;
-}
-
-.overlayBox img{
-    margin: 1em 2em;
+.new_game:hover{
     cursor: pointer;
+    color: #808080;
 }
 
-.player_won{
-    font-size: 40px;
+.two{
+    display: block;
+    margin: 2em 0 2em 0;
 }
 
 @-webkit-keyframes fadeIn {
@@ -137,21 +134,91 @@
 
     100% {
         /*710*/
-        transform: scale(0.8) rotate(720deg);
+        transform: scale(0.5) rotate(720deg);
     }
 }
 
-.trouver-card{
-    width: 100px;
-    height: 100px;
-}
-
 .unil_card {
-    width: 182px;
-    height: 182px;
+    width: 200px;
+    height: 200px;
     position: absolute;
     left: 440px;
     top: 60px;
     transform: scale(0.25);
     background-image: url("../images/memory/unil_back_200.png");
+}
+
+.pile, .pile2{
+    width: 182px;
+    height: 182px;
+    position: absolute;
+    z-index: 10;
+}
+
+.bar{
+    background-image: url("../images/game/bar.png");
+    position: absolute;
+    height: 5px;
+    width: 140px;
+    display: block;
+    left: 1%;
+    bottom: 10px;
+}
+
+.bgCover{
+    opacity: 0.4;
+}
+
+.overlayBox{
+    background: none;
+    color: #FFFFFF;
+    font-size: 22px;
+}
+
+.overlayBox img{
+    margin: 1em 2em;
+    cursor: pointer;
+}
+
+.card_line{
+    position: relative;
+    margin: 0 auto;
+}
+
+.memory{
+    float: left;
+    z-index: 20;
+}
+
+.draggable {
+    width: 100px;
+    height: 100px;
+    padding: 0.5em;
+    float: left;
+    margin: 10px 10px 10px 0;
+    z-index: 900;
+}
+
+#trouver-cards, #trouver-word{
+    margin: 0 auto;
+}
+
+#trouver-word{
+    display: none;
+    font-family: 'fundamental__brigade_schwerRg';
+    font-size: 5em;
+    text-align: center;
+    position: relative;
+}
+
+.trouver-card{
+    cursor: pointer;
+}
+
+#Stage{
+    margin: 0 auto;
+}
+
+#Stage:hover{
+    cursor: pointer;
 }
