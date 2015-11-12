@@ -3,23 +3,26 @@ $(document).ready(function(){
     var flip_card = '<div class="flip-container memory"><div class="flipper" id="flipper_';
     var flip_card_2 = '"><div class="front"><img class="" src="../images/memory/unil_back_200.png"></div><div class=\'back\'>';
     var trouver_card = '<div class="ui-widget-content draggable"><img class="trouver-card ';
-    var trouver_card2 = '" src="../images/trouver/colors/';
+    var trouver_card2 = '" src="../images/trouver/';
     var voyelle_img = '<img src="../images/game/voyelles.png"/>';
     var consonnes_img = '<img src="../images/game/consonnes.png"/>';
     var con_voy_img = '<img src="../images/game/voyelle_consonnes.png"/>';
     var circle = '<img src="../images/game/circle.png"/>';
     var square = '<img src="../images/game/square.png"/>';
     var circ_squa = '<img src="../images/game/circ_squa.png"/>';
+    var soundPath = '../sound/';
     var documentHeight = $(document).height();
     var tilesCovered = 0;
     var tilesOpened = 0;
     var noOfClicks = 0;
+    var timeout;
     var escapeCounter = 0;
     var difficulty = 'easy';
-    var animationTime = 2500;
+    var animationTime = 1000;
     var animationStep = 500;
+    var snd = null;
     var card_width = 0;
-    var pixel_size = 80,
+    var pixel_size = 90,
         textArray = new Array(),
         c = document.getElementById('trouver-word'),
         ctx = c.getContext('2d');
@@ -39,12 +42,9 @@ $(document).ready(function(){
         var array = [];
         var clickA = false;
         ctx.clearRect(0, 0, c.width, c.height);
-        setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
         $('.menu').css('display', "none");
         $('.players').css("display", "none");
         $('.bar').remove();
-        hideAnimation('.level');
-        hideAnimation('.level_block');
         $('.difficulty img').click(function(){
                 $(this).off('click');
                 displayAnimation('.level_block');
@@ -56,17 +56,17 @@ $(document).ready(function(){
                     case 'easy':
                         difficulty = 'easy';
                         $('.color_icon').css('left', '112px');
-                        noOfPlayers(6, 1, difficulty, generateMatrix);
+                        noOfPlayers(6, 1, difficulty, "colors", generateMatrix);
                         break;
                     case 'medium':
                         difficulty = 'medium';
                         $('.color_icon').css('left', '250px');
-                        noOfPlayers(6, 1, difficulty, generateMatrix);
+                        noOfPlayers(6, 1, difficulty, "objects", generateMatrix);
                         break;
                     case 'hard':
                         difficulty = 'hard';
                         $('.color_icon').css('left', '413px');
-                        noOfPlayers(6, 1, difficulty, generateMatrix);
+                        noOfPlayers(6, 1, difficulty, "objects", generateMatrix);
                         break;
                 }
         });
@@ -96,24 +96,9 @@ $(document).ready(function(){
         setTimeout(function(){$("#Stage").css("display", "none")}, 2700);
     });
 
-    function noOfPlayers(x, y, difficulty, callback){
+    function noOfPlayers(x, y, difficulty, type, callback){
         var players = 1;
-        displayAnimation(".players");
-        //$('.players').css('display', 'block');
-        $('.players img').click(function(){
-
-            switch($(this).attr('id')){
-                case 'one_p':
-                    players = 1;
-                    break;
-                case 'two_p':
-                    players = 2;
-                    break;
-            };
-            $('.players').css("display", "none");
-            $(this).off('click');
-            selectWord(difficulty, function(word, array){callback(x, y, jQuery.parseJSON(array), players, word);});
-        });
+            selectWord(difficulty, function(word, array){callback(x, y, jQuery.parseJSON(array), players, word, type);});
     }
 
     function hideAnimation(element){
@@ -126,7 +111,7 @@ $(document).ready(function(){
         $(element).css({"display" : "initial", "-webkit-animation" : "fadeIn 1s", "animation" : "fadeIn 1s"});
     }
 
-    function generateMatrix(x, y, array, players, word){
+    function generateMatrix(x, y, array, players, word, type){
 
         var colors = [array[0][1]];
         var previousColor = colors[0];
@@ -140,9 +125,64 @@ $(document).ready(function(){
             }
         }
         tilesOpened = colors.length;
-        colors = colors.concat(Array(6 - colors.length).fill('#empty'));
+        //colors = colors.concat(Array(6 - colors.length).fill('#empty'));
         console.log(colors);
-        animateCards(x, y, colors, players, word, array);
+        animateCards(colors.length, y, colors, players, word, array, type);
+    }
+
+    function playSound(track, type) {
+
+        snd = new Audio(soundPath + 'color/_' + track + ".wav");
+        snd.play();
+
+        /*var type = 'color/_';
+
+        if (snd) {
+            snd.pause();
+        }
+        var previous = null;
+        var buffer = {
+
+            buffer: [],
+
+            addTrack: function (track) {
+                this.buffer.push(track);
+            },
+            nextTrack: function () {
+                if (this.buffer.length != 0) {
+                    var temp = this.buffer.shift();
+                    snd = soundPath + type + temp + ".wav";
+                    console.log(snd);
+                    //console.log(snd.readyState);
+                    try {
+                        snd.play();
+                        snd.addEventListener("ended", function () {
+                            if (previous != temp) {
+                                previous = temp;
+                                buffer.nextTrack();
+                            }
+                        });
+                    } catch (e) {
+                        if (temp != 'undefined' && temp != 'null') {
+                            $('.reply').html('Missing audio file for ' + temp);
+                        }
+                    }
+                }
+            },
+            clearBuffer: function () {
+                this.buffer = [];
+            },
+            bufferLength: function () {
+                return this.buffer.length;
+            },
+            bufferToArray: function () {
+                return $.makeArray(this.buffer);
+            }
+        }
+
+        buffer.addTrack(track);
+        buffer.nextTrack();*/
+
     }
 
     function setupClicks(players){
@@ -150,18 +190,26 @@ $(document).ready(function(){
         var previousClass = undefined;
         var previousObject = undefined;
 
-        var disableClick = false;
-        var player1 = 0;
-        var player1_score = 0;
-        var player2 = 0;
-        var player2_score = 0;
-        var playerUpdate = (players > 1) ? true : false;
+        var topThat = 0;
+        var leftThat = 0;
+
+        $('.draggable').mousedown(function(){
+            var that = $(this);
+            topThat = that.offset().top;
+            leftThat = that.offset().left;
+            var track = that.children().attr('class').split(" ")[1];
+            playSound(track, '');
+            timeout = setInterval(function(){
+                console.log(track);
+                playSound(track, '');
+            }, 800);
+        });
 
         $('.draggable').mouseup(function(){
+            clearInterval(timeout);
             var that = $(this);
             var collide = false;
             noOfClicks++;
-
             $.each($(".flip-container .flipper"), function(i, v){
                 var flipper = $(v);
                 if(doElsCollide(that, flipper) && that.children().attr('class').split(" ")[1] == flipper.attr('id').split('_')[1]){
@@ -182,7 +230,8 @@ $(document).ready(function(){
             });
 
             if(!collide){
-                randomPosition($('#trouver-cards'), that);
+                that.offset({ top: topThat, left: leftThat});
+                //randomPosition($('#trouver-cards'), that);
                 //that.css({"top": 0, "left": 0});
             }
         });
@@ -279,6 +328,10 @@ $(document).ready(function(){
     }
 
     function resetGame(player, noOfClick, score){
+        hideAnimation('.level');
+        hideAnimation('.level_block');
+        $('.difficulty').removeClass("disable");
+        $('.color_icon').html("");
         $('.card_line, .trouver-card').remove();
         tilesCovered = 0;
         tilesOpened = 0;
@@ -390,7 +443,7 @@ $(document).ready(function(){
         ctx.font= y + "px fundamental__brigade_schwerRg";
         var yPixels = y * yMultiplier;
         //textArray[i][3] = yPixels;
-        ctx.fillText(text, x + xDistance, yPixels);
+        ctx.fillText(text, x + xDistance, y);
     }
 
     $(".logo").click(function(){
@@ -412,6 +465,7 @@ $(document).ready(function(){
     });
 
     $("#restart").click(function(){
+        setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
         doOverlayClose();
         $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
             "transition" : "all 0.9s ease-in", 'opacity' : 0});
@@ -473,13 +527,13 @@ $(document).ready(function(){
         card.css("top", Math.floor(Math.random() * block.height() / 2));
     }
 
-    function animateCards(x, y, selected, players, word, array){
+    function animateCards(x, y, selected, players, word, array, type){
 
         var left = 0;
         var unil_left = 0;
         var width = (documentHeight - 310) / 4;
         card_width = width;
-        var card_lineWidth = ((width + 18) * x);
+        var card_lineWidth = ((width + 18) * 6);
         var top = (card_width + 18) * 3;
         $("#trouver-cards").height((card_width + 18) * 2.3);
         $("#trouver-word").height(card_width);
@@ -509,7 +563,7 @@ $(document).ready(function(){
         var bodyWrapper = $('#body_wrapper');
         var tid = setInterval(loopCards, animationStep);
         var card_line = $('<div class="card_line"></div>');
-        card_line.css('width', (width + 18) * x);
+        card_line.css('width', (width + 18) * 6);
         bodyWrapper.append(card_line);
         function loopCards() {
             var $newdiv1 = $( "<div class='unil_card'>" );
@@ -523,23 +577,23 @@ $(document).ready(function(){
                 }, animationTime, function () {
                     $newdiv1.remove();
                 });
-                $newdiv1.css({"-webkit-animation" : "fly 2.5s", "animation" : "fly 2.5s"});
+                $newdiv1.css({"-webkit-animation" : "fly 1.0s", "animation" : "fly 1.0s"});
             }
             setTimeout(function(){
                 var temp = selected.shift();
                 console.log(temp);
                 if(temp != undefined) {
                     temp = temp.substr(1);
-                    var add_card = $(flip_card + temp + flip_card_2 + '<img src="../images/trouver/colors/' + temp + '.png"></div></div></div>');
+                    var add_card = $(flip_card + temp + flip_card_2 + '<img src="../images/trouver/' + type + '/' + temp + '.png"></div></div></div>');
                     card_line.append(add_card);
                     if(temp == 'empty') {
                         temp = references.colors[Math.floor(Math.random() * references.colors.length)];
                     }
-                    var add_color = $(trouver_card + temp + trouver_card2 + temp + '.png"></div>');
+                    var add_color = $(trouver_card + temp + trouver_card2 + type + '/' + temp + '.png"></div>');
                     $('#trouver-cards').append(add_color);
                     randomPosition($('#trouver-cards'), add_color);
 
-                    $('.draggable').draggable();
+
 
                     $(".flip-container, .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("width", width);
                     $(".flip-container, .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("height", width);
@@ -558,12 +612,13 @@ $(document).ready(function(){
 
                 // + 1
                 if(i == y + 1){
-                    abortTimer(array);
+                    setTimeout(function(){abortTimer(array);}, animationStep);
                 }
             }
         }
         function abortTimer(array) {
             clearInterval(tid);
+            $('.draggable').draggable();
             $("#trouver-word").css("display", "block");
             drawColors(array, true);
             setupClicks(players);

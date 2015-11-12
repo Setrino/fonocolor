@@ -31,7 +31,6 @@ body{
 }
 
 .flip-container_l{
-    padding: 1em;
 }
 
 .flip-container{
@@ -129,12 +128,16 @@ body{
 
 @keyframes fly {
     0% {
-        transform: scale(0.25) rotate(0deg);
+        -ms-transform: scale(0.25) rotate(140deg);
+        -webkit-transform: scale(0.25) rotate(140deg);
+        transform: scale(0.25) rotate(140deg);
     }
 
     100% {
         /*710*/
-        transform: scale(0.5) rotate(720deg);
+        -ms-transform: scale(0.5) rotate(360deg);
+        -webkit-transform: scale(0.5) rotate(360deg);
+        transform: scale(0.5) rotate(360deg);
     }
 }
 
@@ -145,6 +148,8 @@ body{
     left: 440px;
     top: 60px;
     transform: scale(0.25);
+    -ms-transform: scale(0.25);
+    -webkit-transform: scale(0.25);
     background-image: url("../images/memory/unil_back_200.png");
 }
 
