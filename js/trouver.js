@@ -619,7 +619,7 @@ $(document).ready(function(){
         function abortTimer(array) {
             clearInterval(tid);
             $("#trouver-word").css("display", "block");
-            drawColors(array, true);
+            drawColors(array, false);
             setupClicks(players);
 
         }
