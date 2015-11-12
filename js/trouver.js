@@ -593,7 +593,7 @@ $(document).ready(function(){
                     $('#trouver-cards').append(add_color);
                     randomPosition($('#trouver-cards'), add_color);
 
-
+                    $('.draggable').draggable();
 
                     $(".flip-container, .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("width", width);
                     $(".flip-container, .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("height", width);
@@ -618,7 +618,6 @@ $(document).ready(function(){
         }
         function abortTimer(array) {
             clearInterval(tid);
-            $('.draggable').draggable();
             $("#trouver-word").css("display", "block");
             drawColors(array, true);
             setupClicks(players);
