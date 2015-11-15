@@ -12,8 +12,8 @@ $(document).ready(function(){
     var tilesCovered = 0;
     var tilesOpened = 0;
     var escapeCounter = 0;
-    var animationTime = 2500;
-    var animationStep = 500;
+    var animationTime = 1000;
+    var animationStep = 100;
     var card_width = 0;
 
     var references = {
@@ -71,15 +71,15 @@ $(document).ready(function(){
                 switch($(this).attr('id')){
                     case 'easy':
                         $('.color_icon').css('left', '112px');
-                        noOfPlayers(4, 4, array, generateMatrix);
+                        noOfPlayers(6, 1, array, generateMatrix);
                         break;
                     case 'medium':
                         $('.color_icon').css('left', '250px');
-                        noOfPlayers(6, 4, array, generateMatrix);
+                        noOfPlayers(6, 2, array, generateMatrix);
                         break;
                     case 'hard':
                         $('.color_icon').css('left', '413px');
-                        noOfPlayers(8, 4, array, generateMatrix);
+                        noOfPlayers(6, 3, array, generateMatrix);
                         break;
                 }
                 displayAnimation('.level_block');
@@ -105,6 +105,7 @@ $(document).ready(function(){
                     break;
                 case 'two_p':
                     players = 2;
+                    y = y + 1;
                     break;
             };
             $('.players').css("display", "none");
@@ -355,10 +356,8 @@ $(document).ready(function(){
         //player 2 left 500, top 300
 
         //get the width * 2
-        obj1.parent().css("top", card_width * 1.5);
-        obj1.parent().css("left", card_width * 1 + 11);
-        obj2.parent().css("top", card_width * 1.5);
-        obj2.parent().css("left", card_width * 2 + 20);
+        obj1.parent().css({"top" : card_width * 1, "left" : card_width * 2 + 11, "transform" : 'scale(1.5) rotate(340deg)', "z-index" : 30});
+        obj2.parent().css({"top" : card_width * 1, "left" : card_width * 4, "transform" : 'scale(1.5) rotate(340deg)', "z-index" : 30});
 
         setTimeout(function () {
             $(".flip_pile, .flip_pile2").css({'transform': 'rotateX(90deg) rotateZ(90deg)', "transition-duration" : "1s"});
@@ -384,7 +383,7 @@ $(document).ready(function(){
 
         var left = 0;
         var top = 158;
-        var width = (documentHeight - 310) / y;
+        var width = (documentHeight - 310) / 4;
         card_width = width;
         var card_lineWidth = ((width + 18) * x);
         var left_step = ($(document).width() - card_lineWidth) / 2;
@@ -414,6 +413,7 @@ $(document).ready(function(){
         var tid = setInterval(loopCards, animationStep);
         var card_line = $('<div class="card_line"></div>');
         card_line.css('width', (width + 18) * x);
+        card_line.css('height', width + 9);
         bodyWrapper.append(card_line);
         function loopCards() {
             var $newdiv1 = $( "<div class='unil_card'>" );
@@ -427,7 +427,7 @@ $(document).ready(function(){
                 }, animationTime, function () {
                     $newdiv1.remove();
                 });
-                $newdiv1.css({"-webkit-animation" : "fly 2.5s", "animation" : "fly 2.5s"});
+                $newdiv1.css({"-webkit-animation" : "fly 1.0s", "animation" : "fly 1.0s"});
             }
             setTimeout(function(){
                 var temp = selected.pop();
@@ -437,6 +437,7 @@ $(document).ready(function(){
                     card_line.append(add_card);
                     $(".flip-container, .front, .back, .front img, .back img").css("width", width);
                     $(".flip-container, .front, .back, .front img, .back img").css("height", width);
+                    add_card.css('left', (width + 9) * tempJ);
                     $(".flip-container").css("display", "inline-block");
                     if (tempJ == x - 1) {
                         card_line = $('<div class="card_line"></div>');
@@ -450,7 +451,7 @@ $(document).ready(function(){
                 j = 0;
                 i++;
                 if(i == y + 2){
-                    abortTimer();
+                    setTimeout(function(){abortTimer();}, animationStep);
                 }
             }
         }

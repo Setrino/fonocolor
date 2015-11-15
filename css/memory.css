@@ -36,10 +36,17 @@ body{
 
 .flip-container{
     display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .front, .back{
     margin: 0px;
+}
+
+.back img{
+    margin-left: 0.7em;
 }
 
 /* flip speed goes here */
