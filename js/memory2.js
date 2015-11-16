@@ -17,8 +17,8 @@ $(document).ready(function(){
     var card_width = 0;
 
     var references = {
-        consonants: ['c.b', 'c.c', 'c.ch', 'c.d', 'c.g', 'c.ge', 'c.l', 'c.m', 'c.n', 'c.p', 'c.ph', 'c.r', 'c.s', 'c.se', 'c.t', 'c.ve'],
-        vowels: ['v.a', 'v.ai', 'v.ain', 'v.an', 'v.au', 'v.e_', 'v.eu', 'v.eux', 'v.i', 'v.o', 'v.on', 'v.ou', 'v.u'],
+        consonants: ['c.b!14', 'c.c!8', 'c.d!17', 'c.f!7', 'c.g!6', 'c.p!12', 'c.t!10', 'c.ph!7', 'c.qu!8', 'c.r!13', 'c.s!1', 'c.se!5', 'c.sse!1', 'c.tt!1', 'c.ve!11', 'c.x!4', 'c.xx!3', 'c.z!5', 'c.ç!1', 'c.ce!1', 'c.ch!18', 'c.ge!2', 'c.gu!6', 'c.j!2', 'c.k!8', 'c.l!16', 'c.m!15', 'c.n!9'],
+        vowels: ['v.u!1', 'v.un!15', 'v.y!6', 'v.a!2', 'v.ai!7', 'v.ain!15', 'v.an!3', 'v.au!9', 'v.e_!4', 'v.e!7', 'v.ee!7', 'v.een!3', 'v.eeu!8', 'v.ei!7', 'v.ein!15', 'v.en!15', 'v.er!4', 'v.es!4', 'v.eu!8', 'v.eux!5', 'v.ez!4', 'v.i!6', 'v.in!15', 'v.o!9', 'v.oeu!8', 'v.oi!10', 'v.oin!11', 'v.om!12', 'v.on!12', 'v.oo!13', 'v.ou!14'],
         items:[],
         circles: [],
         squares: []
@@ -28,6 +28,7 @@ $(document).ready(function(){
 
         var array = [];
         var clickA = false;
+        setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
         $('.menu').css('display', "none");
         $('.players').css("display", "none");
         $('.bar').remove();
@@ -141,12 +142,12 @@ $(document).ready(function(){
 
             switch(face_f[0]){
                 case 'c':
-                    selected.push('consonants_flat/' + face);
-                    selected.push('objects/' + face);
+                    selected.push('consonants/' + face);
+                    selected.push('squares/' + face);
                     break;
                 case 'v':
-                    selected.push('vowels_flat/' + face);
-                    selected.push('objects/' + face);
+                    selected.push('vowels/' + face);
+                    selected.push('circles/' + face);
                     break;
             }
             // Remove from array
@@ -176,8 +177,8 @@ $(document).ready(function(){
             if(!disableClick && !$(this).css('transform').match('matrix3d')) {
                 var that = $(this);
                 var classes = that.attr('class').split(' ');
-                var tempClass = classes[2];
-                console.log("Temp " + classes[1] + " trial " + tempClass);
+                var tempClass = classes[2].split('!')[1];
+                console.log("Temp " + classes[1]);
                 that.css('transform', 'rotateY(180deg)');
                 if (!previousObject) {
                     previousObject = $.extend(true, {}, $(this));
@@ -216,12 +217,12 @@ $(document).ready(function(){
                                 addToPile(that, previousObject, 2, player2_score);
                             }
                         }else{
-                                player1_score++;
-                                if (players == 1) {
-                                    addToPile(that, previousObject, 1, player1_score + player2_score);
-                                } else {
-                                    addToPile(that, previousObject, 1, player1_score);
-                                }
+                            player1_score++;
+                            if (players == 1) {
+                                addToPile(that, previousObject, 1, player1_score + player2_score);
+                            } else {
+                                addToPile(that, previousObject, 1, player1_score);
+                            }
                         }
                         previousClass = undefined;
                         previousObject = undefined;
@@ -252,7 +253,7 @@ $(document).ready(function(){
         if(player == 0){
             $('.player_won').html("Il est un match nul, score " + score + "!");
         }else{
-            $('.player_won').html("Joueur " + player + " a gagné avec score " + score + " dans " + noOfClick + " tentatives!");
+            $('.player_won').html("Joueur " + player + " a gagne avec score " + score + " dans " + noOfClick + " tentatives!");
         }
         $("#continue").css("display", "none");
         doOverlayOpen();
@@ -413,15 +414,14 @@ $(document).ready(function(){
         var tid = setInterval(loopCards, animationStep);
         var card_line = $('<div class="card_line"></div>');
         card_line.css('width', (width + 18) * x);
-        console.log("Height " + width);
         card_line.css('height', width + 9);
         bodyWrapper.append(card_line);
         function loopCards() {
             var $newdiv1 = $( "<div class='unil_card'>" );
             var tempJ = j;
             if(i == 0) {
-            $newdiv1.css("left", unil_left);
-            $("#body_wrapper").append($newdiv1);
+                $newdiv1.css("left", unil_left);
+                $("#body_wrapper").append($newdiv1);
                 $newdiv1.animate({
                     left: "+=" + (left + (width + 10) * j),
                     top: "+=" + (top + (width + 13) * i)
@@ -434,7 +434,7 @@ $(document).ready(function(){
                 var temp = selected.pop();
                 console.log(temp);
                 if(temp != undefined) {
-                    var add_card = $(flip_card + temp.split('/')[0] + " " + temp.split('/')[1] + flip_card_2 + '<img src="../images/memory/' + temp + '.png"></div></div></div>');
+                    var add_card = $(flip_card + temp.split('/')[0] + " " + temp.split('/')[1] + flip_card_2 + '<img src="../images/memory/' + temp + '_200.png"></div></div></div>');
                     card_line.append(add_card);
                     $(".flip-container, .front, .back, .front img, .back img").css("width", width);
                     $(".flip-container, .front, .back, .front img, .back img").css("height", width);
@@ -444,7 +444,6 @@ $(document).ready(function(){
                         card_line = $('<div class="card_line"></div>');
                         card_line.css('width', card_lineWidth);
                         bodyWrapper.append(card_line);
-                        card_line.css('height', width + 9);
                     }
                 }
             }, animationTime);
