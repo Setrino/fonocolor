@@ -208,6 +208,15 @@ article p{
     cursor: pointer;
 }
 
+#play_tts{
+    cursor: pointer;
+}
+
+#play_tts > img{
+    width: 24px;
+    height: 24px;
+}
+
 #answer{
     position: absolute;
 }

@@ -415,6 +415,7 @@ $(document).ready(function(){
         card_line.css('width', (width + 18) * x);
         console.log("Height " + width);
         card_line.css('height', width + 9);
+        card_line.css('top', (width + 9) * 3);
         bodyWrapper.append(card_line);
         function loopCards() {
             var $newdiv1 = $( "<div class='unil_card'>" );
@@ -424,7 +425,7 @@ $(document).ready(function(){
             $("#body_wrapper").append($newdiv1);
                 $newdiv1.animate({
                     left: "+=" + (left + (width + 10) * j),
-                    top: "+=" + (top + (width + 13) * i)
+                    top: "+=" + (top + (width + 13) * 3)
                 }, animationTime, function () {
                     $newdiv1.remove();
                 });
@@ -445,6 +446,12 @@ $(document).ready(function(){
                         card_line.css('width', card_lineWidth);
                         bodyWrapper.append(card_line);
                         card_line.css('height', width + 9);
+                        var jump = 3 - i;
+                        console.log(i);
+                        if(jump <= 0){
+                            jump = -(Math.abs(jump * 2) + 1);
+                        }
+                        card_line.css('top', ((width + 9) * jump));
                     }
                 }
             }, animationTime);

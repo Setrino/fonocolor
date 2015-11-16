@@ -9,6 +9,14 @@ $(document).ready(function(){
     );
 
     audioRequest(audioPath, audioFiles, audioPath, preloadAudio);
+
+    $("#play_tts").click(function(){
+        console.log(textArray);
+
+        var audio = new Audio();
+        audio.src ='http://translate.google.com/translate_tts?ie=UTF-8&q=Hello%20World&tl=en-us';
+        audio.play();
+    });
 });
 
 var width = 700,

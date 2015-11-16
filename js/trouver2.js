@@ -220,7 +220,7 @@ $(document).ready(function(){
                 var flipper = $(v);
                 if(doElsCollide(that, flipper) && that.children().attr('class').split(" ")[1] == flipper.attr('id').split('_')[1]){
                     console.log(flipper.attr('id') + " " + flipper.parent().index());
-                    //drawColors([], true, flipper.parent().index());
+                    drawColors([], true, flipper.parent().index());
                     that.offset({ top: flipper.offset().top - 8, left: flipper.offset().left - 8});
                     that.draggable("destroy");
                     flipper.css('transform', 'rotateY(180deg)');
