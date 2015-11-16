@@ -27,7 +27,7 @@ $(document).ready(function(){
         textArray = new Array(),
         c = document.getElementById('trouver-word'),
         ctx = c.getContext('2d');
-        ctx.font = 'fundamental__brigade_schwerRg';
+    ctx.font = 'fundamental__brigade_schwerRg';
 
     var references = {
         consonants: ['c.b!14', 'c.c!8', 'c.d!17', 'c.f!7', 'c.g!6', 'c.p!12', 'c.t!10', 'c.ph!7', 'c.qu!8', 'c.r!13', 'c.s!1', 'c.se!5', 'c.sse!1', 'c.tt!1', 'c.ve!11', 'c.x!4', 'c.xx!3', 'c.z!5', 'c.ç!1', 'c.ce!1', 'c.ch!18', 'c.ge!2', 'c.gu!6', 'c.j!2', 'c.k!8', 'c.l!16', 'c.m!15', 'c.n!9'],
@@ -47,32 +47,32 @@ $(document).ready(function(){
         $('.players').css("display", "none");
         $('.bar').remove();
         $('.difficulty img').click(function(){
-                $(this).off('click');
-                displayAnimation('.level_block');
-                displayAnimation('.level');
-                $('.difficulty').addClass("disable");
-                $('.difficulty').css("display", "none");
-                $('.color_icon').append(circ_squa);
-                switch($(this).attr('id')){
-                    case 'easy':
-                        difficulty = 'easy';
-                        $('.color_icon').css('left', '112px');
-                        playLetter = true;
-                        noOfPlayers(6, 1, difficulty, "colors", generateMatrix);
-                        break;
-                    case 'medium':
-                        difficulty = 'medium';
-                        $('.color_icon').css('left', '250px');
-                        playLetter = true;
-                        noOfPlayers(6, 1, difficulty, "objects", generateMatrix);
-                        break;
-                    case 'hard':
-                        difficulty = 'hard';
-                        $('.color_icon').css('left', '413px');
-                        playLetter = false;
-                        noOfPlayers(6, 1, difficulty, "objects_white", generateMatrix);
-                        break;
-                }
+            $(this).off('click');
+            displayAnimation('.level_block');
+            displayAnimation('.level');
+            $('.difficulty').addClass("disable");
+            $('.difficulty').css("display", "none");
+            $('.color_icon').append(circ_squa);
+            switch($(this).attr('id')){
+                case 'easy':
+                    difficulty = 'easy';
+                    $('.color_icon').css('left', '112px');
+                    playLetter = false;
+                    noOfPlayers(6, 1, difficulty, "objects", generateMatrix);
+                    break;
+                case 'medium':
+                    difficulty = 'medium';
+                    $('.color_icon').css('left', '250px');
+                    playLetter = false;
+                    noOfPlayers(6, 1, difficulty, "colors", generateMatrix);
+                    break;
+                case 'hard':
+                    difficulty = 'hard';
+                    $('.color_icon').css('left', '413px');
+                    playLetter = false;
+                    noOfPlayers(6, 1, difficulty, "objects_white", generateMatrix);
+                    break;
+            }
         });
     }
 
@@ -102,7 +102,7 @@ $(document).ready(function(){
 
     function noOfPlayers(x, y, difficulty, type, callback){
         var players = 1;
-            selectWord(difficulty, function(word, array){callback(x, y, jQuery.parseJSON(array), players, word, type);});
+        selectWord(difficulty, function(word, array){callback(x, y, jQuery.parseJSON(array), players, word, type);});
     }
 
     function hideAnimation(element){
@@ -141,51 +141,51 @@ $(document).ready(function(){
 
         /*var type = 'color/_';
 
-        if (snd) {
-            snd.pause();
-        }
-        var previous = null;
-        var buffer = {
+         if (snd) {
+         snd.pause();
+         }
+         var previous = null;
+         var buffer = {
 
-            buffer: [],
+         buffer: [],
 
-            addTrack: function (track) {
-                this.buffer.push(track);
-            },
-            nextTrack: function () {
-                if (this.buffer.length != 0) {
-                    var temp = this.buffer.shift();
-                    snd = soundPath + type + temp + ".wav";
-                    console.log(snd);
-                    //console.log(snd.readyState);
-                    try {
-                        snd.play();
-                        snd.addEventListener("ended", function () {
-                            if (previous != temp) {
-                                previous = temp;
-                                buffer.nextTrack();
-                            }
-                        });
-                    } catch (e) {
-                        if (temp != 'undefined' && temp != 'null') {
-                            $('.reply').html('Missing audio file for ' + temp);
-                        }
-                    }
-                }
-            },
-            clearBuffer: function () {
-                this.buffer = [];
-            },
-            bufferLength: function () {
-                return this.buffer.length;
-            },
-            bufferToArray: function () {
-                return $.makeArray(this.buffer);
-            }
-        }
+         addTrack: function (track) {
+         this.buffer.push(track);
+         },
+         nextTrack: function () {
+         if (this.buffer.length != 0) {
+         var temp = this.buffer.shift();
+         snd = soundPath + type + temp + ".wav";
+         console.log(snd);
+         //console.log(snd.readyState);
+         try {
+         snd.play();
+         snd.addEventListener("ended", function () {
+         if (previous != temp) {
+         previous = temp;
+         buffer.nextTrack();
+         }
+         });
+         } catch (e) {
+         if (temp != 'undefined' && temp != 'null') {
+         $('.reply').html('Missing audio file for ' + temp);
+         }
+         }
+         }
+         },
+         clearBuffer: function () {
+         this.buffer = [];
+         },
+         bufferLength: function () {
+         return this.buffer.length;
+         },
+         bufferToArray: function () {
+         return $.makeArray(this.buffer);
+         }
+         }
 
-        buffer.addTrack(track);
-        buffer.nextTrack();*/
+         buffer.addTrack(track);
+         buffer.nextTrack();*/
 
     }
 
@@ -261,76 +261,76 @@ $(document).ready(function(){
         };
 
         /*$('.flip-container .flipper').click(function(){
-            if(!disableClick && !$(this).css('transform').match('matrix3d')) {
-                var that = $(this);
-                var classes = that.attr('class').split(' ');
-                var tempClass = classes[2].split('!')[1];
-                console.log("Temp " + classes[1]);
-                that.css('transform', 'rotateY(180deg)');
-                if (!previousObject) {
-                    previousObject = $.extend(true, {}, $(this));
-                    previousClass = tempClass;
-                } else {
-                    if(playerUpdate){
-                        player2++;
-                        playerUpdate = false;
-                    }else{
-                        player1++;
-                        playerUpdate = true;
-                    }
-                    disableClick = true;
-                    if(previousObject.attr('class').split(' ')[1] === classes[1] && previousClass == tempClass){
-                        setTimeout(function () {
-                            disableClick = false;
-                        }, 1000);
-                    }
-                    else if (previousClass != tempClass) {
-                        setTimeout(function () {
-                            previousObject.css('transform', 'rotateY(0deg)');
-                            that.css('transform', 'rotateY(0deg)');
-                            previousClass = undefined;
-                            previousObject = undefined;
-                            disableClick = false;
-                        }, 1000);
-                    } else{
-                        console.log(tilesCovered);
-                        tilesOpened++;
-                        console.log("Open " + tilesOpened);
-                        if(!playerUpdate){
-                            player2_score++;
-                            if(players == 1){
-                                addToPile(that, previousObject, 1, player1_score + player2_score);
-                            }else{
-                                addToPile(that, previousObject, 2, player2_score);
-                            }
-                        }else{
-                            player1_score++;
-                            if (players == 1) {
-                                addToPile(that, previousObject, 1, player1_score + player2_score);
-                            } else {
-                                addToPile(that, previousObject, 1, player1_score);
-                            }
-                        }
-                        previousClass = undefined;
-                        previousObject = undefined;
-                        if (tilesCovered == tilesOpened){
-                            setTimeout(function () {
-                                if(players == 1){
-                                    resetGame(1, player1 + player2, tilesOpened);
-                                }else if(player1_score > player2_score){
-                                    resetGame(1, player1, player1_score);
-                                }else if(player2_score > player1_score){
-                                    resetGame(2, player2, player2_score);
-                                }else{
-                                    resetGame(0, player1, player1_score);
-                                }
-                            }, 1000);
-                        }
-                        disableClick = false;
-                    }
-                }
-            }
-        });*/
+         if(!disableClick && !$(this).css('transform').match('matrix3d')) {
+         var that = $(this);
+         var classes = that.attr('class').split(' ');
+         var tempClass = classes[2].split('!')[1];
+         console.log("Temp " + classes[1]);
+         that.css('transform', 'rotateY(180deg)');
+         if (!previousObject) {
+         previousObject = $.extend(true, {}, $(this));
+         previousClass = tempClass;
+         } else {
+         if(playerUpdate){
+         player2++;
+         playerUpdate = false;
+         }else{
+         player1++;
+         playerUpdate = true;
+         }
+         disableClick = true;
+         if(previousObject.attr('class').split(' ')[1] === classes[1] && previousClass == tempClass){
+         setTimeout(function () {
+         disableClick = false;
+         }, 1000);
+         }
+         else if (previousClass != tempClass) {
+         setTimeout(function () {
+         previousObject.css('transform', 'rotateY(0deg)');
+         that.css('transform', 'rotateY(0deg)');
+         previousClass = undefined;
+         previousObject = undefined;
+         disableClick = false;
+         }, 1000);
+         } else{
+         console.log(tilesCovered);
+         tilesOpened++;
+         console.log("Open " + tilesOpened);
+         if(!playerUpdate){
+         player2_score++;
+         if(players == 1){
+         addToPile(that, previousObject, 1, player1_score + player2_score);
+         }else{
+         addToPile(that, previousObject, 2, player2_score);
+         }
+         }else{
+         player1_score++;
+         if (players == 1) {
+         addToPile(that, previousObject, 1, player1_score + player2_score);
+         } else {
+         addToPile(that, previousObject, 1, player1_score);
+         }
+         }
+         previousClass = undefined;
+         previousObject = undefined;
+         if (tilesCovered == tilesOpened){
+         setTimeout(function () {
+         if(players == 1){
+         resetGame(1, player1 + player2, tilesOpened);
+         }else if(player1_score > player2_score){
+         resetGame(1, player1, player1_score);
+         }else if(player2_score > player1_score){
+         resetGame(2, player2, player2_score);
+         }else{
+         resetGame(0, player1, player1_score);
+         }
+         }, 1000);
+         }
+         disableClick = false;
+         }
+         }
+         }
+         });*/
     }
 
     function resetGame(player, noOfClick, score){
@@ -625,7 +625,7 @@ $(document).ready(function(){
         function abortTimer(array) {
             clearInterval(tid);
             $("#trouver-word").css("display", "block");
-            drawColors(array, false);
+            drawColors(array, true);
             setupClicks(players);
 
         }

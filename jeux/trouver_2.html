@@ -1,4 +1,86 @@
 <!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Educational">
+<head>
+    <title>Décodade Phonocolor</title>
+    <link rel="stylesheet" href="../css/fonts.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/trouver.css" media="screen"/>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="body_wrapper">
+        <div id="menu"></div>
+        <div id="header_wrapper">
+            <span class="level"></span>
+            <div class="logo_block">
+                <img class="logo" src="../images/logo.png"/>
+                <div class="level_block">
+                    <span class="logo_difficulty"><img src="../images/game/level.png"/></span>
+                    <span class="color_icon"></span>
+                </div>
+            </div>
+            <span class="level"></span>
+        </div>
+        <div class="menu_line difficulty">
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="easy" src="../images/game/easy.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="medium" src="../images/game/medium.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container_l">
+                <div class="flipper">
+                    <div class="front_l">
+                        <img id="hard" src="../images/game/hard.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="trouver-cards"></div>
+        <canvas id="trouver-word"></canvas>
+    </div>
+    <div class="bgCover">&nbsp;</div>
+    <div class="overlayBox">
+        <span class="player_won"></span>
+        <img id="restart" src="../images/game/restart.png">
+        <img id="continue" src="../images/game/play.png">
+        <div class="overlayContent">
+
+        </div>
+    </div>
+    <!--<div id="Stage" class="EDGE-27145435"></div>-->
+    <div class="clear"></div>
+</div>
+</body>
+<script src="../js/requests.js"></script>
+<script src="../js/trouver2.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/jGravity-min.js"></script>
+<script src="../js/copyright.js"></script>
+<!--<script type="text/javascript" charset="utf-8" src="http://animate.adobe.com/runtime/6.0.0/edge.6.0.0.min.js"></script>
+<style>
+    .edgeLoad-EDGE-27145435 { visibility:hidden; }
+</style>
+<script>
+    AdobeEdge.loadComposition('../animations/ouou02', 'EDGE-27145435', {
+        scaleToFit: "none",
+        centerStage: "none",
+        minW: "0px",
+        maxW: "undefined",
+        width: "500px",
+        height: "480px"
+    }, {"dom":{}}, {"dom":{}});
+</script>-->
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
