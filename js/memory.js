@@ -356,8 +356,8 @@ $(document).ready(function(){
         //player 2 left 500, top 300
 
         //get the width * 2
-        obj1.parent().css({"top" : card_width * 1, "left" : card_width * 2 + 11, "transform" : 'scale(1.5) rotate(340deg)', "z-index" : 30});
-        obj2.parent().css({"top" : card_width * 1, "left" : card_width * 4, "transform" : 'scale(1.5) rotate(340deg)', "z-index" : 30});
+        obj1.parent().css({"top" : card_width * 1, "left" : card_width * 2 + 11, "transform" : 'scale(1.5) rotate(350deg)', "z-index" : 30});
+        obj2.parent().css({"top" : card_width * 1, "left" : card_width * 4 - (card_width / 4), "transform" : 'scale(1.5) rotate(350deg)', "z-index" : 30});
 
         setTimeout(function () {
             $(".flip_pile, .flip_pile2").css({'transform': 'rotateX(90deg) rotateZ(90deg)', "transition-duration" : "1s"});
