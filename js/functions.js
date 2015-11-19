@@ -56,7 +56,7 @@ $(document).ready(function(){
 
 
     $(".logo").click(function(){
-        if($(".menuOverlay").html() == ""){
+        if($(".menuOverlay").html() == undefined){
             getPage("menu.html", function(data){
                 var newDiv = $("<div/>")
                     .addClass("menuOverlay")
