@@ -1,4 +1,4 @@
-.back_arrow{
+.overlay_menu .back_arrow{
     display: block;
     height: 32px;
     width: 32px;
@@ -9,20 +9,21 @@
 }
 
 /* entire container, keeps perspective */
-.flip-container {
+.overlay_menu .flip-container {
     margin: 0 auto;
     margin: 0.2em;
     perspective: 1000;
+    position: relative;
 }
 
-.flip-container, .front, .back {
+.overlay_menu .flip-container, .overlay_menu .front, .overlay_menu .back {
     width: 185px;
     min-height: 185px;
     display: inline-block;
 }
 
 /* flip speed goes here */
-.flipper {
+.overlay_menu .flipper {
     transition: 0.6s;
     transform-style: preserve-3d;
     position: relative;
@@ -30,13 +31,13 @@
     height: auto;
 }
 
-.flipper img{
+.overlay_menu .flipper img{
     width: 100%;
     height: auto;
 }
 
 /* hide back of pane during swap */
-.front, .back {
+.overlay_menu .front, .overlay_menu .back {
     backface-visibility: hidden;
 
     position: absolute;
@@ -45,13 +46,17 @@
 }
 
 /* front pane, placed above back */
-.front {
+.overlay_menu .front {
     z-index: 2;
     /* for firefox 31 */
     transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
-.back {
+.overlay_menu .back {
     transform: rotateY(180deg);
+}
+
+.overlay_menu .body_wrapper, .overlay_menu .menu_line, .overlay_menu .menu-line .flip-container{
+    position: relative;
 }

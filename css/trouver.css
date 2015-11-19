@@ -1,5 +1,6 @@
 body{
     overflow: hidden;
+    position: fixed;
 }
 
 #wrapper{
@@ -13,12 +14,17 @@ body{
     margin-bottom: 2em;
 }
 
+.level_block{
+    position: relative;
+    z-index: 100;
+}
+
 .logo{
 }
 
 .color_icon{
     position: absolute;
-    top:66%;
+    top: -40px;
 }
 
 /* entire container, keeps perspective */
@@ -201,15 +207,16 @@ body{
     padding: 0.5em;
     float: left;
     margin: 10px 10px 10px 0;
-    z-index: 900;
+    z-index: 200;
+    position: absolute;
 }
 
 #trouver-cards, #trouver-word{
     margin: 0 auto;
+    position: relative;
 }
 
 #trouver-word{
-    display: none;
     font-family: 'fundamental__brigade_schwerRg';
     font-size: 5em;
     text-align: center;

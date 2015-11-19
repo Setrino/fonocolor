@@ -56,21 +56,27 @@ $(document).ready(function(){
 
 
     $(".logo").click(function(){
-        getPage("menu.html", function(data){
-            var newDiv = $("<div/>")
-                .addClass("menuOverlay")
-                .html(data);
-            $("#menu").after(newDiv);
-            var menuOverlay = $(".menuOverlay");
-            $('body').append('<link rel="stylesheet" type="text/css" href="css/menu.css">');
-            $('body').append('<script type="text/javascript" src="js/menu.js"></script>');
-            menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
+        if($(".menuOverlay").html() == ""){
+            getPage("menu.html", function(data){
+                var newDiv = $("<div/>")
+                    .addClass("menuOverlay")
+                    .html(data);
+                $("#menu").after(newDiv);
+                var menuOverlay = $(".menuOverlay");
+                $('body').append('<link rel="stylesheet" type="text/css" href="css/menu.css">');
+                $('body').append('<script type="text/javascript" src="js/menu.js"></script>');
+                menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
                 '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
-            $(".menuClose").click(function(){
-                menuOverlay.animate({top: '-=' + documentHeight}, 1000, function(){
-                    menuOverlay.css('display', 'none'); });
+                $(".menuClose").click(function(){
+                    menuOverlay.animate({top: '-=' + documentHeight}, 1000, function(){
+                        menuOverlay.css('display', 'none'); });
+                });
             });
-        });
+        }else{
+            var menuOverlay = $(".menuOverlay");
+            menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
+            '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
+        }
     });
 
     $(document).scroll(function(){

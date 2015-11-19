@@ -12,6 +12,7 @@ $(document).ready(function(){
     var circ_squa = '<img src="../images/game/circ_squa.png"/>';
     var soundPath = '../sound/';
     var documentHeight = $(document).height();
+    var documentWidth = $(document).width();
     var tilesCovered = 0;
     var tilesOpened = 0;
     var noOfClicks = 0;
@@ -22,8 +23,9 @@ $(document).ready(function(){
     var animationStep = 500;
     var snd = null;
     var playLetter = false;
+    var hideColor = false;
     var card_width = 0;
-    var pixel_size = 90,
+    var pixel_size = 100,
         textArray = new Array(),
         c = document.getElementById('trouver-word'),
         ctx = c.getContext('2d');
@@ -34,7 +36,7 @@ $(document).ready(function(){
         vowels: ['v.u!1', 'v.un!15', 'v.y!6', 'v.a!2', 'v.ai!7', 'v.ain!15', 'v.an!3', 'v.au!9', 'v.e_!4', 'v.e!7', 'v.ee!7', 'v.een!3', 'v.eeu!8', 'v.ei!7', 'v.ein!15', 'v.en!15', 'v.er!4', 'v.es!4', 'v.eu!8', 'v.eux!5', 'v.ez!4', 'v.i!6', 'v.in!15', 'v.o!9', 'v.oeu!8', 'v.oi!10', 'v.oin!11', 'v.om!12', 'v.on!12', 'v.oo!13', 'v.ou!14'],
         easy:['le', 'un', 'ce', 'il', 'pour', 'son', 'sur', 'ami', 'se', 'tu', 'ou', 'si', 'là', 'car', 'ni'],
         medium: ['au', 'pas', 'vous', 'dans', 'elle', 'et', 'être', 'qui', 'faire', 'avec', 'aller', 'sans', 'leur', 'même', 'tout'],
-        hard: ['femme', 'goal', 'quelque', 'sept', 'main', 'amer', 'fusil', 'chez', 'coeur', 'vingt', 'dix', 'corps', 'souvent', 'orchestre', 'clown'],
+        hard: ['femme', 'goal', 'quelque', 'sept', 'main', 'amer', 'fusil', 'chez', 'coeur', 'vingt', 'dix', 'corps', 'souvent', 'clown'],
         colors:[]
     };
 
@@ -46,33 +48,58 @@ $(document).ready(function(){
         $('.menu').css('display', "none");
         $('.players').css("display", "none");
         $('.bar').remove();
+        $('.difficulty img').unbind( "click" );
         $('.difficulty img').click(function(){
-                $(this).off('click');
-                displayAnimation('.level_block');
-                displayAnimation('.level');
-                $('.difficulty').addClass("disable");
-                $('.difficulty').css("display", "none");
-                $('.color_icon').append(circ_squa);
-                switch($(this).attr('id')){
-                    case 'easy':
-                        difficulty = 'easy';
-                        $('.color_icon').css('left', '112px');
-                        playLetter = true;
-                        noOfPlayers(6, 1, difficulty, "colors", generateMatrix);
-                        break;
-                    case 'medium':
-                        difficulty = 'medium';
-                        $('.color_icon').css('left', '250px');
-                        playLetter = true;
-                        noOfPlayers(6, 1, difficulty, "objects", generateMatrix);
-                        break;
-                    case 'hard':
-                        difficulty = 'hard';
-                        $('.color_icon').css('left', '413px');
-                        playLetter = false;
-                        noOfPlayers(6, 1, difficulty, "objects_white", generateMatrix);
-                        break;
-                }
+            var that = $(this);
+            displayAnimation('.level_block');
+            displayAnimation('.level');
+            $('.color_icon').append(circ_squa);
+            $('.difficulty').addClass("disable");
+            $('.difficulty').css("display", "none");
+            switch($(this).attr('id')){
+                case 'easy':
+                    difficulty = 'easy';
+                    $('.color_icon').css('left', '12px');
+                    playLetter = true;
+                    hideColor = false;
+                    noOfPlayers(6, 1, difficulty, "colors", generateMatrix);
+                    break;
+                case 'medium':
+                    difficulty = 'medium';
+                    $('.color_icon').css('left', '150px');
+                    playLetter = true;
+                    hideColor = false;
+                    noOfPlayers(6, 1, difficulty, "objects", generateMatrix);
+                    break;
+                case 'hard':
+                    difficulty = 'hard';
+                    $('.color_icon').css('left', '313px');
+                    playLetter = false;
+                    hideColor = false;
+                    noOfPlayers(6, 1, difficulty, "objects_white", generateMatrix);
+                    break;
+                case 'easy2':
+                    difficulty = 'easy';
+                    $('.color_icon').css('left', '12px');
+                    playLetter = false;
+                    hideColor = true;
+                    noOfPlayers(6, 1, difficulty, "objects", generateMatrix);
+                    break;
+                case 'medium2':
+                    difficulty = 'medium';
+                    $('.color_icon').css('left', '150px');
+                    playLetter = false;
+                    hideColor = true;
+                    noOfPlayers(6, 1, difficulty, "colors", generateMatrix);
+                    break;
+                case 'hard2':
+                    difficulty = 'hard';
+                    $('.color_icon').css('left', '313px');
+                    playLetter = false;
+                    hideColor = true;
+                    noOfPlayers(6, 1, difficulty, "objects_white", generateMatrix);
+                    break;
+            }
         });
     }
 
@@ -220,7 +247,9 @@ $(document).ready(function(){
                 var flipper = $(v);
                 if(doElsCollide(that, flipper) && that.children().attr('class').split(" ")[1] == flipper.attr('id').split('_')[1]){
                     console.log(flipper.attr('id') + " " + flipper.parent().index());
-                    //drawColors([], true, flipper.parent().index());
+                    if(!hideColor) {
+                        drawColors([], true, flipper.parent().index());
+                    }
                     that.offset({ top: flipper.offset().top - 8, left: flipper.offset().left - 8});
                     that.draggable("destroy");
                     flipper.css('transform', 'rotateY(180deg)');
@@ -334,11 +363,8 @@ $(document).ready(function(){
     }
 
     function resetGame(player, noOfClick, score){
-        hideAnimation('.level');
-        hideAnimation('.level_block');
         $('.difficulty').removeClass("disable");
         $('.color_icon').html("");
-        $('.card_line, .trouver-card').remove();
         tilesCovered = 0;
         tilesOpened = 0;
         noOfClicks = 0;
@@ -453,24 +479,34 @@ $(document).ready(function(){
     }
 
     $(".logo").click(function(){
-        getPage("../menu.html", function(data){
-            var newDiv = $("<div/>")
-                .addClass("menuOverlay")
-                .html(data);
-            $("#menu").after(newDiv);
+        if($("#menu").html() == ""){
+            getPage("../menu.html", function(data){
+                var newDiv = $("<div/>")
+                    .addClass("menuOverlay")
+                    .html(data);
+                $("#menu").append(newDiv);
+                var menuOverlay = $(".menuOverlay");
+                $('body').append('<link rel="stylesheet" type="text/css" href="../css/menu.css">');
+                $('body').append('<script type="text/javascript" src="../js/menu.js"></script>');
+                menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
+                '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
+                $(".menuClose").click(function(){
+                    menuOverlay.animate({top: '-=' + documentHeight}, 1000, function(){
+                        menuOverlay.css('display', 'none'); });
+                });
+            });
+        }else{
             var menuOverlay = $(".menuOverlay");
-            $('body').append('<link rel="stylesheet" type="text/css" href="../css/menu.css">' +
-                '<script type="text/javascript" src="../js/menu.js"></script>');
             menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
             '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
-            $(".menuClose").click(function(){
-                menuOverlay.animate({top: '-=' + documentHeight}, 1000, function(){
-                    menuOverlay.css('display', 'none'); });
-            });
-        });
+        }
     });
 
     $("#restart").click(function(){
+        steps = [];
+        hideAnimation('.level');
+        hideAnimation('.level_block');
+        $('.trouver-card').remove();
         setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
         doOverlayClose();
         $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
@@ -506,7 +542,6 @@ $(document).ready(function(){
 
         console.log(player_score);
 
-        var documentWidth = $(document).width();
         var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
         var top = card_width * 2.6;
@@ -525,11 +560,30 @@ $(document).ready(function(){
         $("#body_wrapper").append(bar);
     }
 
-    console.log(documentHeight);
+    var steps = [];
 
-    function randomPosition(block, card){
+    function containsStep(value){
+        var contains = false;
+        for(var i = 0; i < steps.length; i++){
+            if(steps[i] == value){ contains = true; break;}
+        }
+        return contains;
+    }
 
-        card.css("left", Math.floor(Math.random() * block.width() / 4));
+    function randomPosition(block, card, size, card_width){
+        var step = 0;
+        if(steps.length == 0){
+            step = Math.floor(Math.random() * size);
+            steps.push(step);
+        }else{
+            do{
+                step = Math.floor(Math.random() * size);
+            }while(containsStep(step));
+            steps.push(step);
+        }
+        var skid = step * card_width;
+        // + Math.floor(Math.random() * card_width / 2)
+        card.css("left", skid);
         card.css("top", Math.floor(Math.random() * block.height() / 2));
     }
 
@@ -537,30 +591,35 @@ $(document).ready(function(){
 
         var left = 0;
         var unil_left = 0;
-        var width = (documentHeight - 310) / 4;
+        console.log("Doc Height " + (documentHeight - $("#header_wrapper").height()));
+        var width = (documentHeight - $("#header_wrapper").height() - 30) / 4;
+        pixel_size = width - 20;
         card_width = width;
         var card_lineWidth = ((width + 18) * 6);
-        var top = (card_width + 18) * 3;
-        $("#trouver-cards").height((card_width + 18) * 2.3);
+        var top = card_width * 3.5;
+        $("#trouver-cards").height(card_width * 2);
         $("#trouver-word").height(card_width);
+        $("#trouver-word").css("display", "block");
         c.height = card_width;
         $("#trouver-cards, #trouver-word").width(card_lineWidth);
         c.width = card_lineWidth;
-        var left_step = ($(document).width() - card_lineWidth) / 2;
+        var left_step = (documentWidth - card_lineWidth) / 2;
         console.log("From left " + (left_step));
 
         switch(difficulty){
             case 'easy':
-                unil_left = "440px";
-                left = -(Math.abs(left_step - 440 - 25));
+                console.log("Diff " + $(".logo_difficulty").offset().left);
+                //112, 250, 413
+                unil_left = $(".logo_difficulty").offset().left - 50;
+                left = -(Math.abs(left_step - unil_left));
                 break;
             case 'medium':
-                unil_left = "560px";
-                left = -(Math.abs(left_step - 560 - 42));
+                unil_left = $(".logo_difficulty").offset().left + 80;
+                left = -(Math.abs(left_step - unil_left));
                 break;
             case 'hard':
-                unil_left = "740px";
-                left = -(Math.abs(left_step - 740 - 42));
+                unil_left = $(".logo_difficulty").offset().left + 240;
+                left = -(Math.abs(left_step - unil_left));
                 break;
         }
         // set interval
@@ -597,7 +656,7 @@ $(document).ready(function(){
                     }
                     var add_color = $(trouver_card + temp + trouver_card2 + type + '/' + temp + '.png"></div>');
                     $('#trouver-cards').append(add_color);
-                    randomPosition($('#trouver-cards'), add_color);
+                    randomPosition($('#trouver-cards'), add_color, x, card_width);
 
                     $('.draggable').draggable();
 
@@ -624,8 +683,7 @@ $(document).ready(function(){
         }
         function abortTimer(array) {
             clearInterval(tid);
-            $("#trouver-word").css("display", "block");
-            drawColors(array, false);
+            drawColors(array, hideColor);
             setupClicks(players);
 
         }

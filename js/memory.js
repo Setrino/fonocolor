@@ -19,6 +19,8 @@ $(document).ready(function(){
     var references = {
         consonants: ['c.b', 'c.c', 'c.ch', 'c.d', 'c.g', 'c.ge', 'c.l', 'c.m', 'c.n', 'c.p', 'c.ph', 'c.r', 'c.s', 'c.se', 'c.t', 'c.ve'],
         vowels: ['v.a', 'v.ai', 'v.ain', 'v.an', 'v.au', 'v.e_', 'v.eu', 'v.eux', 'v.i', 'v.o', 'v.on', 'v.ou', 'v.u'],
+        consonants2: ['c2.b!14', 'c2.c!8', 'c2.d!17', 'c2.f!7', 'c2.g!6', 'c2.p!12', 'c2.t!10', 'c2.ph!7', 'c2.qu!8', 'c2.r!13', 'c2.s!1', 'c2.se!5', 'c2.sse!1', 'c2.tt!1', 'c2.ve!11', 'c2.x!4', 'c2.xx!3', 'c2.z!5', 'c2.ç!1', 'c2.ce!1', 'c2.ch!18', 'c2.ge!2', 'c2.gu!6', 'c2.j!2', 'c2.k!8', 'c2.l!16', 'c2.m!15', 'c2.n!9'],
+        vowels2: ['v2.u!1', 'v2.un!15', 'v2.y!6', 'v2.a!2', 'v2.ai!7', 'v2.ain!15', 'v2.an!3', 'v2.au!9', 'v2.e_!4', 'v2.e!7', 'v2.ee!7', 'v2.een!3', 'v2.eeu!8', 'v2.ei!7', 'v2.ein!15', 'v2.en!15', 'v2.er!4', 'v2.es!4', 'v2.eu!8', 'v2.eux!5', 'v2.ez!4', 'v2.i!6', 'v2.in!15', 'v2.o!9', 'v2.oeu!8', 'v2.oi!10', 'v2.oin!11', 'v2.om!12', 'v2.on!12', 'v2.oo!13', 'v2.ou!14'],
         items:[],
         circles: [],
         squares: []
@@ -35,6 +37,8 @@ $(document).ready(function(){
         $('.type img').css('opacity', '1.0');
         hideAnimation('.level');
         hideAnimation('.level_block');
+        $('.type img').unbind("click");
+        $('.difficulty img').unbind("click");
         $('.type img').click(function(){
 
             var that = $(this);
@@ -56,6 +60,21 @@ $(document).ready(function(){
                     $('.level').append(con_voy_img);
                     $('.color_icon').append(circ_squa);
                     array = references.consonants.concat(references.vowels);
+                    break;
+                case 'lvl_voy2':
+                    $('.level').append(voyelle_img);
+                    $('.color_icon').append(circle);
+                    array = references.vowels2;
+                    break;
+                case 'lvl_con2':
+                    $('.level').append(consonnes_img);
+                    $('.color_icon').append(square);
+                    array = references.consonants2;
+                    break;
+                case 'lvl_bot2h':
+                    $('.level').append(con_voy_img);
+                    $('.color_icon').append(circ_squa);
+                    array = references.consonants2.concat(references.vowels2);
                     break;
             }
             clickA = true;
@@ -147,6 +166,14 @@ $(document).ready(function(){
                 case 'v':
                     selected.push('vowels_flat/' + face);
                     selected.push('objects/' + face);
+                    break;
+                case 'c2':
+                    selected.push('consonants/' + face);
+                    selected.push('squares/' + face);
+                    break;
+                case 'v2':
+                    selected.push('vowels/' + face);
+                    selected.push('circles/' + face);
                     break;
             }
             // Remove from array
@@ -279,26 +306,34 @@ $(document).ready(function(){
     }
 
     $(".logo").click(function(){
-        getPage("../menu.html", function(data){
-            var newDiv = $("<div/>")
-                .addClass("menuOverlay")
-                .html(data);
-            $("#menu").after(newDiv);
+        if($("#menu").html() == ""){
+            getPage("../menu.html", function(data){
+                var newDiv = $("<div/>")
+                    .addClass("menuOverlay")
+                    .html(data);
+                $("#menu").append(newDiv);
+                var menuOverlay = $(".menuOverlay");
+
+                $('body').append('<link rel="stylesheet" type="text/css" href="../css/menu.css">');
+                $('body').append('<script type="text/javascript" src="../js/menu.js"></script>');
+                menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
+                '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
+                $(".menuClose").click(function(){
+                    menuOverlay.animate({top: '-=' + documentHeight}, 1000, function(){
+                        menuOverlay.css('display', 'none'); });
+                });
+            });
+        }else{
             var menuOverlay = $(".menuOverlay");
-            $('body').append('<link rel="stylesheet" type="text/css" href="../css/menu.css">' +
-                '<script type="text/javascript" src="../js/menu.js"></script>');
             menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
             '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
-            $(".menuClose").click(function(){
-                menuOverlay.animate({top: '-=' + documentHeight}, 1000, function(){
-                    menuOverlay.css('display', 'none'); });
-            });
-        });
+        }
     });
 
     $("#restart").click(function(){
         doOverlayClose();
         setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
+        $('.color_icon').html("");
         $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
             "transition" : "all 0.9s ease-in", 'opacity' : 0});
         setTimeout(function(){
@@ -355,9 +390,13 @@ $(document).ready(function(){
         //player 1 left -700, top 300
         //player 2 left 500, top 300
 
+        var topObj = documentHeight / 2;
+
         //get the width * 2
-        obj1.parent().css({"top" : card_width * 1, "left" : card_width * 2 + 11, "transform" : 'scale(1.5) rotate(350deg)', "z-index" : 30});
-        obj2.parent().css({"top" : card_width * 1, "left" : card_width * 4 - (card_width / 4), "transform" : 'scale(1.5) rotate(350deg)', "z-index" : 30});
+        obj1.parent().css({"position": "fixed", "top" : topObj, "left" : documentWidth / 2, "transform" :
+            'scale(1.5) rotate(350deg)', "z-index" : 30});
+        obj2.parent().css({"position": "fixed", "top" : topObj + card_width / 3, "left" : documentWidth / 2
+        - card_width * 1.5, "transform" : 'scale(1.5) rotate(350deg)', "z-index" : 30});
 
         setTimeout(function () {
             $(".flip_pile, .flip_pile2").css({'transform': 'rotateX(90deg) rotateZ(90deg)', "transition-duration" : "1s"});
