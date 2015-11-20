@@ -594,7 +594,8 @@ $(document).ready(function(){
         var left = 0;
         var unil_left = 0;
         console.log("Doc Height " + (documentHeight - $("#header_wrapper").height()));
-        var width = (documentHeight - $("#header_wrapper").height() - 30) / 4;
+        var scaleWH = (documentHeight < documentWidth) ? documentHeight : documentWidth;
+        var width = (scaleWH - $("#header_wrapper").height() - 30) / 4;
         pixel_size = width - 20;
         card_width = width;
         var card_lineWidth = ((width + 18) * 6);
