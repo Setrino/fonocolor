@@ -422,7 +422,7 @@ $(document).ready(function(){
 
         var left = 0;
         var width = (documentHeight < documentWidth) ? (documentHeight - $("#header_wrapper").height() - 60) / 4 :
-        (documentWidth - 60) / x;
+        (documentWidth - 40) / x;
         var top = $("#header_wrapper").height() - 60;
         card_width = width;
         var card_lineWidth = ((width + 18) * x);
