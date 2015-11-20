@@ -13,12 +13,17 @@ body{
     margin-bottom: 4em;
 }
 
+.level_block{
+    position: relative;
+    z-index: 100;
+}
+
 .logo{
 }
 
 .color_icon{
     position: absolute;
-    top:66%;
+    top: -40px;
 }
 
 /* entire container, keeps perspective */

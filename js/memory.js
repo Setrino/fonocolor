@@ -9,6 +9,7 @@ $(document).ready(function(){
     var square = '<img src="../images/game/square.png"/>';
     var circ_squa = '<img src="../images/game/circ_squa.png"/>';
     var documentHeight = $(document).height();
+    var documentWidth = $(document).width();
     var tilesCovered = 0;
     var tilesOpened = 0;
     var escapeCounter = 0;
@@ -88,15 +89,15 @@ $(document).ready(function(){
                 $(this).off('click');
                 switch($(this).attr('id')){
                     case 'easy':
-                        $('.color_icon').css('left', '112px');
+                        $('.color_icon').css('left', '12px');
                         noOfPlayers(6, 1, array, generateMatrix);
                         break;
                     case 'medium':
-                        $('.color_icon').css('left', '250px');
+                        $('.color_icon').css('left', '150px');
                         noOfPlayers(6, 2, array, generateMatrix);
                         break;
                     case 'hard':
-                        $('.color_icon').css('left', '413px');
+                        $('.color_icon').css('left', '313px');
                         noOfPlayers(6, 3, array, generateMatrix);
                         break;
                 }
@@ -367,7 +368,6 @@ $(document).ready(function(){
 
         console.log(player_score);
 
-        var documentWidth = $(document).width();
         var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
         var top = card_width * 2.6;
@@ -421,27 +421,28 @@ $(document).ready(function(){
     function animateCards(x, y, selected, players){
 
         var left = 0;
-        var top = 158;
-        var width = (documentHeight - 310) / 4;
+        var width = (documentHeight - $("#header_wrapper").height() - 60) / 4;
+        var top = $("#header_wrapper").height() - 60;
         card_width = width;
         var card_lineWidth = ((width + 18) * x);
-        var left_step = ($(document).width() - card_lineWidth) / 2;
+        var left_step = (documentWidth - card_lineWidth) / 2;
         console.log("From left " + (left_step));
-        var unil_left = "440px";
+        var unil_left = 0;
 
-        switch(x){
-            case 4:
-                unil_left = "440px";
-                left = -(Math.abs(left_step - 440 - 25));
-                top = 158;
+        y = (players == 2) ? y - 1 : y;
+
+        switch(y){
+            case 1:
+                unil_left = $(".logo_difficulty").offset().left - 50;
+                left = -(Math.abs(left_step - unil_left));
                 break;
-            case 6:
-                unil_left = "560px";
-                left = -(Math.abs(left_step - 560 - 42));
+            case 2:
+                unil_left = $(".logo_difficulty").offset().left + 80;
+                left = -(Math.abs(left_step - unil_left));
                 break;
-            case 8:
-                unil_left = "740px";
-                left = -(Math.abs(left_step - 740 - 42));
+            case 3:
+                unil_left = $(".logo_difficulty").offset().left + 240;
+                left = -(Math.abs(left_step - unil_left));
                 break;
         }
 
@@ -464,7 +465,7 @@ $(document).ready(function(){
             $("#body_wrapper").append($newdiv1);
                 $newdiv1.animate({
                     left: "+=" + (left + (width + 10) * j),
-                    top: "+=" + (top + (width + 13) * 3)
+                    top: "+=" + (top + width * 3)
                 }, animationTime, function () {
                     $newdiv1.remove();
                 });
