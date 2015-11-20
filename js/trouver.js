@@ -31,6 +31,8 @@ $(document).ready(function(){
         ctx = c.getContext('2d');
         ctx.font = 'fundamental__brigade_schwerRg';
 
+    $("body").css("left", documentWidth / 2 - $("body").width() / 2);
+
     var references = {
         consonants: ['c.b!14', 'c.c!8', 'c.d!17', 'c.f!7', 'c.g!6', 'c.p!12', 'c.t!10', 'c.ph!7', 'c.qu!8', 'c.r!13', 'c.s!1', 'c.se!5', 'c.sse!1', 'c.tt!1', 'c.ve!11', 'c.x!4', 'c.xx!3', 'c.z!5', 'c.ç!1', 'c.ce!1', 'c.ch!18', 'c.ge!2', 'c.gu!6', 'c.j!2', 'c.k!8', 'c.l!16', 'c.m!15', 'c.n!9'],
         vowels: ['v.u!1', 'v.un!15', 'v.y!6', 'v.a!2', 'v.ai!7', 'v.ain!15', 'v.an!3', 'v.au!9', 'v.e_!4', 'v.e!7', 'v.ee!7', 'v.een!3', 'v.eeu!8', 'v.ei!7', 'v.ein!15', 'v.en!15', 'v.er!4', 'v.es!4', 'v.eu!8', 'v.eux!5', 'v.ez!4', 'v.i!6', 'v.in!15', 'v.o!9', 'v.oeu!8', 'v.oi!10', 'v.oin!11', 'v.om!12', 'v.on!12', 'v.oo!13', 'v.ou!14'],
@@ -542,7 +544,7 @@ $(document).ready(function(){
 
         console.log(player_score);
 
-        var left = - (documentWidth / 2 - card_width * 2);
+        /*var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
         var top = card_width * 2.6;
         var bar = $('<div class="bar"></div>');
@@ -557,7 +559,7 @@ $(document).ready(function(){
             bar.css('left', '89%');
         }
 
-        $("#body_wrapper").append(bar);
+        $("#body_wrapper").append(bar);*/
     }
 
     var steps = [];
