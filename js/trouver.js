@@ -508,6 +508,7 @@ $(document).ready(function(){
         steps = [];
         hideAnimation('.level');
         hideAnimation('.level_block');
+        ctx.clearRect(0, 0, c.width, c.height);
         $('.trouver-card').remove();
         setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
         doOverlayClose();
@@ -680,7 +681,8 @@ $(document).ready(function(){
 
                 // + 1
                 if(i == y + 1){
-                    setTimeout(function(){abortTimer(array);}, animationStep);
+                    var timed = (x == 1) ? animationTime : animationStep;
+                    setTimeout(function(){abortTimer(array);}, timed);
                 }
             }
         }
