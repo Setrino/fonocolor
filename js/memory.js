@@ -421,8 +421,8 @@ $(document).ready(function(){
     function animateCards(x, y, selected, players){
 
         var left = 0;
-        var scaleWH = (documentHeight < documentWidth) ? documentHeight : documentWidth;
-        var width = (scaleWH - $("#header_wrapper").height() - 60) / 4;
+        var width = (documentHeight < documentWidth) ? (documentHeight - $("#header_wrapper").height() - 60) / 4 :
+        documentWidth / x;
         var top = $("#header_wrapper").height() - 60;
         card_width = width;
         var card_lineWidth = ((width + 18) * x);
