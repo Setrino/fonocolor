@@ -247,7 +247,7 @@ $(document).ready(function(){
                 var flipper = $(v);
                 if(doElsCollide(that, flipper) && that.children().attr('class').split(" ")[1] == flipper.attr('id').split('_')[1]){
                     console.log(flipper.attr('id') + " " + flipper.parent().index());
-                    if(!hideColor) {
+                    if(hideColor) {
                         drawColors([], true, flipper.parent().index());
                     }
                     that.offset({ top: flipper.offset().top - 8, left: flipper.offset().left - 8});
@@ -280,8 +280,8 @@ $(document).ready(function(){
             el2.bottom = offsetEL2.top + dimension;
             el2.right = offsetEL2.left + dimension;
 
-            console.log("Top " + offsetEL1.top + " Height " + dimension + " Bottom " + el1.bottom + " Right " + el1.right + " Left " + offsetEL1.left);
-            console.log("Top " + offsetEL2.top + " Height " + dimension + " Bottom " + el2.bottom + " Right " + el2.right + " Left " + offsetEL2.left);
+            //console.log("Top " + offsetEL1.top + " Height " + dimension + " Bottom " + el1.bottom + " Right " + el1.right + " Left " + offsetEL1.left);
+            //console.log("Top " + offsetEL2.top + " Height " + dimension + " Bottom " + el2.bottom + " Right " + el2.right + " Left " + offsetEL2.left);
 
             return !((el1.bottom - dimension / 2 < offsetEL2.top) ||
             (offsetEL1.top > el2.bottom - dimension / 2 ) ||

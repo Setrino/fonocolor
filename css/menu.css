@@ -1,3 +1,7 @@
+.menuOverlay{
+    z-index: 999;
+}
+
 .overlay_menu .back_arrow{
     display: block;
     height: 32px;
