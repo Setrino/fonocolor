@@ -17,6 +17,7 @@ $(document).ready(function(){
     var animationStep = 100;
     var card_width = 0;
     var lid = null;
+    var showAnim = false;
 
     var references = {
         consonants: ['c.b', 'c.c', 'c.ch', 'c.d', 'c.g', 'c.ge', 'c.l', 'c.m', 'c.n', 'c.p', 'c.ph', 'c.r', 'c.s', 'c.se', 'c.t', 'c.ve'],
@@ -52,31 +53,37 @@ $(document).ready(function(){
                     $('.level').append(voyelle_img);
                     $('.color_icon').append(circle);
                     array = references.vowels;
+                    showAnim = true;
                     break;
                 case 'lvl_con':
                     $('.level').append(consonnes_img);
                     $('.color_icon').append(square);
                     array = references.consonants;
+                    showAnim = false;
                     break;
                 case 'lvl_both':
                     $('.level').append(con_voy_img);
                     $('.color_icon').append(circ_squa);
                     array = references.consonants.concat(references.vowels);
+                    showAnim = false;
                     break;
                 case 'lvl_voy2':
                     $('.level').append(voyelle_img);
                     $('.color_icon').append(circle);
                     array = references.vowels2;
+                    showAnim = true;
                     break;
                 case 'lvl_con2':
                     $('.level').append(consonnes_img);
                     $('.color_icon').append(square);
                     array = references.consonants2;
+                    showAnim = false;
                     break;
                 case 'lvl_bot2h':
                     $('.level').append(con_voy_img);
                     $('.color_icon').append(circ_squa);
                     array = references.consonants2.concat(references.vowels2);
+                    showAnim = false;
                     break;
             }
             clickA = true;
@@ -430,10 +437,12 @@ $(document).ready(function(){
         }
     });
 
-    function addToPile(obj1, obj2, player, player_score){
+    function addToPile(obj1, obj2, player, player_score, ){
 
         console.log(player_score);
-        loadStage('rond_i01');
+        if(showAnim){
+            loadStage('rond_i01');
+        }
         var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
         var top = card_width * 2.6;
