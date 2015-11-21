@@ -105,6 +105,7 @@ $(document).ready(function(){
                 displayAnimation('.level_block');
                 displayAnimation('.level');
                 displayAnimation('.anim_space');
+                loadedAnim = [];
                 loadStage("regarde_et_fixe");
                 lid = setInterval(function(){loadStage('regarde_et_fixe');}, 7000);
                 $('.difficulty').addClass("disable");
@@ -124,6 +125,7 @@ $(document).ready(function(){
     stage.css('-webkit-transform', 'scale(' + 0.3 + ')');
     stage.css('-moz-transform', 'scale(' + 0.3 + ')');
     stage.css('-o-transform', 'scale(' + 0.3 + ')');
+    var loadedAnim = [];
 
     function loadStage(name){
         console.log(name);
@@ -139,21 +141,22 @@ $(document).ready(function(){
                     console.log("NA " + name);
                     clearInterval(lid);
                     lid = setInterval(function(){loadStage('regarde_et_fixe');}, 7000);
-                }else{
-                    console.log(name);
-                    var newScript   = document.createElement("script");
-                    newScript.type  = "text/javascript";
-                    newScript.src   = '../animations/' + name + '_edge.js';
-                    newScript.text  = "";
-                    document.head.appendChild(newScript);
                 }
                 tempV = true;
             }
         });
-
         delete AdobeEdge.compositions['EDGE-27145435'];
-        console.log(AdobeEdge.compositions);
-            AdobeEdge.loadComposition('../animations/' + name, 'EDGE-27145435', {
+        if(checkArray(name)){
+            console.log("NA");
+            var newScript   = document.createElement("script");
+            newScript.type  = "text/javascript";
+            newScript.src   = '../animations/' + name + '_edge.js';
+            newScript.text  = "";
+            document.head.appendChild(newScript);
+        }else{
+            loadedAnim.push(name);
+        }
+        AdobeEdge.loadComposition('../animations/' + name, 'EDGE-27145435', {
             scaleToFit: "none",
             centerStage: "none",
             minW: "0",
@@ -161,7 +164,16 @@ $(document).ready(function(){
             width: "00",
             height: "480"
         }, {"dom":{}}, {"dom":{}});
-        console.log(AdobeEdge.compositions);
+    }
+
+    function checkArray(name){
+        var found = false;
+        for(var i = 0; i < loadedAnim.length;i++){
+            if(loadedAnim[i] == name){
+                found = true;
+            }
+        }
+        return found;
     }
 
     function noOfPlayers(x, y, array, callback){
@@ -326,6 +338,7 @@ $(document).ready(function(){
     }
 
     function resetGame(player, noOfClick, score){
+        clearInterval(lid);
         $('.card_line').remove();
         tilesCovered = 0;
         tilesOpened = 0;
@@ -386,6 +399,7 @@ $(document).ready(function(){
     $("#restart").click(function(){
         doOverlayClose();
         setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
+        $(".anim_space").css("display", "none");
         $('.color_icon').html("");
         $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
             "transition" : "all 0.9s ease-in", 'opacity' : 0});
