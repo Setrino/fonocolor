@@ -107,28 +107,6 @@ $(document).ready(function(){
 
     init();
 
-    var stage = $("#Stage");
-
-    stage.css('transform', 'scale(' + 0.5 + ')');
-    stage.css('transform', 'scale(' + 0.5 + ')');
-    stage.css( '-o-transform', 'scale(' + 0.5 + ')');
-    stage.css('-ms-transform', 'scale(' + 0.5 + ')');
-    stage.css('-webkit-transform', 'scale(' + 0.5 + ')');
-    stage.css('-moz-transform', 'scale(' + 0.5 + ')');
-    stage.css('-o-transform', 'scale(' + 0.5 + ')');
-
-    stage.click(function(){
-        AdobeEdge.loadComposition('../animations/rond_i01', 'EDGE-27145435', {
-            scaleToFit: "none",
-            centerStage: "none",
-            minW: "0",
-            maxW: "undefined",
-            width: "00",
-            height: "480"
-        }, {"dom":{}}, {"dom":{}});
-        setTimeout(function(){$("#Stage").css("display", "none")}, 2700);
-    });
-
     function noOfPlayers(x, y, difficulty, type, callback){
         var players = 1;
             selectWord(difficulty, function(word, array){callback(x, y, jQuery.parseJSON(array), players, word, type);});

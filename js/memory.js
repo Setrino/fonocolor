@@ -16,6 +16,7 @@ $(document).ready(function(){
     var animationTime = 1000;
     var animationStep = 100;
     var card_width = 0;
+    var lid = null;
 
     var references = {
         consonants: ['c.b', 'c.c', 'c.ch', 'c.d', 'c.g', 'c.ge', 'c.l', 'c.m', 'c.n', 'c.p', 'c.ph', 'c.r', 'c.s', 'c.se', 'c.t', 'c.ve'],
@@ -103,6 +104,9 @@ $(document).ready(function(){
                 }
                 displayAnimation('.level_block');
                 displayAnimation('.level');
+                displayAnimation('.anim_space');
+                loadStage("regarde_et_fixe");
+                lid = setInterval(function(){loadStage('regarde_et_fixe');}, 7000);
                 $('.difficulty').addClass("disable");
                 $('.type').removeClass("disable");
                 $('.type, .difficulty').css("display", "none");
@@ -111,6 +115,54 @@ $(document).ready(function(){
     }
 
     init();
+
+    var stage = $("#Stage");
+    stage.css('transform', 'scale(' + 0.3 + ')');
+    stage.css('transform', 'scale(' + 0.3 + ')');
+    stage.css( '-o-transform', 'scale(' + 0.3 + ')');
+    stage.css('-ms-transform', 'scale(' + 0.3 + ')');
+    stage.css('-webkit-transform', 'scale(' + 0.3 + ')');
+    stage.css('-moz-transform', 'scale(' + 0.3 + ')');
+    stage.css('-o-transform', 'scale(' + 0.3 + ')');
+
+    function loadStage(name){
+        console.log(name);
+        var tempV = false;
+        var scripts = $('head script');
+        scripts.each(function(){
+            var that = $(this);
+            if(that[0].src.match('_edge.js')){
+                that.remove();
+                console.log(that[0].src);
+                if(name != 'regarde_et_fixe'){
+
+                    console.log("NA " + name);
+                    clearInterval(lid);
+                    lid = setInterval(function(){loadStage('regarde_et_fixe');}, 7000);
+                }else{
+                    console.log(name);
+                    var newScript   = document.createElement("script");
+                    newScript.type  = "text/javascript";
+                    newScript.src   = '../animations/' + name + '_edge.js';
+                    newScript.text  = "";
+                    document.head.appendChild(newScript);
+                }
+                tempV = true;
+            }
+        });
+
+        delete AdobeEdge.compositions['EDGE-27145435'];
+        console.log(AdobeEdge.compositions);
+            AdobeEdge.loadComposition('../animations/' + name, 'EDGE-27145435', {
+            scaleToFit: "none",
+            centerStage: "none",
+            minW: "0",
+            maxW: "undefined",
+            width: "00",
+            height: "480"
+        }, {"dom":{}}, {"dom":{}});
+        console.log(AdobeEdge.compositions);
+    }
 
     function noOfPlayers(x, y, array, callback){
         var players = 1;
@@ -367,7 +419,7 @@ $(document).ready(function(){
     function addToPile(obj1, obj2, player, player_score){
 
         console.log(player_score);
-
+        loadStage('rond_i01');
         var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
         var top = card_width * 2.6;

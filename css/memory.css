@@ -6,6 +6,10 @@ body{
     width: 1400px;
 }
 
+#header_wrapper{
+    position: relative;
+}
+
 .logo_block{
     display: inline-block;
     position: relative;
@@ -16,6 +20,15 @@ body{
 .level_block{
     position: relative;
     z-index: 100;
+}
+
+.anim_space{
+    display: none;
+    height: 150px;
+    width: 150px;
+    top: -140px;
+    left: 20px;
+    position: absolute;
 }
 
 .logo{
@@ -204,4 +217,8 @@ body{
 .memory{
     float: left;
     z-index: 20;
+}
+
+.clear{
+    clear: both;
 }
