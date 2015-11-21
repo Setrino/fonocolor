@@ -437,7 +437,7 @@ $(document).ready(function(){
         }
     });
 
-    function addToPile(obj1, obj2, player, player_score, ){
+    function addToPile(obj1, obj2, player, player_score, nameAnim){
 
         console.log(player_score);
         if(showAnim){
