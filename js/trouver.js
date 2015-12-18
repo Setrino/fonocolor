@@ -39,7 +39,7 @@ $(document).ready(function(){
         easy:['un', 'ce', 'il', 'pour', 'son', 'sur', 'ami', 'se', 'tu', 'ou', 'si', 'là', 'car', 'ni'],
         medium: ['au', 'pas', 'vous', 'dans', 'elle', 'et', 'être', 'qui', 'faire', 'avec', 'aller', 'sans', 'leur', 'même', 'tout'],
         hard: ['femme', 'goal', 'quelque', 'sept', 'main', 'amer', 'fusil', 'chez', 'coeur', 'vingt', 'dix', 'corps', 'souvent', 'clown'],
-        colors:[]
+        colors:['#3A4972', '#F7D3B5', '#EDC4DD', '#ED6E00', '#930FA5', '#AA930A', '#F43FA5']
     };
 
     function init(){
@@ -136,9 +136,21 @@ $(document).ready(function(){
             }
         }
         tilesOpened = colors.length;
-        //colors = colors.concat(Array(6 - colors.length).fill('#empty'));
-        console.log(colors);
-        animateCards(colors.length, y, colors, players, word, array, type);
+        colors = colors.concat(randomColors(6 - colors.length));
+        //var colors_fake = randomColors(6 - colors.length);
+        console.log("Colors " + colors);
+        animateCards(colors.length, y, colors, tilesOpened, players, word, array, type);
+    }
+
+    function randomColors(number){
+        console.log(number);
+        var temp = [];
+        for(var i = 0; i < number; i++){
+            var color = references.colors[Math.floor(Math.random() * references.colors.length)];
+            temp.push(color);
+            console.log(color);
+        }
+        return temp;
     }
 
     function playSound(track, type) {
@@ -564,11 +576,11 @@ $(document).ready(function(){
         }
         var skid = step * card_width;
         // + Math.floor(Math.random() * card_width / 2)
-        card.css("left", skid);
+        card.css("left", skid + Math.floor(Math.random() * card_width / 2));
         card.css("top", Math.floor(Math.random() * block.height() / 2));
     }
 
-    function animateCards(x, y, selected, players, word, array, type){
+    function animateCards(x, y, selected, sel_len, players, word, array, type){
 
         var left = 0;
         var unil_left = 0;
@@ -615,16 +627,18 @@ $(document).ready(function(){
         function loopCards() {
             var $newdiv1 = $( "<div class='unil_card'>" );
             var tempJ = j;
-            if(i == 0) {
-                $newdiv1.css("left", unil_left);
-                $("#body_wrapper").append($newdiv1);
-                $newdiv1.animate({
-                    left: "+=" + (left + (width + 10) * j),
-                    top: "+=" + (top + (width + 13) * i)
-                }, animationTime, function () {
-                    $newdiv1.remove();
-                });
-                $newdiv1.css({"-webkit-animation" : "fly 1.0s", "animation" : "fly 1.0s"});
+            if(tempJ < sel_len){
+                if(i == 0) {
+                    $newdiv1.css("left", unil_left);
+                    $("#body_wrapper").append($newdiv1);
+                    $newdiv1.animate({
+                        left: "+=" + (left + (width + 10) * j),
+                        top: "+=" + (top + (width + 13) * i)
+                    }, animationTime, function () {
+                        $newdiv1.remove();
+                    });
+                    $newdiv1.css({"-webkit-animation" : "fly 1.0s", "animation" : "fly 1.0s"});
+                }
             }
             setTimeout(function(){
                 var temp = selected.shift();
@@ -642,13 +656,16 @@ $(document).ready(function(){
 
                     $('.draggable').draggable();
 
+                    console.log(sel_len);
                     $(".flip-container, .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("width", width);
                     $(".flip-container, .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("height", width);
-                    $(".flip-container").css("display", "inline-block");
-                    if (tempJ == x - 1) {
-                        card_line = $('<div class="card_line"></div>');
-                        card_line.css('width', card_lineWidth);
-                        bodyWrapper.append(card_line);
+                    if(tempJ < sel_len){
+                        $(".flip-container").css("display", "inline-block");
+                        if (tempJ == x - 1) {
+                            card_line = $('<div class="card_line"></div>');
+                            card_line.css('width', card_lineWidth);
+                            bodyWrapper.append(card_line);
+                        }
                     }
                 }
             }, animationTime);

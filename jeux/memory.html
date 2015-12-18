@@ -6,9 +6,15 @@
     <link rel="stylesheet" href="../css/fonts.css" type="text/css" charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/memory.css" media="screen"/>
+    <link rel="stylesheet" href="../css/fireworks.css" media="screen"/>
     <script src="../js/jquery-1.10.2.min.js"></script>
 </head>
 <body>
+<div id="fireworks-template">
+    <div id="fw" class="firework"></div>
+    <div id="fp" class="fireworkParticle"><img src="../images/particles.gif" alt="" /></div>
+</div>
+<div id="fireContainer"></div>
 <div id="wrapper">
     <div id="body_wrapper">
         <div id="menu"></div>
@@ -116,6 +122,8 @@
     </div>
 </div>
 </body>
+<script src="../js/soundmanager2-nodebug-jsmin.js"></script>
+<script src="../js/fireworks.js"></script>
 <script src="../js/memory.js"></script>
 <script src="../js/requests.js"></script>
 <script src="../js/copyright.js"></script>

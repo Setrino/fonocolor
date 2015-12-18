@@ -18,6 +18,7 @@ $(document).ready(function(){
     var card_width = 0;
     var lid = null;
     var showAnim = false;
+    var mainAnim = 'regarde_et_fixe';
 
     var references = {
         consonants: ['c.b', 'c.c', 'c.ch', 'c.d', 'c.g', 'c.ge', 'c.l', 'c.m', 'c.n', 'c.p', 'c.ph', 'c.r', 'c.s', 'c.se', 'c.t', 'c.ve'],
@@ -29,6 +30,8 @@ $(document).ready(function(){
         squares: []
     };
 
+   //setTimeout(addDEBUGBars, 0);
+
     function init(){
 
         var array = [];
@@ -38,12 +41,12 @@ $(document).ready(function(){
         $('.bar').remove();
         $('.difficulty img').unbind('click');
         $('.type img').css('opacity', '1.0');
+        moveLeft('#header_wrapper', 0, 1000);
         hideAnimation('.level');
         hideAnimation('.level_block');
         $('.type img').unbind("click");
         $('.difficulty img').unbind("click");
         $('.type img').click(function(){
-
             var that = $(this);
             $('.level').html('');
             $('.color_icon').html('');
@@ -54,12 +57,14 @@ $(document).ready(function(){
                     $('.color_icon').append(circle);
                     array = references.vowels;
                     showAnim = true;
+                    mainAnim = 'regarde_et_fixe';
                     break;
                 case 'lvl_con':
                     $('.level').append(consonnes_img);
                     $('.color_icon').append(square);
                     array = references.consonants;
-                    showAnim = false;
+                    showAnim = true;
+                    mainAnim = 'carre_fixe';
                     break;
                 case 'lvl_both':
                     $('.level').append(con_voy_img);
@@ -72,12 +77,14 @@ $(document).ready(function(){
                     $('.color_icon').append(circle);
                     array = references.vowels2;
                     showAnim = true;
+                    mainAnim = 'regarde_et_fixe';
                     break;
                 case 'lvl_con2':
                     $('.level').append(consonnes_img);
                     $('.color_icon').append(square);
                     array = references.consonants2;
-                    showAnim = false;
+                    showAnim = true;
+                    mainAnim = 'carre_fixe';
                     break;
                 case 'lvl_bot2h':
                     $('.level').append(con_voy_img);
@@ -99,22 +106,25 @@ $(document).ready(function(){
                     case 'easy':
                         $('.color_icon').css('left', '12px');
                         noOfPlayers(6, 1, array, generateMatrix);
+                        moveLeft('#header_wrapper', 71, 0);
                         break;
                     case 'medium':
                         $('.color_icon').css('left', '150px');
                         noOfPlayers(6, 2, array, generateMatrix);
+                        moveLeft('#header_wrapper', 71, 0);
                         break;
                     case 'hard':
                         $('.color_icon').css('left', '313px');
+                        moveLeft('#header_wrapper', 137, 0);
                         noOfPlayers(6, 3, array, generateMatrix);
                         break;
                 }
                 displayAnimation('.level_block');
                 displayAnimation('.level');
                 displayAnimation('.anim_space');
-                loadedAnim = [];
-                loadStage("regarde_et_fixe");
-                lid = setInterval(function(){loadStage('regarde_et_fixe');}, 7000);
+                clearInterval(lid);
+                loadStage(mainAnim);
+                lid = setInterval(function(){loadStage(mainAnim);}, 7000);
                 $('.difficulty').addClass("disable");
                 $('.type').removeClass("disable");
                 $('.type, .difficulty').css("display", "none");
@@ -143,11 +153,11 @@ $(document).ready(function(){
             if(that[0].src.match('_edge.js')){
                 that.remove();
                 console.log(that[0].src);
-                if(name != 'regarde_et_fixe'){
+                if(name != mainAnim){
 
                     console.log("NA " + name);
                     clearInterval(lid);
-                    lid = setInterval(function(){loadStage('regarde_et_fixe');}, 7000);
+                    lid = setInterval(function(){loadStage(mainAnim);}, 7000);
                 }
                 tempV = true;
             }
@@ -306,20 +316,21 @@ $(document).ready(function(){
                     } else{
                         console.log(tilesCovered);
                         tilesOpened++;
-                        console.log("Open " + tilesOpened);
                         if(!playerUpdate){
                             player2_score++;
                             if(players == 1){
-                                addToPile(that, previousObject, 1, player1_score + player2_score);
+                                console.log("Open " + tilesOpened + " " + tempClass);
+                                addToPile(that, previousObject, 1, player1_score + player2_score, tempClass);
                             }else{
-                                addToPile(that, previousObject, 2, player2_score);
+                                addToPile(that, previousObject, 2, player2_score, tempClass);
                             }
                         }else{
                                 player1_score++;
                                 if (players == 1) {
-                                    addToPile(that, previousObject, 1, player1_score + player2_score);
+                                    console.log("Open " + tilesOpened);
+                                    addToPile(that, previousObject, 1, player1_score + player2_score, tempClass);
                                 } else {
-                                    addToPile(that, previousObject, 1, player1_score);
+                                    addToPile(that, previousObject, 1, player1_score, tempClass);
                                 }
                         }
                         previousClass = undefined;
@@ -335,7 +346,7 @@ $(document).ready(function(){
                                 }else{
                                     resetGame(0, player1, player1_score);
                                 }
-                            }, 1000);
+                            }, 3000);
                         }
                         disableClick = false;
                     }
@@ -344,7 +355,10 @@ $(document).ready(function(){
         });
     }
 
-    function resetGame(player, noOfClick, score){
+        function resetGame(player, noOfClick, score){
+        createFirework(66,139,4,5,50,100,50,50,true,true);
+        setTimeout(function(){createFirework(26,109,3,5,50,100,90,100,true,true);}, 600);
+        setTimeout(function(){createFirework(120,69,2,5,50,100,10,100,true,true);}, 1000);
         clearInterval(lid);
         $('.card_line').remove();
         tilesCovered = 0;
@@ -405,12 +419,12 @@ $(document).ready(function(){
 
     $("#restart").click(function(){
         doOverlayClose();
-        setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
         $(".anim_space").css("display", "none");
         $('.color_icon').html("");
         $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
             "transition" : "all 0.9s ease-in", 'opacity' : 0});
         setTimeout(function(){
+            $(".type, .difficulty").css("display", "block");
             $('.card_line').remove();
             tilesCovered = 0;
             escapeCounter = 0;
@@ -437,11 +451,40 @@ $(document).ready(function(){
         }
     });
 
+    function addDEBUGBars(){
+        for(var i = 1; i < 6; i++){
+            var bar = $('<div class="bar"></div>');
+            if(i > 1){
+                var neg = (i % 2) ? 8 : -8;
+                bar.css({'transform' : 'rotateZ(' + neg + 'deg)', 'bottom' : i * 10});
+            }
+            console.log(bar);
+            $("#body_wrapper").append(bar);
+        }
+
+        setTimeout(function(){
+
+            var time = 1000;
+                $(".bar").each(function(i, v){
+                    var that = $(this);
+                    setTimeout(function(){
+                        if(i % 2 == 0){
+                            that.css({"-webkit-animation" : "rotate20 1.0s", "animation" : "rotate20 1.0s"});
+                        }else{
+                            that.css({"-webkit-animation" : "rotate20_m 1.0s", "animation" : "rotate20_m 1.0s"});
+                        }
+                        that.animate({'bottom': "+=" + 200}, 1000, function(){that.remove();});
+                    }, time);
+                    time -= 50;
+                });
+        }, 2000);
+    }
+
     function addToPile(obj1, obj2, player, player_score, nameAnim){
 
-        console.log(player_score);
+        console.log(player_score + " " + nameAnim);
         if(showAnim){
-            loadStage('rond_i01');
+            loadStage(nameAnim);
         }
         var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
@@ -477,21 +520,27 @@ $(document).ready(function(){
             $(".flip_pile, .flip_pile2").css({'transform': 'rotateX(90deg) rotateZ(90deg)', "transition-duration" : "1s"});
             $(".pile").animate({
                 left: "+=" + left,
-                top: "+=" + top
+                top: "+=" + documentHeight / 2
             }, 1000, function(){
-                //$(".pile").remove();
+                $(".pile").remove();
             });
             $(".pile2").animate({
-                left: "+=" + left2,
-                top: "+=" + top
+                left: "+=" + (left2 + card_width * 1.5),
+                top: "+=" + documentHeight / 2
             }, 1000, function(){
-                //$(".pile2").remove();
+                $(".pile2").remove();
                 $("#body_wrapper").append(bar);
             });
         }, 2000);
     }
 
     console.log(documentHeight);
+
+    function moveLeft(elem, dist, time){
+        setTimeout(function(){
+            $(elem).css('left', dist);
+        }, time);
+    }
 
     function animateCards(x, y, selected, players){
 
