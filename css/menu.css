@@ -14,7 +14,7 @@
 
 /* entire container, keeps perspective */
 .overlay_menu .flip-container {
-    margin: 0 7px 7px auto;
+    margin: 1em;
     position: relative;
 }
 
