@@ -18,7 +18,10 @@ $(document).ready(function(){
     var card_width = 0;
     var lid = null;
     var showAnim = false;
+    //circle animation name
     var mainAnim = 'regarde_et_fixe';
+    //easy, medium, hard
+    var clickDif = false;
 
     var references = {
         consonants: ['c.b', 'c.c', 'c.ch', 'c.d', 'c.g', 'c.ge', 'c.l', 'c.m', 'c.n', 'c.p', 'c.ph', 'c.r', 'c.s', 'c.se', 'c.t', 'c.ve'],
@@ -32,13 +35,32 @@ $(document).ready(function(){
 
    //setTimeout(addDEBUGBars, 0);
 
-    function init(){
+    function memGame() {
+        //number of columns
+        this.x = 6;
+        //number of rows
+        this.y = 1;
+        this.level = 'lvl_voy';
+        this.dif = 'easy';
+        //array of words
+        this.array = null;
+        this.players = 1;
+        this.mainAnim = 'regarde_et_fixe';
+        this.attempt = 0;
+        this.started = false;
+    }
 
+    var game = null;
+
+    function init(){
+        if(game === null){
+            game = new memGame();
+        }
         var array = [];
         var clickA = false;
+        clickDif = false;
         $('.menu').css('display', "none");
         $('.players').css("display", "none");
-        $('.bar').remove();
         $('.difficulty img').unbind('click');
         $('.type img').css('opacity', '1.0');
         moveLeft('#header_wrapper', 0, 1000);
@@ -50,8 +72,8 @@ $(document).ready(function(){
             var that = $(this);
             $('.level').html('');
             $('.color_icon').html('');
-
-            switch(that.attr('id')){
+            game.level = that.attr('id');
+            switch(game.level){
                 case 'lvl_voy':
                     $('.level').append(voyelle_img);
                     $('.color_icon').append(circle);
@@ -93,6 +115,7 @@ $(document).ready(function(){
                     showAnim = false;
                     break;
             }
+            game.array = array;
             clickA = true;
             $('.type img').css('opacity', '0.2');
             that.css('opacity', '1.0');
@@ -102,26 +125,36 @@ $(document).ready(function(){
             if(clickA){
                 $('.type img').off('click');
                 $(this).off('click');
-                switch($(this).attr('id')){
+                game.dif = $(this).attr('id');
+                game.x = 6;
+                switch(game.dif){
                     case 'easy':
                         $('.color_icon').css('left', '12px');
-                        noOfPlayers(6, 1, array, generateMatrix);
-                        moveLeft('#header_wrapper', 71, 0);
+                        game.y = 1;
+                        noOfPlayers(array, generateMatrix);
                         break;
                     case 'medium':
                         $('.color_icon').css('left', '150px');
-                        noOfPlayers(6, 2, array, generateMatrix);
-                        moveLeft('#header_wrapper', 71, 0);
+                        game.y = 2;
+                        noOfPlayers(array, generateMatrix);
                         break;
                     case 'hard':
                         $('.color_icon').css('left', '313px');
-                        moveLeft('#header_wrapper', 137, 0);
-                        noOfPlayers(6, 3, array, generateMatrix);
+                        game.y = 3;
+                        noOfPlayers(array, generateMatrix);
                         break;
                 }
                 displayAnimation('.level_block');
                 displayAnimation('.level');
                 displayAnimation('.anim_space');
+                if(game.level.match('both')){
+                    $('.anim_space').css('left', '-65px');
+                    moveLeft('#header_wrapper', 135, 0);
+                    $(".logo_block").css('width', '480');
+                }else{
+                    moveLeft('#header_wrapper', 71, 0);
+                    $(".logo_block").css('width', '550');
+                }
                 clearInterval(lid);
                 loadStage(mainAnim);
                 lid = setInterval(function(){loadStage(mainAnim);}, 7000);
@@ -145,17 +178,17 @@ $(document).ready(function(){
     var loadedAnim = [];
 
     function loadStage(name){
-        console.log(name);
+        //console.log(name);
         var tempV = false;
         var scripts = $('head script');
         scripts.each(function(){
             var that = $(this);
             if(that[0].src.match('_edge.js')){
                 that.remove();
-                console.log(that[0].src);
+                //console.log(that[0].src);
                 if(name != mainAnim){
 
-                    console.log("NA " + name);
+                    //console.log("NA " + name);
                     clearInterval(lid);
                     lid = setInterval(function(){loadStage(mainAnim);}, 7000);
                 }
@@ -164,7 +197,7 @@ $(document).ready(function(){
         });
         delete AdobeEdge.compositions['EDGE-27145435'];
         if(checkArray(name)){
-            console.log("NA");
+            //console.log("NA");
             var newScript   = document.createElement("script");
             newScript.type  = "text/javascript";
             newScript.src   = '../animations/' + name + '_edge.js';
@@ -193,10 +226,9 @@ $(document).ready(function(){
         return found;
     }
 
-    function noOfPlayers(x, y, array, callback){
+    function noOfPlayers(array, callback){
         var players = 1;
         displayAnimation(".players");
-        //$('.players').css('display', 'block');
         $('.players img').click(function(){
 
             switch($(this).attr('id')){
@@ -205,12 +237,14 @@ $(document).ready(function(){
                     break;
                 case 'two_p':
                     players = 2;
-                    y = y + 1;
+                    game.y += 1;
                     break;
             };
             $('.players').css("display", "none");
             $(this).off('click');
-            callback(x, y, array, players);
+            game.players = players;
+            clickDif = true;
+            callback(game.x, game.y, array, players);
         });
     }
 
@@ -230,7 +264,7 @@ $(document).ready(function(){
         var selected = [];
         var tilesNo = x * yAxis / 2;
         tilesCovered = tilesNo;
-        var arrayRef = array;
+        var arrayRef = array.slice(0);
 
         for (var i = 0; i < tilesNo; i++) {
             // Randomly pick one from the array of remaining faces
@@ -281,7 +315,7 @@ $(document).ready(function(){
         var player2_score = 0;
         var playerUpdate = (players > 1) ? true : false;
 
-        $('.flip-container .flipper').click(function(){
+        $('.card_line .flip-container .flipper').click(function(){
             if(!disableClick && !$(this).css('transform').match('matrix3d')) {
                 var that = $(this);
                 var classes = that.attr('class').split(' ');
@@ -299,6 +333,7 @@ $(document).ready(function(){
                         player1++;
                         playerUpdate = true;
                     }
+
                     disableClick = true;
                     if(previousObject.attr('class').split(' ')[1] === classes[1] && previousClass == tempClass){
                         setTimeout(function () {
@@ -313,6 +348,8 @@ $(document).ready(function(){
                             previousObject = undefined;
                             disableClick = false;
                         }, 1000);
+                        game.attempt += 1;
+                        updateBalls();
                     } else{
                         console.log(tilesCovered);
                         tilesOpened++;
@@ -355,7 +392,7 @@ $(document).ready(function(){
         });
     }
 
-        function resetGame(player, noOfClick, score){
+    function resetGame(player, noOfClick, score){
         createFirework(66,139,4,5,50,100,50,50,true,true);
         setTimeout(function(){createFirework(26,109,3,5,50,100,90,100,true,true);}, 600);
         setTimeout(function(){createFirework(120,69,2,5,50,100,10,100,true,true);}, 1000);
@@ -372,12 +409,28 @@ $(document).ready(function(){
         doOverlayOpen();
     }
 
+    function matchLost(){
+        $('.card_line').remove();
+        tilesCovered = 0;
+        tilesOpened = 0;
+        $('.player_won').html("Trop des tentatives!");
+        $("#continue").css("display", "none");
+        doOverlayOpen();
+        setTimeout(function(){
+            doOverlayClose();
+            removeElements(function(){
+                console.log(game.array);
+                generateMatrix(game.x, game.y, game.array, game.players);
+            });
+        }, 5000);
+    }
+
     function setupCards(){
 
-        $('.flip-container .flipper, .flip-container.hover .flipper img').click(function(){
+        $('.card_line .flip-container .flipper, .flip-container.hover .flipper img').click(function(){
             var that = $(this);
             var image_id = that.find('img').attr('class');
-            $('.flip-container .flipper').each(function(k, v){
+            $('.card_line .flip-container .flipper').each(function(k, v){
                 var flipper = $(v);
                 var image = references[image_id];
                 flipper.css('transform', 'rotateY(180deg)');
@@ -391,6 +444,64 @@ $(document).ready(function(){
             });
         });
     }
+
+    var block_h = $("#success_balls").height() - 20;
+    var ball_size = (block_h) / 6;
+    var ballC = 0;
+
+    function initalizeBalls(){
+        ballC = 0;
+        updateBalls();
+    }
+
+    //Update successBalls
+    function updateBalls(){
+
+        if(game.attempt != 1){
+            switch(game.dif){
+                case "easy":
+                    addBall();
+                    break;
+                case "medium":
+                case "hard":
+                    if(game.attempt % 2 == 0){
+                        addBall();
+                    }
+                    break;
+            }
+        }
+
+        if(ballC == 6){
+            console.log(game.attempt + "Failed");
+            matchLost();
+        }
+    }
+
+    function addBall(){
+        var block = $("#success_balls");
+        var ball = $("<div class=\"success_b\"><img src=\"../images/game/ball/" + Math.floor((Math.random() * 7) + 1) + ".png\"></div>");
+        ball.css({"height" : ball_size, "top" : block_h - (ball_size * (ballC))});
+        ballC++;
+        ball.find(".success_b, .success_b img").css("height", ball_size);
+        block.append(ball);
+        setTimeout(function(){
+            $( ".success_b" ).animate({
+                top: "-=" + ball_size,
+            }, 2000, function() {
+                // Animation complete.
+            });
+        }, 500);
+    }
+
+    $(".logo").hover(function(){
+        if(game.started){
+            $('#game_menu').stop().animate({width: 'hide'}, 1000);
+        }
+    }, function(){
+        if(game.started){
+            $('#game_menu').stop().animate({width: 'show'}, 1000);
+        }
+    });
 
     $(".logo").click(function(){
         if($("#menu").html() == ""){
@@ -417,12 +528,42 @@ $(document).ready(function(){
         }
     });
 
-    $("#restart").click(function(){
-        doOverlayClose();
-        $(".anim_space").css("display", "none");
-        $('.color_icon').html("");
+    function removeElements(callback){
         $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
             "transition" : "all 0.9s ease-in", 'opacity' : 0});
+        game.attempt = 0;
+        $( ".success_b" ).animate({
+            top: "+=" + block_h,
+        }, 1000, function() {
+            // Animation complete.
+        });
+        setTimeout(function(){
+            $('.card_line').remove();
+            $('.bar').remove();
+            $("#success_balls").empty();
+            tilesCovered = 0;
+            escapeCounter = 0;
+            if(callback){
+                callback();
+            }
+        }, 1001);
+    }
+
+    $("#restart-g").click(function(){
+        removeElements(function(){
+            console.log(game.array);
+            generateMatrix(game.x, game.y, game.array, game.players);
+        });
+    });
+
+    //Click on the restart button
+    $("#restart, #menu-g").click(function(){
+        game.started = false;
+        $('#game_menu').animate({width: 'hide'}, 1000);
+        $('.color_icon').html("");
+        $(".anim_space").css("display", "none");
+        doOverlayClose();
+        removeElements();
         setTimeout(function(){
             $(".type, .difficulty").css("display", "block");
             $('.card_line').remove();
@@ -435,6 +576,37 @@ $(document).ready(function(){
 
     $("#continue").click(function(){
         doOverlayClose();
+    });
+
+    $("#select_dif").click(function(e){
+        if(clickDif){
+            var pos = $(this).offset();
+            //The following are the x/y coordinates of the mouse click relative to image.
+            var x = e.pageX - pos.left;
+            var dif = null;
+            var difNo = 1;
+            if(x >= 0 && x < 56){
+                dif = 'easy';
+                $('.color_icon').css('left', '12px');
+            }else if(x >= 120 && x < 200){
+                dif = 'medium';
+                difNo = 2;
+                $('.color_icon').css('left', '150px');
+            }else if(x >= 260 && x < 400){
+                dif = 'hard';
+                difNo = 3;
+                $('.color_icon').css('left', '313px');
+            }
+
+            if(dif != game.dif){
+                game.dif = dif;
+                game.y = difNo + game.players - 1;
+                removeElements(function(){
+                    console.log(game.array);
+                    generateMatrix(game.x, game.y, game.array, game.players);
+                });
+            }
+        }
     });
 
     $(document).keyup(function(e) {
@@ -473,7 +645,7 @@ $(document).ready(function(){
                         }else{
                             that.css({"-webkit-animation" : "rotate20_m 1.0s", "animation" : "rotate20_m 1.0s"});
                         }
-                        that.animate({'bottom': "+=" + 200}, 1000, function(){that.remove();});
+                        that.animate({'bottom': "+=" + 200}, 500, function(){that.remove();});
                     }, time);
                     time -= 50;
                 });
@@ -543,7 +715,11 @@ $(document).ready(function(){
     }
 
     function animateCards(x, y, selected, players){
-
+        console.log(x + " " + y + " " + selected + " " + players);
+        game.started = true;
+        //$('#game_menu').show('slide', {direction: 'right'}, 1000);
+        $('#game_menu').animate({width: 'show'}, 1000);
+        initalizeBalls();
         var left = 0;
         var width = (documentHeight < documentWidth) ? (documentHeight - $("#header_wrapper").height() - 60) / 4 :
         (documentWidth - 20) / x;
@@ -598,14 +774,13 @@ $(document).ready(function(){
             }
             setTimeout(function(){
                 var temp = selected.pop();
-                console.log(temp);
                 if(temp != undefined) {
                     var add_card = $(flip_card + temp.split('/')[0] + " " + temp.split('/')[1] + flip_card_2 + '<img src="../images/memory/' + temp + '.png"></div></div></div>');
                     card_line.append(add_card);
-                    $(".flip-container, .front, .back, .front img, .back img").css("width", width);
-                    $(".flip-container, .front, .back, .front img, .back img").css("height", width);
+                    $(".card_line .flip-container, .front, .back, .front img, .back img").css("width", width);
+                    $(".card_line .flip-container, .front, .back, .front img, .back img").css("height", width);
                     add_card.css('left', (width + 9) * tempJ);
-                    $(".flip-container").css("display", "inline-block");
+                    $(".card_line .flip-container").css("display", "inline-block");
                     if (tempJ == x - 1) {
                         card_line = $('<div class="card_line"></div>');
                         card_line.css('width', card_lineWidth);

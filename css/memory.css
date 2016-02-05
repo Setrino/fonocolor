@@ -10,10 +10,40 @@ body{
     position: relative;
 }
 
+#success_balls{
+    width: 200px;
+    position: fixed;
+    right: 0;
+    height: 100%;
+}
+
+#game_menu{
+    display: none;
+    padding-top: 1.9em;
+    position: absolute;
+    width: 296px;
+    height: 95px;
+    right: 0;
+    background-color: #000000;
+    overflow: hidden;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+#restart-g, #menu-g{
+    width: 42px;
+    cursor: pointer;
+    padding-right: 2em;
+}
+
+.success_b{
+    position: relative;
+}
+
 .logo_block{
     display: inline-block;
     position: relative;
-    width: 600px;
+    width: 550px;
     margin-bottom: 4em;
 }
 
@@ -22,12 +52,17 @@ body{
     z-index: 100;
 }
 
+.level img{
+    max-width: 100%;
+    height: 142px;
+}
+
 .anim_space{
     display: none;
     height: 150px;
     width: 150px;
     top: -140px;
-    left: 20px;
+    left: 0;
     position: absolute;
 }
 
@@ -107,6 +142,11 @@ body{
 
 .players{
     display: none;
+}
+
+.level{
+    position: relative;
+    height: 142px;
 }
 
 .level, .level_block{
@@ -249,4 +289,8 @@ body{
 
 .clear{
     clear: both;
+}
+
+#select_dif{
+    cursor: pointer;
 }

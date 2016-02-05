@@ -17,24 +17,23 @@ $(document).ready(function(){
             3: '<a href=' + path + '/jeux/trouver_2.html><img src=' + path + '/images/menu/decodade_2.png></a>'
         },
         understand: {
-            0 : '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/understand.png></a>',
-            1: '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/understand.png></a>'
+            0 : '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/film.png></a>',
+            1: '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/comment.png></a>'
         },
         demander: {
-            0 : '<a href=' + path + '/pourquoi.html><img src=' + path + '/images/menu/demander.png></a>',
-            1: '<a href=' + path + '/pourquoi.html><img src=' + path + '/images/menu/demander.png></a>'
+            0 : '<a href=' + path + '/pourquoi.html><img src=' + path + '/images/menu/demander.png></a>'
         }
     };
 
     $('.overlay_menu .flip-container .flipper, .overlay_menu .flip-container.hover .flipper img').click(function(){
         var that = $(this);
         var image_id = that.find('img').attr('id');
-        $('.flip-container .flipper').each(function(k, v){
+        $('.overlay_menu .flip-container .flipper').each(function(k, v){
             var flipper = $(v);
             var image = references[image_id];
             flipper.css('transform', 'rotateY(180deg)');
             if(image && image[k]){
-                flipper.find('.back').append(image[k]);
+                flipper.find('.o-back').append(image[k]);
             }else{
                 setTimeout(function(){
                     flipper.css('display', 'none');
@@ -58,13 +57,13 @@ $(document).ready(function(){
             });
             $('.back_arrow').click(function(){
                 $(this).css({'opacity' : 0, 'cursor' : 'initial'});
-                var flipper = $('.flip-container .flipper');
+                var flipper = $('.overlay_menu .flip-container .flipper');
                 flipper.css('display', 'block');
                 setTimeout(function(){
                     flipper.css('transform', 'rotateY(0deg)');
                 },100);
                 setTimeout(function(){
-                    flipper.find('.back').empty();
+                    flipper.find('.o-back').empty();
                 },600);
             });
         }

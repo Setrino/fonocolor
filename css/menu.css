@@ -1,4 +1,4 @@
-.menuOverlay{
+.menuOverlay {
     z-index: 999;
 }
 
@@ -18,7 +18,7 @@
     position: relative;
 }
 
-.overlay_menu .flip-container, .overlay_menu .front, .overlay_menu .back {
+.overlay_menu .flip-container, .overlay_menu .o-front, .overlay_menu .o-back {
     width: 185px;
     min-height: 185px;
     display: inline-block;
@@ -33,32 +33,31 @@
     height: auto;
 }
 
-.overlay_menu .flipper img{
+.overlay_menu .flipper img {
     width: 100%;
     height: auto;
 }
 
-/* hide back of pane during swap */
-.overlay_menu .front, .overlay_menu .back {
+/* hide o-back of pane during swap */
+.overlay_menu .o-front, .overlay_menu .o-back {
     backface-visibility: hidden;
-
     position: absolute;
     top: 0;
     left: 0;
 }
 
-/* front pane, placed above back */
-.overlay_menu .front {
+/* o-front pane, placed above o-back */
+.overlay_menu .o-front {
     z-index: 2;
     /* for firefox 31 */
     transform: rotateY(0deg);
 }
 
-/* back, initially hidden pane */
-.overlay_menu .back {
+/* o-back, initially hidden pane */
+.overlay_menu .o-back {
     transform: rotateY(180deg);
 }
 
-.overlay_menu .body_wrapper, .overlay_menu .menu_line, .overlay_menu .menu-line .flip-container{
+.overlay_menu .body_wrap, .overlay_menu .menu_line, .overlay_menu .menu-line .flip-container {
     position: relative;
 }
