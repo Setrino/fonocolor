@@ -411,7 +411,7 @@ $(document).ready(function(){
         var disSquare = ($(".bar").length * 85 > 180) ? $(".bar").length * 85: 180;
         $(".anim_square").css("top", documentHeight - disSquare);
         loadStage('ch_', '6');
-        loadStage('e_p', 7);
+        loadStage('a_tombe', 7);
         $( ".success_b" ).animate({
             top: "+=" + block_h,
         }, 2000, function() {
@@ -442,7 +442,7 @@ $(document).ready(function(){
             displayAnimation('.anim_square');
             $(".anim_square").css("top", documentHeight - 180);
             loadStage('r_', '6');
-            loadStage('a_tombe', 7);
+            loadStage('eu_vole', 7);
             $( ".success_b" ).animate({
                 top: "-=" + block_h,
             }, 2000, function() {
