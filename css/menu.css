@@ -61,3 +61,10 @@
 .overlay_menu .body_wrap, .overlay_menu .menu_line, .overlay_menu .menu-line .flip-container {
     position: relative;
 }
+
+.overlay_menu #understand{
+    border: #848587 solid;
+    width: 180px;
+    border-radius: 10px;
+    padding: 39px 0;
+}

@@ -17,13 +17,15 @@ $(document).ready(function(){
             3: '<a href=' + path + '/jeux/trouver_2.html><img src=' + path + '/images/menu/decodade_2.png></a>'
         },
         understand: {
-            0 : '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/film.png></a>',
+            0 : '<a href=' + path + '/video.html><img src=' + path + '/images/menu/film.png></a>',
             1: '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/comment.png></a>'
         },
         demander: {
             0 : '<a href=' + path + '/pourquoi.html><img src=' + path + '/images/menu/demander.png></a>'
         }
     };
+
+
 
     $('.overlay_menu .flip-container .flipper, .overlay_menu .flip-container.hover .flipper img').click(function(){
         var that = $(this);

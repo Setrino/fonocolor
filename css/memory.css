@@ -66,6 +66,25 @@ body{
     position: absolute;
 }
 
+.anim_square{
+    height: 150px;
+    width: 150px;
+    top: 50px;
+    left: 0px;
+    display: none;
+    position: absolute;
+}
+
+.anim_circle{
+    height: 116px;
+    width: 116px;
+    display: none;
+    top: 60px;
+    right: 70px;
+    position: absolute;
+    z-index: 100;
+}
+
 .logo{
 }
 

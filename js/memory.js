@@ -156,8 +156,8 @@ $(document).ready(function(){
                     $(".logo_block").css('width', '550');
                 }
                 clearInterval(lid);
-                loadStage(mainAnim);
-                lid = setInterval(function(){loadStage(mainAnim);}, 7000);
+                loadStage(mainAnim, '5');
+                lid = setInterval(function(){loadStage(mainAnim, '5');}, 7000);
                 $('.difficulty').addClass("disable");
                 $('.type').removeClass("disable");
                 $('.type, .difficulty').css("display", "none");
@@ -167,17 +167,29 @@ $(document).ready(function(){
 
     init();
 
-    var stage = $("#Stage");
-    stage.css('transform', 'scale(' + 0.3 + ')');
-    stage.css('transform', 'scale(' + 0.3 + ')');
-    stage.css( '-o-transform', 'scale(' + 0.3 + ')');
-    stage.css('-ms-transform', 'scale(' + 0.3 + ')');
-    stage.css('-webkit-transform', 'scale(' + 0.3 + ')');
-    stage.css('-moz-transform', 'scale(' + 0.3 + ')');
-    stage.css('-o-transform', 'scale(' + 0.3 + ')');
+    function scaleStages(id, scale){
+        var stage = $("#" + id);
+        stage.css('transform', 'scale(' + scale + ')');
+        stage.css('transform', 'scale(' + scale + ')');
+        stage.css( '-o-transform', 'scale(' + scale + ')');
+        stage.css('-ms-transform', 'scale(' + scale + ')');
+        stage.css('-webkit-transform', 'scale(' + scale + ')');
+        stage.css('-moz-transform', 'scale(' + scale + ')');
+        stage.css('-o-transform', 'scale(' + scale + ')');
+    }
+
+    scaleStages("Stage", 0.3);
+    scaleStages("StageSquare", 0.3);
+    scaleStages("StageCircle1", 0.33);
+    scaleStages("StageCircle2", 0.33);
+    scaleStages("StageCircle3", 0.33);
+    scaleStages("StageCircle4", 0.33);
+    scaleStages("StageCircle5", 0.33);
+    scaleStages("StageCircle6", 0.33);
+
     var loadedAnim = [];
 
-    function loadStage(name){
+    function loadStage(name, number){
         //console.log(name);
         var tempV = false;
         var scripts = $('head script');
@@ -185,17 +197,14 @@ $(document).ready(function(){
             var that = $(this);
             if(that[0].src.match('_edge.js')){
                 that.remove();
-                //console.log(that[0].src);
                 if(name != mainAnim){
-
-                    //console.log("NA " + name);
                     clearInterval(lid);
-                    lid = setInterval(function(){loadStage(mainAnim);}, 7000);
+                    lid = setInterval(function(){loadStage(mainAnim, number);}, 7000);
                 }
                 tempV = true;
             }
         });
-        delete AdobeEdge.compositions['EDGE-27145435'];
+        delete AdobeEdge.compositions['EDGE-2714543' + number];
         if(checkArray(name)){
             //console.log("NA");
             var newScript   = document.createElement("script");
@@ -206,7 +215,7 @@ $(document).ready(function(){
         }else{
             loadedAnim.push(name);
         }
-        AdobeEdge.loadComposition('../animations/' + name, 'EDGE-27145435', {
+        AdobeEdge.loadComposition('../animations/' + name, 'EDGE-2714543' + number, {
             scaleToFit: "none",
             centerStage: "none",
             minW: "0",
@@ -393,11 +402,21 @@ $(document).ready(function(){
     }
 
     function resetGame(player, noOfClick, score){
-        createFirework(66,139,4,5,50,100,50,50,true,true);
-        setTimeout(function(){createFirework(26,109,3,5,50,100,90,100,true,true);}, 600);
-        setTimeout(function(){createFirework(120,69,2,5,50,100,10,100,true,true);}, 1000);
+        //createFirework(66,139,4,5,50,100,50,50,true,true);
+        //setTimeout(function(){createFirework(26,109,3,5,50,100,90,100,true,true);}, 600);
+        //setTimeout(function(){createFirework(120,69,2,5,50,100,10,100,true,true);}, 1000);
+        $(".anim_circle").css({"top" : block_h - ball_size, "height" : ball_size, "width": ball_size});
+        displayAnimation('.anim_circle');
+        displayAnimation('.anim_square');
+        var disSquare = ($(".bar").length * 85 > 180) ? $(".bar").length * 85: 180;
+        $(".anim_square").css("top", documentHeight - disSquare);
+        loadStage('ch_', '6');
+        loadStage('e_p', 7);
+        $( ".success_b" ).animate({
+            top: "+=" + block_h,
+        }, 2000, function() {
+        });
         clearInterval(lid);
-        $('.card_line').remove();
         tilesCovered = 0;
         tilesOpened = 0;
         if(player == 0){
@@ -405,19 +424,32 @@ $(document).ready(function(){
         }else{
             $('.player_won').html("Joueur " + player + " a gagné avec score " + score + " dans " + noOfClick + " tentatives!");
         }
-        $("#continue").css("display", "none");
-        doOverlayOpen();
+        setTimeout(function(){
+            removeElements(function(){
+                console.log(game.array);
+                generateMatrix(game.x, game.y, game.array, game.players);
+            });
+        }, 4000);
     }
 
     function matchLost(){
-        $('.card_line').remove();
         tilesCovered = 0;
         tilesOpened = 0;
-        $('.player_won').html("Trop des tentatives!");
         $("#continue").css("display", "none");
-        doOverlayOpen();
         setTimeout(function(){
-            doOverlayClose();
+            $(".anim_circle").css({"top" : block_h - ball_size, "height" : ball_size, "width": ball_size});
+            displayAnimation('.anim_circle');
+            displayAnimation('.anim_square');
+            $(".anim_square").css("top", documentHeight - 180);
+            loadStage('r_', '6');
+            loadStage('a_tombe', 7);
+            $( ".success_b" ).animate({
+                top: "-=" + block_h,
+            }, 2000, function() {
+                // Animation complete.
+            });
+        }, 2000);
+        setTimeout(function(){
             removeElements(function(){
                 console.log(game.array);
                 generateMatrix(game.x, game.y, game.array, game.players);
@@ -477,13 +509,15 @@ $(document).ready(function(){
         }
     }
 
+
     function addBall(){
         var block = $("#success_balls");
-        var ball = $("<div class=\"success_b\"><img src=\"../images/game/ball/" + Math.floor((Math.random() * 7) + 1) + ".png\"></div>");
+        var ball = $("<div id='ball" + ballC + "'class=\"success_b\"><img src=\"../images/memory/blanc_porte.png\"></div>");
         ball.css({"height" : ball_size, "top" : block_h - (ball_size * (ballC))});
         ballC++;
         ball.find(".success_b, .success_b img").css("height", ball_size);
         block.append(ball);
+
         setTimeout(function(){
             $( ".success_b" ).animate({
                 top: "-=" + ball_size,
@@ -532,12 +566,9 @@ $(document).ready(function(){
         $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
             "transition" : "all 0.9s ease-in", 'opacity' : 0});
         game.attempt = 0;
-        $( ".success_b" ).animate({
-            top: "+=" + block_h,
-        }, 1000, function() {
-            // Animation complete.
-        });
         setTimeout(function(){
+            $("#success_balls").empty();
+            $(".anim_square, .anim_circle").css("display", "none");
             $('.card_line').remove();
             $('.bar').remove();
             $("#success_balls").empty();
@@ -656,7 +687,7 @@ $(document).ready(function(){
 
         console.log(player_score + " " + nameAnim);
         if(showAnim){
-            loadStage(nameAnim);
+            loadStage(nameAnim, '5');
         }
         var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
