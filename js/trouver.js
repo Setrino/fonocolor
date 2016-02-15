@@ -25,6 +25,7 @@ $(document).ready(function(){
     var playLetter = false;
     var hideColor = false;
     var card_width = 0;
+    var clickDif = false;
     var pixel_size = 100,
         textArray = new Array(),
         c = document.getElementById('trouver-word'),
@@ -46,6 +47,7 @@ $(document).ready(function(){
 
         var array = [];
         var clickA = false;
+        clickDif = false;
         ctx.clearRect(0, 0, c.width, c.height);
         $('.menu').css('display', "none");
         $('.players').css("display", "none");
@@ -110,6 +112,7 @@ $(document).ready(function(){
     function noOfPlayers(x, y, difficulty, type, callback){
         var players = 1;
             selectWord(difficulty, function(word, array){callback(x, y, jQuery.parseJSON(array), players, word, type);});
+        clickDif = true;
     }
 
     function hideAnimation(element){
@@ -157,55 +160,6 @@ $(document).ready(function(){
 
         snd = new Audio(soundPath + 'color/_' + track + ".wav");
         snd.play();
-
-        /*var type = 'color/_';
-
-        if (snd) {
-            snd.pause();
-        }
-        var previous = null;
-        var buffer = {
-
-            buffer: [],
-
-            addTrack: function (track) {
-                this.buffer.push(track);
-            },
-            nextTrack: function () {
-                if (this.buffer.length != 0) {
-                    var temp = this.buffer.shift();
-                    snd = soundPath + type + temp + ".wav";
-                    console.log(snd);
-                    //console.log(snd.readyState);
-                    try {
-                        snd.play();
-                        snd.addEventListener("ended", function () {
-                            if (previous != temp) {
-                                previous = temp;
-                                buffer.nextTrack();
-                            }
-                        });
-                    } catch (e) {
-                        if (temp != 'undefined' && temp != 'null') {
-                            $('.reply').html('Missing audio file for ' + temp);
-                        }
-                    }
-                }
-            },
-            clearBuffer: function () {
-                this.buffer = [];
-            },
-            bufferLength: function () {
-                return this.buffer.length;
-            },
-            bufferToArray: function () {
-                return $.makeArray(this.buffer);
-            }
-        }
-
-        buffer.addTrack(track);
-        buffer.nextTrack();*/
-
     }
 
     function setupClicks(players){
@@ -369,6 +323,37 @@ $(document).ready(function(){
         $("#continue").css("display", "none");
         doOverlayOpen();
     }
+
+    $("#select_dif").click(function(e){
+        if(clickDif){
+            var pos = $(this).offset();
+            //The following are the x/y coordinates of the mouse click relative to image.
+            var x = e.pageX - pos.left;
+            var dif = null;
+            var difNo = 1;
+            if(x >= 0 && x < 56){
+                dif = 'easy';
+                $('.color_icon').css('left', '12px');
+            }else if(x >= 120 && x < 200){
+                dif = 'medium';
+                difNo = 2;
+                $('.color_icon').css('left', '150px');
+            }else if(x >= 260 && x < 400){
+                dif = 'hard';
+                difNo = 3;
+                $('.color_icon').css('left', '313px');
+            }
+
+            if(dif != game.dif){
+                game.dif = dif;
+                game.y = difNo + game.players - 1;
+                removeElements(function(){
+                    console.log(game.array);
+                    generateMatrix(game.x, game.y, game.array, game.players);
+                });
+            }
+        }
+    });
 
     function selectWord(level, callback){
 

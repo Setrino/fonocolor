@@ -405,6 +405,7 @@ $(document).ready(function(){
         //createFirework(66,139,4,5,50,100,50,50,true,true);
         //setTimeout(function(){createFirework(26,109,3,5,50,100,90,100,true,true);}, 600);
         //setTimeout(function(){createFirework(120,69,2,5,50,100,10,100,true,true);}, 1000);
+        clearInterval(shakeInterval);
         $(".anim_circle").css({"top" : block_h - ball_size, "height" : ball_size, "width": ball_size});
         displayAnimation('.anim_circle');
         displayAnimation('.anim_square');
@@ -509,7 +510,6 @@ $(document).ready(function(){
         }
     }
 
-
     function addBall(){
         var block = $("#success_balls");
         var ball = $("<div id='ball" + ballC + "'class=\"success_b\"><img src=\"../images/memory/blanc_porte.png\"></div>");
@@ -522,7 +522,10 @@ $(document).ready(function(){
             $( ".success_b" ).animate({
                 top: "-=" + ball_size,
             }, 2000, function() {
-                // Animation complete.
+                if(shakeInterval) {
+                    //clearInterval(shakeInterval);
+                }
+                    shake(ball);
             });
         }, 500);
     }
@@ -840,5 +843,21 @@ $(document).ready(function(){
             setupClicks(players);
 
         }
+    }
+
+    var shakeInterval = null;
+
+    function shake(div){
+        var interval = 100;
+        var distance = 5;
+        var iter = 0;
+
+        shakeInterval = setInterval(function(){
+            iter = (iter == 1) ? 0 : 1;
+            div.animate({
+                left:((iter%2==0 ? distance : distance*-1))
+            }, {duration: 100, queue: false});
+        },150);
+
     }
 });

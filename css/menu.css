@@ -68,3 +68,12 @@
     border-radius: 10px;
     padding: 39px 0;
 }
+
+.overlay_menu #comprendre{
+    font-size: 30px;
+    letter-spacing: 2px;
+    position: relative;
+    top: -45px;
+    text-align: center;
+    left: 1px;
+}
