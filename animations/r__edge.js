@@ -60,7 +60,7 @@
         }
     };
     AdobeEdge.registerCompositionDefn(compId, symbols, fonts, scripts, resources, opts);
-})("EDGE-27145435");
+})("EDGE-27145436");
 (function ($, Edge, compId) {
     var Composition = Edge.Composition, Symbol = Edge.Symbol;
     Edge.registerEventBinding(compId, function ($) {
@@ -84,4 +84,4 @@
         })("rond");
 //Edge symbol end:'rond'
     })
-})(AdobeEdge.$, AdobeEdge, "EDGE-27145435");
+})(AdobeEdge.$, AdobeEdge, "EDGE-27145436");

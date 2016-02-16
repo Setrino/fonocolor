@@ -360,6 +360,10 @@ $(document).ready(function(){
                         game.attempt += 1;
                         updateBalls();
                     } else{
+                        if(game.attempt != 0){
+                            game.attempt -= 1;
+                        }
+                        checkRemove();
                         console.log(tilesCovered);
                         tilesOpened++;
                         if(!playerUpdate){
@@ -412,7 +416,7 @@ $(document).ready(function(){
         var disSquare = ($(".bar").length * 85 > 180) ? $(".bar").length * 85: 180;
         $(".anim_square").css("top", documentHeight - disSquare);
         loadStage('ch_', '6');
-        loadStage('a_tombe', 7);
+        loadStage('a_tombe', '7');
         $( ".success_b" ).animate({
             top: "+=" + block_h,
         }, 2000, function() {
@@ -441,11 +445,12 @@ $(document).ready(function(){
             $(".anim_circle").css({"top" : block_h - ball_size, "height" : ball_size, "width": ball_size});
             displayAnimation('.anim_circle');
             displayAnimation('.anim_square');
-            $(".anim_square").css("top", documentHeight - 180);
+            var disSquare = ($(".bar").length * 85 > 180) ? $(".bar").length * 85 : 180;
+            $(".anim_square").css("top", documentHeight - disSquare);
             loadStage('r_', '6');
-            loadStage('eu_vole', 7);
+            loadStage('eu_vole', '7');
             $( ".success_b" ).animate({
-                top: "-=" + block_h,
+                top: "-=" + (block_h + 180),
             }, 2000, function() {
                 // Animation complete.
             });
@@ -455,7 +460,7 @@ $(document).ready(function(){
                 console.log(game.array);
                 generateMatrix(game.x, game.y, game.array, game.players);
             });
-        }, 5000);
+        }, 7000);
     }
 
     function setupCards(){
@@ -488,6 +493,7 @@ $(document).ready(function(){
     }
 
     //Update successBalls
+    //
     function updateBalls(){
 
         if(game.attempt != 1){
@@ -508,6 +514,23 @@ $(document).ready(function(){
             console.log(game.attempt + "Failed");
             matchLost();
         }
+    }
+
+    function checkRemove(){
+        console.log(game.attempt + " " + game.dif);
+        if(game.attempt != 0 && game.dif == 'easy'){
+            removeLastBall();
+        }else if(game.attempt > 2 && game.attempt % 2 == 0){
+            removeLastBall();
+        }
+    }
+
+    function removeLastBall(){
+        $( ".success_b" ).animate({
+            top: "+=" + ball_size,
+        }, 2000, function() {
+            $("#ball" + (ballC - 1)).empty();
+        });
     }
 
     function addBall(){
