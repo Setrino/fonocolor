@@ -17,9 +17,11 @@ $(document).ready(function(){
     var animationStep = 100;
     var card_width = 0;
     var lid = null;
+    var lid2 = null;
     var showAnim = false;
     //circle animation name
     var mainAnim = 'regarde_et_fixe';
+    var mainAnim2 = 'regarde_et_fixe2';
     //easy, medium, hard
     var clickDif = false;
 
@@ -66,6 +68,7 @@ $(document).ready(function(){
         moveLeft('#header_wrapper', 0, 1000);
         hideAnimation('.level');
         hideAnimation('.level_block');
+        hideAnimation('#menu-g');
         $('.type img').unbind("click");
         $('.difficulty img').unbind("click");
         $('.type img').click(function(){
@@ -147,12 +150,13 @@ $(document).ready(function(){
                 displayAnimation('.level_block');
                 displayAnimation('.level');
                 displayAnimation('.anim_space');
+                displayAnimation('#menu-g');
+                $(".anim_space").css("top", documentHeight - 300);
                 if(game.level.match('both')){
-                    $('.anim_space').css('left', '-65px');
-                    moveLeft('#header_wrapper', 135, 0);
+                    moveLeft('#header_wrapper', -113, 0);
                     $(".logo_block").css('width', '480');
                 }else{
-                    moveLeft('#header_wrapper', 71, 0);
+                    moveLeft('#header_wrapper', -40, 0);
                     $(".logo_block").css('width', '550');
                 }
                 clearInterval(lid);
@@ -179,6 +183,7 @@ $(document).ready(function(){
     }
 
     scaleStages("Stage", 0.3);
+    scaleStages("Stage2", 0.3);
     scaleStages("StageSquare", 0.3);
     scaleStages("StageCircle1", 0.33);
     scaleStages("StageCircle2", 0.33);
@@ -269,6 +274,11 @@ $(document).ready(function(){
 
     function generateMatrix(x, y, array, players){
 
+        $(".anim_space").css("top", documentHeight - 300);
+        $(".anim_space2").css("top", documentHeight - 130);
+        if(players == 1){
+            displayAnimation('#rope');
+        }
         var yAxis = y || x;
         var selected = [];
         var tilesNo = x * yAxis / 2;
@@ -358,12 +368,16 @@ $(document).ready(function(){
                             disableClick = false;
                         }, 1000);
                         game.attempt += 1;
-                        updateBalls();
+                        if(game.players == 1){
+                            updateBalls();
+                        }
                     } else{
                         if(game.attempt != 0){
                             game.attempt -= 1;
                         }
-                        checkRemove();
+                        if(game.players == 1){
+                            checkRemove();
+                        }
                         console.log(tilesCovered);
                         tilesOpened++;
                         if(!playerUpdate){
@@ -409,19 +423,22 @@ $(document).ready(function(){
         //createFirework(66,139,4,5,50,100,50,50,true,true);
         //setTimeout(function(){createFirework(26,109,3,5,50,100,90,100,true,true);}, 600);
         //setTimeout(function(){createFirework(120,69,2,5,50,100,10,100,true,true);}, 1000);
-        clearInterval(shakeInterval);
-        $(".anim_circle").css({"top" : block_h - ball_size, "height" : ball_size, "width": ball_size});
-        displayAnimation('.anim_circle');
-        displayAnimation('.anim_square');
-        var disSquare = ($(".bar").length * 85 > 180) ? $(".bar").length * 85: 180;
-        $(".anim_square").css("top", documentHeight - disSquare);
-        loadStage('ch_', '6');
-        loadStage('a_tombe', '7');
-        $( ".success_b" ).animate({
-            top: "+=" + block_h,
-        }, 2000, function() {
-        });
-        clearInterval(lid);
+        //clearInterval(shakeInterval);
+        if(game.players == 1){
+            $(".anim_circle").css({"top" : block_h - ball_size - 20, "height" : ball_size, "width": ball_size});
+            displayAnimation('.anim_circle');
+            //displayAnimation('.anim_square');
+            //var disSquare = ($(".bar").length * 20 + 105);
+            //$(".anim_square").css("top", documentHeight - disSquare);
+            //loadStage('ch_', '6');
+            loadStage('au', '5');
+            loadStage('a_tombe', '7');
+            $( ".success_b" ).animate({
+                top: "+=" + block_h,
+            }, 2000, function() {
+            });
+            clearInterval(lid);
+        }
         tilesCovered = 0;
         tilesOpened = 0;
         if(player == 0){
@@ -442,7 +459,7 @@ $(document).ready(function(){
         tilesOpened = 0;
         $("#continue").css("display", "none");
         setTimeout(function(){
-            $(".anim_circle").css({"top" : block_h - ball_size, "height" : ball_size, "width": ball_size});
+            $(".anim_circle").css({"top" : block_h - ball_size - 20, "height" : ball_size, "width": ball_size});
             displayAnimation('.anim_circle');
             displayAnimation('.anim_square');
             var disSquare = ($(".bar").length * 85 > 180) ? $(".bar").length * 85 : 180;
@@ -483,7 +500,7 @@ $(document).ready(function(){
         });
     }
 
-    var block_h = $("#success_balls").height() - 20;
+    var block_h = $("#success_balls").height();
     var ball_size = (block_h) / 6;
     var ballC = 0;
 
@@ -548,20 +565,10 @@ $(document).ready(function(){
                 if(shakeInterval) {
                     //clearInterval(shakeInterval);
                 }
-                    shake(ball);
+                    //shake(ball);
             });
         }, 500);
     }
-
-    $(".logo").hover(function(){
-        if(game.started){
-            $('#game_menu').stop().animate({width: 'hide'}, 1000);
-        }
-    }, function(){
-        if(game.started){
-            $('#game_menu').stop().animate({width: 'show'}, 1000);
-        }
-    });
 
     $(".logo").click(function(){
         if($("#menu").html() == ""){
@@ -594,7 +601,7 @@ $(document).ready(function(){
         game.attempt = 0;
         setTimeout(function(){
             $("#success_balls").empty();
-            $(".anim_square, .anim_circle").css("display", "none");
+            //$(".anim_square, .anim_circle").css("display", "none");
             $('.card_line').remove();
             $('.bar').remove();
             $("#success_balls").empty();
@@ -606,7 +613,7 @@ $(document).ready(function(){
         }, 1001);
     }
 
-    $("#restart-g").click(function(){
+    $("#rope img").click(function(){
         removeElements(function(){
             console.log(game.array);
             generateMatrix(game.x, game.y, game.array, game.players);
@@ -616,9 +623,11 @@ $(document).ready(function(){
     //Click on the restart button
     $("#restart, #menu-g").click(function(){
         game.started = false;
-        $('#game_menu').animate({width: 'hide'}, 1000);
         $('.color_icon').html("");
-        $(".anim_space").css("display", "none");
+        hideAnimation('.anim_space, .anim_space2');
+        $("#rope").css("display", "none");
+        clearInterval(lid);
+        clearInterval(lid2);
         doOverlayClose();
         removeElements();
         setTimeout(function(){
@@ -718,17 +727,19 @@ $(document).ready(function(){
         var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
         var top = card_width * 2.6;
+        var bar1 = $('<div class="bar"></div>');
         var bar = $('<div class="bar"></div>');
-        if(player_score > 1){
-            var neg = (player_score % 2) ? 8 : -8;
-            bar.css({'transform' : 'rotateZ(' + neg + 'deg)', 'bottom' : player_score * 10});
-        }
+        var neg = (player_score % 2) ? 8 : -8;
+        bar1.css({'bottom' : player_score * 20});
+        bar.css({'left': neg, 'bottom' : player_score * 20 - 10});
+
 
 
         if(player == 2){
             left = -left;
             left2 = -left2;
-            bar.css('left', '89%');
+            bar.css('left', documentWidth - 200 + neg);
+            bar1.css('left', documentWidth - 200);
         }
         obj1.addClass('flip_pile');
         obj1.parent().addClass('pile');
@@ -758,7 +769,15 @@ $(document).ready(function(){
                 top: "+=" + documentHeight / 2
             }, 1000, function(){
                 $(".pile2").remove();
+                $("#body_wrapper").append(bar1);
                 $("#body_wrapper").append(bar);
+                if(player == 1){
+                    var disAnim = ($(".bar").length * 10 + 292);
+                    $(".anim_space").css("top", documentHeight - disAnim);
+                }else{
+                    var disAnim = ($(".bar").length * 10 + 122);
+                    $(".anim_space2").css("top", documentHeight - disAnim);
+                }
             });
         }, 2000);
     }
@@ -774,9 +793,15 @@ $(document).ready(function(){
     function animateCards(x, y, selected, players){
         console.log(x + " " + y + " " + selected + " " + players);
         game.started = true;
-        //$('#game_menu').show('slide', {direction: 'right'}, 1000);
-        $('#game_menu').animate({width: 'show'}, 1000);
-        initalizeBalls();
+        if(players == 1){
+            initalizeBalls();
+        }else{
+            clearInterval(lid2);
+            displayAnimation('.anim_space2');
+            $(".anim_space2").css("top", documentHeight - 130);
+            loadStage(mainAnim2, '8');
+            lid2 = setInterval(function(){loadStage(mainAnim2, '8');}, 7000);
+        }
         var left = 0;
         var width = (documentHeight < documentWidth) ? (documentHeight - $("#header_wrapper").height() - 60) / 4 :
         (documentWidth - 20) / x;
@@ -856,7 +881,7 @@ $(document).ready(function(){
             if(j == x){
                 j = 0;
                 i++;
-                if(i == y + 2){
+                if(i == y + 3){
                     setTimeout(function(){abortTimer();}, animationStep);
                 }
             }
