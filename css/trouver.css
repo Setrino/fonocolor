@@ -7,6 +7,11 @@ body{
     width: 1400px;
 }
 
+#header_wrapper{
+    position: relative;
+    z-index: 1;
+}
+
 .logo_block{
     display: inline-block;
     position: relative;
@@ -235,6 +240,31 @@ body{
     clear: both;
 }
 
-#Stage:hover{
+#Stage:hover, #select_dif{
     cursor: pointer;
+}
+
+#rope{
+    top: -50px;
+    width: 200px;
+    position: fixed;
+    right: 0;
+    height: 20%;
+    display: none;
+    z-index: 2;
+}
+
+#rope img{
+    position: relative;
+    height: 100%;
+    top: -20px;
+    cursor: pointer;
+}
+
+#menu-g{
+    display: none;
+    position: relative;
+    width: 115px;
+    cursor: pointer;
+    top: -15px;
 }

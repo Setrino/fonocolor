@@ -1,4 +1,4 @@
-$(document).ready(function(){
+jQuery(document).ready(function($){
 
     var flip_card = '<div class="flip-container memory"><div class="flipper ';
     var flip_card_2 = '"><div class="front"><img class="consonants" src="../images/memory/unil_back_200.png"></div><div class=\'back\'>';
@@ -57,6 +57,11 @@ $(document).ready(function(){
     function init(){
         if(game === null){
             game = new memGame();
+        }else{
+            moveLeft('#header_wrapper', 0, 1000);
+            hideAnimation('.level');
+            hideAnimation('.level_block');
+            hideAnimation('#menu-g');
         }
         var array = [];
         var clickA = false;
@@ -65,10 +70,6 @@ $(document).ready(function(){
         $('.players').css("display", "none");
         $('.difficulty img').unbind('click');
         $('.type img').css('opacity', '1.0');
-        moveLeft('#header_wrapper', 0, 1000);
-        hideAnimation('.level');
-        hideAnimation('.level_block');
-        hideAnimation('#menu-g');
         $('.type img').unbind("click");
         $('.difficulty img').unbind("click");
         $('.type img').click(function(){
@@ -80,6 +81,7 @@ $(document).ready(function(){
                 case 'lvl_voy':
                     $('.level').append(voyelle_img);
                     $('.color_icon').append(circle);
+                    $('#menu-g').attr("src", "../images/game/decodade_1.png");
                     array = references.vowels;
                     showAnim = true;
                     mainAnim = 'regarde_et_fixe';
@@ -87,6 +89,7 @@ $(document).ready(function(){
                 case 'lvl_con':
                     $('.level').append(consonnes_img);
                     $('.color_icon').append(square);
+                    $('#menu-g').attr("src", "../images/game/decodade_1.png");
                     array = references.consonants;
                     showAnim = true;
                     mainAnim = 'carre_fixe';
@@ -94,12 +97,14 @@ $(document).ready(function(){
                 case 'lvl_both':
                     $('.level').append(con_voy_img);
                     $('.color_icon').append(circ_squa);
+                    $('#menu-g').attr("src", "../images/game/decodade_1.png");
                     array = references.consonants.concat(references.vowels);
                     showAnim = false;
                     break;
                 case 'lvl_voy2':
                     $('.level').append(voyelle_img);
                     $('.color_icon').append(circle);
+                    $('#menu-g').attr("src", "../images/game/decodade_2.png");
                     array = references.vowels2;
                     showAnim = true;
                     mainAnim = 'regarde_et_fixe';
@@ -107,6 +112,7 @@ $(document).ready(function(){
                 case 'lvl_con2':
                     $('.level').append(consonnes_img);
                     $('.color_icon').append(square);
+                    $('#menu-g').attr("src", "../images/game/decodade_2.png");
                     array = references.consonants2;
                     showAnim = true;
                     mainAnim = 'carre_fixe';
@@ -114,6 +120,7 @@ $(document).ready(function(){
                 case 'lvl_bot2h':
                     $('.level').append(con_voy_img);
                     $('.color_icon').append(circ_squa);
+                    $('#menu-g').attr("src", "../images/game/decodade_2.png");
                     array = references.consonants2.concat(references.vowels2);
                     showAnim = false;
                     break;
@@ -151,12 +158,13 @@ $(document).ready(function(){
                 displayAnimation('.level');
                 displayAnimation('.anim_space');
                 displayAnimation('#menu-g');
+
                 $(".anim_space").css("top", documentHeight - 300);
                 if(game.level.match('both')){
-                    moveLeft('#header_wrapper', -113, 0);
+                    moveLeft('#header_wrapper', -96, 0);
                     $(".logo_block").css('width', '480');
                 }else{
-                    moveLeft('#header_wrapper', -40, 0);
+                    moveLeft('#header_wrapper', -23, 0);
                     $(".logo_block").css('width', '550');
                 }
                 clearInterval(lid);
@@ -278,6 +286,7 @@ $(document).ready(function(){
         $(".anim_space2").css("top", documentHeight - 130);
         if(players == 1){
             displayAnimation('#rope');
+            $("#rope").show().animate({top: 0}, {duration: 2000, easing: 'easeOutElastic'});
         }
         var yAxis = y || x;
         var selected = [];
@@ -425,14 +434,15 @@ $(document).ready(function(){
         //setTimeout(function(){createFirework(120,69,2,5,50,100,10,100,true,true);}, 1000);
         //clearInterval(shakeInterval);
         if(game.players == 1){
-            $(".anim_circle").css({"top" : block_h - ball_size - 20, "height" : ball_size, "width": ball_size});
+            $(".anim_circle").css({"top" : block_h - ball_size - 30, "height" : ball_size, "width": ball_size});
             displayAnimation('.anim_circle');
             //displayAnimation('.anim_square');
             //var disSquare = ($(".bar").length * 20 + 105);
             //$(".anim_square").css("top", documentHeight - disSquare);
             //loadStage('ch_', '6');
-            loadStage('au', '5');
-            loadStage('a_tombe', '7');
+            clearInterval(lid);
+            loadStage('ouais_seul', '5');
+            loadStage('r_', '7');
             $( ".success_b" ).animate({
                 top: "+=" + block_h,
             }, 2000, function() {
@@ -459,25 +469,29 @@ $(document).ready(function(){
         tilesOpened = 0;
         $("#continue").css("display", "none");
         setTimeout(function(){
-            $(".anim_circle").css({"top" : block_h - ball_size - 20, "height" : ball_size, "width": ball_size});
+            $(".anim_circle").css({"top" : -20, "height" : ball_size, "width": ball_size});
+            $("#ball0").css("opacity", "0.0");
             displayAnimation('.anim_circle');
-            displayAnimation('.anim_square');
-            var disSquare = ($(".bar").length * 85 > 180) ? $(".bar").length * 85 : 180;
-            $(".anim_square").css("top", documentHeight - disSquare);
-            loadStage('r_', '6');
-            loadStage('eu_vole', '7');
-            $( ".success_b" ).animate({
+            //loadStage('r_', '6');
+            clearInterval(lid);
+            loadStage('i', '5');
+            loadStage('carre_tire', '7');
+            /*$( ".success_b" ).animate({
                 top: "-=" + (block_h + 180),
             }, 2000, function() {
                 // Animation complete.
-            });
+            });*/
+            setTimeout(function(){
+                $("#rope").show().animate({top: 10}, {duration: 4500, easing: 'easeOutElastic'});
+            }, 1000);
         }, 2000);
-        setTimeout(function(){
+
+        /*setTimeout(function(){
             removeElements(function(){
                 console.log(game.array);
                 generateMatrix(game.x, game.y, game.array, game.players);
             });
-        }, 7000);
+        }, 7000);*/
     }
 
     function setupCards(){
@@ -555,8 +569,9 @@ $(document).ready(function(){
         var ball = $("<div id='ball" + ballC + "'class=\"success_b\"><img src=\"../images/memory/blanc_porte.png\"></div>");
         ball.css({"height" : ball_size, "top" : block_h - (ball_size * (ballC))});
         ballC++;
-        ball.find(".success_b, .success_b img").css("height", ball_size);
         block.append(ball);
+        console.log(ball_size);
+        ball.find(".success_b, .success_b img").css("height", ball_size);
 
         setTimeout(function(){
             $( ".success_b" ).animate({
@@ -614,6 +629,12 @@ $(document).ready(function(){
     }
 
     $("#rope img").click(function(){
+        $("#rope").show().animate({top: 10}, {duration: 1000, easing: 'easeOutElastic'});
+        $( ".success_b" ).animate({
+            top: "+=" + block_h,
+        }, 2000, function() {
+            // Animation complete.
+        });
         removeElements(function(){
             console.log(game.array);
             generateMatrix(game.x, game.y, game.array, game.players);
@@ -624,7 +645,7 @@ $(document).ready(function(){
     $("#restart, #menu-g").click(function(){
         game.started = false;
         $('.color_icon').html("");
-        hideAnimation('.anim_space, .anim_space2');
+        hideAnimation('.anim_space, .anim_space2, #menu-g');
         $("#rope").css("display", "none");
         clearInterval(lid);
         clearInterval(lid2);

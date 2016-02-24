@@ -12,10 +12,11 @@ body{
 }
 
 #rope{
+    top: -50px;
     width: 200px;
     position: fixed;
     right: 0;
-    height: 15%;
+    height: 20%;
     display: none;
     z-index: 2;
 }
@@ -32,7 +33,8 @@ body{
     position: fixed;
     right: 0;
     bottom: 0;
-    height: 85%;
+    height: 82%;
+    z-index: 3;
 }
 
 #game_menu{
@@ -51,15 +53,18 @@ body{
 #menu-g{
     display: none;
     position: relative;
-    width: 80px;
+    width: 115px;
     cursor: pointer;
-    top: -35px;
+    top: -15px;
 }
-
-
 
 .success_b{
     position: relative;
+}
+
+.success_b img{
+    height: 100%;
+    width: auto;
 }
 
 .logo_block{
@@ -111,6 +116,7 @@ body{
     display: none;
     top: 60px;
     right: 70px;
+    left: 15px;
     position: absolute;
     z-index: 100;
 }
