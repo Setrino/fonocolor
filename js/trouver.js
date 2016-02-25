@@ -37,9 +37,12 @@ $(document).ready(function(){
     var references = {
         consonants: ['c.b!14', 'c.c!8', 'c.d!17', 'c.f!7', 'c.g!6', 'c.p!12', 'c.t!10', 'c.ph!7', 'c.qu!8', 'c.r!13', 'c.s!1', 'c.se!5', 'c.sse!1', 'c.tt!1', 'c.ve!11', 'c.x!4', 'c.xx!3', 'c.z!5', 'c.ç!1', 'c.ce!1', 'c.ch!18', 'c.ge!2', 'c.gu!6', 'c.j!2', 'c.k!8', 'c.l!16', 'c.m!15', 'c.n!9'],
         vowels: ['v.u!1', 'v.un!15', 'v.y!6', 'v.a!2', 'v.ai!7', 'v.ain!15', 'v.an!3', 'v.au!9', 'v.e_!4', 'v.e!7', 'v.ee!7', 'v.een!3', 'v.eeu!8', 'v.ei!7', 'v.ein!15', 'v.en!15', 'v.er!4', 'v.es!4', 'v.eu!8', 'v.eux!5', 'v.ez!4', 'v.i!6', 'v.in!15', 'v.o!9', 'v.oeu!8', 'v.oi!10', 'v.oin!11', 'v.om!12', 'v.on!12', 'v.oo!13', 'v.ou!14'],
-        easy:['un', 'ce', 'il', 'pour', 'son', 'sur', 'ami', 'se', 'tu', 'ou', 'si', 'là', 'car', 'ni'],
-        medium: ['au', 'pas', 'vous', 'dans', 'elle', 'et', 'être', 'qui', 'faire', 'avec', 'aller', 'sans', 'leur', 'même', 'tout'],
-        hard: ['femme', 'goal', 'quelque', 'sept', 'main', 'amer', 'fusil', 'chez', 'coeur', 'vingt', 'dix', 'corps', 'souvent', 'clown'],
+        easy:['oh', 'eh', 'où', 'y', 'ah', 'ai', 'heu', 'heu', 'deux', 'dans', 'de', 'du', 'des', 'dont', 'dis', 'dos', 'dès', 'cinq', 'six', 'sept', 'neuf', 'dix', 'onze', 'douze', 'treize', 'quinze'],
+        medium: ['hein', 'en', 'on', 'os', 'hausse', 'ce', 'si', 'sous', 'sein', 'cent', 'ça', 'ses', 'en haut', 'en bas', 'paume', 'pomme', 'on sait', 'sur', 'au lit', 'on lit', 'ceci', 'dessus', 'dessous', 'lundi', 'jeudi', 'dehors', 'joli', 'je dis', 'dessin'],
+        hard: ['quand', 'coup', 'qui', 'que', 'pour', 'corps', 'il a', 'elle est', 'femme', 'fils', 'fille', 'sourd', 'sœur', 'encore', 'ouvert', 'fermé', 'mangeons', 'prenez', 'je peux', 'mari', 'monsieur', 'ça sert', 'ça sort', 'sincère', 'mon sire', 'plus', 'mardi', 'dimanche', 'un autre', 'madame'],
+        easy2:['mais', 'mes', 'mon', 'jus', 'joue', 'gens', 'jeu', 'âge', 'vous', 'chant', 'chou', 'chez', 'chat', 'chaud', 'roue', 'rond', 'rang', 'rein', 'rue', 'riz', 'rez', 'raie', 'rat', 'rot', 'grand', 'chez eux', 'il est', 'tu dis', 'je vais', 'je vis', 'le vent', 'les vins', 'ils vont', 'tu fais', 'tout fou', 'je veux', 'il va', 'petit', 'vos dents', 'cheveux', 'chanson'],
+        medium2: ['un loup', 'le lit', 'un an', 'un nom', 'un nez', 'un nid', 'un nain', 'un nœud', 'saute', 'sotte', 'mais non', 'mes noms', 'cela', 'mes mains', 'il ment', 'du lait', 'trop lent', 'le mot', 'une île', 'douze ans', 'la vie', 'la fin', 'ils font', 'il faut', 'tout nu', 'ne pas', 'le long du', 'quatorze', 'les jours', 'je les lis', 'il y va', 'mercredi', 'nous tous', 'ne plus'],
+        hard2: ['le banc', 'au bout', 'un bain', 'tout bu', 'du feu', 'un œuf', 'une heure', 'merci', 'les bottes', 'prenez', 'tu prends', 'cinq heures', 'bonjour', 'un autre', 'ça vaut ça', 'ils prennent', 'samedi', 'avez vous eu'],
         colors:['#3A4972', '#F7D3B5', '#EDC4DD', '#ED6E00', '#930FA5', '#AA930A', '#F43FA5']
     };
 
@@ -79,52 +82,46 @@ $(document).ready(function(){
             game.dif = that.attr('id');
             switch(game.dif){
                 case 'easy':
-                    difficulty = 'easy';
                     $('.color_icon').css('left', '12px');
                     playLetter = true;
                     hideColor = false;
                     $('#menu-g').attr("src", "../images/game/harmonie_1.png");
-                    noOfPlayers(6, 1, difficulty, "colors", generateMatrix);
+                    noOfPlayers(6, 1, game.dif, "colors", generateMatrix);
                     break;
                 case 'medium':
-                    difficulty = 'medium';
                     $('.color_icon').css('left', '150px');
                     playLetter = true;
                     hideColor = false;
                     $('#menu-g').attr("src", "../images/game/harmonie_1.png");
-                    noOfPlayers(6, 1, difficulty, "objects", generateMatrix);
+                    noOfPlayers(6, 1, game.dif, "objects", generateMatrix);
                     break;
                 case 'hard':
-                    difficulty = 'hard';
                     $('.color_icon').css('left', '313px');
                     playLetter = false;
                     hideColor = false;
                     $('#menu-g').attr("src", "../images/game/harmonie_1.png");
-                    noOfPlayers(6, 1, difficulty, "objects_white", generateMatrix);
+                    noOfPlayers(6, 1, game.dif, "objects_white", generateMatrix);
                     break;
                 case 'easy2':
-                    difficulty = 'easy';
                     $('.color_icon').css('left', '12px');
                     playLetter = false;
                     hideColor = true;
                     $('#menu-g').attr("src", "../images/game/harmonie_2.png");
-                    noOfPlayers(6, 1, difficulty, "objects", generateMatrix);
+                    noOfPlayers(6, 1, game.dif, "objects", generateMatrix);
                     break;
                 case 'medium2':
-                    difficulty = 'medium';
                     $('.color_icon').css('left', '150px');
                     playLetter = false;
                     hideColor = true;
                     $('#menu-g').attr("src", "../images/game/harmonie_2.png");
-                    noOfPlayers(6, 1, difficulty, "colors", generateMatrix);
+                    noOfPlayers(6, 1, game.dif, "colors", generateMatrix);
                     break;
                 case 'hard2':
-                    difficulty = 'hard';
                     $('.color_icon').css('left', '313px');
                     playLetter = false;
                     hideColor = true;
                     $('#menu-g').attr("src", "../images/game/harmonie_2.png");
-                    noOfPlayers(6, 1, difficulty, "objects_white", generateMatrix);
+                    noOfPlayers(6, 1, game.dif, "objects_white", generateMatrix);
                     break;
             }
             moveLeft('#header_wrapper', 60, 0);
@@ -139,7 +136,7 @@ $(document).ready(function(){
         game.x = x;
         game.y = y;
         game.type = type;
-            selectWord(difficulty, function(word, array){callback(x, y, jQuery.parseJSON(array), game.players, word, type);});
+            selectWord(difficulty, function(word, array){callback(x, y, array, game.players, word, type);});
     }
 
     function hideAnimation(element){
@@ -162,7 +159,7 @@ $(document).ready(function(){
 
         for(var i = 1; i < arrayLength; i++){
             var tempColor = array[i][1];
-            if(array[i][1] !== previousColor){
+            if(array[i][1] !== previousColor && array[i][1] != " "){
                 colors.push(tempColor);
                 previousColor = tempColor;
             }
@@ -281,7 +278,7 @@ $(document).ready(function(){
                 removeElements(function(){
                 $("#trouver-cards").css('display', "block");
                 $("#anim-canvas").css('display', "none");
-                selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, jQuery.parseJSON(array),
+                selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, array,
                     game.players, word, game.type);});
                 });
             }, 18500);
@@ -290,7 +287,7 @@ $(document).ready(function(){
     $("#rope img").click(function(){
         $("#rope").show().animate({top: 10}, {duration: 1000, easing: 'easeOutElastic'});
         removeElements(function(){
-            selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, jQuery.parseJSON(array),
+            selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, array,
                 game.players, word, game.type);});
         });
     });
@@ -323,7 +320,7 @@ $(document).ready(function(){
                 console.log("DIFF " + dif);
                 game.y = difNo + game.players - 1;
                 removeElements(function(){
-                    selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, jQuery.parseJSON(array),
+                    selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, array,
                         game.players, word, game.type);});
                 });
             }
@@ -348,7 +345,43 @@ $(document).ready(function(){
                 break;
         }
         console.log(word);
-        wordRequest(word, callback);
+        var words = word.split(" ");
+        var wordsL = words.length;
+        if(wordsL > 1){
+            var wordsArray = new Array();
+
+            var asyncLoop = function(o){
+                var i=-1,
+                    length = o.length;
+
+                var loop = function(){
+                    i++;
+                    if(i==length){o.callback(); return;}
+                    o.functionToLoop(loop, i);
+                }
+                loop();//init
+            }
+
+            asyncLoop({
+                length : wordsL,
+                functionToLoop : function(loop, i){
+
+                    wordRequest(words[i], function(word_r, msg){
+                       wordsArray = wordsArray.concat(msg);
+                        if(i != wordsL - 1){
+                            wordsArray.push({"0" : " ", "1" : " ", "3" : " "});
+                        }
+                        loop();
+                    });
+                },
+                callback : function(){
+                    console.log(word + " " + wordsArray);
+                    callback(word, wordsArray);
+                }
+            });
+        }else{
+            wordRequest(word, callback);
+        }
     }
 
     function wordRequest(word, callback){
@@ -364,7 +397,7 @@ $(document).ready(function(){
                 else
                 {
                     console.log(word + " " + msg);
-                    callback(word, msg);
+                    callback(word, jQuery.parseJSON(msg));
                 }
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {

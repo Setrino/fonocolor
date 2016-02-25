@@ -11,17 +11,18 @@
 <body>
 <div id="wrapper">
     <div id="body_wrapper">
+        <div id="rope"><img src="../images/game/line.png"/></div>
         <div id="menu"></div>
         <div id="header_wrapper">
             <span class="level"></span>
             <div class="logo_block">
                 <img class="logo" src="../images/logo.png"/>
                 <div class="level_block">
-                    <span class="logo_difficulty"><img src="../images/game/level.png"/></span>
+                    <span class="logo_difficulty"><img  id="select_dif" src="../images/game/level.png"/></span>
                     <span class="color_icon"></span>
                 </div>
             </div>
-            <span class="level"></span>
+            <img id="menu-g" src="">
         </div>
         <div class="menu_line difficulty">
             <div class="flip-container_l">
@@ -46,6 +47,9 @@
                 </div>
             </div>
         </div>
+        <div id="anim-canvas">
+            <canvas id="canvas" width="1200" height="300" style="background-color:#000000"></canvas>
+        </div>
         <div id="trouver-cards"></div>
         <canvas id="trouver-word"></canvas>
     </div>
@@ -58,20 +62,14 @@
 
         </div>
     </div>
+    <!--<div id="Stage" class="EDGE-27145435"></div>-->
     <div class="clear"></div>
 </div>
 </body>
 <script src="../js/requests.js"></script>
+<script src="../js/libs/createjs-2015.11.26.min.js"></script>
+<script src="../js/ouais10.js"></script>
 <script src="../js/trouver.js"></script>
 <script src="../js/jquery-ui.min.js"></script>
 <script src="../js/copyright.js"></script>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-</body>
 </html>
