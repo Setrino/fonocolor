@@ -52,6 +52,7 @@ $(document).ready(function(){
         this.type = null;
         this.attempt = 0;
         this.started = false;
+        this.cardLineWidth = 0;
     }
 
     var game = null;
@@ -234,6 +235,7 @@ $(document).ready(function(){
                         collide = true;
                         tilesCovered++;
                         if(tilesOpened == tilesCovered){
+                            firstL = 0;
                             drawColors([], false);
                             setTimeout(function(){resetGame()}, 1000);
                         }
@@ -270,10 +272,19 @@ $(document).ready(function(){
     }
 
     function resetGame(){
-        removeElements(function(){
-            selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, jQuery.parseJSON(array),
-                game.players, word, game.type);});
-        });
+
+            $("#trouver-cards").css("display", "none");
+            $("#anim-canvas").css('display', "block");
+            $("#anim-canvas").width(game.cardLineWidth);
+            start();
+            setTimeout(function(){
+                removeElements(function(){
+                $("#trouver-cards").css('display', "block");
+                $("#anim-canvas").css('display', "none");
+                selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, jQuery.parseJSON(array),
+                    game.players, word, game.type);});
+                });
+            }, 18500);
     }
 
     $("#rope img").click(function(){
@@ -543,7 +554,8 @@ $(document).ready(function(){
         $("#trouver-word").height(card_width);
         $("#trouver-word").css("display", "block");
         c.height = card_width;
-        $("#trouver-cards, #trouver-word").width(card_lineWidth);
+        $("#trouver-cards, #trouver-word, #anim-canvas").width(card_lineWidth);
+        game.cardLineWidth = card_lineWidth;
         c.width = card_lineWidth;
         var left_step = (documentWidth - card_lineWidth) / 2;
         console.log("From left " + (left_step));
@@ -650,7 +662,7 @@ function start() {
     loader.installPlugin(createjs.Sound);
     loader.addEventListener("fileload", handleFileLoad);
     loader.addEventListener("complete", handleComplete);
-    loader.loadFile({src:"../images/trouver/animation/ouais10_atlas_.json", type:"spritesheet", id:"../images/trouver/animation/ouais10_atlas_"}, true);
+    loader.loadFile({src:"../images/trouver/animation/ouais10_atlas_.json", type:"spritesheet", id:"ouais10_atlas_"}, true);
     loader.loadFile({src:"../images/trouver/animation/ouais10_atlas_2.json", type:"spritesheet", id:"ouais10_atlas_2"}, true);
     loader.loadFile({src:"../images/trouver/animation/ouais10_atlas_3.json", type:"spritesheet", id:"ouais10_atlas_3"}, true);
     loader.loadFile({src:"../images/trouver/animation/ouais10_atlas_4.json", type:"spritesheet", id:"ouais10_atlas_4"}, true);
@@ -778,5 +790,3 @@ function handleComplete(evt) {
 function playSound(id, loop) {
     return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
 }
-
-start();

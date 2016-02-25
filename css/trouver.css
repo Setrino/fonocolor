@@ -268,3 +268,14 @@ body{
     cursor: pointer;
     top: -15px;
 }
+
+#anim-canvas{
+    display: none;
+    position: relative;
+    margin: 0 auto;
+}
+
+#anim-canvas canvas{
+    width: 100%;
+    height: auto;
+}
