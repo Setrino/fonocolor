@@ -66,7 +66,7 @@ $(document).ready(function(){
             game = new memGame();
         }else{
             moveLeft('#header_wrapper', 0, 0);
-            $('.color_icon').remove();
+            $('.color_icon').html("");
         }
         clickDif = false;
         ctx.clearRect(0, 0, c.width, c.height);
@@ -85,42 +85,42 @@ $(document).ready(function(){
                     $('.color_icon').css('left', '12px');
                     playLetter = true;
                     hideColor = false;
-                    $('#menu-g').attr("src", "../images/game/harmonie_1.png");
+                    $('#menu-g').attr("src", "../images/game/decodade_1.png");
                     noOfPlayers(6, 1, game.dif, "colors", generateMatrix);
                     break;
                 case 'medium':
                     $('.color_icon').css('left', '150px');
                     playLetter = true;
                     hideColor = false;
-                    $('#menu-g').attr("src", "../images/game/harmonie_1.png");
+                    $('#menu-g').attr("src", "../images/game/decodade_1.png");
                     noOfPlayers(6, 1, game.dif, "objects", generateMatrix);
                     break;
                 case 'hard':
                     $('.color_icon').css('left', '313px');
                     playLetter = false;
                     hideColor = false;
-                    $('#menu-g').attr("src", "../images/game/harmonie_1.png");
+                    $('#menu-g').attr("src", "../images/game/decodade_1.png");
                     noOfPlayers(6, 1, game.dif, "objects_white", generateMatrix);
                     break;
                 case 'easy2':
                     $('.color_icon').css('left', '12px');
                     playLetter = false;
                     hideColor = true;
-                    $('#menu-g').attr("src", "../images/game/harmonie_2.png");
+                    $('#menu-g').attr("src", "../images/game/decodade_2.png");
                     noOfPlayers(6, 1, game.dif, "objects", generateMatrix);
                     break;
                 case 'medium2':
                     $('.color_icon').css('left', '150px');
                     playLetter = false;
                     hideColor = true;
-                    $('#menu-g').attr("src", "../images/game/harmonie_2.png");
+                    $('#menu-g').attr("src", "../images/game/decodade_2.png");
                     noOfPlayers(6, 1, game.dif, "colors", generateMatrix);
                     break;
                 case 'hard2':
                     $('.color_icon').css('left', '313px');
                     playLetter = false;
                     hideColor = true;
-                    $('#menu-g').attr("src", "../images/game/harmonie_2.png");
+                    $('#menu-g').attr("src", "../images/game/decodade_2.png");
                     noOfPlayers(6, 1, game.dif, "objects_white", generateMatrix);
                     break;
             }

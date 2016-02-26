@@ -81,7 +81,7 @@ jQuery(document).ready(function($){
                 case 'lvl_voy':
                     $('.level').append(voyelle_img);
                     $('.color_icon').append(circle);
-                    $('#menu-g').attr("src", "../images/game/decodade_1.png");
+                    $('#menu-g').attr("src", "../images/game/harmonie_1.png");
                     array = references.vowels;
                     showAnim = true;
                     mainAnim = 'regarde_et_fixe';
@@ -89,7 +89,7 @@ jQuery(document).ready(function($){
                 case 'lvl_con':
                     $('.level').append(consonnes_img);
                     $('.color_icon').append(square);
-                    $('#menu-g').attr("src", "../images/game/decodade_1.png");
+                    $('#menu-g').attr("src", "../images/game/harmonie_1.png");
                     array = references.consonants;
                     showAnim = true;
                     mainAnim = 'carre_fixe';
@@ -97,14 +97,14 @@ jQuery(document).ready(function($){
                 case 'lvl_both':
                     $('.level').append(con_voy_img);
                     $('.color_icon').append(circ_squa);
-                    $('#menu-g').attr("src", "../images/game/decodade_1.png");
+                    $('#menu-g').attr("src", "../images/game/harmonie_1.png");
                     array = references.consonants.concat(references.vowels);
                     showAnim = false;
                     break;
                 case 'lvl_voy2':
                     $('.level').append(voyelle_img);
                     $('.color_icon').append(circle);
-                    $('#menu-g').attr("src", "../images/game/decodade_2.png");
+                    $('#menu-g').attr("src", "../images/game/harmonie_2.png");
                     array = references.vowels2;
                     showAnim = true;
                     mainAnim = 'regarde_et_fixe';
@@ -112,7 +112,7 @@ jQuery(document).ready(function($){
                 case 'lvl_con2':
                     $('.level').append(consonnes_img);
                     $('.color_icon').append(square);
-                    $('#menu-g').attr("src", "../images/game/decodade_2.png");
+                    $('#menu-g').attr("src", "../images/game/harmonie_2.png");
                     array = references.consonants2;
                     showAnim = true;
                     mainAnim = 'carre_fixe';
@@ -120,7 +120,7 @@ jQuery(document).ready(function($){
                 case 'lvl_bot2h':
                     $('.level').append(con_voy_img);
                     $('.color_icon').append(circ_squa);
-                    $('#menu-g').attr("src", "../images/game/decodade_2.png");
+                    $('#menu-g').attr("src", "../images/game/harmonie_2.png");
                     array = references.consonants2.concat(references.vowels2);
                     showAnim = false;
                     break;
