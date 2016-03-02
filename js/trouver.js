@@ -1,4 +1,4 @@
-$(document).ready(function(){
+jQuery(document).ready(function($){
 
     var flip_card = '<div class="flip-container memory"><div class="flipper" id="flipper_';
     var flip_card_2 = '"><div class="front"><img class="" src="../images/memory/unil_back_200.png"></div><div class=\'back\'>';
@@ -26,6 +26,7 @@ $(document).ready(function(){
     var hideColor = false;
     var card_width = 0;
     var clickDif = false;
+    var counter = 1;
     var pixel_size = 100,
         textArray = new Array(),
         c = document.getElementById('trouver-word'),
@@ -131,6 +132,67 @@ $(document).ready(function(){
 
     init();
 
+    function scaleStages(id, scale){
+        var stage = $("#" + id);
+        stage.css('transform', 'scale(' + scale + ')');
+        stage.css('transform', 'scale(' + scale + ')');
+        stage.css( '-o-transform', 'scale(' + scale + ')');
+        stage.css('-ms-transform', 'scale(' + scale + ')');
+        stage.css('-webkit-transform', 'scale(' + scale + ')');
+        stage.css('-moz-transform', 'scale(' + scale + ')');
+        stage.css('-o-transform', 'scale(' + scale + ')');
+    }
+
+    scaleStages("Stage", 0.3);
+
+    var loadedAnim = [];
+
+    function loadStage(name, number){
+        //console.log(name);
+        var tempV = false;
+        var scripts = $('head script');
+        scripts.each(function(){
+            var that = $(this);
+            if(that[0].src.match('_edge.js')){
+                that.remove();
+                if(name != mainAnim){
+                    clearInterval(lid);
+                    lid = setInterval(function(){loadStage(mainAnim, number);}, 7000);
+                }
+                tempV = true;
+            }
+        });
+        delete AdobeEdge.compositions['EDGE-2714543' + number];
+        if(checkArray(name)){
+            //console.log("NA");
+            var newScript   = document.createElement("script");
+            newScript.type  = "text/javascript";
+            newScript.src   = '../animations/' + name + '_edge.js';
+            newScript.text  = "";
+            document.head.appendChild(newScript);
+        }else{
+            loadedAnim.push(name);
+        }
+        AdobeEdge.loadComposition('../animations/' + name, 'EDGE-2714543' + number, {
+            scaleToFit: "none",
+            centerStage: "none",
+            minW: "0",
+            maxW: "undefined",
+            width: "00",
+            height: "480"
+        }, {"dom":{}}, {"dom":{}});
+    }
+
+    function checkArray(name){
+        var found = false;
+        for(var i = 0; i < loadedAnim.length;i++){
+            if(loadedAnim[i] == name){
+                found = true;
+            }
+        }
+        return found;
+    }
+
     function noOfPlayers(x, y, difficulty, type, callback){
         game.players = 1;
         game.x = x;
@@ -216,7 +278,7 @@ $(document).ready(function(){
             var that = $(this);
             var collide = false;
             noOfClicks++;
-            $.each($(".flip-container .flipper"), function(i, v){
+            $.each($(".card_line .flip-container .flipper"), function(i, v){
                 var flipper = $(v);
                 if(doElsCollide(that, flipper) && that.children().attr('class').split(" ")[1] == flipper.attr('id').split('_')[1]){
                     if(firstL == i){
@@ -269,11 +331,21 @@ $(document).ready(function(){
     }
 
     function resetGame(){
-
+            var timer = 0;
             $("#trouver-cards").css("display", "none");
             $("#anim-canvas").css('display', "block");
             $("#anim-canvas").width(game.cardLineWidth);
+        displayAnimation('.anim_space');
+
+        if(counter % 5 == 0){
+            timer = 18500;
             start();
+        }else{
+            timer = 3000;
+            loadStage('ouais_seul', '5');
+        }
+        counter++;
+
             setTimeout(function(){
                 removeElements(function(){
                 $("#trouver-cards").css('display', "block");
@@ -281,7 +353,7 @@ $(document).ready(function(){
                 selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, array,
                     game.players, word, game.type);});
                 });
-            }, 18500);
+            }, timer);
     }
 
     $("#rope img").click(function(){
@@ -467,6 +539,10 @@ $(document).ready(function(){
     }
 
     $(".logo").click(function(){
+        openMenu();
+    });
+
+    function openMenu(){
         if($("#menu").html() == ""){
             getPage("../menu.html", function(data){
                 var newDiv = $("<div/>")
@@ -474,6 +550,7 @@ $(document).ready(function(){
                     .html(data);
                 $("#menu").append(newDiv);
                 var menuOverlay = $(".menuOverlay");
+
                 $('body').append('<link rel="stylesheet" type="text/css" href="../css/menu.css">');
                 $('body').append('<script type="text/javascript" src="../js/menu.js"></script>');
                 menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
@@ -488,9 +565,10 @@ $(document).ready(function(){
             menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
             '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
         }
-    });
+    }
 
     function removeElements(callback){
+        $('.anim_space').css('display', 'none');
         steps = [];
         ctx.clearRect(0, 0, c.width, c.height);
         $('.trouver-card').remove();
@@ -512,7 +590,14 @@ $(document).ready(function(){
         }, time);
     }
 
-    $("#restart, #menu-g").click(function(){
+    $("#menu-g").click(function(){
+        openMenu();
+        setTimeout(function(){
+            openGamesItem();
+        }, 100);
+    });
+
+    $("#restart").click(function(){
         removeElements(function(){
             hideAnimation('.level, .level_block, #menu-g');
             setTimeout(function(){$(".type, .difficulty").css("display", "block");}, 1000);
@@ -650,8 +735,8 @@ $(document).ready(function(){
                     $('.draggable').draggable();
 
                     console.log(sel_len);
-                    $(".flip-container, .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("width", width);
-                    $(".flip-container, .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("height", width);
+                    $(".card_line .flip-container, .card_line .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("width", width);
+                    $(".card_line .flip-container, .card_line .flip-container .flipper, .front, .back, .front img, .back img, .trouver-card").css("height", width);
                     if(tempJ < sel_len){
                         $(".flip-container").css("display", "inline-block");
                         if (tempJ == x - 1) {

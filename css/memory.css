@@ -346,6 +346,6 @@ body{
     clear: both;
 }
 
-#select_dif{
+#select_dif, .level img{
     cursor: pointer;
 }

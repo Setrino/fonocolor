@@ -443,25 +443,22 @@ jQuery(document).ready(function($){
             clearInterval(lid);
             loadStage('ouais_seul', '5');
             loadStage('r_', '7');
-            $( ".success_b" ).animate({
+            $( ".success_b").css("opacity", "0.0");
+            /*$( ".success_b" ).animate({
                 top: "+=" + block_h,
             }, 2000, function() {
-            });
-            clearInterval(lid);
+            });*/
         }
-        tilesCovered = 0;
-        tilesOpened = 0;
-        if(player == 0){
-            $('.player_won').html("Il est un match nul, score " + score + "!");
-        }else{
-            $('.player_won').html("Joueur " + player + " a gagné avec score " + score + " dans " + noOfClick + " tentatives!");
-        }
+
         setTimeout(function(){
-            removeElements(function(){
-                console.log(game.array);
-                generateMatrix(game.x, game.y, game.array, game.players);
-            });
-        }, 4000);
+            $( ".anim_circle" ).animate({
+                top: "+=" + block_h,
+            }, 2000, function() {
+                removeElements(function(){
+                    console.log(game.array);
+                    generateMatrix(game.x, game.y, game.array, game.players);
+                });
+        });}, 2000);
     }
 
     function matchLost(){
@@ -475,7 +472,7 @@ jQuery(document).ready(function($){
             //loadStage('r_', '6');
             clearInterval(lid);
             loadStage('i', '5');
-            loadStage('carre_tire', '7');
+            loadStage('f_tire', '7');
             /*$( ".success_b" ).animate({
                 top: "-=" + (block_h + 180),
             }, 2000, function() {
@@ -483,15 +480,15 @@ jQuery(document).ready(function($){
             });*/
             setTimeout(function(){
                 $("#rope").show().animate({top: 10}, {duration: 4500, easing: 'easeOutElastic'});
-            }, 1000);
+            }, 3000);
         }, 2000);
 
-        /*setTimeout(function(){
+        setTimeout(function(){
             removeElements(function(){
                 console.log(game.array);
                 generateMatrix(game.x, game.y, game.array, game.players);
             });
-        }, 7000);*/
+        }, 8500);
     }
 
     function setupCards(){
@@ -586,6 +583,10 @@ jQuery(document).ready(function($){
     }
 
     $(".logo").click(function(){
+        openMenu();
+    });
+
+    function openMenu(){
         if($("#menu").html() == ""){
             getPage("../menu.html", function(data){
                 var newDiv = $("<div/>")
@@ -608,7 +609,8 @@ jQuery(document).ready(function($){
             menuOverlay.css({'display': "block", 'top': -documentHeight}).animate({top:
             '+=' + documentHeight}, 1000, function(){ menuOverlay.css('height', documentHeight)});
         }
-    });
+    }
+
 
     function removeElements(callback){
         $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
@@ -641,8 +643,15 @@ jQuery(document).ready(function($){
         });
     });
 
+    $("#menu-g").click(function(){
+        openMenu();
+        setTimeout(function(){
+            openGamesItem();
+        }, 100);
+    });
+
     //Click on the restart button
-    $("#restart, #menu-g").click(function(){
+    $("#restart, .level").click(function(){
         game.started = false;
         $('.color_icon').html("");
         hideAnimation('.anim_space, .anim_space2, #menu-g');

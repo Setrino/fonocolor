@@ -279,3 +279,11 @@ body{
     width: 100%;
     height: auto;
 }
+
+.anim_space{
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    display: none;
+    position: relative;
+}
