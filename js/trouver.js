@@ -155,10 +155,6 @@ jQuery(document).ready(function($){
             var that = $(this);
             if(that[0].src.match('_edge.js')){
                 that.remove();
-                if(name != mainAnim){
-                    clearInterval(lid);
-                    lid = setInterval(function(){loadStage(mainAnim, number);}, 7000);
-                }
                 tempV = true;
             }
         });
@@ -335,12 +331,12 @@ jQuery(document).ready(function($){
             $("#trouver-cards").css("display", "none");
             $("#anim-canvas").css('display', "block");
             $("#anim-canvas").width(game.cardLineWidth);
-        displayAnimation('.anim_space');
-
         if(counter % 5 == 0){
+
             timer = 18500;
             start();
         }else{
+            displayAnimation('.anim_space');
             timer = 3000;
             loadStage('ouais_seul', '5');
         }

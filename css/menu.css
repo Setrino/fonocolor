@@ -2,6 +2,10 @@
     z-index: 999;
 }
 
+.overlay_menu{
+    font-family: 'fundamental_brigade';
+}
+
 .overlay_menu .back_arrow{
     display: block;
     height: 32px;
@@ -70,10 +74,10 @@
 }
 
 .overlay_menu #comprendre{
-    font-size: 30px;
-    letter-spacing: 2px;
+    font-size: 25px;
+    letter-spacing: 4px;
     position: relative;
-    top: -45px;
+    top: -43px;
     text-align: center;
     left: 1px;
 

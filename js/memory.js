@@ -91,8 +91,8 @@ jQuery(document).ready(function($){
                     $('.color_icon').append(square);
                     $('#menu-g').attr("src", "../images/game/harmonie_1.png");
                     array = references.consonants;
-                    showAnim = true;
-                    mainAnim = 'carre_fixe';
+                    showAnim = false;
+                    mainAnim = 'regarde_et_fixe';
                     break;
                 case 'lvl_both':
                     $('.level').append(con_voy_img);
@@ -114,8 +114,8 @@ jQuery(document).ready(function($){
                     $('.color_icon').append(square);
                     $('#menu-g').attr("src", "../images/game/harmonie_2.png");
                     array = references.consonants2;
-                    showAnim = true;
-                    mainAnim = 'carre_fixe';
+                    showAnim = false;
+                    mainAnim = 'regarde_et_fixe';
                     break;
                 case 'lvl_bot2h':
                     $('.level').append(con_voy_img);
@@ -168,8 +168,8 @@ jQuery(document).ready(function($){
                     $(".logo_block").css('width', '550');
                 }
                 clearInterval(lid);
-                loadStage(mainAnim, '5');
-                lid = setInterval(function(){loadStage(mainAnim, '5');}, 7000);
+                loadStage(mainAnim, '35');
+                lid = setInterval(function(){loadStage(mainAnim, '35');}, 7000);
                 $('.difficulty').addClass("disable");
                 $('.type').removeClass("disable");
                 $('.type, .difficulty').css("display", "none");
@@ -193,12 +193,12 @@ jQuery(document).ready(function($){
     scaleStages("Stage", 0.3);
     scaleStages("Stage2", 0.3);
     scaleStages("StageSquare", 0.3);
-    scaleStages("StageCircle1", 0.33);
-    scaleStages("StageCircle2", 0.33);
-    scaleStages("StageCircle3", 0.33);
-    scaleStages("StageCircle4", 0.33);
-    scaleStages("StageCircle5", 0.33);
-    scaleStages("StageCircle6", 0.33);
+    scaleStages("StageSquare1", 0.33);
+    scaleStages("StageSquare2", 0.33);
+    scaleStages("StageSquare3", 0.33);
+    scaleStages("StageSquare4", 0.33);
+    scaleStages("StageSquare5", 0.33);
+    scaleStages("StageSquare6", 0.33);
 
     var loadedAnim = [];
 
@@ -210,14 +210,14 @@ jQuery(document).ready(function($){
             var that = $(this);
             if(that[0].src.match('_edge.js')){
                 that.remove();
-                if(name != mainAnim){
+                if(name != mainAnim && number == '35'){
                     clearInterval(lid);
                     lid = setInterval(function(){loadStage(mainAnim, number);}, 7000);
                 }
                 tempV = true;
             }
         });
-        delete AdobeEdge.compositions['EDGE-2714543' + number];
+        delete AdobeEdge.compositions['EDGE-271454' + number];
         if(checkArray(name)){
             //console.log("NA");
             var newScript   = document.createElement("script");
@@ -228,7 +228,7 @@ jQuery(document).ready(function($){
         }else{
             loadedAnim.push(name);
         }
-        AdobeEdge.loadComposition('../animations/' + name, 'EDGE-2714543' + number, {
+        AdobeEdge.loadComposition('../animations/' + name, 'EDGE-271454' + number, {
             scaleToFit: "none",
             centerStage: "none",
             minW: "0",
@@ -286,7 +286,7 @@ jQuery(document).ready(function($){
         $(".anim_space2").css("top", documentHeight - 130);
         if(players == 1){
             displayAnimation('#rope');
-            $("#rope").show().animate({top: 0}, {duration: 2000, easing: 'easeOutElastic'});
+            $("#rope").show().animate({top: -10}, {duration: 2000, easing: 'easeOutElastic'});
         }
         var yAxis = y || x;
         var selected = [];
@@ -376,16 +376,17 @@ jQuery(document).ready(function($){
                             previousObject = undefined;
                             disableClick = false;
                         }, 1000);
-                        game.attempt += 1;
+                        game.attempt++;
                         if(game.players == 1){
-                            updateBalls();
+                            //updateBalls();
+                            updateSquares();
                         }
                     } else{
                         if(game.attempt != 0){
+                            if(game.players == 1){
+                                checkRemove();
+                            }
                             game.attempt -= 1;
-                        }
-                        if(game.players == 1){
-                            checkRemove();
                         }
                         console.log(tilesCovered);
                         tilesOpened++;
@@ -434,31 +435,24 @@ jQuery(document).ready(function($){
         //setTimeout(function(){createFirework(120,69,2,5,50,100,10,100,true,true);}, 1000);
         //clearInterval(shakeInterval);
         if(game.players == 1){
-            $(".anim_circle").css({"top" : block_h - ball_size - 30, "height" : ball_size, "width": ball_size});
-            displayAnimation('.anim_circle');
-            //displayAnimation('.anim_square');
-            //var disSquare = ($(".bar").length * 20 + 105);
-            //$(".anim_square").css("top", documentHeight - disSquare);
-            //loadStage('ch_', '6');
             clearInterval(lid);
-            loadStage('ouais_seul', '5');
-            loadStage('r_', '7');
-            $( ".success_b").css("opacity", "0.0");
-            /*$( ".success_b" ).animate({
-                top: "+=" + block_h,
-            }, 2000, function() {
-            });*/
+            loadStage('ouais_seul', '35');
+            loadStage('r_', '37');
         }
 
         setTimeout(function(){
-            $( ".anim_circle" ).animate({
-                top: "+=" + block_h,
-            }, 2000, function() {
+            $( ".anim_square" ).animate({
+                top: "+=" + block_h + 180,
+            }, 3000, function() {
+                //Animation ENDED
+            });
+            setTimeout(function(){
                 removeElements(function(){
                     console.log(game.array);
                     generateMatrix(game.x, game.y, game.array, game.players);
                 });
-        });}, 2000);
+            }, 2000);
+        }, 2000);
     }
 
     function matchLost(){
@@ -466,29 +460,27 @@ jQuery(document).ready(function($){
         tilesOpened = 0;
         $("#continue").css("display", "none");
         setTimeout(function(){
-            $(".anim_circle").css({"top" : -20, "height" : ball_size, "width": ball_size});
-            $("#ball0").css("opacity", "0.0");
-            displayAnimation('.anim_circle');
-            //loadStage('r_', '6');
             clearInterval(lid);
-            loadStage('i', '5');
-            loadStage('f_tire', '7');
-            /*$( ".success_b" ).animate({
-                top: "-=" + (block_h + 180),
-            }, 2000, function() {
-                // Animation complete.
-            });*/
+            loadStage('i', '35');
+            loadStage('f_tire', '37');
             setTimeout(function(){
-                $("#rope").show().animate({top: 10}, {duration: 4500, easing: 'easeOutElastic'});
-            }, 3000);
+                $("#rope").show().animate({top: 0}, {duration: 4500, easing: 'easeOutElastic'});
+            }, 2500);
         }, 2000);
 
         setTimeout(function(){
-            removeElements(function(){
-                console.log(game.array);
-                generateMatrix(game.x, game.y, game.array, game.players);
-            });
-        }, 8500);
+            $( ".anim_square" ).animate({
+             top: "+=" + (block_h + 180),
+             }, 2000, function() {
+                //Animation ENDED
+             });
+            setTimeout(function(){
+                removeElements(function(){
+                    console.log(game.array);
+                    generateMatrix(game.x, game.y, game.array, game.players);
+                });
+            }, 2000);
+        }, 4500);
     }
 
     function setupCards(){
@@ -514,10 +506,13 @@ jQuery(document).ready(function($){
     var block_h = $("#success_balls").height();
     var ball_size = (block_h) / 6;
     var ballC = 0;
+    var squareN = 1;
 
-    function initalizeBalls(){
+    function initializeBalls(){
         ballC = 0;
-        updateBalls();
+        squareN = 1;
+        //updateBalls();
+        updateSquares();
     }
 
     //Update successBalls
@@ -546,10 +541,8 @@ jQuery(document).ready(function($){
 
     function checkRemove(){
         console.log(game.attempt + " " + game.dif);
-        if(game.attempt != 0 && game.dif == 'easy'){
-            removeLastBall();
-        }else if(game.attempt > 2 && game.attempt % 2 == 0){
-            removeLastBall();
+        if(game.attempt != 0 && game.dif == 'easy' || game.attempt > 1 && game.attempt % 2 == 1){
+            removeLastSquare();
         }
     }
 
@@ -558,6 +551,67 @@ jQuery(document).ready(function($){
             top: "+=" + ball_size,
         }, 2000, function() {
             $("#ball" + (ballC - 1)).empty();
+        });
+    }
+
+    //Right hand animation
+    function updateSquares(){
+        console.log("Value " + squareN + " attempt " + game.attempt);
+        if(game.attempt != 1){
+            switch(game.dif){
+                case "easy":
+                    squareType();
+                    break;
+                case "medium":
+                case "hard":
+                    if(game.attempt == 0){
+                        squareType();
+                    }else if(game.attempt % 2 == 1){
+                        squareType();
+                    }
+                    break;
+            }
+        }
+
+        setTimeout(function(){
+            if(squareN == 6){
+                console.log(game.attempt + " Failed");
+                matchLost();
+            }
+        }, 2000);
+    }
+
+    function squareType(){
+        if(squareN == 1){
+            addSquare("#anim_square" + squareN, function(){
+                loadStage('carre_reg_haut', '37');
+            });
+        }else{
+            addSquare("#anim_square" + squareN, function(){
+                loadStage('carre_reg_gauche' + squareN.toString(), (37 + squareN).toString());
+            });
+        }
+        squareN++;
+    }
+
+    function removeLastSquare(){
+        squareN--;
+        $( ".anim_square" ).animate({
+            top: "+=" + ball_size,
+        }, 2000, function() {
+            $("#anim_square" + squareN).css("display", "none");
+        });
+    }
+
+    //Add square animation
+    function addSquare(id, callback){
+
+        $(id).css({"top" : block_h - 30, "height" : ball_size, "width": ball_size});
+        displayAnimation(id);
+        callback();
+        $('.anim_square').animate({
+            top: "-=" + ball_size,
+        }, 2000, function() {
         });
     }
 
@@ -616,12 +670,10 @@ jQuery(document).ready(function($){
         $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
             "transition" : "all 0.9s ease-in", 'opacity' : 0});
         game.attempt = 0;
+        $('.bar').remove();
+        $(".anim_square").css("display", "none");
         setTimeout(function(){
-            $("#success_balls").empty();
-            //$(".anim_square, .anim_circle").css("display", "none");
             $('.card_line').remove();
-            $('.bar').remove();
-            $("#success_balls").empty();
             tilesCovered = 0;
             escapeCounter = 0;
             if(callback){
@@ -752,7 +804,7 @@ jQuery(document).ready(function($){
 
         console.log(player_score + " " + nameAnim);
         if(showAnim){
-            loadStage(nameAnim, '5');
+            loadStage(nameAnim, '35');
         }
         var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
@@ -824,13 +876,13 @@ jQuery(document).ready(function($){
         console.log(x + " " + y + " " + selected + " " + players);
         game.started = true;
         if(players == 1){
-            initalizeBalls();
+            initializeBalls();
         }else{
             clearInterval(lid2);
             displayAnimation('.anim_space2');
             $(".anim_space2").css("top", documentHeight - 130);
-            loadStage(mainAnim2, '8');
-            lid2 = setInterval(function(){loadStage(mainAnim2, '8');}, 7000);
+            loadStage(mainAnim2, '38');
+            lid2 = setInterval(function(){loadStage(mainAnim2, '38');}, 7000);
         }
         var left = 0;
         var width = (documentHeight < documentWidth) ? (documentHeight - $("#header_wrapper").height() - 60) / 4 :

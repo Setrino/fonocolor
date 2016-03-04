@@ -12,7 +12,7 @@ body{
 }
 
 #rope{
-    top: -50px;
+    top: -60px;
     width: 200px;
     position: fixed;
     right: 0;
@@ -35,6 +35,7 @@ body{
     bottom: 0;
     height: 82%;
     z-index: 3;
+    right: 10px;
 }
 
 #game_menu{
