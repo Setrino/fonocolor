@@ -461,10 +461,12 @@ jQuery(document).ready(function($){
         $("#continue").css("display", "none");
         setTimeout(function(){
             clearInterval(lid);
-            loadStage('i', '35');
             loadStage('f_tire', '37');
             setTimeout(function(){
                 $("#rope").show().animate({top: 0}, {duration: 4500, easing: 'easeOutElastic'});
+                setTimeout(function(){
+                    loadStage('i', '35');
+                }, 2000);
             }, 2500);
         }, 2000);
 
@@ -480,7 +482,7 @@ jQuery(document).ready(function($){
                     generateMatrix(game.x, game.y, game.array, game.players);
                 });
             }, 2000);
-        }, 4500);
+        }, 6000);
     }
 
     function setupCards(){
