@@ -465,24 +465,35 @@ jQuery(document).ready(function($){
             setTimeout(function(){
                 $("#rope").show().animate({top: 0}, {duration: 4500, easing: 'easeOutElastic'});
                 setTimeout(function(){
+                    $('.card_line').find(".flip-container").css({'transform' : 'translateY(300px) rotateZ(120deg)',
+                        "transition" : "all 0.9s ease-in", 'opacity' : 0});
                     loadStage('i', '35');
+                    setTimeout(function(){
+                        $( ".anim_space" ).animate({
+                            top: "+=" + (block_h + 180),
+                        }, 2000, function() {
+                            //Animation ENDED
+                        });
+                    }, 2000);
                 }, 2000);
             }, 2500);
         }, 2000);
 
         setTimeout(function(){
-            $( ".anim_square" ).animate({
-             top: "+=" + (block_h + 180),
-             }, 2000, function() {
-                //Animation ENDED
-             });
+            setTimeout(function(){
+                $( ".anim_square" ).animate({
+                    top: "+=" + (block_h + 180),
+                }, 2000, function() {
+                    //Animation ENDED
+                });
+            }, 2000);
             setTimeout(function(){
                 removeElements(function(){
                     console.log(game.array);
                     generateMatrix(game.x, game.y, game.array, game.players);
                 });
-            }, 2000);
-        }, 6000);
+            }, 4000);
+        }, 8000);
     }
 
     function setupCards(){
@@ -543,7 +554,7 @@ jQuery(document).ready(function($){
 
     function checkRemove(){
         console.log(game.attempt + " " + game.dif);
-        if(game.attempt != 0 && game.dif == 'easy' || game.attempt > 1 && game.attempt % 2 == 1){
+        if(game.attempt > 1 && game.dif == 'easy' || game.attempt > 1 && game.attempt % 2 == 1){
             removeLastSquare();
         }
     }
