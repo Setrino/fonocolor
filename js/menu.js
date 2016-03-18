@@ -19,9 +19,6 @@ $(document).ready(function(){
         understand: {
             0 : '<a href=' + path + '/video.html><img src=' + path + '/images/menu/film.png></a>',
             1: '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/comment.png></a>'
-        },
-        demander: {
-            0 : '<a href=' + path + '/pourquoi.html><img src=' + path + '/images/menu/demander.png></a>'
         }
     };
 
@@ -44,11 +41,19 @@ $(document).ready(function(){
             }
         });
 
-        if(image_id == 'colorize'){
-            setTimeout(function(){
-                if(window.location.hostname == 'localhost'){
+        if(image_id == 'colorize') {
+            setTimeout(function () {
+                if (window.location.hostname == 'localhost') {
                     window.open('/fonocolor', '_self');
-                }else{
+                } else {
+                    window.open('/', '_self');
+                }
+            }, 400);
+        }else if(image_id == 'demander'){
+            setTimeout(function () {
+                if (window.location.hostname == 'localhost') {
+                    window.open('/fonocolor/pourquoi', '_self');
+                } else {
                     window.open('/', '_self');
                 }
             }, 400);
