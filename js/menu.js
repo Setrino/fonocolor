@@ -2,23 +2,23 @@ $(document).ready(function(){
 
     var path = window.location.pathname.split("/")[1];
     if(path.match('fonocolor')){
-        path = "/fonocolor";
+        path = "/fonocolor/";
     }else{
-        path = "";
+        path = "/";
     }
 
     $('.overlay_menu img').each(function(k, v) { if(!$(v).attr('src').match('fonocolor')){$(v).attr('src', path + $(v).attr('src'));}});
 
     var references = {
         games: {
-            0: '<a href=' + path + '/jeux/memory.html><img src=' + path + '/images/menu/harmonie_1.png></a>',
-            1: '<a href=' + path + '/jeux/memory_2.html><img src=' + path + '/images/menu/harmonie_2.png></a>',
-            2: '<a href=' + path + '/jeux/trouver.html><img src=' + path + '/images/menu/decodade_1.png></a>',
-            3: '<a href=' + path + '/jeux/trouver_2.html><img src=' + path + '/images/menu/decodade_2.png></a>'
+            0: '<a href=' + path + 'jeux/memory.html><img src=' + path + 'images/menu/harmonie_1.png></a>',
+            1: '<a href=' + path + 'jeux/memory_2.html><img src=' + path + 'images/menu/harmonie_2.png></a>',
+            2: '<a href=' + path + 'jeux/trouver.html><img src=' + path + 'images/menu/decodade_1.png></a>',
+            3: '<a href=' + path + 'jeux/trouver_2.html><img src=' + path + 'images/menu/decodade_2.png></a>'
         },
         understand: {
-            0 : '<a href=' + path + '/video.html><img src=' + path + '/images/menu/film.png></a>',
-            1: '<a href=' + path + '/comment.html><img src=' + path + '/images/menu/comment.png></a>'
+            0 : '<a href=' + path + 'video.html><img src=' + path + 'images/menu/film.png></a>',
+            1: '<a href=' + path + 'comment.html><img src=' + path + 'images/menu/comment.png></a>'
         }
     };
 
@@ -44,9 +44,9 @@ $(document).ready(function(){
         if(image_id == 'colorize') {
             setTimeout(function () {
                 if (window.location.hostname == 'localhost') {
-                    window.open('/fonocolor', '_self');
+                    window.open('/fonocolor/colorier', '_self');
                 } else {
-                    window.open('/', '_self');
+                    window.open('/colorier', '_self');
                 }
             }, 400);
         }else if(image_id == 'demander'){
@@ -54,7 +54,7 @@ $(document).ready(function(){
                 if (window.location.hostname == 'localhost') {
                     window.open('/fonocolor/pourquoi', '_self');
                 } else {
-                    window.open('/', '_self');
+                    window.open('/pourquoi', '_self');
                 }
             }, 400);
         }else{

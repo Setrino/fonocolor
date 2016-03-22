@@ -364,7 +364,7 @@ jQuery(document).ready(function($){
 
     $("#select_dif").click(function(e){
 
-        var level2 = game.dif[game.dif.length - 1];
+        var level2 = (game.dif[game.dif.length - 1] != 2) ? "" : "2";
 
         if(clickDif){
             var pos = $(this).offset();

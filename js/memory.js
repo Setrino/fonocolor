@@ -285,7 +285,7 @@ jQuery(document).ready(function($){
         tilesCovered = 0;
         tilesOpened = 0;
         $(".anim_space").css("top", documentHeight - 300);
-        $(".anim_space2").css({ "top" : documentHeight - 130, "opacity" : 0.5 });
+        $(".anim_space2").css({ "top" : documentHeight - 130, "opacity" : 0.1 });
         if(players == 1){
             displayAnimation('#rope');
             $("#rope").show().animate({top: -10}, {duration: 2000, easing: 'easeOutElastic'});
@@ -356,16 +356,18 @@ jQuery(document).ready(function($){
                     previousObject = $.extend(true, {}, $(this));
                     previousClass = tempClass;
                 } else {
-                    if(playerUpdate){
-                        $(".anim_space2").css("opacity", 1.0);
-                        $( ".anim_space").css("opacity", 0.5);
-                        player2++;
-                        playerUpdate = false;
-                    }else{
-                        $(".anim_space2").css("opacity", 0.5);
-                        $( ".anim_space").css("opacity", 1.0);
-                        player1++;
-                        playerUpdate = true;
+                    if(game.players == 2){
+                        if(playerUpdate){
+                            $(".anim_space2").css("opacity", 1.0);
+                            $( ".anim_space").css("opacity", 0.1);
+                            player2++;
+                            playerUpdate = false;
+                        }else{
+                            $(".anim_space2").css("opacity", 0.1);
+                            $( ".anim_space").css("opacity", 1.0);
+                            player1++;
+                            playerUpdate = true;
+                        }
                     }
 
                     disableClick = true;
