@@ -360,9 +360,11 @@ jQuery(document).ready(function($){
         });
     });
 
+    //Changing difficulty
+
     $("#select_dif").click(function(e){
 
-        var level2 = JSON.stringify(game.dif.match(/2/)).replace(/null/i, "");
+        var level2 = game.dif[game.dif.length - 1];
 
         if(clickDif){
             var pos = $(this).offset();
@@ -372,20 +374,22 @@ jQuery(document).ready(function($){
             var difNo = 1;
             if(x >= 0 && x < 56){
                 dif = 'easy';
+                game.type = 'colors';
                 $('.color_icon').css('left', '12px');
             }else if(x >= 120 && x < 200){
                 dif = 'medium';
                 difNo = 2;
+                game.type = 'objects';
                 $('.color_icon').css('left', '150px');
             }else if(x >= 260 && x < 400){
                 dif = 'hard';
                 difNo = 3;
+                game.type = 'objects_white';
                 $('.color_icon').css('left', '313px');
             }
             dif = dif + level2;
             if(dif != game.dif){
                 game.dif = dif;
-                console.log("DIFF " + dif);
                 game.y = difNo + game.players - 1;
                 removeElements(function(){
                     selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, array,
@@ -410,6 +414,15 @@ jQuery(document).ready(function($){
                 break;
             case 'hard':
                 word = references.hard[Math.floor(Math.random() * references.hard.length)];
+                break;
+            case 'easy2':
+                word = references.easy2[Math.floor(Math.random() * references.easy2.length)];
+                break;
+            case 'medium2':
+                word = references.medium2[Math.floor(Math.random() * references.medium2.length)];
+                break;
+            case 'hard2':
+                word = references.hard2[Math.floor(Math.random() * references.hard2.length)];
                 break;
         }
         console.log(word);

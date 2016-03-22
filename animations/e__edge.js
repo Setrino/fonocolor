@@ -1,6 +1,6 @@
 (function (compId) {
-    var _ = null, y = true, n = false, x2 = '6.0.0', x3 = '5.0.0', x12 = 'rgba(0,0,0,0)', g = 'image', x5 = 'rgba(0,0,0,0.00)', x18 = '273', x25 = 'true', x24 = '0', x22 = 'media/an02.mp3', x8 = '1px', x10 = '480px', m = 'rect', x14 = '0px', i = 'none', x17 = 'an', x4 = '6.0.0.400', x9 = '10600px', lf = 'left', x19 = '263', x15 = 'audio', x7 = '-47px', x27 = '490px', x11 = 'auto', x26 = '510px', tp = 'top', x6 = 'sprite-a-03', x21 = '45px', x23 = 'an02', x20 = '320px', e28 = '${sprite-a-03}', x16 = 'media/an.mp3';
-    var g1 = 'jquery-1.7.1.min.js', g13 = 'an_sprite.PNG';
+    var _ = null, y = true, n = false, x2 = '6.0.0', x4 = '6.0.0.400', x9 = '10600px', tp = 'top', x12 = 'rgba(0,0,0,0)', lf = 'left', m = 'rect', g = 'image', x5 = 'rgba(0,0,0,0.00)', x17 = 'e_02', x24 = '490px', x23 = '510px', x21 = '45px', x22 = 'true', x3 = '5.0.0', x11 = 'auto', x19 = '298', x7 = '-47px', x8 = '1px', x16 = '../animations/media/e_02.mp3', x18 = '350', x10 = '480px', x6 = 'sprite-a-03', x14 = '0px', x15 = 'audio', x20 = '320px', e25 = '${sprite-a-03}', i = 'none';
+    var g13 = 'e_sprite.PNG', g1 = 'jquery-1.7.1.min.js';
     var im = '../animations/images/', aud = '../animations/media/', vid = '../animations/media/', js = '../animations/js/', fonts = {}, opts = {
         'gAudioPreloadPreference': 'auto',
         'gVideoPreloadPreference': 'auto'
@@ -29,7 +29,7 @@
                     }
                 }
             },
-            tt: {d: 1958.3333333333, a: y, data: []}
+            tt: {d: 1792, a: y, data: []}
         },
         "rond": {
             v: x2,
@@ -47,16 +47,15 @@
                     r: [x18, x19, x20, x21, x11, x11],
                     v: i,
                     tag: x15
-                }, {pr: x11, t: x15, sr: [x22], id: x23, r: [x24, x24, x20, x21, x11, x11], v: i, tag: x15}],
-                style: {'${symbolSelector}': {isStage: x25, r: [undefined, undefined, x26, x27]}}
+                }], style: {'${symbolSelector}': {isStage: x22, r: [undefined, undefined, x23, x24]}}
             },
             tt: {
-                d: 1958,
+                d: 1792,
                 a: y,
                 l: {"i": 0},
-                data: [["eid119", lf, 0, 0, "linear", e28, '-47px', '-47px'], ["eid121", lf, 83, 0, "linear", e28, '-47px', '-547px'], ["eid122", lf, 167, 0, "linear", e28, '-547px', '-1047px'], ["eid123", lf, 250, 0, "linear", e28, '-1047px', '-1547px'], ["eid124", lf, 333, 0, "linear", e28, '-1547px', '-2047px'], ["eid125", lf, 417, 0, "linear", e28, '-2047px', '-2547px'], ["eid126", lf, 500, 0, "linear", e28, '-2547px', '-3047px'], ["eid127", lf, 583, 0, "linear", e28, '-3047px', '-3547px'], ["eid128", lf, 667, 0, "linear", e28, '-3547px', '-4047px'], ["eid129", lf, 750, 0, "linear", e28, '-4047px', '-4547px'], ["eid130", lf, 833, 0, "linear", e28, '-4547px', '-5047px'], ["eid131", lf, 1208, 0, "linear", e28, '-5047px', '-5547px'], ["eid132", lf, 1291, 0, "linear", e28, '-5547px', '-6047px'], ["eid133", lf, 1374, 0, "linear", e28, '-6047px', '-6547px'], ["eid134", lf, 1458, 0, "linear", e28, '-6547px', '-7047px'], ["eid135", lf, 1541, 0, "linear", e28, '-7047px', '-7547px'], ["eid136", lf, 1624, 0, "linear", e28, '-7547px', '-8047px'], ["eid137", lf, 1708, 0, "linear", e28, '-8047px', '-8547px'], ["eid138", lf, 1791, 0, "linear", e28, '-8547px', '-9047px'], ["eid139", lf, 1874, 0, "linear", e28, '-9047px', '-9547px'], ["eid140", lf, 1958, 0, "linear", e28, '-9547px', '-47px'], ["eid120", tp, 0, 0, "linear", e28, '1px', '1px'], ["eid143", "tr", 486, function (e, d) {
+                data: [["eid119", lf, 0, 0, "linear", e25, '-47px', '-47px'], ["eid121", lf, 83, 0, "linear", e25, '-47px', '-547px'], ["eid122", lf, 167, 0, "linear", e25, '-547px', '-1047px'], ["eid123", lf, 250, 0, "linear", e25, '-1047px', '-1547px'], ["eid124", lf, 333, 0, "linear", e25, '-1547px', '-2047px'], ["eid125", lf, 417, 0, "linear", e25, '-2047px', '-2547px'], ["eid126", lf, 500, 0, "linear", e25, '-2547px', '-3047px'], ["eid127", lf, 583, 0, "linear", e25, '-3047px', '-3547px'], ["eid128", lf, 667, 0, "linear", e25, '-3547px', '-4047px'], ["eid129", lf, 750, 0, "linear", e25, '-4047px', '-4547px'], ["eid130", lf, 833, 0, "linear", e25, '-4547px', '-5047px'], ["eid131", lf, 917, 0, "linear", e25, '-5047px', '-5547px'], ["eid132", lf, 1083, 0, "linear", e25, '-5547px', '-6047px'], ["eid133", lf, 1167, 0, "linear", e25, '-6047px', '-6547px'], ["eid134", lf, 1250, 0, "linear", e25, '-6547px', '-7047px'], ["eid135", lf, 1333, 0, "linear", e25, '-7047px', '-7547px'], ["eid136", lf, 1417, 0, "linear", e25, '-7547px', '-8047px'], ["eid137", lf, 1500, 0, "linear", e25, '-8047px', '-8547px'], ["eid138", lf, 1583, 0, "linear", e25, '-8547px', '-9047px'], ["eid139", lf, 1667, 0, "linear", e25, '-9047px', '-9547px'], ["eid140", lf, 1792, 0, "linear", e25, '-9547px', '-47px'], ["eid120", tp, 0, 0, "linear", e25, '1px', '1px'], ["eid149", "tr", 569, function (e, d) {
                     this.eMA(e, d);
-                }, ['play', '${an}', []]]]
+                }, ['play', '${e_02}', []]]]
             }
         }
     };
@@ -78,7 +77,7 @@
 
 //Edge symbol: 'rond'
         (function (symbolName) {
-            Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1958, function (sym, e) {
+            Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1792, function (sym, e) {
                 sym.stop();
             });
 //Edge binding end

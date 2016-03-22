@@ -281,7 +281,8 @@ jQuery(document).ready(function($){
     }
 
     function generateMatrix(x, y, array, players){
-
+        tilesCovered = 0;
+        tilesOpened = 0;
         $(".anim_space").css("top", documentHeight - 300);
         $(".anim_space2").css("top", documentHeight - 130);
         if(players == 1){
@@ -456,8 +457,6 @@ jQuery(document).ready(function($){
     }
 
     function matchLost(){
-        tilesCovered = 0;
-        tilesOpened = 0;
         $("#continue").css("display", "none");
         setTimeout(function(){
             clearInterval(lid);
@@ -482,8 +481,8 @@ jQuery(document).ready(function($){
         setTimeout(function(){
             setTimeout(function(){
                 $( ".anim_square" ).animate({
-                    top: "+=" + (block_h + 180),
-                }, 2000, function() {
+                    opacity: 0,
+                }, 1000, function() {
                     //Animation ENDED
                 });
             }, 2000);
@@ -493,7 +492,7 @@ jQuery(document).ready(function($){
                     generateMatrix(game.x, game.y, game.array, game.players);
                 });
             }, 4000);
-        }, 8000);
+        }, 7000);
     }
 
     function setupCards(){
@@ -686,8 +685,8 @@ jQuery(document).ready(function($){
         $('.bar').remove();
         $(".anim_square").css("display", "none");
         setTimeout(function(){
+            $( ".anim_square").css("opacity", 1.0);
             $('.card_line').remove();
-            tilesCovered = 0;
             escapeCounter = 0;
             if(callback){
                 callback();
@@ -728,7 +727,6 @@ jQuery(document).ready(function($){
         setTimeout(function(){
             $(".type, .difficulty").css("display", "block");
             $('.card_line').remove();
-            tilesCovered = 0;
             escapeCounter = 0;
             $("#continue").css("display", "initial");
             init();
@@ -825,8 +823,8 @@ jQuery(document).ready(function($){
         var bar1 = $('<div class="bar"></div>');
         var bar = $('<div class="bar"></div>');
         var neg = (player_score % 2) ? 8 : -8;
-        bar1.css({'bottom' : player_score * 20});
-        bar.css({'left': neg, 'bottom' : player_score * 20 - 10});
+        bar1.css({'bottom' : player_score * 25});
+        bar.css({'left': neg, 'bottom' : player_score * 25 - 10});
 
 
 
@@ -867,10 +865,10 @@ jQuery(document).ready(function($){
                 $("#body_wrapper").append(bar1);
                 $("#body_wrapper").append(bar);
                 if(player == 1){
-                    var disAnim = ($(".bar").length * 10 + 292);
+                    var disAnim = ($(".bar").length * 15 + 292);
                     $(".anim_space").css("top", documentHeight - disAnim);
                 }else{
-                    var disAnim = ($(".bar").length * 10 + 122);
+                    var disAnim = ($(".bar").length * 15 + 122);
                     $(".anim_space2").css("top", documentHeight - disAnim);
                 }
             });
