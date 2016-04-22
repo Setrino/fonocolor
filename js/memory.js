@@ -284,7 +284,7 @@ jQuery(document).ready(function($){
     function generateMatrix(x, y, array, players){
         tilesCovered = 0;
         tilesOpened = 0;
-        $(".anim_space").css("top", documentHeight - 300);
+        $(".anim_space").css({"top" :  documentHeight - 300, "opacity" : 1.0 });
         $(".anim_space2").css({ "top" : documentHeight - 130, "opacity" : 0.1 });
         if(players == 1){
             displayAnimation('#rope');
@@ -333,6 +333,7 @@ jQuery(document).ready(function($){
         animateCards(x, y, selected, players);
     }
 
+
     function setupClicks(players){
 
         var previousClass = undefined;
@@ -356,27 +357,40 @@ jQuery(document).ready(function($){
                     previousObject = $.extend(true, {}, $(this));
                     previousClass = tempClass;
                 } else {
-                    if(game.players == 2){
-                        if(playerUpdate){
-                            $(".anim_space2").css("opacity", 1.0);
-                            $( ".anim_space").css("opacity", 0.1);
-                            player2++;
-                            playerUpdate = false;
-                        }else{
-                            $(".anim_space2").css("opacity", 0.1);
-                            $( ".anim_space").css("opacity", 1.0);
-                            player1++;
-                            playerUpdate = true;
-                        }
-                    }
 
                     disableClick = true;
                     if(previousObject.attr('class').split(' ')[1] === classes[1] && previousClass == tempClass){
+                        if(game.players == 2){
+                            if(playerUpdate){
+                                $(".anim_space2").css("opacity", 1.0);
+                                $( ".anim_space").css("opacity", 0.1);
+                                player2++;
+                                playerUpdate = false;
+                            }else{
+                                $(".anim_space2").css("opacity", 0.1);
+                                $( ".anim_space").css("opacity", 1.0);
+                                player1++;
+                                playerUpdate = true;
+                            }
+                        }
                         setTimeout(function () {
                             disableClick = false;
                         }, 1000);
                     }
                     else if (previousClass != tempClass) {
+                        if(game.players == 2){
+                            if(playerUpdate){
+                                $(".anim_space2").css("opacity", 1.0);
+                                $( ".anim_space").css("opacity", 0.1);
+                                player2++;
+                                playerUpdate = false;
+                            }else{
+                                $(".anim_space2").css("opacity", 0.1);
+                                $( ".anim_space").css("opacity", 1.0);
+                                player1++;
+                                playerUpdate = true;
+                            }
+                        }
                         setTimeout(function () {
                             previousObject.css('transform', 'rotateY(0deg)');
                             that.css('transform', 'rotateY(0deg)');
@@ -385,6 +399,7 @@ jQuery(document).ready(function($){
                             disableClick = false;
                         }, 1000);
                         game.attempt++;
+                        console.log("Game attempt " + game.attempt);
                         if(game.players == 1){
                             //updateBalls();
                             updateSquares();
@@ -396,23 +411,26 @@ jQuery(document).ready(function($){
                             }
                             game.attempt -= 1;
                         }
+                        console.log("Game attempt REMOVED " + game.attempt);
                         console.log(tilesCovered);
                         tilesOpened++;
                         if(!playerUpdate){
                             player2_score++;
                             if(players == 1){
                                 console.log("Open " + tilesOpened + " " + tempClass);
-                                addToPile(that, previousObject, 1, player1_score + player2_score, tempClass);
+                                addToPile(that, previousObject, 1, player1_score + player2_score, tempClass, playerUpdate);
                             }else{
-                                addToPile(that, previousObject, 2, player2_score, tempClass);
+                                console.log("Player " + 2 + " Score " + player2_score);
+                                addToPile(that, previousObject, 2, player2_score, tempClass, playerUpdate);
                             }
                         }else{
                                 player1_score++;
                                 if (players == 1) {
                                     console.log("Open " + tilesOpened);
-                                    addToPile(that, previousObject, 1, player1_score + player2_score, tempClass);
+                                    addToPile(that, previousObject, 1, player1_score + player2_score, tempClass, playerUpdate);
                                 } else {
-                                    addToPile(that, previousObject, 1, player1_score, tempClass);
+                                    console.log("Player " + 1 + " Score " + player1_score);
+                                    addToPile(that, previousObject, 1, player1_score, tempClass, playerUpdate);
                                 }
                         }
                         previousClass = undefined;
@@ -523,6 +541,7 @@ jQuery(document).ready(function($){
     }
 
     var block_h = $("#success_balls").height();
+    console.log("Doc Height " + documentHeight + " Success Balls " + $("#success_balls").height());
     var ball_size = (block_h) / 6;
     var ballC = 0;
     var squareN = 1;
@@ -593,7 +612,8 @@ jQuery(document).ready(function($){
         }
 
         setTimeout(function(){
-            if(squareN == 6){
+            if((game.dif == 'easy' && squareN == 6) || (game.dif == 'medium' && squareN == 7) || (game.dif == 'hard'
+                && squareN == 7)){
                 console.log(game.attempt + " Failed");
                 matchLost();
             }
@@ -818,11 +838,19 @@ jQuery(document).ready(function($){
         }, 2000);
     }
 
-    function addToPile(obj1, obj2, player, player_score, nameAnim){
+    function addToPile(obj1, obj2, player, player_score, nameAnim, playerUpdate){
 
-        console.log(player_score + " " + nameAnim);
+        console.log("addToPile Player score " + player_score + " Card " + nameAnim);
         if(showAnim){
-            loadStage(nameAnim, '35');
+            if(!playerUpdate && game.players == 2){
+                $( ".anim_space").css("opacity", 1.0);
+                loadStage(nameAnim, '35');
+                setTimeout(function(){
+                    $( ".anim_space").css("opacity", 0.1);
+                }, 2000);
+            }else{
+                loadStage(nameAnim, '35');
+            }
         }
         var left = - (documentWidth / 2 - card_width * 2);
         var left2 = - (documentWidth / 2 - card_width * 1);
@@ -845,15 +873,13 @@ jQuery(document).ready(function($){
         obj1.parent().addClass('pile');
         obj2.addClass('flip_pile2');
         obj2.parent().addClass('pile2');
-        //player 1 left -700, top 300
-        //player 2 left 500, top 300
 
         var topObj = documentHeight / 2;
 
         //get the width * 2
         obj1.parent().css({"position": "fixed", "top" : topObj, "left" : documentWidth / 2, "transform" :
             'scale(1.5) rotate(350deg)', "z-index" : 30});
-        obj2.parent().css({"position": "fixed", "top" : topObj + card_width / 3, "left" : documentWidth / 2
+        obj2.parent().css({"position": "fixed", "top" : topObj, "left" : documentWidth / 2
         - card_width * 1.5, "transform" : 'scale(1.5) rotate(350deg)', "z-index" : 30});
 
         setTimeout(function () {

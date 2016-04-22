@@ -82,3 +82,7 @@
     left: 1px;
 
 }
+
+video{
+    cursor: pointer;
+}

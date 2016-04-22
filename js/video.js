@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     $(".video").css("display", "none");
 
-    $(".video_skip, .close_video").click(hideVideo);
+    $(".video_skip, .close_video, video").click(hideVideo);
 
     $(".register").click(function(){
 
@@ -84,8 +84,8 @@ function checkCookie()
     var video_view=getCookie("video_view");
     if (video_view!=null && video_view!="") {
 
-        hideVideo();
+        hideVideo(true);
     }else{
-        displayVideo();
+        displayVideo(true);
     }
 }

@@ -210,6 +210,7 @@ jQuery(document).ready(function($){
     function generateMatrix(x, y, array, players, word, type){
 
         displayAnimation('#rope');
+        $(".loader").css("display", "block");
         $("#rope").show().animate({top: 0}, {duration: 2000, easing: 'easeOutElastic'});
         var colors = [array[0][1]];
         var previousColor = colors[0];
@@ -771,6 +772,7 @@ jQuery(document).ready(function($){
         function abortTimer(array) {
             clearInterval(tid);
             drawColors(array, hideColor);
+            $('.loader').css("display", "none");
             setupClicks(players);
             clickDif = true;
         }

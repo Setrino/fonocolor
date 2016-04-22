@@ -1,5 +1,5 @@
 (function (compId) {
-    var _ = null, y = true, n = false, x2 = '6.0.0', x3 = '5.0.0', x12 = 'rgba(0,0,0,0)', g = 'image', x5 = 'rgba(0,0,0,0.00)', x18 = '273', x25 = 'true', x24 = '0', x22 = 'media/an02.mp3', x8 = '1px', x10 = '480px', m = 'rect', x14 = '0px', i = 'none', x17 = 'an', x4 = '6.0.0.400', x9 = '10600px', lf = 'left', x19 = '263', x15 = 'audio', x7 = '-47px', x27 = '490px', x11 = 'auto', x26 = '510px', tp = 'top', x6 = 'sprite-a-03', x21 = '45px', x23 = 'an02', x20 = '320px', e28 = '${sprite-a-03}', x16 = 'media/an.mp3';
+    var _ = null, y = true, n = false, x2 = '6.0.0', x3 = '5.0.0', x12 = 'rgba(0,0,0,0)', g = 'image', x5 = 'rgba(0,0,0,0.00)', x18 = '273', x25 = 'true', x24 = '0', x22 = '../animations/media/an02.mp3', x8 = '1px', x10 = '480px', m = 'rect', x14 = '0px', i = 'none', x17 = 'an', x4 = '6.0.0.400', x9 = '10600px', lf = 'left', x19 = '263', x15 = 'audio', x7 = '-47px', x27 = '490px', x11 = 'auto', x26 = '510px', tp = 'top', x6 = 'sprite-a-03', x21 = '45px', x23 = 'an02', x20 = '320px', e28 = '${sprite-a-03}', x16 = '../animations/media/an.mp3';
     var g1 = 'jquery-1.7.1.min.js', g13 = 'an_sprite.PNG';
     var im = '../animations/images/', aud = '../animations/media/', vid = '../animations/media/', js = '../animations/js/', fonts = {}, opts = {
         'gAudioPreloadPreference': 'auto',
