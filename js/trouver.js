@@ -490,6 +490,8 @@ jQuery(document).ready(function($){
 
     function drawColors(array, white, index){
 
+        console.log("Index " + index);
+
         var xDistance = 0;
         ctx.clearRect(0, 0, c.width, c.height);
         ctx.fillStyle="#000000";
@@ -507,13 +509,15 @@ jQuery(document).ready(function($){
         })
         //xDistance = (c.width - (pixel_size * currentWordArray.length)) / 2;
 
+        var previousOne = "#FFFFFF";
+
         for(var j = 0; j < currentWordArray.length; j++){
 
             var letter = currentWordArray[j][0];
 
             if(letter != undefined){
                 ctx.beginPath();
-                if(white && j != index){
+                if(white){
                     drawText(3, pixel_size, letter, "#FFFFFF", "#FFFFFF",
                         xDistance, 1);
                 }else{
