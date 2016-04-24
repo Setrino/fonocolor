@@ -182,7 +182,7 @@ jQuery(document).ready(function($){
 
     function scaleStages(id, scale){
         var scale = documentHeight / 717 * scale;
-        var displace = Math.round(documentHeight / 717 * 10);
+        var displace = (documentHeight == 717) ? 0 : Math.round(documentHeight / 717 * 10);
         var stage = $("#" + id);
         stage.css('transform', 'scale(' + scale + ')');
         stage.css('transform', 'scale(' + scale + ')');
