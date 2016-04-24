@@ -330,10 +330,9 @@ jQuery(document).ready(function($){
     function resetGame(){
             var timer = 0;
             $("#trouver-cards").css("display", "none");
+        if(counter % 5 == 0){
             $("#anim-canvas").css('display', "block");
             $("#anim-canvas").width(game.cardLineWidth);
-        if(counter % 5 == 0){
-
             timer = 18500;
             start();
         }else{
