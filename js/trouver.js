@@ -339,6 +339,7 @@ jQuery(document).ready(function($){
             timer = 18500;
             start();
         }else{
+            $("#trouver-word, .card_line").css("display", "none");
             displayAnimation('.anim_space');
             timer = 3000;
             loadStage('ouais_seul', '5');
@@ -347,7 +348,7 @@ jQuery(document).ready(function($){
 
             setTimeout(function(){
                 removeElements(function(){
-                $("#trouver-cards").css('display', "block");
+                $("#trouver-cards, #trouver-word, .card_line").css('display', "block");
                 $("#anim-canvas").css('display', "none");
                 selectWord(game.dif, function(word, array){generateMatrix(game.x, game.y, array,
                     game.players, word, game.type);});
