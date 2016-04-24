@@ -193,7 +193,7 @@ jQuery(document).ready(function($){
         stage.css('-o-transform', 'scale(' + scale + ')');
         stage.css('top' , -displace);
         if(id.match(/^Stage$/)){
-            stage.css('left' , -(displace));
+            stage.css('left' , 0);
         }else{
             stage.css('left' , -(displace * 2));
         }

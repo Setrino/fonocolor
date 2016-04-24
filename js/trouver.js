@@ -144,7 +144,6 @@ jQuery(document).ready(function($){
         stage.css('-moz-transform', 'scale(' + scale + ')');
         stage.css('-o-transform', 'scale(' + scale + ')');
         stage.css('top' , -displace);
-        stage.css('left' , -displace);
     }
 
     scaleStages("Stage", 0.3);
