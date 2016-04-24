@@ -61,7 +61,7 @@ $(document).ready(function(){
             $('.back_arrow').css({
                 'opacity' : 1,
                 'cursor': 'pointer',
-                'background-image' : 'url(' + path + '/images/menu/back_arrow.png)'
+                'background-image' : 'url(' + path + 'images/menu/back_arrow.png)'
             });
             $('.back_arrow').click(function(){
                 $(this).css({'opacity' : 0, 'cursor' : 'initial'});
