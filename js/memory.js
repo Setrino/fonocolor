@@ -192,7 +192,11 @@ jQuery(document).ready(function($){
         stage.css('-moz-transform', 'scale(' + scale + ')');
         stage.css('-o-transform', 'scale(' + scale + ')');
         stage.css('top' , -displace);
-        stage.css('left' , -(displace * 2));
+        if(id.match(/^Stage$/)){
+            stage.css('left' , -(displace));
+        }else{
+            stage.css('left' , -(displace * 2));
+        }
     }
 
     scaleStages("Stage", 0.3);

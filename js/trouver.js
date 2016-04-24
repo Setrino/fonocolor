@@ -133,6 +133,8 @@ jQuery(document).ready(function($){
     init();
 
     function scaleStages(id, scale){
+        var scale = documentHeight / 717 * scale;
+        var displace = (documentHeight == 717) ? 0 : Math.round(documentHeight / 717 * 10);
         var stage = $("#" + id);
         stage.css('transform', 'scale(' + scale + ')');
         stage.css('transform', 'scale(' + scale + ')');
@@ -141,6 +143,8 @@ jQuery(document).ready(function($){
         stage.css('-webkit-transform', 'scale(' + scale + ')');
         stage.css('-moz-transform', 'scale(' + scale + ')');
         stage.css('-o-transform', 'scale(' + scale + ')');
+        stage.css('top' , -displace);
+        stage.css('left' , -displace);
     }
 
     scaleStages("Stage", 0.3);
