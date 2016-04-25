@@ -212,9 +212,14 @@ jQuery(document).ready(function($){
     var loadedAnim = [];
 
     function loadStage(name, number){
-        //console.log(name);
         var tempV = false;
         var scripts = $('head script');
+        AdobeEdge.bootstrapCallback(function(compId) {
+            var comp = AdobeEdge.getComposition(compId).getStage();
+            if(comp != undefined){
+                comp.stop();
+            }
+        });
         scripts.each(function(){
             var that = $(this);
             if(that[0].src.match('_edge.js')){
@@ -228,7 +233,6 @@ jQuery(document).ready(function($){
         });
         delete AdobeEdge.compositions['EDGE-271454' + number];
         if(checkArray(name)){
-            //console.log("NA");
             var newScript   = document.createElement("script");
             newScript.type  = "text/javascript";
             newScript.src   = '../animations/' + name + '_edge.js';
@@ -307,7 +311,6 @@ jQuery(document).ready(function($){
         for (var i = 0; i < tilesNo; i++) {
             // Randomly pick one from the array of remaining faces
             var randomInd = Math.floor(Math.random() * arrayRef.length);
-            console.log(arrayRef);
             var face_f = arrayRef[randomInd].split('.');
             var face = face_f[1];
             // Push 2 copies onto array
@@ -359,7 +362,6 @@ jQuery(document).ready(function($){
                 var that = $(this);
                 var classes = that.attr('class').split(' ');
                 var tempClass = classes[2];
-                console.log("Temp " + classes[1] + " trial " + tempClass);
                 that.css('transform', 'rotateY(180deg)');
                 if (!previousObject) {
                     previousObject = $.extend(true, {}, $(this));
@@ -407,7 +409,6 @@ jQuery(document).ready(function($){
                             disableClick = false;
                         }, 1000);
                         game.attempt++;
-                        console.log("Game attempt " + game.attempt);
                         if(game.players == 1){
                             //updateBalls();
                             updateSquares();
@@ -419,25 +420,19 @@ jQuery(document).ready(function($){
                             }
                             game.attempt -= 1;
                         }
-                        console.log("Game attempt REMOVED " + game.attempt);
-                        console.log(tilesCovered);
                         tilesOpened++;
                         if(!playerUpdate){
                             player2_score++;
                             if(players == 1){
-                                console.log("Open " + tilesOpened + " " + tempClass);
                                 addToPile(that, previousObject, 1, player1_score + player2_score, tempClass, playerUpdate);
                             }else{
-                                console.log("Player " + 2 + " Score " + player2_score);
                                 addToPile(that, previousObject, 2, player2_score, tempClass, playerUpdate);
                             }
                         }else{
                                 player1_score++;
                                 if (players == 1) {
-                                    console.log("Open " + tilesOpened);
                                     addToPile(that, previousObject, 1, player1_score + player2_score, tempClass, playerUpdate);
                                 } else {
-                                    console.log("Player " + 1 + " Score " + player1_score);
                                     addToPile(that, previousObject, 1, player1_score, tempClass, playerUpdate);
                                 }
                         }
@@ -482,7 +477,6 @@ jQuery(document).ready(function($){
             });
             setTimeout(function(){
                 removeElements(function(){
-                    console.log(game.array);
                     generateMatrix(game.x, game.y, game.array, game.players);
                 });
             }, 2000);
@@ -521,7 +515,6 @@ jQuery(document).ready(function($){
             }, 2000);
             setTimeout(function(){
                 removeElements(function(){
-                    console.log(game.array);
                     generateMatrix(game.x, game.y, game.array, game.players);
                 });
             }, 4000);
@@ -580,13 +573,11 @@ jQuery(document).ready(function($){
         }
 
         if(ballC == 6){
-            console.log(game.attempt + "Failed");
             matchLost();
         }
     }
 
     function checkRemove(){
-        console.log(game.attempt + " " + game.dif);
         if(game.attempt > 1 && game.dif == 'easy' || game.attempt > 1 && game.attempt % 2 == 1){
             removeLastSquare();
         }
@@ -602,7 +593,6 @@ jQuery(document).ready(function($){
 
     //Right hand animation
     function updateSquares(){
-        console.log("Value " + squareN + " attempt " + game.attempt);
         if(game.attempt != 1){
             switch(game.dif){
                 case "easy":
@@ -622,7 +612,6 @@ jQuery(document).ready(function($){
         setTimeout(function(){
             if((game.dif == 'easy' && squareN == 6) || (game.dif == 'medium' && squareN == 7) || (game.dif == 'hard'
                 && squareN == 7)){
-                console.log(game.attempt + " Failed");
                 matchLost();
             }
         }, 2000);
@@ -668,7 +657,7 @@ jQuery(document).ready(function($){
         ball.css({"height" : ball_size, "top" : block_h - (ball_size * (ballC))});
         ballC++;
         block.append(ball);
-        console.log(ball_size);
+
         ball.find(".success_b, .success_b img").css("height", ball_size);
 
         setTimeout(function(){
@@ -737,7 +726,6 @@ jQuery(document).ready(function($){
             // Animation complete.
         });
         removeElements(function(){
-            console.log(game.array);
             generateMatrix(game.x, game.y, game.array, game.players);
         });
     });
@@ -796,7 +784,6 @@ jQuery(document).ready(function($){
                 game.dif = dif;
                 game.y = difNo + game.players - 1;
                 removeElements(function(){
-                    console.log(game.array);
                     generateMatrix(game.x, game.y, game.array, game.players);
                 });
             }
@@ -824,7 +811,6 @@ jQuery(document).ready(function($){
                 var neg = (i % 2) ? 8 : -8;
                 bar.css({'transform' : 'rotateZ(' + neg + 'deg)', 'bottom' : i * 10});
             }
-            console.log(bar);
             $("#body_wrapper").append(bar);
         }
 
@@ -845,6 +831,8 @@ jQuery(document).ready(function($){
                 });
         }, 2000);
     }
+
+    var barsQueue = [];
 
     function addToPile(obj1, obj2, player, player_score, nameAnim, playerUpdate){
 
@@ -890,6 +878,9 @@ jQuery(document).ready(function($){
         obj2.parent().css({"position": "fixed", "top" : topObj, "left" : documentWidth / 2
         - card_width * 1.5, "transform" : 'scale(1.5) rotate(350deg)', "z-index" : 30});
 
+        barsQueue.push(bar);
+        barsQueue.push(bar1);
+
         setTimeout(function () {
             $(".flip_pile, .flip_pile2").css({'transform': 'rotateX(90deg) rotateZ(90deg)', "transition-duration" : "1s"});
             $(".pile").animate({
@@ -903,8 +894,10 @@ jQuery(document).ready(function($){
                 top: "+=" + documentHeight / 2
             }, 1000, function(){
                 $(".pile2").remove();
-                $("#body_wrapper").append(bar1);
-                $("#body_wrapper").append(bar);
+                $.each(barsQueue, function(i, v){
+                    $("#body_wrapper").append(v);
+                });
+                barsQueue = [];
                 if(player == 1){
                     var disAnim = ($(".bar").length * 15 + 292);
                     $(".anim_space").css("top", documentHeight - disAnim);
@@ -916,7 +909,6 @@ jQuery(document).ready(function($){
         }, 2000);
     }
 
-    console.log(documentHeight);
 
     function moveLeft(elem, dist, time){
         setTimeout(function(){
@@ -925,7 +917,6 @@ jQuery(document).ready(function($){
     }
 
     function animateCards(x, y, selected, players){
-        console.log(x + " " + y + " " + selected + " " + players);
         game.started = true;
         if(players == 1){
             initializeBalls();
@@ -943,7 +934,6 @@ jQuery(document).ready(function($){
         card_width = width;
         var card_lineWidth = ((width + 18) * x);
         var left_step = (documentWidth - card_lineWidth) / 2;
-        console.log("From left " + (left_step));
         var unil_left = 0;
 
         y = (players == 2) ? y - 1 : y;
@@ -970,7 +960,6 @@ jQuery(document).ready(function($){
         var tid = setInterval(loopCards, animationStep);
         var card_line = $('<div class="card_line"></div>');
         card_line.css('width', (width + 18) * x);
-        console.log("Height " + width);
         card_line.css('height', width + 9);
         card_line.css('top', (width + 9) * 3);
         bodyWrapper.append(card_line);
@@ -1003,7 +992,6 @@ jQuery(document).ready(function($){
                         bodyWrapper.append(card_line);
                         card_line.css('height', width + 9);
                         var jump = 3 - i;
-                        console.log(i);
                         if(jump <= 0){
                             jump = -(Math.abs(jump * 2) + 1);
                         }

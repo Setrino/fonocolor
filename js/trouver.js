@@ -154,6 +154,12 @@ jQuery(document).ready(function($){
         //console.log(name);
         var tempV = false;
         var scripts = $('head script');
+        AdobeEdge.bootstrapCallback(function(compId) {
+            var comp = AdobeEdge.getComposition(compId).getStage();
+            if (comp != undefined) {
+                comp.stop();
+            }
+        });
         scripts.each(function(){
             var that = $(this);
             if(that[0].src.match('_edge.js')){
