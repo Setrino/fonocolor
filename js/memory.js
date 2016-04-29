@@ -232,23 +232,27 @@ jQuery(document).ready(function($){
             }
         });
         delete AdobeEdge.compositions['EDGE-271454' + number];
-        if(checkArray(name)){
-            var newScript   = document.createElement("script");
-            newScript.type  = "text/javascript";
-            newScript.src   = '../animations/' + name + '_edge.js';
-            newScript.text  = "";
-            document.head.appendChild(newScript);
+        if(!name.match(/!/)){
+            if(checkArray(name)){
+                var newScript   = document.createElement("script");
+                newScript.type  = "text/javascript";
+                newScript.src   = '../animations/' + name + '_edge.js';
+                newScript.text  = "";
+                document.head.appendChild(newScript);
+            }else{
+                loadedAnim.push(name);
+            }
+            AdobeEdge.loadComposition('../animations/' + name, 'EDGE-271454' + number, {
+                scaleToFit: "none",
+                centerStage: "none",
+                minW: "0",
+                maxW: "undefined",
+                width: "00",
+                height: "480"
+            }, {"dom":{}}, {"dom":{}});
         }else{
-            loadedAnim.push(name);
+            loadStage(mainAnim, '35');
         }
-        AdobeEdge.loadComposition('../animations/' + name, 'EDGE-271454' + number, {
-            scaleToFit: "none",
-            centerStage: "none",
-            minW: "0",
-            maxW: "undefined",
-            width: "00",
-            height: "480"
-        }, {"dom":{}}, {"dom":{}});
     }
 
     function checkArray(name){
